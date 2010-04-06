@@ -1,0 +1,435 @@
+/* General Elements */
+
+BODY  {
+	background-color : #FFFFFF;
+	font-size :100%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	margin:0;
+	padding:0;
+}
+
+P  {
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	font-size : 80%;
+	text-align: left;
+}
+
+P2  {
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	font-size : 80%;
+	text-align: inherit;
+        margin-left: 10px;
+        vertical-align: middle;
+}
+P2i  {
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	font-size : 70%;
+	text-align: left;
+        padding-left: 10px;
+        font-style: italic;
+}
+
+blockquote  {
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	font-size : 80%;
+	text-align: left;
+}
+
+B  {
+	font-weight : bold;
+}
+
+SUB { 
+	vertical-align: sub; 
+	font-size: 80%;
+}
+
+SUP { 
+	vertical-align: sup; 
+	font-size: 80%;
+}
+
+TABLE,TD  {
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+}
+
+TH  {
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : bold;
+}
+
+UL {
+	font-family : Verdana, Arial, Helvetica;
+}
+
+DD, LI  {
+	font-size :80%;
+	font-weight : normal;
+	color : #000000;
+	font-family : Verdana, Arial, Helvetica;
+}
+
+UL LI UL LI {
+	font-size :100%;
+}
+
+OL LI UL LI {
+	font-size :100%;
+}
+
+form, input, select, textarea { 
+	font-size: 80%; 
+	margin-top : 0px;	
+	margin-bottom : 0px;	
+}
+
+hr { 
+	color: #ADCBEA; 
+}
+
+A:link {color:#000066;}
+A:visited {color:#990000;}
+/*A:ACTIVE, A:HOVER*/
+
+
+/* Back to Top Anchor Link */
+.backtotop {
+text-align: right;
+font-size :70%;
+}
+
+.backtotop A:hover { 
+color: #990000;
+} 
+
+.backtotop :link, .backtotop :visited {
+color : #000066;
+}
+
+
+/* Generic */
+.small
+{
+	font-size : 70%;
+}
+
+.smallnotop {
+		margin-top: 0px;
+		font-size: 70%
+}
+
+.med
+{
+	font-size : 75%;
+}
+
+.notop
+{
+	margin-top: 0px;
+}
+
+.nobottom
+{
+	margin-bottom: 0px;
+}
+
+.nomargin
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.reg  {
+	font-family : Verdana, Arial, Helvetica;
+	color : #000000;
+	font-size : 80%;
+	}
+
+.large
+{
+	font-size : 100%;
+}
+
+/* Titles */
+H1 { 
+	font-size :110%;
+	font-family: Verdana, Arial, Helvetica;
+	font-weight : bold;
+	color : #990000;
+	margin-bottom : 0px;
+}
+ 
+H2  {
+	font-size :95%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : bold;
+	color : #990000 ;
+	margin-bottom : 0px;
+}
+
+h2 a:link {text-decoration:none;color:#990000;}
+h2 a:visited {text-decoration:none;color:#990000;}
+h2 a:hover {text-decoration:underline;color:#000066;}
+
+H3  {
+	font-size :80%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : bold;
+	color : #000000 ;
+	margin-bottom : 0px;
+}
+
+H4  {
+	font-size: 80%;
+	font-family : Verdana, Arial, Helvetica;
+	color : #666666;
+	font-weight : bold;
+	margin-top : 0px;
+	margin-bottom : 0px;	
+}
+
+
+/* Right Navigation */
+
+.siteutil
+{
+	font-size : 70%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #990000;
+	margin-top: 5px;
+	margin-bottom: 7px;
+}
+
+.siteutil A:hover { color: #990000;
+text-decoration : none; } 
+
+.siteutil :link, .siteutil :visited {
+	text-decoration : none;
+	color : #000066;
+}
+
+.news
+{
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #6666cc;
+	margin-top: 7px;
+	margin-bottom: 0px;	
+	font-size : 80%;
+}
+
+.news A:hover { color: #990000;
+text-decoration : none; } 
+
+.news :link, .news :visited {
+	color : #6666cc;
+	text-decoration : none;
+}
+
+.date
+{
+	color:#000000; 
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 70%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+}
+
+/* small red headline for 4th level navigation in right column */
+.nav4head
+{
+	font-size : 75%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : bold;
+	color : #990000;
+	margin-top: 5px;
+}
+
+
+/* 4th level navigation in right column */
+.nav4
+{
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #990000;
+	margin-top: 7px;
+	margin-bottom: 0px;	
+	font-size : 70%;
+}
+
+.nav4 A:hover { color: #990000; } 
+
+.nav4 :link, .nav4 :visited {
+	color : #000066;
+	text-decoration : none;
+}
+
+
+/* Search box */
+
+.search {
+	color: yellow; 
+	text-decoration: none;
+	margin-top: 0px;
+	font-size: 70%;
+}
+
+.search A:hover { color: yellow; } 
+
+.search :link, .search :visited {
+	color: white; 
+	text-decoration: none;
+}
+
+.searchtext {
+font-size: 1%;
+color:#000066;
+}
+
+/* Developers! Netscape 4 needs the full path to render background images e.g. /solar/pv/images/background.gif. Be sure to replace "programdirectory" with your program's directory name */
+
+
+/* Blue line illustration in EERE header. Be sure you replace with your program's blue line illustration. */
+
+td.background {
+  background-image : url(../images/ss_btp_head_1b.gif);
+	background-repeat : no-repeat;
+	background-color: #FFFFFF;
+}
+
+
+/* program home page photo */
+
+td.hpphoto {
+	background-image : url(../images/1_photo_head.jpg);
+	background-repeat : no-repeat;
+	background-color: #FFFFFF;
+}
+
+td.blueline {
+	background-image : url(/images/blue_pixel.gif);
+	background-repeat : repeat-y;
+	background-position : center;
+	background-color: #FFFFFF;
+	}
+
+/* Program Second Level pages - you may need to add other styles for other pages */
+
+td.aboutheader {
+	background-image : url(../images/2_about_head.gif);
+	background-repeat : no-repeat;
+	background-color: #FFFFFF;
+}
+
+td.newsheader {
+	background-image : url(../images/2_news_head.gif);
+	background-repeat : no-repeat;
+	background-color: #FFFFFF;
+}
+
+/* Subsite page photo - you may need to add other styles for other subsites */
+td.subsitephoto {
+	background-image : url(../images/hp_os_header.gif);
+	background-repeat : no-repeat;
+	background-color: #FFFFFF;
+}
+
+td.subsitephoto2 {
+	background-image : url(../images/lv2_ep_header.jpg);
+	background-repeat : no-repeat;
+	background-color: #FFFFFF;
+}
+
+
+/* Images */
+
+.caption {
+	font-size : 70%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	margin-top: 0px;
+}
+
+
+/* Footer */
+
+.footer {
+	font-size : 72%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : #000000;
+	margin-top: 1%;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+/* Right column */
+.leftgrey {
+border-left:1px solid #CCC;
+border-top:1px solid #CCC; }
+
+
+.doe
+{
+	font-size : 72%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	color : Gray;
+	margin-top: 1%;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+
+/* Site Specific */
+
+.red {
+	color : #cc0000;
+}
+
+th.wdata  {
+	font-size : 80%;
+	font-family : Verdana, Arial, Helvetica;
+	font-weight : normal;
+	text-align : left;
+}
+
+
+.callout {  
+	width:200px;
+	color:#000;
+	background-color: #f1f1f1;
+	border:1px solid #ccc;
+	padding:8px;
+	margin:15px 0 15px 15px;
+	float:right; 
+	position:relative;
+}
+
+.calloutwide {  
+	width:95%;
+	color:#000;
+	background-color: #f1f1f1;
+	border:1px solid #ccc;
+	padding:8px;
+	margin:15px;
+}
+
+/*Images */
+img {border:0;}	
+.floatright {float:right;position:relative;margin:2px 0 10px 10px;}
+.floatleft {float:left;position:relative;margin:2px 5px 10px 0;}

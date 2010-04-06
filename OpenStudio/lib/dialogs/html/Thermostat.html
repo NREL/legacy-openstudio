@@ -1,0 +1,142 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('OK').focus();
+}
+function onNewSchedule() {
+  window.location='skp:on_new_schedule';
+}
+function onCancel() {
+  window.location='skp:on_cancel';
+}
+function onApply() {
+  window.location='skp:on_apply';
+}
+function onOK() {
+  window.location='skp:on_ok';
+}
+function onUpdateOptions(element) {
+  onChangeElement(element);
+  window.location='skp:on_update_options';
+}
+function onUpdateExisting(element) {
+  onChangeElement(element);
+  window.location='skp:on_update_existing';
+}
+-->
+</script>
+</head>
+<body onload="onLoad()" link="#0000FF" alink="#0000FF" vlink="#0000FF" class="label">
+
+<fieldset>
+<legend>HVACTemplate:Thermostat</legend>
+
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="40%">
+</td>
+<td width="60%">
+<input type="checkbox" id="NEW_THERMOSTAT" name="NEW_THERMOSTAT" onclick="onUpdateOptions(this)"><label for="NEW_THERMOSTAT">New Thermostat</label>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;New HVACTemplate:Thermostat Name:
+</td>
+<td>
+<input name="NEW_THERMOSTAT_NAME" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Existing HVACTemplate:Thermostat Name:
+</td>
+<td>
+<select name="EXISTING_THERMOSTAT_NAME" class="text" width="100%" style="width:100%;" onchange="onUpdateExisting(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+<input type="checkbox" id="CONSTANT_HEATING" name="CONSTANT_HEATING" onclick="onUpdateOptions(this)"><label for="HEATING" >Constant Heating Setpoint</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input name="HEATING_SETPOINT_LABEL" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="HEATING_SETPOINT" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Heating Schedule:
+</td>
+<td>
+<select name="HEATING_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+<input type="checkbox" id="CONSTANT_COOLING" name="CONSTANT_COOLING" onclick="onUpdateOptions(this)"><label for="COOLING" >Constant Cooling Setpoint</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input name="COOLING_SETPOINT_LABEL" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="COOLING_SETPOINT" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Cooling Schedule:
+</td>
+<td>
+<select name="COOLING_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td style="text-align:right;">
+<input id="NEW_SCHEDULE" onclick="onNewSchedule()" type="button" class="button" value="New Schedule Stub" style="width:120px; margin-left:3px;">
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+<p style="text-align:right; margin-top:6px;">
+<input id="OK" onclick="onOK()" type="button" class="button" value="OK" style="width:75px; margin-left:3px;">
+<input id="CANCEL" onclick="onCancel()" type="button" class="button" value="Cancel" style="width:75px; margin-left:3px;">
+<input id="APPLY" onclick="onApply()" type="button" class="button" value="Apply" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

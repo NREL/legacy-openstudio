@@ -1,0 +1,162 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onChangeBoundaryCondition(element) {
+  onChangeElement(element);
+  setTimeout("window.location='skp:on_change_boundary_condition';", 10);  // Timeout required to get this to trigger
+}
+-->
+</script>
+</head>
+<body class="label">
+
+<fieldset>
+<legend>Object Inputs</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="144px">
+&nbsp;&nbsp;Class:
+</td>
+<td>
+<span style="font-weight:bold;">&nbsp;BuildingSurface:Detailed</span>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Name:
+</td>
+<td>
+<input name="NAME" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Type:
+</td>
+<td>
+<select name="TYPE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+<option value="FLOOR">Floor</option>
+<option value="WALL">Wall</option>
+<option value="CEILING">Ceiling</option>
+<option value="ROOF">Roof</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Construction:
+</td>
+<td>
+<select name="CONSTRUCTION" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Zone:
+</td>
+<td>
+<select name="ZONE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)" disabled="true">
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Outside Boundary Condition:
+</td>
+<td>
+<select name="OUTSIDE_BOUNDARY_CONDITION" class="text" width="100%" style="width:100%;" onchange="onChangeBoundaryCondition(this)">
+<option value="SURFACE">Surface</option>
+<option value="ADIABATIC">Adiabatic</option>
+<option value="ZONE">Zone</option>
+<option value="OUTDOORS">Outdoors</option>
+<option value="GROUND">Ground</option>
+<option value="GROUNDFCFACTORMETHOD">GroundFCfactorMethod</option>
+<option value="GROUNDSLABPREPROCESSORAVERAGE">GroundSlabPreprocessorAverage</option>
+<option value="GROUNDSLABPREPROCESSORCORE">GroundSlabPreprocessorCore</option>
+<option value="GROUNDSLABPREPROCESSORPERIMETER">GroundSlabPreprocessorPerimeter</option>
+<option value="GROUNDBASEMENTPREPROCESSORAVERAGEWALL">GroundBasementPreprocessorAverageWall</option>
+<option value="GROUNDBASEMENTPREPROCESSORAVERAGEFLOOR">GroundBasementPreprocessorAverageFloor</option>
+<option value="GROUNDBASEMENTPREPROCESSORUPPERWALL">GroundBasementPreprocessorUpperWall</option>
+<option value="GROUNDBASEMENTPREPROCESSORLOWERWALL">GroundBasementPreprocessorLowerWall</option>
+<option value="OTHERSIDECOEFFICIENTS">Other Side Coefficients</option>
+<option value="OTHERSIDECONDITIONSMODEL">Other Side Conditions Model</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+<input type="checkbox" id="SUN" name="SUN" onclick="onChangeElement(this)"><label for="SUN" >Sun Exposed</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="WIND" name="WIND" onclick="onChangeElement(this)"><label for="WIND">Wind Exposed</label>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;View Factor To Ground:</td>
+<td>
+<input id="VIEW_FACTOR_TO_GROUND" name="VIEW_FACTOR_TO_GROUND" type="text" class="text" size="4" style="text-align:center; padding-top:1;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Outside Boundary Object:
+</td>
+<td>
+<select name="OUTSIDE_BOUNDARY_OBJECT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</select>
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>Object Summary</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td>
+&nbsp;&nbsp;Vertices:<input id="VERTICES" name="VERTICES" type="text" class="static_text" size="3" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+&nbsp;&nbsp;Sub Surfaces:<input id="SUB_SURFACES" name="SUB_SURFACES" type="text" class="static_text" size="3" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+&nbsp;&nbsp;Percent Glazing:<input id="PERCENT_GLAZING" name="PERCENT_GLAZING" type="text" class="static_text" size="6" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+</table>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+<tr>
+<td>
+&nbsp;&nbsp;Gross Area:
+<input id="AREA" name="AREA" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+&nbsp;&nbsp;Net Area:
+<input id="NET_AREA" name="NET_AREA" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+</table>
+</fieldset>
+
+</body>
+</html>

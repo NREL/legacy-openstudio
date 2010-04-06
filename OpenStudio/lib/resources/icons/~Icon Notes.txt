@@ -1,0 +1,29 @@
+
+Icon Notes
+----------
+
+
+Toolbar buttons are 24x24 (large) or 16x16 (small) PNG image files with alpha.
+
+Custom toolbars on the Mac do not appear to be dockable and only use the 24x24 size.
+
+
+Best to draw the icons as 24x24 images (using IcoFX is great) than automatically create the 
+16x16 images from those.
+
+
+
+Cursors must be in TIFF format (which is inconvenient)
+
+Cursor size is 16x16?  Seems bigger on the Mac?
+
+
+To finally get the alpha preserved in the TIFF, I created the icon as a PNG (I forget how).
+Then on the Mac, I opened the PNG using Core Image Fun House (in Developer Tools) and saved it again as TIFF, and it just worked.
+The Preview program works just as well...simply double-click the PNG and do save as TIFF.
+The PNG already had the alpha layer though.
+
+
+Hmmm...not so hard this time.
+Just started with another existing ICO file, made my edits, then wrote out the PNG using Export Image (IcoFX).
+

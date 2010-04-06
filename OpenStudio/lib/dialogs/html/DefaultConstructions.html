@@ -1,0 +1,188 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('RESET_MODEL').focus();
+}
+function onOpen() {
+  window.location='skp:on_open';
+}
+function onNewConstruction() {
+  window.location='skp:on_new_construction';
+}
+function onSave() {
+  window.location='skp:on_save';
+}
+function onSaveAs() {
+  window.location='skp:on_save_as';
+}
+function onCancel() {
+  window.location='skp:on_cancel';
+}
+function onOK() {
+  window.location='skp:on_ok';
+}
+function onLastReport() {
+  window.location='skp:on_last_report';
+}
+function onResetSelection() {
+  window.location='skp:on_reset_selection';
+}
+function onResetModel() {
+  window.location='skp:on_reset_model';
+}
+-->
+</script>
+</head>
+<body onload="onLoad()" link="#0000FF" alink="#0000FF" vlink="#0000FF" class="label">
+
+<fieldset>
+<legend>Saved Preferences</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="25%">
+&nbsp;&nbsp;Preferences Path:&nbsp;
+</td>
+<td style="text-align:right;">
+<input name="DEFAULT_SAVE_PATH" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td style="text-align:right;">
+<input id="SAVE" onclick="onSave()" type="button" class="button" value="Save" style="width:75px; margin-left:3px;">
+<input id="SAVE_AS" onclick="onSaveAs()" type="button" class="button" value="Save As" style="width:75px; margin-left:3px;">
+<input id="OPEN" onclick="onOpen()" type="button" class="button" value="Open" style="width:75px; margin-left:3px;">
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>Default Constructions  <a href="../../../doc/help/tut_default_const_prefs.html" target="_blank">(help)</a></legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="25%">
+&nbsp;&nbsp;Exterior Floor:
+</td>
+<td width="75%">
+<select name="DEFAULT_FLOOR_EXT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Exterior Wall:
+</td>
+<td>
+<select name="DEFAULT_WALL_EXT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Exterior Roof/Ceiling:
+</td>
+<td>
+<select name="DEFAULT_ROOF_EXT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Exterior Window:
+</td>
+<td>
+<select name="DEFAULT_WINDOW_EXT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Exterior Door:
+</td>
+<td>
+<select name="DEFAULT_DOOR_EXT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Interior Floor:
+</td>
+<td>
+<select name="DEFAULT_FLOOR_INT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Interior Wall:
+</td>
+<td>
+<select name="DEFAULT_WALL_INT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Interior Roof/Ceiling:
+</td>
+<td>
+<select name="DEFAULT_ROOF_INT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Interior Window:
+</td>
+<td>
+<select name="DEFAULT_WINDOW_INT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Interior Door:
+</td>
+<td>
+<select name="DEFAULT_DOOR_INT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td style="text-align:right;">
+<input id="NEW_CONSTRUCTION" onclick="onNewConstruction()" type="button" class="button" value="New Construction Stub" style="width:150px; margin-left:3px;">
+</td>
+</td>
+
+</table>
+
+</fieldset>
+
+<p style="text-align:right; margin-top:6px;">
+<input id="RESET_MODEL" onclick="onResetModel()" type="button" class="button" value="Apply to Entire Model" style="width:120px; margin-left:3px;">
+<input id="RESET_SELECTION" onclick="onResetSelection()" type="button" class="button" value="Apply to Selection" style="width:120px; margin-left:3px;">
+<input id="LAST_REPORT" onclick="onLastReport()" type="button" class="button" value="Last Report" style="width:75px; margin-left:3px;">
+<input id="OK" onclick="onOK()" type="button" class="button" value="OK" style="width:75px; margin-left:3px;">
+<input id="CANCEL" onclick="onCancel()" type="button" class="button" value="Cancel" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

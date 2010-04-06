@@ -1,0 +1,858 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="using_files/filelist.xml">
+<link rel=Edit-Time-Data href="using_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>OpenStudio - User Guide</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>National Renewable Energy Laboratory</o:Author>
+  <o:LastAuthor>Peter Graham Ellis</o:LastAuthor>
+  <o:Revision>69</o:Revision>
+  <o:TotalTime>361</o:TotalTime>
+  <o:Created>2007-04-05T21:58:00Z</o:Created>
+  <o:LastSaved>2008-03-24T21:47:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1833</o:Words>
+  <o:Characters>10451</o:Characters>
+  <o:Company>National Renewable Energy Laboratory</o:Company>
+  <o:Lines>87</o:Lines>
+  <o:Paragraphs>24</o:Paragraphs>
+  <o:CharactersWithSpaces>12260</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+  {mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+  {color:blue;
+  text-decoration:underline;
+  text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+  {color:purple;
+  text-decoration:underline;
+  text-underline:single;}
+p.Body, li.Body, div.Body
+  {mso-style-name:Body;
+  margin-top:0in;
+  margin-right:0in;
+  margin-bottom:6.0pt;
+  margin-left:0in;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";}
+@page Section1
+  {size:8.5in 11.0in;
+  margin:1.0in 1.25in 1.0in 1.25in;
+  mso-header-margin:.5in;
+  mso-footer-margin:.5in;
+  mso-paper-source:0;}
+div.Section1
+  {page:Section1;}
+ /* List Definitions */
+ @list l0
+  {mso-list-id:683942785;
+  mso-list-template-ids:-1762745030;}
+@list l0:level1
+  {mso-level-number-format:bullet;
+  mso-level-text:\F0B7;
+  mso-level-tab-stop:.5in;
+  mso-level-number-position:left;
+  text-indent:-.25in;
+  mso-ansi-font-size:10.0pt;
+  font-family:Symbol;}
+@list l1
+  {mso-list-id:1719477468;
+  mso-list-type:hybrid;
+  mso-list-template-ids:-2035485776 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+  {mso-level-number-format:bullet;
+  mso-level-text:\F0B7;
+  mso-level-tab-stop:.5in;
+  mso-level-number-position:left;
+  text-indent:-.25in;
+  font-family:Symbol;}
+@list l1:level2
+  {mso-level-tab-stop:1.0in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level3
+  {mso-level-tab-stop:1.5in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level4
+  {mso-level-tab-stop:2.0in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level5
+  {mso-level-tab-stop:2.5in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level6
+  {mso-level-tab-stop:3.0in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level7
+  {mso-level-tab-stop:3.5in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level8
+  {mso-level-tab-stop:4.0in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+@list l1:level9
+  {mso-level-tab-stop:4.5in;
+  mso-level-number-position:left;
+  text-indent:-.25in;}
+ol
+  {margin-bottom:0in;}
+ul
+  {margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+  {mso-style-name:"Table Normal";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  mso-style-noshow:yes;
+  mso-style-parent:"";
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:#0400;
+  mso-fareast-language:#0400;
+  mso-bidi-language:#0400;}
+table.MsoTableGrid
+  {mso-style-name:"Table Grid";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-border-insideh:.5pt solid windowtext;
+  mso-border-insidev:.5pt solid windowtext;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:#0400;
+  mso-fareast-language:#0400;
+  mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in;margin-left:10%;margin-right:10%'>
+
+<div class=Section1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0in 5.4pt 0in 5.4pt;background-color:#0099FF'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:no;
+  height:.5in'>
+  <td width="50%" style='width:50%;vertical-align:middle;padding:5.4pt 5.4pt 5.4pt 5.4pt;height:.5in'>
+   <a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm">
+    <img src="./using_files/OpenStudio_3D.jpg" alt="OpenStudio Logo" width="40%"/>
+   </a>
+  </td>
+  <td width="50%" style='width:50%;text-align:right;vertical-align:middle;padding:5.4pt 5.4pt 5.4pt 5.4pt;height:.5in'>
+    <a href="http://apps1.eere.energy.gov/buildings/energyplus/">
+     <img src="./using_files/EnergyPlus_3D.jpg" alt="EnergyPlus Logo" width="30%"/>
+    </a>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:no;mso-yfti-lastrow:yes;height:.3in'>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt'>
+   User Guide version 1.04
+  </td>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt;text-align:right'>
+   <u><a href="toc.htm">Table Of Contents</a></span></u>
+  </td>
+ </tr>
+</table>
+</br></br>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:18.0pt'>Using The Plugin<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You can find all <a href="commands.htm">commands</a> for the
+plugin on the <b style='mso-bidi-font-weight:normal'><span style='color:#993366'>Plugins/OpenStudio
+</span></b> submenu.<span style='mso-spacerun:yes'>  </span>Many
+of the commands also have equivalent toolbar buttons.<span
+style='mso-spacerun:yes'>  </span>If you don't see any toolbars, go to the <b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'>View/Toolbars</span></b>
+menu and make sure the OpenStudio toolbars are checked.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Starting From Scratch<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>When SketchUp starts up, there is already a bare-bones template
+of an EnergyPlus input file associated with the model.<span
+style='mso-spacerun:yes'>  </span>At any time if you are not happy with the way
+your model is going and you want to start over with a clean slate (at least on
+the EnergyPlus side), you can select the <b style='mso-bidi-font-weight:normal'><span
+style='color:#993366'><a href="commands.htm#New"><span style='color:#993366'>New</span></a></span></b><span
+style='color:#993366'> </span>command <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:23.25pt;
+ height:22.5pt'>
+ <v:imagedata src="using_files/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image002.jpg" v:shapes="_x0000_i1025"><![endif]><span
+style='mso-spacerun:yes'> </span></i></b>under the <b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'>Plugins/OpenStudio</span></b>
+menu.<span style='mso-spacerun:yes'>  </span>This will get you back to a blank
+new file template.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>As mentioned <a href="getting_started.htm#Setting_Up">earlier</a>,
+it’s a good idea to already have some constructions in your input file before
+going any further.<span style='mso-spacerun:yes'>  </span>The plugin does not
+yet manage constructions and materials for you and you will want to have a set
+of constructions that you can assign to your surfaces.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Now that you are ready to start drawing with SketchUp, the
+first step is to create a new zone.<span style='mso-spacerun:yes'>  </span>Use
+the <b style='mso-bidi-font-weight:normal'><span style='color:#993366'><a
+href="commands.htm#New_Zone"><span style='color:#993366'>New Zone</span></a></span></b>
+command <b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+ style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image004.jpg" v:shapes="_x0000_i1026"><![endif]><span
+style='mso-spacerun:yes'> </span></i></b>to activate the tool that allows you
+to create and position an empty zone. Once you click somewhere with the tool,
+you have now created a SketchUp group.<span style='mso-spacerun:yes'>
+</span>The plugin uses groups to separate the geometry of individual zones from
+each other.<span style='mso-spacerun:yes'>  </span>Groups also allow the plugin
+to separate all of the EnergyPlus-related data and geometry from the rest of the
+SketchUp model.<span style='mso-spacerun:yes'>  </span>Each zone group is
+associated with a zone object in the input file.<span
+style='mso-spacerun:yes'>  </span>When you add a zone group to the SketchUp
+model you are adding a zone object to the input file.<span
+style='mso-spacerun:yes'>  </span>See the <a href="commands.htm#New_Zone">command
+summary</a> for a full description.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Detached shading surfaces must also be separated from the
+rest of the SketchUp model.<span style='mso-spacerun:yes'>  </span>But because
+they are not part of any zone, they must be enclosed in a different type of
+group, a shading a group.<span style='mso-spacerun:yes'>  </span>This group is
+not associated with any object in the input file—it is only used by the plugin
+to isolate the detached shading surfaces.<span style='mso-spacerun:yes'>
+</span>Use the <b style='mso-bidi-font-weight:normal'><span style='color:#993366'><a
+href="commands.htm#New_Shading_Group"><span style='color:#993366'>New Shading
+Group</span></a></span></b> command <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image006.jpg" v:shapes="_x0000_i1027"><![endif]><span
+style='mso-spacerun:yes'> </span></i></b>to activate the tool that allows you
+to create and position an empty shading group. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Drawing New Geometry<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>After creating a zone group, the next step is to draw your
+new geometry inside the group. Double-click the zone group to open it for
+editing.<span style='mso-spacerun:yes'>  </span>Once you are inside of the zone
+group, SketchUp gives you many ways to draw the zone surfaces.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>One way to draw a zone is to begin by drawing a face to
+match the footprint of the zone.<span style='mso-spacerun:yes'>  </span>A face
+can be drawn using the Rectangle tool <!--[if gte vml 1]><v:shape id="_x0000_i1028"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image010.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image012.jpg" v:shapes="_x0000_i1028"><![endif]>, Polygon tool
+<!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75" style='width:23.25pt;
+ height:22.5pt'>
+ <v:imagedata src="using_files/image013.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image014.jpg" v:shapes="_x0000_i1029"><![endif]>, or even the
+Circle tool <!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+ style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image015.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image016.jpg" v:shapes="_x0000_i1030"><![endif]>.<span
+style='mso-spacerun:yes'>  </span>A face can also be drawn by using the Pencil
+tool <!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75" style='width:23.25pt;
+ height:22.5pt'>
+ <v:imagedata src="using_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image018.jpg" v:shapes="_x0000_i1031"><![endif]><span
+style='mso-spacerun:yes'> </span>to draw individual edges until they close the
+shape.<span style='mso-spacerun:yes'>  </span>The plugin automatically
+recognizes a face drawn on the z=0 plane as a floor surface (gray colored).<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+ style='width:375pt;height:336pt'>
+ <v:imagedata src="using_files/image024.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=500 height=448
+src="using_files/image020.jpg" v:shapes="_x0000_i1032"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The footprint face can then be extruded up into the rest of the
+surfaces of the zone using the Push/Pull tool <!--[if gte vml 1]><v:shape id="_x0000_i1033"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image019.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image027.jpg" v:shapes="_x0000_i1033"><![endif]>.<span
+style='mso-spacerun:yes'>  </span>The plugin automatically recognizes vertical
+faces as wall surfaces (sand colored) and the top face as a roof surface (red
+colored).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1034" type="#_x0000_t75"
+ style='width:370.5pt;height:337.5pt'>
+ <v:imagedata src="using_files/image028.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=494 height=450
+src="using_files/image029.jpg" v:shapes="_x0000_i1034"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Another way to draw a zone is to create all faces using the
+Pencil tool <!--[if gte vml 1]><v:shape id="_x0000_i1035" type="#_x0000_t75"
+ style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image018.jpg" v:shapes="_x0000_i1035"><![endif]><span
+style='mso-spacerun:yes'> </span>to connect individual edges.<span
+style='mso-spacerun:yes'>  </span>That means you can start by drawing a wall
+first instead of the floor.<span style='mso-spacerun:yes'>  </span>The plugin
+automatically recognizes surfaces as different types based on the direction of
+their outward normal vector.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
+ style='width:369pt;height:338.25pt'>
+ <v:imagedata src="using_files/image031.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=492 height=451
+src="using_files/image035.jpg" v:shapes="_x0000_i1036"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To create a window sub surface (<b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>FenestrationSurface:Detailed.</span></b>), use the rectangle tool to
+draw a face inside of another face (usually a wall).<span
+style='mso-spacerun:yes'>  </span>The plugin automatically recognizes the new
+face as a window sub surface (transparent blue colored) as long as it shares no
+more than one edge with the base surface and is otherwise completely contained
+by the base surface and lies in the same plane. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1037" type="#_x0000_t75"
+ style='width:371.25pt;height:340.5pt'>
+ <v:imagedata src="using_files/image033.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=495 height=454
+src="using_files/image036.jpg" v:shapes="_x0000_i1037"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Another way to create the window is to use the Pencil tool <!--[if gte vml 1]><v:shape
+ id="_x0000_i1038" type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image018.jpg" v:shapes="_x0000_i1038"><![endif]><span
+style='mso-spacerun:yes'> </span>to draw a rectangular face inside of another
+face.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To create a door sub surface, the same rules apply as for
+the window, but make sure the bottom edge of the door face is shared by the
+base surface.<span style='mso-spacerun:yes'>  </span>If you do it correctly,
+the plugin automatically recognizes the new face as a door sub surface (brown
+colored).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+ style='width:372pt;height:339pt'>
+ <v:imagedata src="using_files/image037.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=496 height=452
+src="using_files/image038.jpg" v:shapes="_x0000_i1039"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To create an attached shading surface (<b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>Shading:Zone:Detailed</span></b> - an overhang, for
+example), the best approach is to use the Pencil tool <!--[if gte vml 1]><v:shape
+ id="_x0000_i1040" type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image018.jpg" v:shapes="_x0000_i1040"><![endif]><span
+style='mso-spacerun:yes'> </span>to draw a rectangle that projects
+perpendicularly from its base surface. But the attached shading surface cannot
+share any edges with the base surface.<span style='mso-spacerun:yes'>
+</span>The plugin automatically recognizes the new face as an attached shading
+surface (light red colored).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1041" type="#_x0000_t75"
+ style='width:392.25pt;height:5in'>
+ <v:imagedata src="using_files/image040.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=523 height=480
+src="using_files/image044.jpg" v:shapes="_x0000_i1041"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Opening An Existing Input File<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>One of the nice features of the plugin is that, not only can
+you create an input file from scratch, you can also open and edit any
+EnergyPlus input file that you might have already.<span
+style='mso-spacerun:yes'>  </span>Use the <b style='mso-bidi-font-weight:normal'><span
+style='color:#993366'><a href="commands.htm#Open"><span style='color:#993366'>Open</span></a></span></b>
+command <b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'><!--[if gte vml 1]><v:shape id="_x0000_i1042" type="#_x0000_t75"
+ style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image042.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image045.jpg" v:shapes="_x0000_i1042"><![endif]><span
+style='mso-spacerun:yes'> </span></i></b>to select the input file that you want
+to open.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After the file is opened, it's a good idea to check for any
+problems by selecting the <b style='mso-bidi-font-weight:normal'><span
+style='color:#993366'><a href="commands.htm#Show_Errors_And_Warnings"><span
+style='color:#993366'>Show Errors And Warnings</span></a></span></b><span
+style='color:#993366'> </span>command. Many common geometry errors (e.g.,
+upside floor or roof, inside out window, non-coplanar surfaces, etc.) are fixed
+automatically for you just by opening the input file.<span
+style='mso-spacerun:yes'>  </span>Some of these fixes are necessary for the
+model to draw correctly in SketchUp, so you cannot turn off this feature.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To remind yourself which EnergyPlus input file you are
+working with, you can select the <b style='mso-bidi-font-weight:normal'><span
+style='color:#993366'><a href="commands.htm#File_Info"><span style='color:#993366'>File
+Info</span></a></span></b> command to see the file name, the file path, and
+other details.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Editing Existing Geometry<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Just like drawing new geometry, the editing of existing
+geometry uses the standard SketchUp tools too. There are a number of operations
+you can perform on faces <i style='mso-bidi-font-style:normal'>and</i>
+groups.<span style='mso-spacerun:yes'>  </span>For faces, you can divide an
+existing face into two separate faces using the Pencil tool <!--[if gte vml 1]><v:shape
+ id="_x0000_i1043" type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image018.jpg" v:shapes="_x0000_i1043"><![endif]><span
+style='mso-spacerun:yes'> </span>to draw a line between them.<span
+style='mso-spacerun:yes'>  </span>The line automatically creates an additional
+new roof surface as shown in the example below.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1044" type="#_x0000_t75"
+ style='width:390.75pt;height:5in'>
+ <v:imagedata src="using_files/image046.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=521 height=480
+src="using_files/image047.jpg" v:shapes="_x0000_i1044"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Conversely, you can use the Eraser tool <!--[if gte vml 1]><v:shape
+ id="_x0000_i1045" type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image048.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image049.jpg" v:shapes="_x0000_i1045"><![endif]><span
+style='mso-spacerun:yes'> </span>to remove the line between two faces and heal
+them into one.<span style='mso-spacerun:yes'>  </span>This action deletes one
+surface from your input file and updates the remaining surface with the new
+vertices.<span style='mso-spacerun:yes'>  </span>Be careful, if you erase an
+outside edge of a face, the face will be erased and the associated surface will
+be deleted from your input file.<span style='mso-spacerun:yes'>  </span>You can
+also erase a face by selecting it and hitting the <st1:place w:st="on"><st1:State
+ w:st="on">DEL</st1:State></st1:place> key or using the Cut command (<b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'>Edit/Cut</span></b>).<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You can use the Move tool <!--[if gte vml 1]><v:shape id="_x0000_i1046"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image050.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image051.jpg" v:shapes="_x0000_i1046"><![endif]><span
+style='mso-spacerun:yes'> </span>to modify the geometry in several interesting
+ways.<span style='mso-spacerun:yes'>  </span>Select a line segment and move it
+with the Move tool to change the shape of the connected faces.<span
+style='mso-spacerun:yes'>  </span>For instance:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+ style='width:390.75pt;height:5in'>
+ <v:imagedata src="using_files/image055.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=521 height=480
+src="using_files/image069.jpg" v:shapes="_x0000_i1047"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Or select a face and move it in the direction of the outward
+normal to stretch the connected faces.<span style='mso-spacerun:yes'>
+</span>(Note:<span style='mso-spacerun:yes'>  </span>This generally works
+better than using the Push/Pull tool which has odd results if there are any
+windows in that face.)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1048" type="#_x0000_t75"
+ style='width:401.25pt;height:363pt'>
+ <v:imagedata src="using_files/image057.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=535 height=484
+src="using_files/image070.jpg" v:shapes="_x0000_i1048"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Or select a face and move it within the same plane to
+reposition a window or door, for instance.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1049" type="#_x0000_t75"
+ style='width:393pt;height:361.5pt'>
+ <v:imagedata src="using_files/image059.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=524 height=482
+src="using_files/image071.jpg" v:shapes="_x0000_i1049"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You can also perform operations on an entire group as a
+whole.<span style='mso-spacerun:yes'>  </span>All of the following applies
+equally to both zone groups and shading groups. Before proceeding, be sure to
+click outside of the group so that it is no longer open for editing.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To move a group, use the Move tool <!--[if gte vml 1]><v:shape
+ id="_x0000_i1050" type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image050.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image051.jpg" v:shapes="_x0000_i1050"><![endif]><span
+style='mso-spacerun:yes'> </span>to select the group and move it to a new
+location.<span style='mso-spacerun:yes'>  </span>It’s easier to position the
+group if you grab the group at one of the vertices that you want to be aligned
+with another target vertex in its final location.<span
+style='mso-spacerun:yes'>  </span>Corners usually work well.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To rotate a group, use the Rotate tool <!--[if gte vml 1]><v:shape
+ id="_x0000_i1051" type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image061.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image072.jpg" v:shapes="_x0000_i1051"><![endif]><span
+style='mso-spacerun:yes'> </span>to select the group and rotate it.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1052" type="#_x0000_t75"
+ style='width:448.5pt;height:318pt'>
+ <v:imagedata src="using_files/image063.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=598 height=424
+src="using_files/image073.jpg" v:shapes="_x0000_i1052"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You can even stretch or resize a group (and all of its
+contents) using the Scale tool <!--[if gte vml 1]><v:shape id="_x0000_i1053"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="using_files/image065.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="using_files/image074.jpg" v:shapes="_x0000_i1053"><![endif]>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1054" type="#_x0000_t75"
+ style='width:325.5pt;height:231pt'>
+ <v:imagedata src="using_files/image067.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=308
+src="using_files/image075.jpg" v:shapes="_x0000_i1054"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In addition to the standard tools that we have discussed, you
+have almost all SketchUp tools at your service for editing and creating
+geometry.<span style='mso-spacerun:yes'>  </span>The standard edit commands
+Cut, Copy, and Paste are also available as long as you keep it within a zone
+group or shading group.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Special Rules For Drawing On z &ne; 0<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>SketchUp assigns an outward normal vector to each face that is drawn.<span style='mso-spacerun:yes'>  </span>OpenStudio uses this vector to determine whether each surface is a floor (downward normal) or roof/ceiling (upward normal).<span style='mso-spacerun:yes'>  </span> SketchUp assumes that all surfaces on the z = 0 plan have downward normals.<span
+style='mso-spacerun:yes'>  </span>This is convienent as most surfaces drawn on this plane are indeed intended to be floors.<span style='mso-spacerun:yes'>  </span>However, SketchUp uses the order that vertices are drawn (using the right hand rule) to determine the outward normal for surfaces drawn on planes other than z = 0.<span style='mso-spacerun:yes'>  </span>This matters when trying to use the push/pull tool to extrude a surface to create walls and a roof.<span style='mso-spacerun:yes'>  </span>If the extruded surface is not on the z = 0 plane and the vertices are drawn such that the outward normal is up, OpenStudio will assume that this surface is a roof.  When the surface is extruded up, the bottom surface will remain a roof which is not likely what you want to have happen.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The following vertex order will create a roof surface if drawn on z &ne; 0.<span style='mso-spacerun:yes'>  </span>Extruding this surface using push/pull would result in the bottom surface remaining as a roof, which is not what was intended.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><img border=0 width=598 height=424
+src="using_files/above_ground_surface_wrong.png" v:shapes="_x0000_i1052">
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The following vertex order will create a floor surface if drawn on z &ne; 0.<span style='mso-spacerun:yes'>  </span>Extruding this surface using push/pull would result in the bottom surface remaining as a floor, which is what was intended.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><img border=0 width=598 height=424
+src="using_files/above_ground_surface_right.png" v:shapes="_x0000_i1052">
+</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Editing Input Object Fields<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Not all of the input fields for EnergyPlus geometry objects
+are handled by the SketchUp drawing tools. The SketchUp tools take care of the
+3-D coordinates of the vertices, but they do not give access to the other input
+fields such as the surface type, construction, boundary conditions, etc.<span
+style='mso-spacerun:yes'>  </span>The plugin attempts to intelligently default
+most of these input fields for you.<span style='mso-spacerun:yes'>
+</span>However, you will still have to override the defaults sometimes.<span
+style='mso-spacerun:yes'>  </span>For this purpose, the plugin has the <b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'><a
+href="commands.htm#Object_Info"><span style='color:#993366'>Object Info</span></a></span></b>
+command which displays a dialog window that allows you to edit the input fields
+directly.<span style='mso-spacerun:yes'>  </span>See the <a
+href="commands.htm#Object_Info">command summary</a> for a full
+description.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You will need to use the Object Info window to set a construction
+for every surface that you draw. You will also need to use it to set boundary
+conditions for interzone surfaces.<span style='mso-spacerun:yes'>
+</span>Optionally, you can use it to change the name of a surface or zone.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Helpful Tips For Drawing EnergyPlus Geometry<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Here are some helpful tips for drawing EnergyPlus geometry
+with the plugin in the SketchUp environment: </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>Occasionally
+     when you draw a face, SketchUp will guess the wrong side to be out.<span
+     style='mso-spacerun:yes'>  </span>You can tell because the inside of the
+     face is a lighter color than the outside of the face.<span
+     style='mso-spacerun:yes'>  </span>To flip the face right-side-out use the
+     SketchUp command <b style='mso-bidi-font-weight:normal'><span
+     style='color:#993366'>Edit/Face/Reverse Faces</span></b>, also found on
+     the context menu.<span style='mso-spacerun:yes'>  </span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>Use
+     the Outliner window (<b style='mso-bidi-font-weight:normal'><span
+     style='color:#993366'>Window/Outliner</span></b>) to view a list of all of
+     your zone groups and shading groups. Groups can be selected by clicking
+     items in the outline.<span style='mso-spacerun:yes'>  </span>Groups can be
+     opened for editing by double-clicking items in the outline. </li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>Use
+     the command <b style='mso-bidi-font-weight:normal'><span style='color:
+     #993366'>View/Component Edit/Hide Rest Of Model</span></b> to hide all
+     other groups (and the rest of the model) when you are editing a
+     group.<span style='mso-spacerun:yes'>  </span>When used with the Outliner,
+     this command helps you get to zones that are buried in the core of a
+     building.<span style='mso-spacerun:yes'>  </span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>When
+     drawing two or more zones with interzone surfaces, it is easier to draw
+     the zones apart from each other, set the interzone connections with the <b
+     style='mso-bidi-font-weight:normal'><u><span style='color:#993366'><a
+     href="commands.htm#Object_Info"><span style='color:#993366'>Object Info</span></a></span></u></b>
+     window, and then move them into final position using the Move tool.<span
+     style='mso-spacerun:yes'>  </span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>To
+     position vertices with precision or create surfaces with exact dimensions,
+     use the Value Control Box (VCB) in the lower right corner or use
+     construction lines.<span style='mso-spacerun:yes'>  </span>Read your
+     SketchUp documentation.</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>To
+     draw quickly and accurately, use SketchUp’s inferencing capabilities.<span
+     style='mso-spacerun:yes'>  </span>For example, to match the x-, y-, or
+     z-position of the endpoint of a line, hover the cursor over the endpoint
+     until the tooltip appears. Now when you start drawing a parallel line,
+     SketchUp will let you know when you are exactly lined up with the other
+     endpoint.<span style='mso-spacerun:yes'>  </span>Also to lock an inference
+     along an axis, hold down the shift key while you draw. Read your SketchUp
+     documentation. </li>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Running EnergyPlus<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Once you are satisfied with your input file, you can run an
+EnergyPlus simulation from within SketchUp. Use the <b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'><a href="commands.htm#Run_Simulation"><span
+style='color:#993366'>Run Simulation</span></a></span></b> command to display
+the dialog window that allows you to select various run control options and
+launch the simulation.<span style='mso-spacerun:yes'>  </span>See the <a
+href="commands.htm#Run_Simulation">command summary</a> for a full
+description.<span style='mso-spacerun:yes'>  </span>Before you run EnergyPlus,
+keep in mind that there is usually a lot more that goes into an input file
+besides just the geometry objects—things like internal heat gains, schedules,
+HVAC equipment and systems, etc.<span style='mso-spacerun:yes'>  </span>You
+will either have to work with the low-level syntax of the input file directly
+using a text editor or use another interface to create those other input
+objects.<span style='mso-spacerun:yes'>  </span>The <b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'><a href="commands.htm#Run_Simulation"><span
+style='color:#993366'>Run Simulation</span></a></span></b> command is most
+useful when all of your non-geometry inputs are already set up and you are just
+using the plugin to compare different geometry options for the envelope, for
+example, building massing, orientation, glazing fractions, etc.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#0099FF;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:no;mso-yfti-lastrow:yes;height:.3in'>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt'>
+   User Guide version 1.04
+  </td>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt;text-align:right'>
+   <u><a href="toc.htm">Table Of Contents</a></span></u>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

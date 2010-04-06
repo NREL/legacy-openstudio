@@ -1,0 +1,149 @@
+
+OpenStudio
+Copyright (c) 2008-2010 Alliance for Sustainable Energy
+All Rights Reserved.
+
+                                   NOTICE
+
+This computer software (Software) is code in development prepared by the 
+Alliance for Sustainable Energy, (hereinafter the "Contractor"), under 
+Contract DE-AC36-08GO28308 (Contract) with the Department of Energy (DOE).  
+The United States Government has been granted for itself and others acting 
+on its behalf a paid-up, non-exclusive, irrevocable, worldwide license in 
+the Software to reproduce, prepare derivative works, and perform publicly 
+and display publicly.  Beginning five (5) years after the date permission 
+to assert copyright is obtained from the DOE, and subject to any 
+subsequent five (5) year renewals, the United States Government is granted 
+for itself and others acting on its behalf a paid-up, non-exclusive, 
+irrevocable, worldwide license in the Software to reproduce, prepare 
+derivative works, distribute copies to the public, perform publicly and 
+display publicly, and to permit others to do so.  If the Contractor ceases 
+to make this computer software available, it may be obtained from DOE's 
+Office of Scientific and Technical Information's Energy Science and 
+Technology Software Center (ESTSC) at P.O. Box 1020, Oak Ridge, TN 37831-
+1020.
+
+
+                                 DISCLAIMER
+
+THIS SOFTWARE IS PROVIDED BY THE CONTRACTOR "AS IS" AND ANY EXPRESS OR 
+IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN 
+NO EVENT SHALL THE CONTRACTOR OR THE U.S. GOVERNMENT BE LIABLE FOR ANY 
+SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER, 
+INCLUDING BUT NOT LIMITED TO CLAIMS ASSOCIATED WITH THE LOSS OF DATA OR 
+PROFITS, WHICH MAY RESULT FROM AN ACTION IN CONTRACT, NEGLIGENCE OR OTHER 
+TORTIOUS CLAIM THAT ARISES OUT OF OR IN CONNECTION WITH THE ACCESS, USE OR 
+PERFORMANCE OF THIS SOFTWARE.
+
+YOU AGREE TO INDEMNIFY DOE/NREL/ALLIANCE, AND ITS SUBSIDIARIES, 
+AFFILIATES, OFFICERS, AGENTS, AND EMPLOYEES AGAINST ANY CLAIM OR DEMAND, 
+INCLUDING REASONABLE ATTORNEYS' FEES, RELATED TO YOUR USE OF THESE DATA.
+
+DOE/NREL/Alliance is not obligated to provide the user with any support, 
+consulting, training or assistance of any kind with regard to the use of 
+these Data or to provide the user with any updates, revisions or new 
+versions of these Data.
+
+The names DOE/NREL/Alliance may not be used in any advertising or 
+publicity to endorse or promote any products or commercial entities unless 
+specific written permission is obtained from DOE/NREL/Alliance.
+
+
+                            OPEN SOURCE LICENSE
+
+This program is free software: you can redistribute it and/or modify it 
+under the terms of the GNU General Public License as published by the Free 
+Software Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+for more details.
+
+You should have received a copy of the GNU General Public License along 
+with this program. If not, see http://www.gnu.org/licenses/.
+
+
+                       OTHER CREDITS AND ATTRIBUTION
+
+The following third-party software is included in the Software and 
+additional terms may apply for use of the third-party software:
+
+
+
+wxRuby2
+Copyright (c) 2004-2007 wxRuby Development Team
+
+Permission is hereby granted, free of charge, to any person obtaining a 
+copy of this software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation 
+the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the 
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+DEALINGS IN THE SOFTWARE.
+
+
+
+wxWidgets (wxWindows)
+Copyright (c) 1998-2005 Julian Smart, Robert Roebling et al
+
+wxWindows Library License, Version 3.1
+
+Everyone is permitted to copy and distribute verbatim copies of this 
+licence document, but changing it is not allowed.
+
+                         WXWINDOWS LIBRARY LICENCE
+      TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+This library is free software; you can redistribute it and/or modify it 
+under the terms of the GNU Library General Public Licence as published by 
+the Free Software Foundation; either version 2 of the Licence, or (at your 
+option) any later version.
+
+This library is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public 
+Licence for more details.
+
+You should have received a copy of the GNU Library General Public Licence 
+along with this software, usually in a file named COPYING.LIB.  If not, 
+write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, 
+Boston, MA 02111-1307 USA.
+
+EXCEPTION NOTICE
+
+1. As a special exception, the copyright holders of this library give 
+permission for additional uses of the text contained in this release of 
+the library as licenced under the wxWindows Library Licence, applying 
+either version 3.1 of the Licence, or (at your option) any later version 
+of the Licence as published by the copyright holders of version 3.1 of the 
+Licence document.
+
+2. The exception is that you may use, copy, link, modify and distribute 
+under your own terms, binary object code versions of works based on the 
+Library.
+
+3. If you copy code from files distributed under the terms of the GNU 
+General Public Licence or the GNU Library General Public Licence into a 
+copy of this library, as this licence permits, the exception does not 
+apply to the code that you add in this way.  To avoid misleading anyone as 
+to the status of such modified files, you must delete this exception 
+notice from such code and/or adjust the licensing conditions notice 
+accordingly.
+
+4. If you write modifications of your own for this library, it is your 
+choice whether to permit this exception to apply to your modifications.  
+If you do not wish that, you must delete the exception notice from such 
+code and/or adjust the licensing conditions notice accordingly.
+

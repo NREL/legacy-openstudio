@@ -1,0 +1,860 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="commands_files/filelist.xml">
+<link rel=Edit-Time-Data href="commands_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>OpenStudio - User Guide</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>National Renewable Energy Laboratory</o:Author>
+  <o:LastAuthor>Peter Graham Ellis</o:LastAuthor>
+  <o:Revision>88</o:Revision>
+  <o:TotalTime>528</o:TotalTime>
+  <o:Created>2007-04-05T21:58:00Z</o:Created>
+  <o:LastSaved>2008-03-24T21:27:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1997</o:Words>
+  <o:Characters>11387</o:Characters>
+  <o:Company>National Renewable Energy Laboratory</o:Company>
+  <o:Lines>94</o:Lines>
+  <o:Paragraphs>26</o:Paragraphs>
+  <o:CharactersWithSpaces>13358</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>FullPage</w:Zoom>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+  {mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+  {color:blue;
+  text-decoration:underline;
+  text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+  {color:purple;
+  text-decoration:underline;
+  text-underline:single;}
+p.Body, li.Body, div.Body
+  {mso-style-name:Body;
+  margin-top:0in;
+  margin-right:0in;
+  margin-bottom:6.0pt;
+  margin-left:0in;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";}
+@page Section1
+  {size:8.5in 11.0in;
+  margin:1.0in 1.25in 1.0in 1.25in;
+  mso-header-margin:.5in;
+  mso-footer-margin:.5in;
+  mso-paper-source:0;}
+div.Section1
+  {page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+  {mso-style-name:"Table Normal";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  mso-style-noshow:yes;
+  mso-style-parent:"";
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:#0400;
+  mso-fareast-language:#0400;
+  mso-bidi-language:#0400;}
+table.MsoTableGrid
+  {mso-style-name:"Table Grid";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-border-insideh:.5pt solid windowtext;
+  mso-border-insidev:.5pt solid windowtext;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:#0400;
+  mso-fareast-language:#0400;
+  mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="6146"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in;margin-left:10%;margin-right:10%'>
+
+
+<div class=Section1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0in 5.4pt 0in 5.4pt;background-color:#0099FF'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:no;
+  height:.5in'>
+  <td width="50%" style='width:50%;vertical-align:middle;padding:5.4pt 5.4pt 5.4pt 5.4pt;height:.5in'>
+   <a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm">
+    <img src="./using_files/OpenStudio_3D.jpg" alt="OpenStudio Logo" width="40%"/>
+   </a>
+  </td>
+  <td width="50%" style='width:50%;text-align:right;vertical-align:middle;padding:5.4pt 5.4pt 5.4pt 5.4pt;height:.5in'>
+    <a href="http://apps1.eere.energy.gov/buildings/energyplus/">
+     <img src="./using_files/EnergyPlus_3D.jpg" alt="EnergyPlus Logo" width="30%"/>
+    </a>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:no;mso-yfti-lastrow:yes;height:.3in'>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt'>
+   User Guide version 1.04
+  </td>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt;text-align:right'>
+   <u><a href="toc.htm">Table Of Contents</a></span></u>
+  </td>
+ </tr>
+</table>
+</br></br>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:18.0pt'>Command Summary</span></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You can find all commands for the plugin on the <b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'>Plugins/OpenStudio
+</span></b> submenu.<span style='mso-spacerun:yes'>  </span>Many
+of the commands also have equivalent toolbar buttons. <span
+style='mso-spacerun:yes'> </span>If you don't see any toolbars, go to the <b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'>View/Toolbars</span></b>
+menu and make sure the OpenStudio toolbars are checked.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The <b style='mso-bidi-font-weight:normal'><span
+style='color:#993366'>Plugins/OpenStudio</span></b> submenu contains
+the following commands:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a href="#New">New</a></p>
+
+<p class=MsoNormal><a href="#Open">Open...</a></p>
+
+<p class=MsoNormal><a href="#Close">Close</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#Save">Save</a></p>
+
+<p class=MsoNormal><a href="#Save_As">Save As...</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#Show_Errors_And_Warnings">Show Errors And Warnings</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#File_Info">File Info</a></p>
+
+<p class=MsoNormal><a href="#Simulation_Info">Simulation Info</a></p>
+
+<p class=MsoNormal><a href="#Object_Info">Object Info</a></p>
+
+<p class=MsoNormal><a href="#Info_Tool">Info Tool</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#Run_Simulation">Run Simulation...</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#New_Zone">New Zone</a></p>
+
+<p class=MsoNormal><a href="#New_Shading_Group">New Shading Group</a></p>
+
+<p class=MsoNormal><a href="#New_Construction_Stub">New Construction Stub</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#Rendering_Settings">Rendering Settings</p>
+
+<p class=MsoNormal><a href="#Render_by_Color">Render by Color</p>
+
+<p class=MsoNormal><a href="#Animation">Animation</p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#Preferences">Preferences</a></p>
+
+<p class=MsoNormal>----</p>
+
+<p class=MsoNormal><a href="#Help">User Guide</a></p>
+
+<p class=MsoNormal><a href="#About">About The Plugin...</a></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Each command is described below.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=New><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>New <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:23.25pt;
+ height:22.5pt'>
+ <v:imagedata src="commands_files/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image008.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:New'></span>
+
+<p class=MsoNormal>The New command creates a new EnergyPlus input file.<span
+style='mso-spacerun:yes'>  </span>The new file is generated from a template
+that includes several input objects that are required for all EnergyPlus input
+files.<span style='mso-spacerun:yes'>  </span>You can edit the default objects
+in the template by editing the text file “New_File_Template.idf” located in the
+directory “Google SketchUp 7/Plugins/OpenStudio”.<span
+style='mso-spacerun:yes'>  </span>Until the file is saved, it only resides in
+memory and is vulnerable to loss.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>This command also closes any EnergyPlus input file that
+might be currently open.<span style='mso-spacerun:yes'>  </span>If there are
+unsaved changes, you will be asked if you want to save the open file
+first.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>New EnergyPlus objects can be created using the <a
+href="#New_Zone">New Zone</a> or <a href="#New_Shading_Group">New Shading Group</a>
+tools.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=Open><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Open... <!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image010.jpg" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Open'></span>
+
+<p class=MsoNormal>The Open command opens an existing EnergyPlus input file and
+draws it using SketchUp entities: groups, faces, and edges.<span
+style='mso-spacerun:yes'>  </span>The input file is now associated with the
+current SketchUp model.<span style='mso-spacerun:yes'>  </span>Any changes that
+you make to the SketchUp entities with the standard tools (Move, Push/Pull,
+Scale, Eraser, etc.) will immediately update the EnergyPlus objects in the
+input file.<span style='mso-spacerun:yes'>  </span>New EnergyPlus objects can
+be created using the <a href="#New_Zone">New Zone</a> or <a
+href="#New_Shading_Group">New Shading Group</a> tools or by editing an existing
+EnergyPlus group (zone or shading group). Any new entities that you add inside
+of an EnergyPlus group will immediately add new EnergyPlus objects to the input
+file.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=Close><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Close<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Close'></span>
+
+<p class=MsoNormal>The Close command closes any EnergyPlus input file that
+might be currently open.<span style='mso-spacerun:yes'>  </span>If there are
+unsaved changes, you will be asked if you want to save the open file
+first.<span style='mso-spacerun:yes'>  </span>You will also be asked if you
+want to erase all of the SketchUp entities that are associated with EnergyPlus
+objects.<span style='mso-spacerun:yes'>  </span>If you answer “yes”, all of the
+zone groups and shading groups will be erased.<span style='mso-spacerun:yes'>
+</span>If you answer “no”, the groups will remain but will be stripped of all
+of their EnergyPlus objects—in other words, subsequent changes to those
+entities will no longer have any effect on the input file. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=Save><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Save <!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image012.jpg" v:shapes="_x0000_i1027"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Save'></span>
+
+<p class=MsoNormal>The Save command saves the EnergyPlus input file to its
+current path. If the file has never been saved before, a dialog asks you where
+you want to save the new file.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Save_As"><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Save As...<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Save_As'></span>
+
+<p class=MsoNormal>The Save As command saves the EnergyPlus input file to a new
+path.<span style='mso-spacerun:yes'>  </span>A dialog asks you where you want
+to save the file.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Show_Errors_And_Warnings"><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Show Errors And Warnings<span
+style='mso-spacerun:yes'>    </span><!--[if gte vml 1]><v:shape id="_x0000_i1028"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image006.jpg" v:shapes="_x0000_i1028"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Show_Errors_And_Warnings'></span>
+
+<p class=MsoNormal>The Show Errors And Warnings command displays a dialog
+window with a log of errors and warnings that were generated when an EnergyPlus
+input file is opened.<span style='mso-spacerun:yes'>  </span>Errors and
+warnings can include common geometry problems or mistakes in the syntax of the
+input file.<span style='mso-spacerun:yes'>  </span>Many common geometry errors
+(e.g., upside floor or roof, inside out window, non-coplanar surfaces, etc.)
+are fixed automatically for you just by opening the input file.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+ style='width:261pt;height:170.25pt'>
+ <v:imagedata src="commands_files/image021.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=348 height=227
+src="commands_files/image022.jpg" v:shapes="_x0000_i1029"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="File_Info"><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>File Info<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:File_Info'></span>
+
+<p class=MsoNormal>The File Info command displays a dialog window with
+information about the EnergyPlus input file that you are working with,
+including the file name, the file path, the file size (as currently saved), and
+a count of some of the different types of EnergyPlus objects.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+ style='width:425.25pt;height:257.25pt'>
+ <v:imagedata src="commands_files/image023.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=567 height=343
+src="commands_files/image024.jpg" v:shapes="_x0000_i1030"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Simulation_Info"><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Simulation Info<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Simulation_Info'></span>
+
+<p class=MsoNormal>The Simulation Info command displays a dialog window which
+allows you to set the fields for the <b style='mso-bidi-font-weight:normal'><span
+style='color:navy'>GlobalGeometryRules</span></b> and <b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>Site:Location</span></b> objects in EnergyPlus.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Object_Info"><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Object Info<span
+style='mso-spacerun:yes'>    </span><!--[if gte vml 1]><v:shape id="_x0000_i1031"
+ type="#_x0000_t75" style='width:23.25pt;height:23.25pt'>
+ <v:imagedata src="commands_files/image013.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=31
+src="commands_files/image014.jpg" v:shapes="_x0000_i1031"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Object_Info'></span>
+
+<p class=MsoNormal>The Object Info command displays a dialog window with
+information about the EnergyPlus object that is currently selected.<span
+style='mso-spacerun:yes'>  </span>The content of the Object Info dialog changes
+based on the type of object selected. Select a zone group to get object
+information about the zone.<span style='mso-spacerun:yes'>  </span>Open a zone
+group for editing (double-click), and select a face to get object information
+about that heat transfer surface.<span style='mso-spacerun:yes'>  </span>Open a
+shading group for editing and select a face to get object information about
+that detached shading surface.<span style='mso-spacerun:yes'>  </span>With no
+selection, you get object information about the <b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>Building</span></b> object.<span
+style='mso-spacerun:yes'>  </span>Changing selections with the Object Info
+dialog open will dynamically update the contents with information about the new
+selection.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The contents of the Object Info dialog window are divided
+into three sections:<span style='mso-spacerun:yes'>  </span>object inputs,
+object summary, and object text.<span style='mso-spacerun:yes'>  </span>The
+fields in the object inputs section allow you to directly change the fields of
+the corresponding EnergyPlus input object.<span style='mso-spacerun:yes'>
+</span>The list of fields depends on the type of object that is selected.<span
+style='mso-spacerun:yes'>  </span>For example, for a typical <b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>BuildingSurface:Detailed</span></b>
+object you can easily assign a new name, set the surface type, set the
+construction, set the boundary conditions, etc.<span
+style='mso-spacerun:yes'>   </span>Don’t worry, changing the name of the object
+will automatically update all other objects that reference it.<span
+style='mso-spacerun:yes'>  </span>Note that any changes that you make are not
+committed until you click the Apply button!<span style='mso-spacerun:yes'>
+</span>Coordinates for surface vertices cannot be edited from this dialog.<span
+style='mso-spacerun:yes'>  </span>You must use the standard SketchUp tools to
+modify the geometry.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The object summary section displays useful information about
+the object such as number of vertices, gross area, net area, percent glazing, etc.<span
+style='mso-spacerun:yes'>  </span>Like the input fields, the content of the
+summary depends on the type of object that is selected.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The object text section displays the actual text of the
+input object as it appears in the EnergyPlus input file.<span
+style='mso-spacerun:yes'>  </span>The text can be selected and copied but it
+cannot be edited directly.<span style='mso-spacerun:yes'>  </span>Use the input
+fields in the Object Inputs section to make changes.<span
+style='mso-spacerun:yes'>  </span>All changes are made instantaneously and will
+show up immediately in the object text.<span style='mso-spacerun:yes'>
+</span>Note that all of the original comments and formatting of the input file
+(the “context”) are preserved when you make changes.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1040" type="#_x0000_t75"
+ style='width:291.75pt;height:509.25pt'>
+ <v:imagedata src="commands_files/image019.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=389 height=679
+src="commands_files/image034.jpg" v:shapes="_x0000_i1040"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Info_Tool"><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Info Tool <!--[if gte vml 1]><v:shape id="_x0000_i1032"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image033.jpg" v:shapes="_x0000_i1032"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Info_Tool'></span>
+
+<p class=MsoNormal>The Info Tool command activates a cursor-like tool that
+displays information about the face that it is hovering over.<span
+style='mso-spacerun:yes'>  </span>A tooltip momentarily shows the EnergyPlus object
+text for that face.<span style='mso-spacerun:yes'>  </span>The status bar shows
+the position of the cursor in world coordinates.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Run_Simulation"><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>Run Simulation...<span
+style='mso-spacerun:yes'>    </span><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image004.jpg" v:shapes="_x0000_i1033"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Run_Simulation'></span>
+
+<p class=MsoNormal>The Run Simulation command displays a dialog window that
+allows you to select run control options, select a weather file and run period,
+and choose how you want your results to be reported.<span
+style='mso-spacerun:yes'>  </span>Hit the Run button to launch a simulation of
+the current EnergyPlus input file.<span style='mso-spacerun:yes'>  </span>The
+EnergyPlus engine will begin to run in a shell command window.<span
+style='mso-spacerun:yes'>  </span>You may continue to work in SketchUp while
+the simulation is running.<span style='mso-spacerun:yes'>  </span>If you decide
+not to run the simulation at this time, you can still hit the Apply button to
+save your changes to the input file.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1034" type="#_x0000_t75"
+ style='width:402.75pt;height:507.75pt'>
+ <v:imagedata src="commands_files/image002.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=537 height=677
+src="commands_files/image020.jpg" v:shapes="_x0000_i1034"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Options for run control let you choose whether you want to
+run design day simulations or the weather file simulation or both.<span
+style='mso-spacerun:yes'>  </span>You can also select the start and end dates
+for the weather file run period here.<span style='mso-spacerun:yes'>
+</span>Changing these options will update the <b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>RunPeriod</span></b> object in the input file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Options for reporting results allow you to choose what data
+you want reported back from the simulation. The option “Report Annual Building
+Utility Performance Summary (ABUPS)” reports a file that gives a helpful
+summary of the building energy usage over the run period along with a breakdown
+of end uses. The option “Report user variables and meters” simply preserves any
+<b style='mso-bidi-font-weight:normal'><span style='color:navy'>Output:Variable</span></b>
+and <b style='mso-bidi-font-weight:normal'><span style='color:navy'>Output:Meter
+</span></b> objects already in the input file.<span
+style='mso-spacerun:yes'>  </span>If this option is not checked, all of the <b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>Output:Variable</span></b>
+and <b style='mso-bidi-font-weight:normal'><span style='color:navy'>Output:Meter
+</span></b> objects are stripped from the input file.<span
+style='mso-spacerun:yes'>  </span>The option “Report zone temperatures” adds <b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>Output:Variable</span></b>
+objects for zone mean air temperature (MAT) and zone mean radiant temperature
+(MRT).<span style='mso-spacerun:yes'>  </span>The option “Report inside and
+outside surface temperatures” adds <b style='mso-bidi-font-weight:normal'><span
+style='color:navy'>Output:Variable</span></b> objects for all inside and
+outside surface temperatures.<span style='mso-spacerun:yes'>  </span>The two
+preceding options might be useful for data visualization studies.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>There are also options for various actions that should be
+performed when the simulation has completed. The option Close shell command
+window” will automatically close the shell window (MS-DOS console).<span
+style='mso-spacerun:yes'>  </span>If this option is unchecked, you will have to
+manually close the window before any other actions can automatically be
+performed (e.g., show the error file).<span style='mso-spacerun:yes'>
+</span>The option “Show error file” opens the eplusout.err file in the preferred
+text editor. We highly recommended that you always check your ERR file after
+any EenrgyPlus run!<span style='mso-spacerun:yes'>  </span>The option “Show
+Annual Building Utility Performance Summary (ABUPS)” opens the ABUPS file for
+viewing.<span style='mso-spacerun:yes'>  </span>The option “Show report
+variables and meters file (CSV)” opens the report variable output in
+comma-delimited (CSV) format.<span style='mso-spacerun:yes'>  </span>If any of
+the <b style='mso-bidi-font-weight:normal'><span style='color:navy'>Output:Variable
+</span></b> options were selected, the EnergyPlus output file is
+postprocessed into a CSV file whether or not the option to show it is
+selected.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="New_Zone"><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>New Zone <!--[if gte vml 1]><v:shape id="_x0000_i1035"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image015.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image016.jpg" v:shapes="_x0000_i1035"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:New_Zone'></span>
+
+<p class=MsoNormal>The New Zone command activates a tool that allows you to
+create a new zone.<span style='mso-spacerun:yes'>  </span>Use the cursor <!--[if gte vml 1]><v:shape
+ id="_x0000_i1036" type="#_x0000_t75" style='width:10.5pt;height:15pt'>
+ <v:imagedata src="commands_files/image025.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=14 height=20
+src="commands_files/image026.jpg" v:shapes="_x0000_i1036"><![endif]><span
+style='mso-spacerun:yes'> </span>to select a point that will become the new
+zone origin by clicking somewhere in the view. An empty SketchUp group
+highlighted with a blue bounding box will appear anchored at one corner by a
+construction point. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1037" type="#_x0000_t75"
+ style='width:300pt;height:214.5pt'>
+ <v:imagedata src="commands_files/image027.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=400 height=286
+src="commands_files/image028.jpg" v:shapes="_x0000_i1037"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>With the cursor still positioned over the construction
+point, double-click it to begin editing the zone.<span
+style='mso-spacerun:yes'>  </span>Any new SketchUp entities that you draw
+inside of the group with the standard tools (Rectangle, Polygon, Pencil, etc.)
+will immediately add new EnergyPlus heat transfer surfaces (<b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>BuildingSurface:Detailed</span></b>,
+<b style='mso-bidi-font-weight:normal'><span style='color:navy'>FenestrationSurface:Detailed</span></b>,
+and <b style='mso-bidi-font-weight:normal'><span style='color:navy'>Shading:Zone:Detailed</span></b>)
+to the input file.<span style='mso-spacerun:yes'>  </span>Floors, walls, roofs,
+windows, doors, and attached shading surfaces are all automatically inferred
+from their tilts and positions relative to other surfaces.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+ style='width:342pt;height:254.25pt'>
+ <v:imagedata src="commands_files/image029.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=456 height=339
+src="commands_files/image030.jpg" v:shapes="_x0000_i1038"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Note:<span style='mso-spacerun:yes'>  </span>The size of the
+bounding box is completely arbitrary. Once the zone group is open for editing,
+you can draw anywhere within the view and the bounding box will stretch to fit
+the entities.<span style='mso-spacerun:yes'>  </span>If you accidentally click
+outside the zone group and the bounding box disappears, simply click on the
+construction point at the zone origin again to select the zone group and the
+bounding box will reappear.<span style='mso-spacerun:yes'>  </span>Double-click
+the construction point, or any entity within the group, to open it for editing
+again.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Note2:<span style='mso-spacerun:yes'>  </span>The
+construction point at the zone origin is only used to hold an empty group
+open.<span style='mso-spacerun:yes'>  </span>Once you have drawn some entities inside
+the group you can erase the construction point without any problem.<span
+style='mso-spacerun:yes'>  </span>There is also a hidden construction point in
+the opposite corner of the bounding box. Select <b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'>View/Hidden</span></b> Geometry to show it,
+and then you can delete that construction point too.<span
+style='mso-spacerun:yes'>  </span>It just makes the bounding box fit more
+tightly for small zones.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="New_Shading_Group"><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>New Shading Group<span
+style='mso-spacerun:yes'>    </span><!--[if gte vml 1]><v:shape id="_x0000_i1039"
+ type="#_x0000_t75" style='width:23.25pt;height:22.5pt'>
+ <v:imagedata src="commands_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=31 height=30
+src="commands_files/image018.jpg" v:shapes="_x0000_i1039"><![endif]><o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:New_Shading_Group'></span>
+
+<p class=MsoNormal>The New Shading Group command activates a tool that allows
+you to create a new shading group.<span style='mso-spacerun:yes'>
+</span>Shading groups are not an EnergyPlus concept, but are used by the plugin
+to group and isolate detached shading surfaces from the rest of the SketchUp
+model.<span style='mso-spacerun:yes'>  </span>This tool works almost
+identically to the <a href="#New_Zone">New Zone</a> tool, except that any new
+SketchUp entities that you draw inside of the group will immediately add new
+detached shading surfaces (<b style='mso-bidi-font-weight:normal'><span
+style='color:navy'>Shading:Building:Detailed</span></b> and <b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>Shading:Site:Detailed</span></b>)
+to the input file, instead of heat transfer surfaces.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="New_Construction_Stub"><b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>New Construction Stub<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:New_Construction_Stub'></span>
+
+<p class=MsoNormal>The New Construction Stub command creates a new <b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>Construction</span></b>
+object in the input file.<span style='mso-spacerun:yes'>  </span>A dialog prompts
+you to enter the name of the new construction.<span style='mso-spacerun:yes'>
+</span>Keep in mind that the new object is only a “stub”—it does not have any
+material layers assigned to it yet, so you will have to edit the input file to
+add material layers to the <b style='mso-bidi-font-weight:normal'><span
+style='color:navy'>Construction</span></b> and create the associated <b
+style='mso-bidi-font-weight:normal'><span style='color:navy'>Material</span></b>
+objects before your input file will run properly.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Rendering_Settings"><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Rendering Settings<span style='mso-spacerun:yes'>    </span><img border=0 width=31 height=30
+src="commands_files/image035.png" v:shapes="_x0000_i1039"><o:p></o:p></i></a></b></p>
+The Rendering Settings dialog allows users to select the EnergyPlus Standard Output (ESO) file corresponding to their
+current idf model.  Once the ESO is loaded the user can select from available run periods (such as design days or annual
+simulations) and then from available report or meter variables.  Scan the "*.mdd", "*.mtd", and "*.rdd" files to see which meters and report variables are available for your model.  Currently, only surface or zone level meters and report variables are supported.
+Note that the ESO file can become quite large for models with many report variables, parsing this file may be somewhat slow and
+cause the UI to lock up.  If possible, limit the amount of meter and report variable output requested, look at the results of design days only, or shorten the simulation run period to minimize the size of the ESO. There is also an option in the user <a href="#Preferences">preferences</a> that allows the user to cache ESO files once they are read into a format that can be parsed more quickly.  Note that this option will generate a "*.eso.cache" file in the same directory as the selected ESO file.  The cache file may be deleted at any time and will be refreshed when the file timestamp on the ESO file is newer than the cache file.
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Render_by_Color"><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Render by Color<span style='mso-spacerun:yes'>    </span><img border=0 width=31 height=30
+src="commands_files/image036.png" v:shapes="_x0000_i1039"><o:p></o:p></i></a></b></p>
+Once the ESO file has been loaded, run period selected, and data variable selected the user may view the model colored by the data
+value using the Render by Color command.  Surfaces or zones are colored by the variable value at a given instant in time.  To change
+the time at which variables are displayed use the SketchUp Shadow Settings control (Window->Shadows).  If the time is outside of the current
+run period then no values will be displayed.  The user may display a color bar to reference the absolute values of the variable or use the
+data value cursor.
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Animation"><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Animation<span style='mso-spacerun:yes'>    </span><img border=0 width=31 height=30
+src="commands_files/image037.png" v:shapes="_x0000_i1039"><o:p></o:p></a></i></b></p>
+Once the ESO file is loaded into memory the user may watch how variables change with time throughout their model by using the Amimation command.
+The time period to run may be configured and the user may configure the animation to loop continuously.  No direct animation export is provided.
+However, a screen capture tool may be used to record a video for later use.
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=Preferences><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Preferences<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Preferences'></span>
+
+<p class=MsoNormal>The Preferences command displays a dialog window with
+various user preferences for the plugin that are preserved between SketchUp
+sessions.<span style='mso-spacerun:yes'>  </span>This is where you set the path
+to the executable for the EnergyPlus engine. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=Help><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>User Guide<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Help'></span>
+
+<p class=MsoNormal>This command opens the User Guide help pages (what you are
+reading right now) in your default web browser.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name=About><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>About The Plugin...<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:About'></span>
+
+<p class=MsoNormal>This command displays a modal dialog window with version and
+copyright information about the plugin.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#0099FF;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:no;mso-yfti-lastrow:yes;height:.3in'>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt'>
+   User Guide version 1.04
+  </td>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt;text-align:right'>
+   <u><a href="toc.htm">Table Of Contents</a></span></u>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

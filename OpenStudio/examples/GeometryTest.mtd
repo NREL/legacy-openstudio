@@ -1,0 +1,578 @@
+
+ Meters for 134,PSI FOYER LIGHTS 1:Lights Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:PSI FOYER [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:PSI FOYER [J]
+  OnMeter=GeneralLights:InteriorLights:Electricity [J]
+
+ Meters for 208,DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=GeneralLights:InteriorLights:Electricity [J]
+
+ Meters for 242,LEFT FORK LIGHTS 1:Lights Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:LEFT FORK [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:LEFT FORK [J]
+  OnMeter=GeneralLights:InteriorLights:Electricity [J]
+
+ Meters for 276,MIDDLE FORK LIGHTS 1:Lights Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:MIDDLE FORK [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:MIDDLE FORK [J]
+  OnMeter=GeneralLights:InteriorLights:Electricity [J]
+
+ Meters for 310,RIGHT FORK LIGHTS 1:Lights Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:RIGHT FORK [J]
+  OnMeter=InteriorLights:Electricity [J]
+  OnMeter=InteriorLights:Electricity:Zone:RIGHT FORK [J]
+  OnMeter=GeneralLights:InteriorLights:Electricity [J]
+
+ Meters for 344,DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=General:InteriorEquipment:Electricity [J]
+
+ Meters for 388,LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:LEFT FORK [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:LEFT FORK [J]
+  OnMeter=General:InteriorEquipment:Electricity [J]
+
+ Meters for 412,MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:MIDDLE FORK [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:MIDDLE FORK [J]
+  OnMeter=General:InteriorEquipment:Electricity [J]
+
+ Meters for 436,RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Building [J]
+  OnMeter=Electricity:Zone:RIGHT FORK [J]
+  OnMeter=InteriorEquipment:Electricity [J]
+  OnMeter=InteriorEquipment:Electricity:Zone:RIGHT FORK [J]
+  OnMeter=General:InteriorEquipment:Electricity [J]
+
+ Meters for 460,PSI FOYER GASEQ 1:Gas Equipment Gas Consumption [J]
+  OnMeter=Gas:Facility [J]
+  OnMeter=Gas:Building [J]
+  OnMeter=Gas:Zone:PSI FOYER [J]
+  OnMeter=InteriorEquipment:Gas [J]
+  OnMeter=InteriorEquipment:Gas:Zone:PSI FOYER [J]
+  OnMeter=General:InteriorEquipment:Gas [J]
+
+ Meters for 534,DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption [J]
+  OnMeter=Gas:Facility [J]
+  OnMeter=Gas:Building [J]
+  OnMeter=Gas:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=InteriorEquipment:Gas [J]
+  OnMeter=InteriorEquipment:Gas:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=General:InteriorEquipment:Gas [J]
+
+ Meters for 568,LEFT FORK GASEQ 1:Gas Equipment Gas Consumption [J]
+  OnMeter=Gas:Facility [J]
+  OnMeter=Gas:Building [J]
+  OnMeter=Gas:Zone:LEFT FORK [J]
+  OnMeter=InteriorEquipment:Gas [J]
+  OnMeter=InteriorEquipment:Gas:Zone:LEFT FORK [J]
+  OnMeter=General:InteriorEquipment:Gas [J]
+
+ Meters for 602,MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption [J]
+  OnMeter=Gas:Facility [J]
+  OnMeter=Gas:Building [J]
+  OnMeter=Gas:Zone:MIDDLE FORK [J]
+  OnMeter=InteriorEquipment:Gas [J]
+  OnMeter=InteriorEquipment:Gas:Zone:MIDDLE FORK [J]
+  OnMeter=General:InteriorEquipment:Gas [J]
+
+ Meters for 636,RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption [J]
+  OnMeter=Gas:Facility [J]
+  OnMeter=Gas:Building [J]
+  OnMeter=Gas:Zone:RIGHT FORK [J]
+  OnMeter=InteriorEquipment:Gas [J]
+  OnMeter=InteriorEquipment:Gas:Zone:RIGHT FORK [J]
+  OnMeter=General:InteriorEquipment:Gas [J]
+
+ Meters for 5273,PSI FOYER:Zone/Sys Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PSI FOYER [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PSI FOYER [J]
+
+ Meters for 5324,PSI FOYER:Zone/Sys Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PSI FOYER [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PSI FOYER [J]
+
+ Meters for 5360,DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J]
+
+ Meters for 5381,DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J]
+
+ Meters for 5407,LEFT FORK:Zone/Sys Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:LEFT FORK [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:LEFT FORK [J]
+
+ Meters for 5428,LEFT FORK:Zone/Sys Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:LEFT FORK [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:LEFT FORK [J]
+
+ Meters for 5454,MIDDLE FORK:Zone/Sys Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:MIDDLE FORK [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:MIDDLE FORK [J]
+
+ Meters for 5475,MIDDLE FORK:Zone/Sys Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:MIDDLE FORK [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:MIDDLE FORK [J]
+
+ Meters for 5501,RIGHT FORK:Zone/Sys Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:RIGHT FORK [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:RIGHT FORK [J]
+
+ Meters for 5522,RIGHT FORK:Zone/Sys Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:RIGHT FORK [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:RIGHT FORK [J]
+
+ Meters for 5550,PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 5584,PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 5616,DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 5620,DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 5622,LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 5626,LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 5628,MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 5632,MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 5634,RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+  OnMeter=DistrictHeating:Facility [J]
+  OnMeter=DistrictHeating:HVAC [J]
+  OnMeter=Heating:DistrictHeating [J]
+
+ Meters for 5638,RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+  OnMeter=DistrictCooling:Facility [J]
+  OnMeter=DistrictCooling:HVAC [J]
+  OnMeter=Cooling:DistrictCooling [J]
+
+ Meters for 5644,Whole Building:Total Electric Energy Purchased [J]
+  OnMeter=ElectricityPurchased:Facility [J]
+  OnMeter=ElectricityPurchased:Plant [J]
+  OnMeter=Cogeneration:ElectricityPurchased [J]
+
+ Meters for 5675,Whole Building:Total Electric Energy Surplus [J]
+  OnMeter=ElectricitySurplusSold:Facility [J]
+  OnMeter=ElectricitySurplusSold:Plant [J]
+  OnMeter=Cogeneration:ElectricitySurplusSold [J]
+
+ Meters for 5707,Whole Building:Net Electric Energy Purchased [J]
+  OnMeter=ElectricityNet:Facility [J]
+  OnMeter=ElectricityNet:Plant [J]
+  OnMeter=Cogeneration:ElectricityNet [J]
+
+ Meters for 6099,Site:Carbon Equivalent Pollution From NOx [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 6120,Site:Carbon Equivalent Pollution From CH4 [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 6121,Site:Carbon Equivalent Pollution From CO2 [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ For Meter=Electricity:Facility [J], ResourceType=Electricity, contents are:
+  PSI FOYER LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption
+  LEFT FORK LIGHTS 1:Lights Electric Consumption
+  MIDDLE FORK LIGHTS 1:Lights Electric Consumption
+  RIGHT FORK LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption
+  LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption
+  MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption
+  RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=Electricity:Building [J], ResourceType=Electricity, Group=Building, contents are:
+  PSI FOYER LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption
+  LEFT FORK LIGHTS 1:Lights Electric Consumption
+  MIDDLE FORK LIGHTS 1:Lights Electric Consumption
+  RIGHT FORK LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption
+  LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption
+  MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption
+  RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=Electricity:Zone:PSI FOYER [J], ResourceType=Electricity, Group=Zone, contents are:
+  PSI FOYER LIGHTS 1:Lights Electric Consumption
+
+ For Meter=InteriorLights:Electricity [J], ResourceType=Electricity, EndUse=InteriorLights, contents are:
+  PSI FOYER LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption
+  LEFT FORK LIGHTS 1:Lights Electric Consumption
+  MIDDLE FORK LIGHTS 1:Lights Electric Consumption
+  RIGHT FORK LIGHTS 1:Lights Electric Consumption
+
+ For Meter=InteriorLights:Electricity:Zone:PSI FOYER [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  PSI FOYER LIGHTS 1:Lights Electric Consumption
+
+ For Meter=GeneralLights:InteriorLights:Electricity [J], ResourceType=Electricity, EndUse=InteriorLights, contents are:
+  PSI FOYER LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption
+  LEFT FORK LIGHTS 1:Lights Electric Consumption
+  MIDDLE FORK LIGHTS 1:Lights Electric Consumption
+  RIGHT FORK LIGHTS 1:Lights Electric Consumption
+
+ For Meter=Electricity:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=Electricity, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption
+  DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorLights:Electricity:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS LIGHTS 1:Lights Electric Consumption
+
+ For Meter=Electricity:Zone:LEFT FORK [J], ResourceType=Electricity, Group=Zone, contents are:
+  LEFT FORK LIGHTS 1:Lights Electric Consumption
+  LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorLights:Electricity:Zone:LEFT FORK [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  LEFT FORK LIGHTS 1:Lights Electric Consumption
+
+ For Meter=Electricity:Zone:MIDDLE FORK [J], ResourceType=Electricity, Group=Zone, contents are:
+  MIDDLE FORK LIGHTS 1:Lights Electric Consumption
+  MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorLights:Electricity:Zone:MIDDLE FORK [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  MIDDLE FORK LIGHTS 1:Lights Electric Consumption
+
+ For Meter=Electricity:Zone:RIGHT FORK [J], ResourceType=Electricity, Group=Zone, contents are:
+  RIGHT FORK LIGHTS 1:Lights Electric Consumption
+  RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorLights:Electricity:Zone:RIGHT FORK [J], ResourceType=Electricity, EndUse=InteriorLights, Group=Zone, contents are:
+  RIGHT FORK LIGHTS 1:Lights Electric Consumption
+
+ For Meter=InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption
+  LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption
+  MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption
+  RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorEquipment:Electricity:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=General:InteriorEquipment:Electricity [J], ResourceType=Electricity, EndUse=InteriorEquipment, contents are:
+  DORM ROOMS AND COMMON AREAS ELECEQ 1:Electric Equipment Electric Consumption
+  LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption
+  MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption
+  RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorEquipment:Electricity:Zone:LEFT FORK [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  LEFT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorEquipment:Electricity:Zone:MIDDLE FORK [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  MIDDLE FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=InteriorEquipment:Electricity:Zone:RIGHT FORK [J], ResourceType=Electricity, EndUse=InteriorEquipment, Group=Zone, contents are:
+  RIGHT FORK ELECEQ 1:Electric Equipment Electric Consumption
+
+ For Meter=Gas:Facility [J], ResourceType=Gas, contents are:
+  PSI FOYER GASEQ 1:Gas Equipment Gas Consumption
+  DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption
+  LEFT FORK GASEQ 1:Gas Equipment Gas Consumption
+  MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption
+  RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=Gas:Building [J], ResourceType=Gas, Group=Building, contents are:
+  PSI FOYER GASEQ 1:Gas Equipment Gas Consumption
+  DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption
+  LEFT FORK GASEQ 1:Gas Equipment Gas Consumption
+  MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption
+  RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=Gas:Zone:PSI FOYER [J], ResourceType=Gas, Group=Zone, contents are:
+  PSI FOYER GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=InteriorEquipment:Gas [J], ResourceType=Gas, EndUse=InteriorEquipment, contents are:
+  PSI FOYER GASEQ 1:Gas Equipment Gas Consumption
+  DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption
+  LEFT FORK GASEQ 1:Gas Equipment Gas Consumption
+  MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption
+  RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=InteriorEquipment:Gas:Zone:PSI FOYER [J], ResourceType=Gas, EndUse=InteriorEquipment, Group=Zone, contents are:
+  PSI FOYER GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=General:InteriorEquipment:Gas [J], ResourceType=Gas, EndUse=InteriorEquipment, contents are:
+  PSI FOYER GASEQ 1:Gas Equipment Gas Consumption
+  DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption
+  LEFT FORK GASEQ 1:Gas Equipment Gas Consumption
+  MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption
+  RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=Gas:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=Gas, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=InteriorEquipment:Gas:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=Gas, EndUse=InteriorEquipment, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=Gas:Zone:LEFT FORK [J], ResourceType=Gas, Group=Zone, contents are:
+  LEFT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=InteriorEquipment:Gas:Zone:LEFT FORK [J], ResourceType=Gas, EndUse=InteriorEquipment, Group=Zone, contents are:
+  LEFT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=Gas:Zone:MIDDLE FORK [J], ResourceType=Gas, Group=Zone, contents are:
+  MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=InteriorEquipment:Gas:Zone:MIDDLE FORK [J], ResourceType=Gas, EndUse=InteriorEquipment, Group=Zone, contents are:
+  MIDDLE FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=Gas:Zone:RIGHT FORK [J], ResourceType=Gas, Group=Zone, contents are:
+  RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=InteriorEquipment:Gas:Zone:RIGHT FORK [J], ResourceType=Gas, EndUse=InteriorEquipment, Group=Zone, contents are:
+  RIGHT FORK GASEQ 1:Gas Equipment Gas Consumption
+
+ For Meter=EnergyTransfer:Facility [J], ResourceType=EnergyTransfer, contents are:
+  PSI FOYER:Zone/Sys Sensible Heating Energy
+  PSI FOYER:Zone/Sys Sensible Cooling Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Heating Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Cooling Energy
+  LEFT FORK:Zone/Sys Sensible Heating Energy
+  LEFT FORK:Zone/Sys Sensible Cooling Energy
+  MIDDLE FORK:Zone/Sys Sensible Heating Energy
+  MIDDLE FORK:Zone/Sys Sensible Cooling Energy
+  RIGHT FORK:Zone/Sys Sensible Heating Energy
+  RIGHT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Building [J], ResourceType=EnergyTransfer, Group=Building, contents are:
+  PSI FOYER:Zone/Sys Sensible Heating Energy
+  PSI FOYER:Zone/Sys Sensible Cooling Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Heating Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Cooling Energy
+  LEFT FORK:Zone/Sys Sensible Heating Energy
+  LEFT FORK:Zone/Sys Sensible Cooling Energy
+  MIDDLE FORK:Zone/Sys Sensible Heating Energy
+  MIDDLE FORK:Zone/Sys Sensible Cooling Energy
+  RIGHT FORK:Zone/Sys Sensible Heating Energy
+  RIGHT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PSI FOYER [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PSI FOYER:Zone/Sys Sensible Heating Energy
+  PSI FOYER:Zone/Sys Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Heating, contents are:
+  PSI FOYER:Zone/Sys Sensible Heating Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Heating Energy
+  LEFT FORK:Zone/Sys Sensible Heating Energy
+  MIDDLE FORK:Zone/Sys Sensible Heating Energy
+  RIGHT FORK:Zone/Sys Sensible Heating Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PSI FOYER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PSI FOYER:Zone/Sys Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Cooling, contents are:
+  PSI FOYER:Zone/Sys Sensible Cooling Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Cooling Energy
+  LEFT FORK:Zone/Sys Sensible Cooling Energy
+  MIDDLE FORK:Zone/Sys Sensible Cooling Energy
+  RIGHT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PSI FOYER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PSI FOYER:Zone/Sys Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Heating Energy
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:DORM ROOMS AND COMMON AREAS [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  DORM ROOMS AND COMMON AREAS:Zone/Sys Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:LEFT FORK [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  LEFT FORK:Zone/Sys Sensible Heating Energy
+  LEFT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:LEFT FORK [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  LEFT FORK:Zone/Sys Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:LEFT FORK [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  LEFT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:MIDDLE FORK [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  MIDDLE FORK:Zone/Sys Sensible Heating Energy
+  MIDDLE FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:MIDDLE FORK [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  MIDDLE FORK:Zone/Sys Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:MIDDLE FORK [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  MIDDLE FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:RIGHT FORK [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  RIGHT FORK:Zone/Sys Sensible Heating Energy
+  RIGHT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:RIGHT FORK [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  RIGHT FORK:Zone/Sys Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:RIGHT FORK [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  RIGHT FORK:Zone/Sys Sensible Cooling Energy
+
+ For Meter=DistrictHeating:Facility [J], ResourceType=DistrictHeating, contents are:
+  PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+
+ For Meter=DistrictHeating:HVAC [J], ResourceType=DistrictHeating, Group=HVAC, contents are:
+  PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+
+ For Meter=Heating:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=Heating, contents are:
+  PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+
+ For Meter=DistrictCooling:Facility [J], ResourceType=DistrictCooling, contents are:
+  PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+
+ For Meter=DistrictCooling:HVAC [J], ResourceType=DistrictCooling, Group=HVAC, contents are:
+  PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+
+ For Meter=Cooling:DistrictCooling [J], ResourceType=DistrictCooling, EndUse=Cooling, contents are:
+  PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+
+ For Meter=ElectricityPurchased:Facility [J], ResourceType=ElectricityPurchased, contents are:
+  Whole Building:Total Electric Energy Purchased
+
+ For Meter=ElectricityPurchased:Plant [J], ResourceType=ElectricityPurchased, Group=Plant, contents are:
+  Whole Building:Total Electric Energy Purchased
+
+ For Meter=Cogeneration:ElectricityPurchased [J], ResourceType=ElectricityPurchased, EndUse=Cogeneration, contents are:
+  Whole Building:Total Electric Energy Purchased
+
+ For Meter=ElectricitySurplusSold:Facility [J], ResourceType=ElectricitySurplusSold, contents are:
+  Whole Building:Total Electric Energy Surplus
+
+ For Meter=ElectricitySurplusSold:Plant [J], ResourceType=ElectricitySurplusSold, Group=Plant, contents are:
+  Whole Building:Total Electric Energy Surplus
+
+ For Meter=Cogeneration:ElectricitySurplusSold [J], ResourceType=ElectricitySurplusSold, EndUse=Cogeneration, contents are:
+  Whole Building:Total Electric Energy Surplus
+
+ For Meter=ElectricityNet:Facility [J], ResourceType=ElectricityNet, contents are:
+  Whole Building:Net Electric Energy Purchased
+
+ For Meter=ElectricityNet:Plant [J], ResourceType=ElectricityNet, Group=Plant, contents are:
+  Whole Building:Net Electric Energy Purchased
+
+ For Meter=Cogeneration:ElectricityNet [J], ResourceType=ElectricityNet, EndUse=Cogeneration, contents are:
+  Whole Building:Net Electric Energy Purchased
+
+ For Meter=Carbon Equivalent:Facility [kg], ResourceType=Carbon Equivalent, contents are:
+  Site:Carbon Equivalent Pollution From NOx
+  Site:Carbon Equivalent Pollution From CH4
+  Site:Carbon Equivalent Pollution From CO2
+
+ For Meter=CarbonEquivalentEmissions:Carbon Equivalent [kg], ResourceType=Carbon Equivalent, EndUse=CarbonEquivalentEmissions, contents are:
+  Site:Carbon Equivalent Pollution From NOx
+  Site:Carbon Equivalent Pollution From CH4
+  Site:Carbon Equivalent Pollution From CO2

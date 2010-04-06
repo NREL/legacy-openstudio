@@ -1,0 +1,384 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="getting_started_files/filelist.xml">
+<title>OpenStudio - User Guide</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>National Renewable Energy Laboratory</o:Author>
+  <o:LastAuthor>Peter Graham Ellis</o:LastAuthor>
+  <o:Revision>55</o:Revision>
+  <o:TotalTime>388</o:TotalTime>
+  <o:Created>2007-04-05T21:58:00Z</o:Created>
+  <o:LastSaved>2008-03-24T21:45:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>932</o:Words>
+  <o:Characters>5314</o:Characters>
+  <o:Company>National Renewable Energy Laboratory</o:Company>
+  <o:Lines>44</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>6234</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>FullPage</w:Zoom>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+  {mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+  {color:blue;
+  text-decoration:underline;
+  text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+  {color:purple;
+  text-decoration:underline;
+  text-underline:single;}
+p.Body, li.Body, div.Body
+  {mso-style-name:Body;
+  margin-top:0in;
+  margin-right:0in;
+  margin-bottom:6.0pt;
+  margin-left:0in;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";}
+@page Section1
+  {size:8.5in 11.0in;
+  margin:1.0in 1.25in 1.0in 1.25in;
+  mso-header-margin:.5in;
+  mso-footer-margin:.5in;
+  mso-paper-source:0;}
+div.Section1
+  {page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+  {mso-style-name:"Table Normal";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  mso-style-noshow:yes;
+  mso-style-parent:"";
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:#0400;
+  mso-fareast-language:#0400;
+  mso-bidi-language:#0400;}
+table.MsoTableGrid
+  {mso-style-name:"Table Grid";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-border-insideh:.5pt solid windowtext;
+  mso-border-insidev:.5pt solid windowtext;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:#0400;
+  mso-fareast-language:#0400;
+  mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in;margin-left:10%;margin-right:10%'>
+
+
+<div class=Section1>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0in 5.4pt 0in 5.4pt;background-color:#0099FF'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:no;
+  height:.5in'>
+  <td width="50%" style='width:50%;vertical-align:middle;padding:5.4pt 5.4pt 5.4pt 5.4pt;height:.5in'>
+   <a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm">
+    <img src="./using_files/OpenStudio_3D.jpg" alt="OpenStudio Logo" width="40%"/>
+   </a>
+  </td>
+  <td width="50%" style='width:50%;text-align:right;vertical-align:middle;padding:5.4pt 5.4pt 5.4pt 5.4pt;height:.5in'>
+    <a href="http://apps1.eere.energy.gov/buildings/energyplus/">
+     <img src="./using_files/EnergyPlus_3D.jpg" alt="EnergyPlus Logo" width="30%"/>
+    </a>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:no;mso-yfti-lastrow:yes;height:.3in'>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt'>
+   User Guide version 1.04
+  </td>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt;text-align:right'>
+   <u><a href="toc.htm">Table Of Contents</a></span></u>
+  </td>
+ </tr>
+</table>
+</br></br>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:18.0pt'>Getting Started<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Installing<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>If you are reading this, then chances are good that you have
+already figured out how to install the plugin. Congratulations!<span
+style='mso-spacerun:yes'>  </span>The plugin lives in the SketchUp plugins
+directory at “Google Sketchup 7/Plugins/OpenStudio”.<span
+style='mso-spacerun:yes'>  </span>The next time you start SketchUp, the program
+should automatically recognize and load OpenStudio as an extension.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Please note the following system requirements:</p>
+
+<p class=MsoNormal>Windows XP, 2000, Vista, Windows 7 or Macintosh OS X Leopard, Snow Leopard</p>
+
+<p class=MsoNormal>Google SketchUp 7.0, or SketchUp 7.1</p>
+
+<p class=MsoNormal>EnergyPlus 5.0</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Disabling Or Uninstalling<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>If you ever want to temporarily turn off or disable the
+plugin, you can do that by visiting the Preferences dialog (<b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'>Window/Preferences</span></b>)
+in SketchUp and looking for Extensions. Simply uncheck the box next to “OpenStudio”.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If you want to completely uninstall the plugin, there is an
+uninstaller program in the plugin directory at “Google Sketchup
+7/Plugins/OpenStudio”.<span style='mso-spacerun:yes'>  </span>Just double-click
+the executable to uninstall.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Learning SketchUp<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Because the plugin is very tightly integrated with SketchUp,
+it is imperative that you familiarize yourself with the tools and capabilities
+that SketchUp offers.<span style='mso-spacerun:yes'>  </span>The more that you know
+how to do in SketchUp, the easier it will be to make the plugin work for
+you.<span style='mso-spacerun:yes'>  </span>Learning SketchUp can be
+deceptively easy:<span style='mso-spacerun:yes'>  </span>many operations are
+very intuitive, but the program also has some depth to it—there are tons of
+advanced techniques that you will only discover after studying the
+documentation.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>SketchUp provides a lot of resources to help you learn the
+program.<span style='mso-spacerun:yes'>  </span><b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'>SketchUp Help</span></b> (the <i
+style='mso-bidi-font-style:normal'>SketchUp User's Guide</i>), <st1:PlaceName
+w:st="on"><b style='mso-bidi-font-weight:normal'><span style='color:#993366'>Online</span></b></st1:PlaceName><b
+style='mso-bidi-font-weight:normal'><span style='color:#993366'> <st1:PlaceName
+w:st="on">Help</st1:PlaceName> <st1:PlaceType w:st="on">Center</st1:PlaceType></span></b>,
+and <st1:place w:st="on"><st1:PlaceName w:st="on"><b style='mso-bidi-font-weight:
+  normal'><span style='color:#993366'>Learning</span></b></st1:PlaceName><b
+ style='mso-bidi-font-weight:normal'><span style='color:#993366'> <st1:PlaceType
+ w:st="on">Center</st1:PlaceType></span></b></st1:place> are all accessible
+from the <b style='mso-bidi-font-weight:normal'><span style='color:#993366'>Help</span></b>
+menu. There is also a lot information available on the SketchUp web site (<a
+href="http://www.sketchup.com/" target="_blank">http://www.sketchup.com</a>) or
+Google SketchUp web site (<a href="http://sketchup.google.com/" target="_blank">http://sketchup.google.com</a>),
+including video tutorials (<a href="http://sketchup.google.com/vtutorials.html"
+target="_blank">http://sketchup.google.com/vtutorials.html</a>).<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Learning EnergyPlus<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>If you plan to really use the plugin, it is also critical that
+you learn how to use the EnergyPlus engine.<span style='mso-spacerun:yes'>
+</span>The plugin is not yet a full-featured interface for EnergyPlus so it is
+unavoidable that you will have to work with the low-level syntax of EnergyPlus
+input objects at some point.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Fortunately, EnergyPlus provides a lot of documentation to
+help you learn.<span style='mso-spacerun:yes'>  </span>All of the documentation
+is in PDF format and is located in the “Documentation” folder wherever you
+installed EnergyPlus.<span style='mso-spacerun:yes'>  </span>A good place to
+start is the <i style='mso-bidi-font-style:normal'>Getting Started</i>
+document.<span style='mso-spacerun:yes'>  </span>The <i style='mso-bidi-font-style:
+normal'>Input Output Reference</i> and <i style='mso-bidi-font-style:normal'>Engineering
+Reference</i> documents are also indispensable resources.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If you need additional assistance while learning EnergyPlus,
+there are a number of ways you can get help by email here:<span
+style='mso-spacerun:yes'>  </span><a
+href="http://www.eere.energy.gov/buildings/energyplus/support.html"
+target="_blank">http://www.eere.energy.gov/buildings/energyplus/support.html</a></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="Setting_Up"><b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Setting Up<o:p></o:p></i></b></a></p>
+
+<span style='mso-bookmark:Setting_Up'></span>
+
+<p class=MsoNormal>If you want to run EnergyPlus from within SketchUp using the
+plugin, you will need to make sure you have already downloaded and installed
+the EnergyPlus engine.<span style='mso-spacerun:yes'>  </span>If you don’t have
+it yet, you can download it here:<span style='mso-spacerun:yes'>  </span><a
+href="http://www.energyplus.gov/" target="_blank">http://www.energyplus.gov</a><span
+style='mso-spacerun:yes'>  </span>(Note: You can still draw and edit EnergyPlus
+input files without the engine.)<span style='mso-spacerun:yes'>  </span>Next,
+select the <b style='mso-bidi-font-weight:normal'><span style='color:#993366'><a
+href="commands.htm#Preferences"><span style='color:#993366'>Preferences</span></a>
+</span></b>command under the <b style='mso-bidi-font-weight:normal'><span
+style='color:#993366'>Plugins/OpenStudio</span></b> menu. Locate the
+EnergyPlus executable “EnergyPlus.exe” wherever you installed it by clicking
+the Browse button associated with the EXE Path field. If that is successful,
+you are now ready to draw <u>and</u> run EnergyPlus input files.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Before you start drawing from scratch, you will want to make
+sure the input file you are working with has some constructions defined
+already.<span style='mso-spacerun:yes'>  </span>(Unfortunately, the plugin does
+not yet manage constructions and materials for you.)<span
+style='mso-spacerun:yes'>  </span>The new file template (“New_File
+Template.idf”) comes with a small set of constructions, but you may also want
+to edit the file in a text editor to add your favorite constructions there so
+that they are always available when you use the <b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'><a href="commands.htm#New"><span
+style='color:#993366'>New</span></a></span></b> command.<span
+style='mso-spacerun:yes'>  </span>Another approach is to first create some
+constructions in an input file using another tool, or using a text editor, then
+<a href="commands.htm#Open">open</a> it with the plugin to draw the
+geometry.<span style='mso-spacerun:yes'>  </span>You may also create a new
+construction object at any time using the <b style='mso-bidi-font-weight:normal'><span
+style='color:purple'><a href="commands.htm#New_Construction_Stub"><span
+style='color:purple'>New Construction Stub</span></a></span></b> command.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Conventions<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Throughout this User Guide we use some conventions to make
+it easier to identify a few things.<span style='mso-spacerun:yes'>  </span>You
+might have noticed already that the names of SketchUp and plugin menu commands
+are shown in <b style='mso-bidi-font-weight:normal'><span style='color:#993366'>bold
+case and purple color</span></b>.<span style='mso-spacerun:yes'>  </span>When
+it's helpful to be more specific about the path to the command, slashes will be
+used to separate menu name, submenu names, and menu command name.<span
+style='mso-spacerun:yes'>  </span>For example: <b style='mso-bidi-font-weight:
+normal'><span style='color:#993366'>Plugins/OpenStudio/User
+Guide<span style='mso-spacerun:yes'>  </span></span></b>To distinguish
+EnergyPlus input objects we show the name in <b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>bold case and dark blue color</span></b> and
+often use all capitals.<span style='mso-spacerun:yes'>  </span>For
+example:<span style='mso-spacerun:yes'>  </span><b style='mso-bidi-font-weight:
+normal'><span style='color:navy'>BuildingSurface:Detailed.</span></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>We also use some conventions for terminology.<span
+style='mso-spacerun:yes'>  </span>In SketchUp every object you draw on the
+screen is called an <i style='mso-bidi-font-style:normal'>entity</i>.<span
+style='mso-spacerun:yes'>  </span>Entities include <i style='mso-bidi-font-style:
+normal'>groups</i>, <i style='mso-bidi-font-style:normal'>faces</i>, and <i
+style='mso-bidi-font-style:normal'>edges</i>, among others.<span
+style='mso-spacerun:yes'>  </span>These terms are consist with the SketchUp
+documentation so they shouldn’t be a surprise if you are already a veteran
+user.<span style='mso-spacerun:yes'>  </span>On the EnergyPlus side, the <i
+style='mso-bidi-font-style:normal'>input data file</i> (IDF) is made up of
+objects as well.<span style='mso-spacerun:yes'>  </span>An EnergyPlus <i
+style='mso-bidi-font-style:normal'>input object</i> is a block of text with
+data values separated by commas and everything terminated with a semicolon.<span
+style='mso-spacerun:yes'>  </span>The individual data values are called <i
+style='mso-bidi-font-style:normal'>fields</i>. The input objects used for
+describing the geometry of the building are called <i style='mso-bidi-font-style:
+normal'>zones</i> and <i style='mso-bidi-font-style:normal'>surfaces</i>.<span
+style='mso-spacerun:yes'>  </span>If you are an EnergyPlus user, then these
+terms should be very familiar to you.<span style='mso-spacerun:yes'>
+</span>For the purposes of the plugin, there is a one-to-one relationship
+between <i style='mso-bidi-font-style:normal'>groups</i> &#8594; <i
+style='mso-bidi-font-style:normal'>zones</i> and <i style='mso-bidi-font-style:
+normal'>faces</i> &#8594; <i style='mso-bidi-font-style:normal'>surfaces</i>.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;background:#0099FF;border-collapse:collapse;mso-yfti-tbllook:
+ 480;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:no;mso-yfti-lastrow:yes;height:.3in'>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt'>
+   User Guide version 1.04
+  </td>
+  <td width="50%" style='width:50.0%;padding:0in 5.4pt 0in 5.4pt;height:.3in;font-size:14pt;text-align:right'>
+   <u><a href="toc.htm">Table Of Contents</a></span></u>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
