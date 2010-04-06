@@ -314,6 +314,8 @@ module OpenStudio
       end
       @input_object.fields[5] = 'Surface'
       @input_object.fields[6] = other.name
+      @input_object.fields[7] = "NoSun"
+      @input_object.fields[8] = "NoWind"
       @input_object.fields[3] = default_construction # do after making interior
     end
     

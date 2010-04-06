@@ -19,15 +19,24 @@ module OpenStudio
 
     def onLButtonUp(flags, x, y, view)
       super
-
-      Sketchup.active_model.start_operation("Shading Group")
+      
+      model = Sketchup.active_model
+      active_path = model.active_path
+      
+      if not active_path.nil?
+        UI.messagebox("Zone should be added at the top level of a SketchUp model")
+        Sketchup.send_action("selectSelectionTool:")
+        return false
+      end
+      
+      model.start_operation("Shading Group")
 
       shading_group = DetachedShadingGroup.new
       shading_group.origin = @ip.position
       shading_group.show_origin = true
       shading_group.draw_entity
 
-      Sketchup.active_model.selection.add(shading_group.entity)
+      model.selection.add(shading_group.entity)
 
       # Always want to end with the Selection Tool so users can double-click the new shading group.
       Sketchup.send_action("selectSelectionTool:")

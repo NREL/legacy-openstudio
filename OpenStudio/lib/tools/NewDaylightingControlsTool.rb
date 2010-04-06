@@ -42,7 +42,7 @@ module OpenStudio
       end
 
       if not this_zone
-        UI.messagebox "You need to be in a Zone to add Daylighting Controls"
+        UI.messagebox "You need to be in a Zone to add Daylighting:Controls"
         Sketchup.send_action("selectSelectionTool:")
         return false
       end
@@ -50,7 +50,7 @@ module OpenStudio
       # test to see if there are already any Daylight Control Pairs in this zone
       Plugin.model_manager.daylighting_controls.each do |daylighting_controls|
         if daylighting_controls.zone == this_zone.input_object
-          UI.messagebox "Zone #{this_zone.input_object} already has Daylighting Controls"
+          UI.messagebox "Zone #{this_zone.input_object} already has Daylighting:Controls"
           Sketchup.send_action("selectSelectionTool:")
           return false
         end

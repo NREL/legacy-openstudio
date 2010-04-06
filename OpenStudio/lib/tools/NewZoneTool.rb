@@ -26,7 +26,8 @@ module OpenStudio
       active_path = model.active_path
 
       if not active_path.nil?
-        UI.messagebox "Zone should be added at the top level of a SketchUp model"
+        UI.messagebox("Zone should be added at the top level of a SketchUp model")
+        Sketchup.send_action("selectSelectionTool:")
         return false
       end
 

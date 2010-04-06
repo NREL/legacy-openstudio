@@ -227,23 +227,23 @@ module OpenStudio
         # applied to a square face, but if the user has stretched the map I need
         # to adjust the ratio based on the aspect ratio of the stretch.
         ratio = ((numy_draw*1.0)/(numx_draw*1.0))*(scalex/scaley)*1.0
-        puts "ratio=", ratio
+        #puts "ratio=", ratio
 
-      if (ratio > 15)
-        gridfront = "OpenStudioGrid_20"
-      elsif (ratio > 7.5)
-        gridfront = "OpenStudioGrid_10"
-      elsif (ratio > 3)
-        gridfront = "OpenStudioGrid_5"
-      elsif (ratio > 0.333333)
-        gridfront = "OpenStudioGrid_1"
-      elsif (ratio > 0.133333)
-        gridfront = "OpenStudioGrid_02"
-      elsif (ratio > 0.067777)
-        gridfront = "OpenStudioGrid_01"
-      else
-        gridfront = "OpenStudioGrid_005"
-     end
+        if (ratio > 15)
+          gridfront = "OpenStudioGrid_20"
+        elsif (ratio > 7.5)
+          gridfront = "OpenStudioGrid_10"
+        elsif (ratio > 3)
+          gridfront = "OpenStudioGrid_5"
+        elsif (ratio > 0.333333)
+          gridfront = "OpenStudioGrid_1"
+        elsif (ratio > 0.133333)
+          gridfront = "OpenStudioGrid_02"
+        elsif (ratio > 0.067777)
+          gridfront = "OpenStudioGrid_01"
+        else
+          gridfront = "OpenStudioGrid_005"
+       end
 
         # position the texture
         pts = []
@@ -321,6 +321,10 @@ module OpenStudio
 
 ##### Begin new methods for the interface #####
 
+    def zone
+      return(@input_object.fields[2])
+    end
+    
     def set_entity_name
       #puts "OutputIlluminanceMap.set_entity_name"
       

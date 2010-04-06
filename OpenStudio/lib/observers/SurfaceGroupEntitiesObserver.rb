@@ -162,7 +162,7 @@ module OpenStudio
               error_message = ""
             
               if (drawing_interface.class == DaylightingControls)
-                puts "SurfaceGroupEntitiesObserver.onElementAdded(DaylightingControls):" + entity.to_s
+                puts "SurfaceGroupEntitiesObserver.onElementAdded(Daylighting:Controls):" + entity.to_s
                 
                 if (@drawing_interface.class == Zone)
                 
@@ -172,7 +172,7 @@ module OpenStudio
                       already_exists = true
                     elsif daylighting_controls.zone == @drawing_interface.input_object
                       need_to_remove = true
-                      error_message = "Zone #{@drawing_interface.input_object} already has Daylighting Controls"
+                      error_message = "Zone #{@drawing_interface.input_object} already has Daylighting:Controls"
                       break
                     end
                   end
@@ -184,7 +184,7 @@ module OpenStudio
                 else 
                   # not added to a zone
                   need_to_remove = true
-                  error_message = "Can only add Daylighting Controls to a Zone"
+                  error_message = "Can only add DaylightingControls to a Zone"
                 end
                 
               elsif(drawing_interface.class == OutputIlluminanceMap)
@@ -196,6 +196,10 @@ module OpenStudio
                   Plugin.model_manager.output_illuminance_maps.each do |output_illuminance_map| 
                     if output_illuminance_map.entity == entity
                       already_exists = true
+                    elsif output_illuminance_map.zone == @drawing_interface.input_object
+                      need_to_remove = true
+                      error_message = "Zone #{@drawing_interface.input_object} already has an Output:IlluminanceMap"
+                      break
                     end
                   end
                   
@@ -206,7 +210,7 @@ module OpenStudio
                 else 
                   # not added to a zone
                   need_to_remove = true
-                  error_message = "Can only add Output Illuminance Map to a Zone"
+                  error_message = "Can only add Output:IlluminanceMap to a Zone"
                 end
                              
               end

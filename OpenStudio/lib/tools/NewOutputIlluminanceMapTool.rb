@@ -47,6 +47,15 @@ module OpenStudio
         return false
       end
       
+      # test to see if there are already any Output Illuminance Maps in this zone
+      Plugin.model_manager.output_illuminance_maps.each do |output_illuminance_map|
+        if output_illuminance_map.zone == this_zone.input_object
+          UI.messagebox "Zone #{this_zone.input_object} already has an Ouput:IlluminanceMap"
+          Sketchup.send_action("selectSelectionTool:")
+          return false
+        end
+      end
+      
       Sketchup.active_model.start_operation("Output:IlluminanceMap")
       
       initial_position = @ip.position
