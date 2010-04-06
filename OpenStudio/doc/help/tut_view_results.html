@@ -122,12 +122,28 @@ function msout(num) {
 <ul>
     <li>Once the ESO file is loaded a list of available run periods (sizing and weather file periods reported in the simulation) and available variables
         are populated for the user to choose from.</li>
-    <li>OpenStudio can display results related to either surfaces (e.g. Surface Temperature) or Zones (e.g. Mean Air Temperature).  When reporting surface
-        variables the user can display results separately for the inside and outside surfaces.</li>
-    <li>OpenStudio cannot currently display data at the HVAC Timestep reporting frequency.</li>
+          <br><img src="dialogs/RenderingSettings.png"  alt=""></li><br>
+      <p2i>Rendering Settings dialog box</P2i><br><br>
+          <li>OpenStudio can display results related to either surfaces (e.g. Surface Temperature) or Zones (e.g. Mean Air Temperature).  When reporting surface
+      variables the user can display results separately for the inside and outside surfaces.</li>
+          <br><img src="dialogs/RenderingSurfaceVariables.png"  alt=""></li><br>
+      <p2i>list of surface variables available</P2i><br><br>
+      
+                <br><img src="dialogs/RenderingZoneVariables.png"  alt=""></li><br>
+      <p2i>list of zone variables available</P2i><br><br>
+      
+          <li>OpenStudio cannot currently display data at the HVAC Timestep reporting frequency.</li>
     <li>The user can choose to display data either in absolute units from the ESO, or after normalizing by surface area for surface variables or Zone floor
         area for Zone level variables.  Normalizing the data is helpful for some variable types like Lighting Power, so that large zones do not
         appear to have very different properties than smaller zones, but normalization does not make sense for other variables such as Surface Temperature.</li>
+                <br><img src="dialogs/tut_rendering_05.png" width="500" alt=""></li><br>
+       <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Zone/Sys Sensible Cooloring Rate at 2:00pm on 7/18</P2i><br>   
+ 
+                <br><img src="dialogs/tut_rendering_06.png" width="500" alt=""></li><br>
+        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Normalized Zone/Sys Sensible Cooloring Rate at 2:00pm on 7/18</P2i><br><br>   
+ 
     <li>The user can choose a minimum and maximum value for the color scale used to visualize report variables.  If visualizing report variables in
         absolute units the user can automatically set the range using the minimum and maximum values of each variable.  This option is not available
         if normalizing the report variable by surface or floor area, in that case the user must set the range by hand.  It may help to apply the normalization
@@ -141,12 +157,23 @@ function msout(num) {
      <li>Once you have selected the data and run period for visualization, press "Apply" or "OK" to save your settings.</li>
      <li>The choose the "Render by Data Value" tool to visualize the data on your input file geometry.  Time for the visualization
          is controlled using the Shadow Settings dialog which can be accessed through Window->Shadows.  This dialog allows you to
-         choose the date and time (in standard time only, does not account for Daylight Savings) to show results at.  Note that
+         choose the date and time (in standard time only, does not account for Daylight Savings) to show results for.  Note that
        	 no data will be shown (all white surfaces) if you are currently looking at a date and time without data for the selected
        	 run period, for example if you are looking at a design day run period but at a time and date different than the selected
        	 design day.</li>
-     <li>The color scale tool may be used to generate a color scale for reference.</li>
-     <li>The data tool may be used to show the data value for a given surface or Zone at the current time.</li>
+                <br><img src="dialogs/tut_rendering_01.png" width="500" alt=""></li><br>
+        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Surface Ext Solar Incident at 8:36am on 5/12</P2i><br>   
+                <br><img src="dialogs/tut_rendering_02.png" width="500" alt=""></li><br>
+        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Surface Ext Solar Incident at 8:36am on 5/12</P2i><br>   
+                <br><img src="dialogs/tut_rendering_03.png" width="500" alt=""></li><br>
+       <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+      <p2i>Daylighting Illum at Ref Point 1 at 3:08pm on 5/12 (Zone Variable)</P2i>
+      <br>
+      <br>     
+      <li>The color scale tool may be used to generate a color scale for reference. <em>(see images above)</em></li>
+     <li>The data tool may be used to show the data value for a given surface or Zone at the current time. <em>(see images above)</em></li>
 </ul>
 </div>
 
@@ -155,7 +182,11 @@ function msout(num) {
 <ul>
      <li>The OpenStudio animation tools can be used to configure an animation of the results as they change over some period of time.</li>
      <li>Additionally, SketchUp scenes can be developed which include both time as well as other settings such as camera position.</li>
-</ul>
+                <br><img src="dialogs/tut_rendering_04.png" width="500" alt=""></li><br>
+        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Outside and Inside Surface Temperature at 2:00pm on 8/25 (Zone Variable)</P2i>
+      <br><p2i>You can animate through the Animations Settings or the Scenes (both shown)</P2i>
+      </ul>
 </div>
 
 					</td>

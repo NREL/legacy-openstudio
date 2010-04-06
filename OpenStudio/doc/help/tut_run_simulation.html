@@ -116,12 +116,71 @@ function msout(num) {
 <H3>Configure Simulation Options</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>The Run Simulation dialog gives a variety of options for configuring the simulation before running EnergyPlus. These options may result in a different
-         input file than the one you are working with.  To see the input file as simulated check in the Run Directory indicated by the dialog.</li>
-     <li>"Run design day simulations" allows the user to select whether reports from design day simulations are reported in the detailed (ESO)
-          output file of EnergyPlus.  Sizing calculations are still performed, but report data is not output during the sizing period if this box is
-          not checked.</li>
-</ul>
+     <li>Run Control
+       <ul>
+         <li>The Run Simulation dialog gives a variety of options for configuring the simulation before running EnergyPlus. These options may result in a different
+           input file than the one you are working with.  To see the input file as simulated check in the Run Directory indicated by the dialog.</li>
+         <li>"Run design day simulations" allows the user to select whether reports from design day simulations are reported in the detailed (ESO)
+           output file of EnergyPlus.  Sizing calculations are still performed, but report data is not output during the sizing period if this box is
+           not checked.</li>
+         <li>&quot;Run weather file simulation&quot; will run simulation based on an EPW weather file.</li>
+       </ul>
+     </li>
+     <li>Weather File Simulation
+       <ul>
+         <li>&quot;EPW Path&quot; is required when you have checked the &quot;Run weather file simulation&quot; There are links in the dialog box to download weather files from the EnergyPlus website or as a Google Earth Layer.</li>
+         <li>&quot;Annual simulation&quot; - Your simulation can be run for an entire year, or just a portion of a year. If you un-check &quot;Annual simulation then you can set the start and end dates.</li>
+       </ul>
+     </li>
+     <li>Results
+       <ul>
+         <li>
+           Report Annual Building Utility Performance Summary
+           (You can choose HTML, CSV, Tabbed, or Fixed format)</li>
+         <li>
+           Request results in SQLite format
+         </li>
+         <li>
+           Report zone temperatures
+         </li>
+         <li>
+           Report daylighting results
+         </li>
+         <li>
+           Report user variables and meters
+         </li>
+         <li>
+           Report DXF file for verification
+           - This will create a DXF that you can import into SketchUp or a different cad application.</li>
+         <li>
+           Report surface temperatures
+         </li>
+         <li>
+           Report zone loads
+         </li>
+       </ul>
+     </li>
+     <li>Actions on Completion
+       <ul>
+         <li>
+           Close shell command window
+         </li>
+         <li>
+           Show error file (ERR)
+           &nbsp;&nbsp;Recommended </li>
+         <li>
+           Show Annual Building Utility Performance Summary(ABUPS)
+         </li>
+         <li>
+           Show report variables and meters file(CSV)
+         </li>
+       </ul>
+     </li>
+     </ul>
+    <br><img src="dialogs/RunSimulation.png" alt=""></li><br>
+        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Run Simulation dialog box</P2i>
+      <br><br>
 </div>
 
 <H3>Run EnergyPlus</H3>
@@ -139,7 +198,15 @@ function msout(num) {
 	<li>Finally, OpenStudio will open the error file, ABUPS report, and/or CSV file if requested.  It is a good idea to always check for EnergyPlus warning and error
 	    messages in the error file.
 </ul>
-</div>
+    <br><img src="dialogs/tut_simulation_02.png" width="500" valt=""></li><br>
+       <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+      <p2i>Error file</P2i>
+      
+          <br><br><img src="dialogs/tut_simulation_03.png" width="500" alt=""></li><br>
+        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Annual Building Utility Performance report</P2i><br><br>
+      
+      </div>
 
 					</td>
 				</tr>

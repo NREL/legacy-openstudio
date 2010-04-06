@@ -15,4 +15,4 @@ Program Version,EnergyPlus, Windows, VERSION 5.0.0.024,IDD_Version 5.0.0.024
    ************* Key=*, VarName=GLARE INDEX AT REF POINT 2, Frequency=Hourly
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 2 Warning; 0 Severe Errors; Elapsed Time=00hr 04min 20.47sec
+   ************* EnergyPlus Completed Successfully-- 2 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 48.50sec

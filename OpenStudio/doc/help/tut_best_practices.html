@@ -106,9 +106,9 @@ function msout(num) {
 <H3>General Guidelines</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Don't save yoru project as an SKP file, rely on saving the IDF file instead. When you come back to it at a later tate, re-import the IDF.</li>
+    <li>Don't save your project as an SKP file, rely on saving the IDF file instead. When you come back to it at a later tate, re-import the IDF.</li>
     <li>Leave North in SketchUp at 0 degrees. If your building isn't true north, then rotate the geometry as necessary. To aid in this you can create a new set of axis with a unique origin and rotation. <br><a href="file:///C:/Program%20Files/Google/Google%20SketchUp%207/Plugins/OpenStudio/doc/new/tut_rotating.html">Here is a link to a tutorial on rotating an axes.</a></li>
-    <li>When you import an IDF into OpenStudio it may be altered as part of the import process. for example if your windows are not in the same plane as their base-surface, OpenStudio moves them into the base-surface plane. There may be other changes as well. As a result, if you want to keep your raw IDF untouched, you should either "SaveAs" as soon as you import it, or copy it prior to impor.t</li>
+    <li>When you import an IDF into OpenStudio it may be altered as part of the import process. For example if your windows are not in the same plane as their base-surface, OpenStudio moves them into the base-surface plane. There may be other changes as well. As a result, if you want to keep your raw IDF untouched, you should either "SaveAs" as soon as you import it, or copy it prior to import</li>
 
 </ul>
 </div>
@@ -118,33 +118,25 @@ function msout(num) {
 <ul>
     <li>Zones need to be top level objects. Don't add multiple zones into a group or component.</li>
     <li>Similarly, don't group a selection of EnergyPlus surfaces or sub-surfaces together. All surfaces under a zone should be un-grouped.</li>
-    <li>If you want to rename objects, go to the Object Info dialog, don't alter the names set in SketchUp's Entity Information dialog.</li>
+    <li>If you want to rename objects, go to the Object Info dialog, don't alter the names  in SketchUp's Entity Information dialog.</li>
     <li>Don't use the paint bucket tool on EnergyPlus surfaces and sub-surfaces. If you do, it will be re-painted again by OpenStudio.</li>
-    <li>Try to name your zones, to make large models easier to manage and search through. Often it may also be a good idea to name your surfaces and sub-surfaces.</li>
-    <li>Don't place a sub-surface (window or door) inside of another sub-surface.</li>
-    <li>Don't make a window the size of an entire base surface. Use <a href="http://sketchup.google.com/support/bin/answer.py?answer=94870" target="_new">SketchUp's Offset Tool</a> to inset the sub-surface some amount.</li>
-    <li>You can not draw a sub-surface that shares two edges with a base sufrace. So you can put a window at the edge of wall, but not at an edge as well as the roof or floor.</li>
+    <li>Try to name your zones, to make large models easier to manage and search through. At times you may want to name your surfaces and sub-surfaces.</li>
+    <li>Don't place a sub-surface (window or door) inside of  another sub-surface.</li>
     <li>You also don't want to place two sub-surfaces right against each other. Place a small space between them.</li>
-    <li>If you try and draw a shading surface in line with the roof it will mistakingly be recoginized as a roof. If you do want a shading device in line with the roof you frist have to draw it lower, and then move it up into place.</li>
+    <li>Don't make a window the size of an entire base surface. Use <a href="http://sketchup.google.com/support/bin/answer.py?answer=94870" target="_new">SketchUp's Offset Tool</a> to inset the sub-surface some nominal amount.</li>
+    <li>You can not draw a sub-surface that shares two edges with a base surface. You can put a window at the edge of wall, but not at the edge as well as the roof or floor.</li>
+    <li>If you try and draw a shading surface in line with the roof it will mistakenly be recognized as a roof. If you do want a shading device in line with the roof you first have to draw it lower, and then move it up into place.</li>
     <li>Shading surfaces also can not be draw while touching the floor. Similar to above, you would draw them smaller and then stretch them down the floor.This could occur on vertical fins</li>
+    <li>You can also create shading surfaces as part of a shading group vs. drawing them as surfaces inside of a zone.</li>
     <li>Exterior walls should be modeled to the inside face of the wall</li>
-    <li>Ideally Interior walls woudl be drawn to the centerline of the interior wall, but you sould be fine if you just pick one edge or the other.</li>
-    <li>For OpenStudio projects, keep SketchUp's North direction set to 0 degrees. This aids in maintiaing expected geometry</li>
+    <li>Ideally Interior walls would be drawn to the centerline of the interior wall, but you should be fine if you just pick one edge or the other, so long as you are consitant with two adjacent zones. They must not overlap each other.</li>
+    <li>For OpenStudio projects, keep SketchUp's North direction set to 0 degrees. This aids in maintaining expected geometry</li>
     <li>The Object Info Window only works on one object at a time. If you select multiple objects or surfaces and make a change, it will only affect one of those selected objects.</li>
-    <li>Deleting a base surface by erasing a shared edge with another base surface does not update the subsurfaces of the deleted base surface the new base surface. Try to avoide this, but if you have to do it, you can redraw the window to give it a new base surface. You don't have to erase it and re-draw. you can re-draw right on top of the exisitnig one. Or you can delete and edge and redraw it back.
-    <li>Do not scale a SketchUp Group containing a Zone. using the scale tool. The only workflow where you need to scale tool, is to scale an Illuminance Map. If you scale a Zone your data will be incorrect.</li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>Deleting a base surface by erasing a shared edge with another base surface does not update the sub-surfaces of the deleted base surface the new base surface. Try to avoid this, but if you have to do it, you can redraw the window to give it a new base surface. You don't have to erase it and re-draw. you can re-draw right on top of the existing one. Or you can delete and edge and redraw it back.
+    <li>Do not scale a SketchUp Group containing a Zone. using the scale tool. The only workflow where you need to scale tool, is to scale an Il luminance Map. If you scale a Zone your data will be incorrect.</li>
 </ul>
 </div>
-
-<H3>EnergyPlus</H3>
-<div style="margin-left:10px">
-<ul>
-    <li>content</li>
-</ul>
-</div>
+<div style="margin-left:10px"> </div>
 
 					</td>
 				</tr>

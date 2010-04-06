@@ -115,18 +115,18 @@ function msout(num) {
 		    This can be applied either to a given selection or the entire model.  The surface search tool can be used to create custom selections
 		    of surfaces across multiple zones for resetting to default constructions.  Note that if a selection does not contain any surfaces of a given
 		    type, e.g. interior doors, then the value for that surface types default construction has no affect and does not need to be set.</li>
-		<li>Default Constructions start out as the constructions used to start a new model from scratch, e.g. "Exterior Wall".</li>
+		<li>Default Constructions start out as the constructions used to start a new model from the IDF template, e.g. "Exterior Wall". The template file is located under OpenStudio/NewTemplate.idf. This is what is automatically loaded when you start a new OpenStudio project.</li>
 		<li>When importing an IDF without construction names corresponding to those in a new file this dialog will appear to prompt the user to fill in correct defaults.
 		    You can ignore this dialog if you do not plan to draw new geometry or change the constructions of existing geometry using this dialog.</li>
 		<li>New Construction Stub lets you create a new Construction to reference. You can start assigning this construction to surfaces right away, but at some point
 		    will need to edit this new construction in the IDF file directly to set the desired properties.</li>
-		<li>You can save your default constructions to an external file for a given project, and then re-import them when needed to avoid having to reset
-		    by hand each time you open the file.  You can also use these files to share construction sets across models or to generate perturbations.</li>
-		<li>You can get a report of the last default construction application in Comma Seperated Value (CSV) format to verify the operations that have been performed.</li>
+		<li>You can save your Default Constructions Preferences to an external file for a given project, and then re-apply these settings when needed to avoid having to reset
+		    by hand each time you need this set. It is. It is important to note that you are not exporting the actual constructions, but only the names. The constructions themselves have to be in the IDF file to use them correctly.</li>
+		<li>You can get a report of the last Default Construction application in Comma Separated Value (CSV) format to verify the operations that have been performed.</li>
 		</ul>
 	</div>
 
-                <img src="dialogs/tut_default_const_01.png" alt=""></li><br><br>
+                <img src="dialogs/tut_default_const_01.png" width="500" alt=""></li><br><br>
 
 					</td>
 				</tr>

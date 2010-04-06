@@ -456,7 +456,7 @@ Environment:Daylight Saving,No,SizingPeriod:DesignDay
 Environment:Design Day Data,32.10,14.10,DefaultMultipliers,80677,180,5.3,1.00,No ,No 
 Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAEClearSky
 Environment:WarmupDays,  3
-Environment,COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,WeatherFileRunPeriod,01/01,12/31,Sunday,365,UseWeatherFile,Yes,Yes,No ,Yes,Yes
+Environment,COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,WeatherFileRunPeriod,01/01,01/31,Sunday, 31,UseWeatherFile,Yes,Yes,No ,Yes,Yes
 Environment:Daylight Saving,No,
 Environment:WarmupDays,  3
 End of Data
