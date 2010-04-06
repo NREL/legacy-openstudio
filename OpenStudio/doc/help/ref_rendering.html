@@ -155,16 +155,16 @@ function msout(num) {
 <A NAME="render_by_data"></A>
 <H3>Render by Data</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>Once the ESO file has been loaded, run period selected, and data variable selected the user may view the model colored by the data value using the Render by Data command. Surfaces or zones are colored by the variable value at a given instant in time. To change the time at which variables are displayed use the SketchUp Shadow Settings control (Window->Shadows). If the time is outside of the current run period then no values will be displayed. The user may display a color bar to reference the absolute values of the variable or use the data value cursor. </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
-<A NAME="render_settigns"></A>
+<A NAME="render_settings"></A>
 <H3>Render Settings</H3>
-<P2>Co<div style="margin-left:20px">
-    <P>Content</P>
+<div style="margin-left:20px">
+    <P>The Rendering Settings dialog allows users to select the EnergyPlus Standard Output (ESO) file corresponding to their current idf model. Once the ESO is loaded the user can select from available run periods (such as design days or annual simulations) and then from available report or meter variables. Scan the "*.mdd", "*.mtd", and "*.rdd" files to see which meters and report variables are available for your model. Currently, only surface or zone level meters and report variables are supported. Note that the ESO file can become quite large for models with many report variables, parsing this file may be somewhat slow and cause the UI to lock up. If possible, limit the amount of meter and report variable output requested, look at the results of design days only, or shorten the simulation run period to minimize the size of the ESO. There is also an option in the user preferences  that allows the user to cache ESO files once they are read into a format that can be parsed more quickly. Note that this option will generate a "*.eso.cache" file in the same directory as the selected ESO file. The cache file may be deleted at any time and will be refreshed when the file timestamp on the ESO file is newer than the cache file. </P>
+    <img src="dialogs/RenderingSettings.png" alt=""><br><br>
 </div>
-ntent</P2><br><br>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="color_scale"></A>
@@ -184,7 +184,8 @@ ntent</P2><br><br>
 <A NAME="animation_settings"></A>
 <H3>Animation Settings</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>Once the ESO file is loaded into memory the user may watch how variables change with time throughout their model by using the Amimation command. The time period to run may be configured and the user may configure the animation to loop continuously. No direct animation export is provided. However, a screen capture tool may be used to record a video for later use.</P>
+    <img src="dialogs/AnimationSettings.png" alt=""><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 

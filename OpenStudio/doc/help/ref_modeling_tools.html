@@ -123,14 +123,20 @@ function msout(num) {
 <A NAME="new_zone"></A>
 <H3>Create a new EnergyPlus Zone</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>The New Zone command activates a tool that allows you to create a new zone.  Use the cursor  to select a point that will become the new zone origin by clicking somewhere in the view. An empty SketchUp group highlighted with a blue bounding box will appear anchored at one corner by a construction point.</P>
+    <img src="dialogs/image028.jpg" alt=""><br>
+    <P>With the cursor still positioned over the construction point, double-click it to begin editing the zone.  Any new SketchUp entities that you draw inside of the group with the standard tools (Rectangle, Polygon, Pencil, etc.) will immediately add new EnergyPlus heat transfer surfaces (BuildingSurface:Detailed, FenestrationSurface:Detailed, and Shading:Zone:Detailed) to the input file.  Floors, walls, roofs, windows, doors, and attached shading surfaces are all automatically inferred from their tilts and positions relative to other surfaces.  </P>
+    <img src="dialogs/image030.jpg" alt=""><br>
+    <P>Note:  The size of the bounding box is completely arbitrary. Once the zone group is open for editing, you can draw anywhere within the view and the bounding box will stretch to fit the entities.  If you accidentally click outside the zone group and the bounding box disappears, simply click on the construction point at the zone origin again to select the zone group and the bounding box will reappear.  Double-click the construction point, or any entity within the group, to open it for editing again.
+
+        <br><br>Note2:  The construction point at the zone origin is only used to hold an empty group open.  Once you have drawn some entities inside the group you can erase the construction point without any problem.  There is also a hidden construction point in the opposite corner of the bounding box. Select View/Hidden Geometry to show it, and then you can delete that construction point too.  It just makes the bounding box fit more tightly for small zones.  </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="new_shading"></A>
 <H3>Create a new EnergyPlus Shading Group</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>The New Shading Group command activates a tool that allows you to create a new shading group. Shading groups are not an EnergyPlus concept, but are used by the plugin to group and isolate detached shading surfaces from the rest of the SketchUp model.  This tool works almost identically to the New Zone tool, except that any new SketchUp entities that you draw inside of the group will immediately add new detached shading surfaces (Shading:Building:Detailed  and Shading:Site:Detailed) to the input file, instead of heat transfer surfaces. </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 

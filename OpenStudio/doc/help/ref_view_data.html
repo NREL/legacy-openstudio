@@ -122,14 +122,27 @@ function msout(num) {
 <A NAME="info_tool"></A>
 <H3>Information Tool</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>The Info Tool command activates a cursor-like tool that displays information about the face that it is hovering over.  A tooltip momentarily shows the EnergyPlus object text for that face.  The status bar shows the position of the cursor in world coordinates. </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="object_info"></A>
 <H3>Object Information Window</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>The Object Info command displays a dialog window with information about the EnergyPlus object that is currently selected.  The content of the Object Info dialog changes based on the type of object selected. Select a zone group to get object information about the zone.  Open a zone group for editing (double-click), and select a face to get object information about that heat transfer surface.  Open a shading group for editing and select a face to get object information about that detached shading surface.  With no selection, you get object information about the Building object.  Changing selections with the Object Info dialog open will dynamically update the contents with information about the new selection.
+
+        <br><br>The contents of the Object Info dialog window are divided into three sections:  object inputs, object summary, and object text.  The fields in the object inputs section allow you to directly change the fields of the corresponding EnergyPlus input object. The list of fields depends on the type of object that is selected.  For example, for a typical BuildingSurface:Detailed object you can easily assign a new name, set the surface type, set the construction, set the boundary conditions, etc.   Don’t worry, changing the name of the object will automatically update all other objects that reference it.  Note that any changes that you make are not committed until you click the Apply button! Coordinates for surface vertices cannot be edited from this dialog.  You must use the standard SketchUp tools to modify the geometry.
+
+        <br><br>The object summary section displays useful information about the object such as number of vertices, gross area, net area, percent glazing, etc.  Like the input fields, the content of the summary depends on the type of object that is selected.
+
+        <br><br>The object text section displays the actual text of the input object as it appears in the EnergyPlus input file.  The text can be selected and copied but it cannot be edited directly.  Use the input fields in the Object Inputs section to make changes.  All changes are made instantaneously and will show up immediately in the object text. Note that all of the original comments and formatting of the input file (the “context”) are preserved when you make changes.  </P>
+    <img src="dialogs/ObjectInfoZone.png" alt=""><br>
+    <P2i>Object Info Window while Zone is selected</P2i><br><br>
+    <img src="dialogs/ObjectInfo.JPG" alt=""><br>
+    <P2i>Object Info Window while surface is selected</P2i><br><br>
+    <img src="dialogs/ObjectInfoTop.png" alt=""><br>
+    <P2i>Object Info for Building (while nothing is selected)</P2i><br><br>
+
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 

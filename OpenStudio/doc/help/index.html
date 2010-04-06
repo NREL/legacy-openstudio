@@ -121,11 +121,18 @@ function msout(num) {
     <li>The plugin also allows you to open any EnergyPlus input file, whether it was drawn with the plugin or not, and begin making geometry changes...modify zones, delete surfaces, add new surfaces, etc.  </li>
     <li>The new release of OpenStudio also allows you to work with a number of non-geometry EnergyPlus objects suchs as Daylighting Sensors, loads, schedules, and other objets. You can learn more about these under New Features on the Release Notes Page</li>
 </ul>
+
 <H4>What It Is Not</H4>
 <ul>
     <li>The plugin is not a full-featured interface for EnergyPlus.  It will help you create some non-geometry EnergyPlus objects but will not replace the need to work with the EnergyPlus IDF file elsewhre.  In order to effectively use EnergyPlus with the plugin you will still have to be something of an expert in building simulation and must be willing to get your hands dirty working with the low-level EnergyPlus syntax of the text input file.  Or, alternatively, you could use the plugin in conjunction with another third-party interface to make the job easier.  </li>
     <li>The plugin is also not a translator from SketchUp to EnergyPlus.  You cannot use the plugin to convert an old SketchUp model that you have into an EnergyPlus input file...at least, not without a lot of work redrawing things.  To use the plugin as intended, you must have the energy model in mind from the beginning as you create your SketchUp model.  </li>
 </ul>
+
+<H4>Conventions</H4>
+<ul>
+    <li>We also use some conventions for terminology.  In SketchUp every object you draw on the screen is called an entity.  Entities include groups, faces, and edges, among others.  These terms are consist with the SketchUp documentation so they shouldn’t be a surprise if you are already a veteran user.  On the EnergyPlus side, the input data file (IDF) is made up of objects as well.  An EnergyPlus input object is a block of text with data values separated by commas and everything terminated with a semicolon.  The individual data values are called fields. The input objects used for describing the geometry of the building are called zones  and surfaces.  If you are an EnergyPlus user, then these terms should be very familiar to you. For the purposes of the plugin, there is a one-to-one relationship between groups → zones and faces  → surfaces. </li>
+ </ul>
+
 <H4>Conclusion</H4>
 <ul>
     <li>OpenStudio makes it a lot easier to enter the geometry data for your EnergyPlus input files—a task that was once both difficult and time consuming.  This release also begins to add support for non-geomatry features of EnergyPlus. We expect to expand access to these non-geometry features in future releases.</li>
