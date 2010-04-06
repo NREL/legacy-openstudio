@@ -153,46 +153,70 @@ module OpenStudio
           end
         
         else
-          #puts "SurfaceGroupEntitiesObserver.onElementAdded(non-face):" + entity.to_s
-          
+ 
           if (not entity.deleted?)
             if (drawing_interface = entity.drawing_interface)
+            
+              need_to_remove = false
+              already_exists = false
+              error_message = ""
+            
               if (drawing_interface.class == DaylightingControls)
-                #puts "SurfaceGroupEntitiesObserver.onElementAdded(DaylightingControls):" + entity.to_s
+                puts "SurfaceGroupEntitiesObserver.onElementAdded(DaylightingControls):" + entity.to_s
                 
-                need_to_remove = false
-                error_message = ""
                 if (@drawing_interface.class == Zone)
                 
-                  # test to see if there are already any Daylight Control Pairs in this zone
+                  # see if we already have this object
                   Plugin.model_manager.daylighting_controls.each do |daylighting_controls| 
-                    if daylighting_controls.zone == @drawing_interface.input_object
-                      if daylighting_controls.entity != entity
-                        need_to_remove = true
-                        error_message = "Zone #{@drawing_interface.input_object} already has Daylighting Controls"
-                        break
-                      end
+                    if daylighting_controls.entity == entity
+                      already_exists = true
+                    elsif daylighting_controls.zone == @drawing_interface.input_object
+                      need_to_remove = true
+                      error_message = "Zone #{@drawing_interface.input_object} already has Daylighting Controls"
+                      break
                     end
                   end
-                else
+                  
+                  if not already_exists and not need_to_remove 
+                    new_entity = DaylightingControls.new_from_entity(entity)
+                  end
+               
+                else 
+                  # not added to a zone
                   need_to_remove = true
                   error_message = "Can only add Daylighting Controls to a Zone"
                 end
                 
-                if need_to_remove
-                  DrawingUtils.clean_entity(entity)
-                  Sketchup.active_model.entities.erase_entities(entity)
-                  Sketchup.send_action("selectSelectionTool:")
-                  UI.messagebox(error_message)
-                else
-                  new_entity = DaylightingControls.new_from_entity(entity)
-                end
-
-              elsif (drawing_interface.class == OutputIlluminanceMap)
+              elsif(drawing_interface.class == OutputIlluminanceMap)
                 puts "SurfaceGroupEntitiesObserver.onElementAdded(OutputIlluminanceMap):" + entity.to_s
-                new_entity = OutputIlluminanceMap.new_from_entity(entity)
-              else
-                puts "SurfaceGroupEntitiesObserver.onElementAdded(Unknown):" + entity.to_s
+                
+                if (@drawing_interface.class == Zone)
+                
+                  # see if we already have this object
+                  Plugin.model_manager.output_illuminance_maps.each do |output_illuminance_map| 
+                    if output_illuminance_map.entity == entity
+                      already_exists = true
+                    end
+                  end
+                  
+                  if not already_exists and not need_to_remove 
+                    new_entity = OutputIlluminanceMap.new_from_entity(entity)
+                  end
+               
+                else 
+                  # not added to a zone
+                  need_to_remove = true
+                  error_message = "Can only add Output Illuminance Map to a Zone"
+                end
+                             
+              end
+              
+              
+              if need_to_remove
+                DrawingUtils.clean_entity(entity)
+                Sketchup.active_model.entities.erase_entities(entity)
+                Sketchup.send_action("selectSelectionTool:")
+                UI.messagebox(error_message)
               end
               
             else

@@ -58,10 +58,18 @@ module OpenStudio
 
       Sketchup.active_model.start_operation("Daylighting:Controls")
       
+      initial_position = @ip.position
+      if @ip.face and not @ip.vertex and not @ip.edge
+        # bump up or in by 30" if placed on a face
+        distance = @ip.face.normal
+        distance.length = 30.0
+        initial_position = initial_position - distance
+      end
+      
       daylighting_controls = DaylightingControls.new
       daylighting_controls.create_input_object
       daylighting_controls.zone = this_zone
-      daylighting_controls.sketchup_sensor1 = @ip.position
+      daylighting_controls.sketchup_sensor1 = initial_position
       daylighting_controls.reset_lengths
       daylighting_controls.draw_entity 
 

@@ -49,10 +49,18 @@ module OpenStudio
       
       Sketchup.active_model.start_operation("Output:IlluminanceMap")
       
+      initial_position = @ip.position
+      if @ip.face and not @ip.vertex and not @ip.edge
+        # bump up or in by 30" if placed on a face
+        distance = @ip.face.normal
+        distance.length = 30.0
+        initial_position = initial_position - distance
+      end
+      
       output_illuminance_map = OutputIlluminanceMap.new
       output_illuminance_map.create_input_object
       output_illuminance_map.zone = this_zone
-      output_illuminance_map.sketchup_min = @ip.position
+      output_illuminance_map.sketchup_min = initial_position
       output_illuminance_map.reset_lengths
       output_illuminance_map.draw_entity 
 
