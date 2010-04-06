@@ -14,7 +14,7 @@ module OpenStudio
       super
       w = Plugin.platform_select(373, 430)
       h = Plugin.platform_select(369, 394)
-      @container = WindowContainer.new("Animation Settings", w, h, 150, 150, false)
+      @container = WindowContainer.new("Animation Settings", w, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/AnimationSettings.html")
 
       add_callbacks

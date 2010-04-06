@@ -13,8 +13,8 @@ module OpenStudio
     def initialize(container, interface, hash)
       super
       w = Plugin.platform_select(660, 660)
-      h = Plugin.platform_select(540, 540)
-      @container = WindowContainer.new("Default Constructions", w, h, 150, 150, false, false)
+      h = Plugin.platform_select(540, 580)
+      @container = WindowContainer.new("Default Constructions", w, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/DefaultConstructions.html")
       
       @last_report = ""

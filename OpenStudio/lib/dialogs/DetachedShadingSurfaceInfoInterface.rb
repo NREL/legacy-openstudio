@@ -45,9 +45,9 @@ module OpenStudio
       # Lookup transmittance schedule object
       objects = Plugin.model_manager.input_file.find_objects_by_class_name("SCHEDULE:YEAR", "SCHEDULE:COMPACT", "SCHEDULE:FILE")
       if (object = objects.find { |object| object.name == @hash['TRANSMITTANCE'] })
-        @input_object.fields[3] = object
+        @input_object.fields[2] = object
       else
-        @input_object.fields[3] = @hash['TRANSMITTANCE']
+        @input_object.fields[2] = @hash['TRANSMITTANCE']
       end
 
       # Update object text with changes

@@ -11,7 +11,9 @@ module OpenStudio
 
     def initialize(container, interface, hash)
       super
-      @container = WindowContainer.new("HVACTemplate:Thermostat", 600, 420, 150, 150)
+      w = Plugin.platform_select(600, 600)
+      h = Plugin.platform_select(420, 440)
+      @container = WindowContainer.new("HVACTemplate:Thermostat", w, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/Thermostat.html")
         
       @hash['NEW_THERMOSTAT'] = true

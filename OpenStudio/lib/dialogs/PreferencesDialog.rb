@@ -14,7 +14,7 @@ module OpenStudio
       super
       w = Plugin.platform_select(537, 600)
       h = Plugin.platform_select(346, 430)
-      @container = WindowContainer.new("Preferences", w, h, 150, 150, false, false)
+      @container = WindowContainer.new("Preferences", w, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/Preferences.html")
 
       add_callbacks

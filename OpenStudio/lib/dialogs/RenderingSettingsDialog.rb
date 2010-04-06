@@ -15,8 +15,8 @@ module OpenStudio
     def initialize(container, interface, hash)
       super
       w = Plugin.platform_select(489, 560)
-      h = Plugin.platform_select(565, 612)
-      @container = WindowContainer.new("Rendering Settings", w, h, 150, 50)
+      h = Plugin.platform_select(560, 640)
+      @container = WindowContainer.new("Rendering Settings", w, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/RenderingSettings.html")
 
       @output_file = Plugin.model_manager.results_manager.output_file

@@ -156,7 +156,7 @@ module OpenStudio
       hash['Check For Update'] = true
       hash['Skip Update'] = ""
       hash['Erase Entities'] = false
-      hash["Cache Eso Results"] = true
+      hash['Cache Eso Results'] = true
       hash['Show Drawing'] = false
       hash['Play Sounds'] = true
       hash['Zoom Extents'] = true
@@ -171,6 +171,7 @@ module OpenStudio
       elsif (platform == Platform_Mac)
         hash['Text Editor Path'] = "/Applications/TextEdit.app"
         hash['EnergyPlus Path'] = "/Applications/EnergyPlus-5-0-0/bin/energyplus"  # Default installation path
+		hash['Check For Update'] = false
       end
 
       return(hash)
