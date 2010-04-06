@@ -50,7 +50,7 @@ module OpenStudio
       Sketchup.active_model.start_operation("Output:IlluminanceMap")
       
       initial_position = @ip.position
-      if @ip.face and not @ip.vertex and not @ip.edge
+      if @ip.face
         # bump up or in by 30" if placed on a face
         distance = @ip.face.normal
         distance.length = 30.0
