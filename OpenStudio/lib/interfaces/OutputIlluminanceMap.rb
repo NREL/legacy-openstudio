@@ -55,14 +55,6 @@ module OpenStudio
       
       if (valid_entity?)
       
-        had_observers = @entity.remove_observer(@observer)
-        remove_observers
-
-        # run all formulas to update dynamic position attributes
-        $dc_observers.get_latest_class.run_all_formulas(@entity) 
-        
-        add_observers if had_observers
-      
         if @parent.nil?
           #puts "OutputIlluminanceMap.update_input_object: parent is nil"
           @parent = parent_from_input_object
@@ -79,43 +71,35 @@ module OpenStudio
           # NOTE:  Comment above applies more for surfaces than zones.
         end 
         
+        # entity_transformation = entity_translation*entity_rotation*entity_scale
+        # total_transformation = parent_transformation*entity_transformation
+        
         # currently zone origin is separate from parent group's origin
         parent_transformation = @parent.entity.transformation
         entity_transformation = @entity.transformation
-        self.sketchup_min = (entity_transformation*parent_transformation).origin
+      
+        sketchup_min_position = (parent_transformation*entity_transformation).origin
+        puts "sketchup_min_position = #{sketchup_min_position}"
+        self.sketchup_min = sketchup_min_position
         
-        lenx = @entity.get_attribute("dynamic_attributes", "openstudio_lenx")
-        if lenx
-          @input_object.fields[5] = (@input_object.fields[4].to_f + lenx.to_f.cm.to_m).round_to(decimal_places).to_s 
-        else
-          puts "could not get lenx"
+        # the fixed rotation angle
+        rotation_angle = 0
+        if (Plugin.model_manager.relative_daylighting_coordinates?)
+          # for some reason building azimuth is in EnergyPlus system and zone azimuth is in SketchUp system
+          rotation_angle = -Plugin.model_manager.building.azimuth + @parent.azimuth.radians
         end
+        entity_rotation = Geom::Transformation.rotation([0, 0, 0], [0, 0, 1], rotation_angle.degrees)
         
-        leny = @entity.get_attribute("dynamic_attributes", "openstudio_leny")
-        if leny
-          @input_object.fields[8] = (@input_object.fields[7].to_f + leny.to_f.cm.to_m).round_to(decimal_places).to_s 
-        else
-          puts "could not get leny"
-        end
+        # find the current scaling
+        scalex = (entity_rotation.inverse*entity_transformation).to_a[0] 
+        scaley = (entity_rotation.inverse*entity_transformation).to_a[5]
+        
+        # get lengths
+        @input_object.fields[5] = (@input_object.fields[4].to_f + scalex.to_f).round_to(decimal_places).to_s 
+        @input_object.fields[8] = (@input_object.fields[7].to_f + scaley.to_f).round_to(decimal_places).to_s 
 
-        numx = @entity.get_attribute("dynamic_attributes", "openstudio_numx")
-        if numx
-          @input_object.fields[6] = numx.to_i.to_s
-        else
-          puts "could not get numx"
-        end
-        
-        numy = @entity.get_attribute("dynamic_attributes", "openstudio_numy")
-        if numy
-          @input_object.fields[9] = numy.to_i.to_s
-        else
-          puts "could not get numy"
-        end
-        
-        #puts @input_object.to_idf
-        
-      end
     end
+  end
     
     # Returns the parent drawing interface according to the input object.
     def parent_from_input_object
@@ -143,19 +127,18 @@ module OpenStudio
         @parent.add_child(self)  # Would be nice to not have to call this
       end    
     
-      #if not @@componentdefinition
-        path = Sketchup.find_support_file("OpenStudio_OutputIlluminanceMap.skp", "Plugins/OpenStudio/lib/resources/components")
-        @@componentdefinition = Sketchup.active_model.definitions.load(path)
-      #end
+      # add the component definition
+      path = Sketchup.find_support_file("OpenStudio_OutputIlluminanceMap.skp", "Plugins/OpenStudio/lib/resources/components")
+      component_definition = Sketchup.active_model.definitions.load(path)
       
       # parent entity is a Sketchup::Group
       # do an identity transformation here as this transformation seems to act on child component axes twice
-      @entity = @parent.entity.entities.add_instance(@@componentdefinition, Geom::Transformation.new)
+      @entity = @parent.entity.entities.add_instance(component_definition, Geom::Transformation.new)
       
       # make it unique as we will be messing with the definition
       @entity.make_unique
       
-      # have to make the group unique too
+      # have to make the interior component unique too
       @entity.definition.entities[0].make_unique
     end
 
@@ -165,7 +148,7 @@ module OpenStudio
       # make it unique as we will be messing with the definition
       @entity.make_unique
             
-      # have to make the group unique too
+      # have to make the interior component unique too
       @entity.definition.entities[0].make_unique
       
       return(self)
@@ -175,7 +158,6 @@ module OpenStudio
       #puts "OutputIlluminanceMap.valid_entity"
       return(super and @entity.valid?)
     end
-
 
     # Error checks, finalization, or cleanup needed after the entity is drawn.
     def confirm_entity
@@ -192,34 +174,33 @@ module OpenStudio
       if(valid_entity?)
         set_entity_name
         
-        had_observers = @entity.remove_observer(@observer)
-        remove_observers
-        
-        # move the minimum point
-        @entity.transformation = sketchup_min
-
-        # scale the component to get to desired size, could not figure out how to just set lenx and leny
-        # base size is 1mx1m so scaling is easy
+        # scale the component to get to desired size, base size is 1mx1m so scaling is easy
         scalex = (@input_object.fields[5].to_f - @input_object.fields[4].to_f)
         scaley = (@input_object.fields[8].to_f - @input_object.fields[7].to_f)
         
-        # scale about the minimum point
-        @entity.transform! Geom::Transformation.scaling(sketchup_min, scalex, scaley, 1)
+        # entity_transformation = entity_translation*entity_rotation*entity_scale
+        # total_transformation = parent_transformation*entity_transformation
         
-        # set the fixed rotation angle
-        sketchup_rotation_angle = 0
+        # currently zone origin is separate from parent group's origin
+        parent_transformation = @parent.entity.transformation
+        puts "parent_transformation = #{parent_transformation.origin}"
+        
+        # the fixed rotation angle
+        rotation_angle = 0
         if (Plugin.model_manager.relative_daylighting_coordinates?)
           # for some reason building azimuth is in EnergyPlus system and zone azimuth is in SketchUp system
-          sketchup_rotation_angle = -Plugin.model_manager.building.azimuth + @parent.azimuth.radians
+          rotation_angle = -Plugin.model_manager.building.azimuth + @parent.azimuth.radians
         end
-        @entity.set_attribute("dynamic_attributes", "openstudio_rotz", sketchup_rotation_angle)
-                
+        entity_rotation = Geom::Transformation.rotation([0, 0, 0], [0, 0, 1], rotation_angle.degrees)
+        
+        # move the minimum point, no scaling yet
+        transformation = parent_transformation.inverse*Geom::Transformation.translation(sketchup_min)*entity_rotation*Geom::Transformation.scaling([0,0,0], scalex, scaley, 1)
+        puts "transformation = #{transformation.origin}"
+        @entity.transformation = transformation
+        
         # set number of grid points        
         numx = @input_object.fields[6].to_i
         numy = @input_object.fields[9].to_i
-        @entity.set_attribute("dynamic_attributes", "openstudio_numx", numx)
-        @entity.set_attribute("dynamic_attributes", "openstudio_numy", numy)
-        
         numx_draw = [numx-1, 0.5].max
         numy_draw = [numy-1, 0.5].max
 
@@ -257,7 +238,7 @@ module OpenStudio
         pts[7] = [0, numy_draw, 0]
         
         # find the face
-        @entity.definition.entities[0].entities.each do |entity|
+        @entity.definition.entities[0].definition.entities.each do |entity|
           if entity.is_a? Sketchup::Face
             puts "Found face #{entity}"
             entity.position_material(gridfront, pts, true)
@@ -265,18 +246,8 @@ module OpenStudio
             break
           end
         end
-           
-        # apply dynamic component fix from Scott Lininger so $dc_observers is not confused about bounding box change
-        lenx, leny, lenz = @entity.unscaled_size
-        @entity.set_last_size(lenx, leny, lenz)        
-           
-        # redraw, I have not found any documentation on this function
-        $dc_observers.get_latest_class.redraw_with_undo(@entity)    
-        
-        add_observers if had_observers
-        
+    
       end
-      
     end
 
     def paint_entity
@@ -289,14 +260,12 @@ module OpenStudio
       end
     end
 
-
     # Final cleanup of the entity.
     # This method is called by the model interface after the entire input file is drawn.
     def cleanup_entity
       #puts "OutputIlluminanceMap.cleanup_entity"
       super
     end
-
 
     # Returns the parent drawing interface according to the entity.
     def parent_from_entity

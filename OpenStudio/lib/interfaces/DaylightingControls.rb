@@ -64,14 +64,6 @@ module OpenStudio
         #puts "Before DaylightingControls.update_input_object"
         #puts "input_object_sensor2 = #{input_object_sensor2}"
         #puts @input_object.to_idf
-        
-        had_observers = @entity.remove_observer(@observer)
-        remove_observers
-        
-        # run all formulas to update dynamic position attributes
-        $dc_observers.get_latest_class.run_all_formulas(@entity)
-
-        add_observers if had_observers
       
         if @parent.nil?
           puts "DaylightingControls.update_input_object: parent is nil"
@@ -80,14 +72,6 @@ module OpenStudio
       
         # zone
         @input_object.fields[1] = @parent.input_object  # Parent should already have been updated.
-        
-        # glare angle
-        glare_angle = @entity.get_attribute("dynamic_attributes", "openstudio_glare_angle")
-        if glare_angle
-          @input_object.fields[14] = glare_angle.to_f.to_s
-        else
-          puts "could not get glare_angle"
-        end
         
         decimal_places = Plugin.model_manager.length_precision
         if (decimal_places < 6)
@@ -99,6 +83,9 @@ module OpenStudio
         end 
         format_string = "%0." + decimal_places.to_s + "f"  # This could be stored in a more central place
         
+        # total_transformation = parent_transformation*entity_transformation*sensor_translation*sensor_rotation
+        # sensor_position = parent_transformation*entity_transformation*sensor_translation*[0,0,0]
+        
         # currently zone origin is separate from parent group's origin
         parent_transformation = @parent.entity.transformation
         entity_transformation = @entity.transformation
@@ -106,36 +93,20 @@ module OpenStudio
         sensor2_transformation = @entity.definition.entities[1].transformation
         
         # sensor 1, always have sensor one
-        sensor1_position = (sensor1_transformation*entity_transformation*parent_transformation).origin
+        sensor1_position = (parent_transformation*entity_transformation*sensor1_transformation).origin
+        puts "sensor1_position = #{sensor1_position}"
         self.sketchup_sensor1 = sensor1_position
-        
-        # number of sensors
-        num_sensors = @entity.get_attribute("dynamic_attributes", "openstudio_num_sensors")
-        if num_sensors.nil?
-          puts "could not get num_sensors"
-        elsif num_sensors.to_i == 2
-          # if going from 1 sensor to 2, check for empty fields
-          if @input_object.fields[6].to_s.empty? or @input_object.fields[7].to_s.empty? or @input_object.fields[8].to_s.empty?
-            # positions second point
-            reset_lengths
-              
-            # redraws the entity
-            update_entity
-              
-            #puts "After reset_lengths"
-            #puts "input_object_sensor2 = #{input_object_sensor2}"
-            #puts @input_object.to_idf
-          end
-          @input_object.fields[2] = "2"          
-        else
-          @input_object.fields[2] = "1"
-        end
                 
         # sensor 2 position has been updated if it was blank before
-        if num_sensors.to_i == 2
-          # sensor 2
-          sensor2_position = (sensor2_transformation*entity_transformation*parent_transformation).origin
-          self.sketchup_sensor2 = sensor2_position
+        if @input_object.fields[2].to_i == 2
+          if (@input_object.fields[6].to_s.empty? or @input_object.fields[7].to_s.empty? or @input_object.fields[8].to_s.empty?)
+            puts "reset_lengths"
+            reset_lengths
+          else
+            sensor2_position = (parent_transformation*entity_transformation*sensor2_transformation).origin
+            puts "sensor2_position = #{sensor2_position}"
+            self.sketchup_sensor2 = sensor2_position
+          end
         else
           @input_object.fields[6] = ""
           @input_object.fields[7] = ""
@@ -170,24 +141,21 @@ module OpenStudio
         @parent.draw_entity(false)
         @parent.add_child(self)  # Would be nice to not have to call this
       end    
-    
-      #if not @@componentdefinition
-        path = Sketchup.find_support_file("OpenStudio_DaylightingControls.skp", "Plugins/OpenStudio/lib/resources/components")
-        @@componentdefinition = Sketchup.active_model.definitions.load(path)
-      #end
+
+      # add the component definition
+      path = Sketchup.find_support_file("OpenStudio_DaylightingControls.skp", "Plugins/OpenStudio/lib/resources/components")
+      definition = Sketchup.active_model.definitions.load(path)
       
       # parent entity is a Sketchup::Group
-      @entity = @parent.entity.entities.add_instance(@@componentdefinition, Geom::Transformation.new)
+      @entity = @parent.entity.entities.add_instance(definition, Geom::Transformation.new)
       
       # make it unique as we will be messing with the definition
       @entity.make_unique
     end
 
-
     def valid_entity?
       return(super and @entity.valid?)
     end
-
 
     # Error checks, finalization, or cleanup needed after the entity is drawn.
     def confirm_entity
@@ -205,41 +173,41 @@ module OpenStudio
         #puts "input_object_sensor2 = #{input_object_sensor2}"
         #puts @input_object.to_idf
         
-        had_observers = @entity.remove_observer(@observer)
-        remove_observers
-        
-        @entity.set_attribute("dynamic_attributes", "openstudio_num_sensors", @input_object.fields[2].to_s)
-        @entity.set_attribute("dynamic_attributes", "openstudio_glare_angle", @input_object.fields[14].to_s)
-                
-        # run all formulas to update dynamic position attributes
-        $dc_observers.get_latest_class.run_all_formulas(@entity)
+        # total_transformation = parent_transformation*entity_transformation*sensor_translation*sensor_rotation
+        # sensor_position = parent_transformation*entity_transformation*sensor_translation*[0,0,0]
         
         # currently zone origin is separate from parent group's origin
         parent_transformation = @parent.entity.transformation
         entity_transformation = @entity.transformation
-        component_origin = (entity_transformation*parent_transformation).origin
-
+        
+        # the fixed rotation angle
+        glare_angle = -@input_object.fields[14].to_f
+        rotation_angle = 0
+        if (Plugin.model_manager.relative_daylighting_coordinates?)
+          # for some reason building azimuth is in EnergyPlus system and zone azimuth is in SketchUp system
+          rotation_angle = -Plugin.model_manager.building.azimuth + @parent.azimuth.radians
+        end
+        sensor_rotation = Geom::Transformation.rotation([0, 0, 0], [0, 0, 1], rotation_angle.degrees+glare_angle.degrees)
+        
         # move sensors, works because we have a unique definition
-        #puts "sketchup_sensor1 = #{sketchup_sensor1}"
-        @entity.definition.entities[0].transformation = Geom::Transformation.translation(sketchup_sensor1 - component_origin)
+        sensor1_transformation = (parent_transformation*entity_transformation).inverse*Geom::Transformation.translation(sketchup_sensor1)*sensor_rotation
+        puts "sensor1_transformation = #{sensor1_transformation.origin}"
+        @entity.definition.entities[0].transformation = sensor1_transformation
         
         if sketchup_sensor2
-          #puts "sketchup_sensor2 = #{sketchup_sensor2 - component_origin}"
-          @entity.definition.entities[1].transformation = Geom::Transformation.translation(sketchup_sensor2 - component_origin)
+          sensor2_transformation = (parent_transformation*entity_transformation).inverse*Geom::Transformation.translation(sketchup_sensor2)*sensor_rotation
+          puts "sensor2_transformation = #{sensor2_transformation.origin}"
+          @entity.definition.entities[1].transformation = sensor2_transformation
+          @entity.definition.entities[1].hidden = false
         else
-          #puts "sketchup_sensor2 = #{sketchup_sensor1 - component_origin}"
-          @entity.definition.entities[1].transformation = Geom::Transformation.translation(sketchup_sensor1 - component_origin)
+          sensor2_transformation = sensor1_transformation
+          puts "sensor2_transformation = #{sensor2_transformation.origin}"
+          @entity.definition.entities[1].transformation = sensor2_transformation
+          @entity.definition.entities[1].hidden = true
+          @input_object.fields[6] = ""
+          @input_object.fields[7] = ""
+          @input_object.fields[8] = ""     
         end
-        
-        # apply dynamic component fix from Scott Lininger so $dc_observers is not confused about bounding box change
-        lenx, leny, lenz = @entity.unscaled_size
-        @entity.set_last_size(lenx, leny, lenz)
-        
-        # redraw the component
-        $dc_observers.get_latest_class.redraw_with_undo(@entity)
-        $dc_observers.get_latest_class.run_all_formulas(@entity)
-        
-        add_observers if had_observers
         
         #puts "After DaylightingControls.update_entity"
         #puts "input_object_sensor2 = #{input_object_sensor2}"
@@ -263,7 +231,6 @@ module OpenStudio
       super
     end
 
-
     # Returns the parent drawing interface according to the entity.
     def parent_from_entity
       parent = nil
@@ -277,7 +244,6 @@ module OpenStudio
       
       return(parent)
     end
-
 
 ##### Begin override methods for the interface #####
 
@@ -354,7 +320,7 @@ module OpenStudio
     
       result = nil
       
-      if not (@input_object.fields[6].to_s.empty? or @input_object.fields[7].to_s.empty? or @input_object.fields[8].to_s.empty?)
+      if @input_object.fields[2].to_i == 2 and not (@input_object.fields[6].to_s.empty? or @input_object.fields[7].to_s.empty? or @input_object.fields[8].to_s.empty?)
         x = @input_object.fields[6].to_f.m
         y = @input_object.fields[7].to_f.m
         z = @input_object.fields[8].to_f.m
