@@ -100,26 +100,25 @@ function msout(num) {
 
 
 
-<H2>Tutorial_NameUsing Styles to find surfaces with reversed normals</H2>
+<H2>Using Styles to find highlight surfaces with reversed normals</H2>
 <br>
 
-<H3>Step_Title</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+ <ul>
+    <li>Every face in SketchUp has a front and a back. If you are just making an architectural model which way these faces point may not be very important, but it is critical for energy modeling that the faces are oriented correctly. A face's normal is a line perpendicular to the face going out through the front of the face.</li>
+    <li>As a general rule in OpenStudio the exterior of a zone should be the front face, and the interior of the zone (inside of roof, inside of wall, top of floor) is the back of the face or surface.</li>
+    <li>The only exception to this case is with shading surfaces. Generally both the front and back are exposed outside, and both sides of the shading surface block the sun equally. If you start adding photovoltaic systems to shading surfaces (outside of OpenStudio) then it will be important that the normals are correct so your panels are facing the sun vs. the ground.</li>
+    <li>OpenStudio does use a unique front and back face color for surfaces, but it doesn't always jump out at you on a complex model when something is reversed. In particular for windows. You can turn transparency off, but you can also setup a style that is much easier to read.</li>
+    <li>Below is the typical OpenStudio coloring.</li>
+        <br><img src="dialogs/tut_normal_01.png" alt="" width="500"></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <li>And next is the same model with a custom style. For this style, under &quot;face settings&quot; I have set the rendering to &quot;display shaded using all same&quot;. Lastly I set the front color to white, and the back color to bright red. This model was clean to start with but I introduced some reversed faces for this demonstration. You can see how easily they jump out below.</li>
+        <br><img src="dialogs/tut_normal_02.png" alt="" width="500"></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+         <br><li>You can create this style on your own, but I have also saved it under OpenStudio/lib/resources/styles. You can import it into SketchUp from here.</ul>
 </div>
 
-<H3>Step_Title</H3>
-<div style="margin-left:10px">
-    <P>content</P>
-</div>
-
-<H3>Step_Title</H3>
-<div style="margin-left:10px">
-    <P>content</P>
-</div>
-
-
-					</td>
+				  </td>
 				</tr>
 			</table>
 <!-- end of main content table -->

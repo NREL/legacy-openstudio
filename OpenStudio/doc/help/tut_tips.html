@@ -103,19 +103,59 @@ function msout(num) {
 <H2>Selection, drawing, and inferences tips</H2>
 <br>
 
-<H3>Step_Title</H3>
+<H3>Selecting Geometry</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>At first glance selecting geometry in SketchUp is pretty easy, and it is. But there are a lot of special selection techniques that can save a lot of time that it is worth learning about.</li>
+    <li>Single click - If you click once on a face with the selection tool, as you would expect, SketchUp selects the face.</li>
+    <li>A Double click not only selects a face, but also the bounding edges.</li>
+    <li>A triple click widens the selection to all connected entities.</li>
+    <li>A contextual (right) click will also allow you to select other entities on the same layer, or with the same material.</li>
+    <li>Holding down the &quot;Shift&quot; key will allow you to add to or remove objects from your selection. If you pick a selection that had some selected, and some un-selected, they will all get reversed.</li>
+    <li>The &quot;Control&quot; key only adds to the selection without anything being removed.</li>
+    <li>And holding &quot;Control&quot; and &quot;Shift&quot; together set the selection tool to on remove entities from the selection without adding anything.</li>
+    <li>You don't have to select just by clicking, you can drag a box, however if you create the window from left to right, vs. right to left you get different results.</li>
+    <li>If you draw your selection from left to right only entities that are fully within the box are selected.</li>
+    <li>If instead you draw your selection box from right to left, any objects that are even partially within the box are included in the selection.</li>
+</ul>
 </div>
 
-<H3>Step_Title</H3>
+<H3>Drawing and Modeling</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>While you can use SketchUp without every typing in lengths for objects, it is often very useful to be able to enter exact numbers in the &quot;Measurements&quot; box. You can use this for both creating and altering entities.</li>
+    <li>A nice trick with the measruemnt box that works with most tools is that you can set the value, and then if you don't like it you can go back and keep changing it until you are happy with the results. This works as long as you don't do anything else. in SketchUp until you are done. This will make more sense with an example that I'll give for Multiple Copy/Move</li>
+    <li>Push/Pull repeat - If you have used the Push/Pull tool to extrude something by a set amount, you can re-apply this value to other surfaces to be push/pulled by just double clicking on the surface with the Push/Pull tool selected. I useful example of this would be to push all of the walls of your zone in by 12 inches. You may want to do this if you modeled off of the outside of the exterior wall,but now want to model to the inside wall.</li>
+    <li>Construction lines are a nice tool when you need to want to create reference lines to lock new geometry to, but don't want to clutter up your model, or alter faces that the construction lines cross. Below I setup construction lines as a guide for windows.</li>
+    <br><img src="dialogs/tu_tips_const_01.png" alt="" width="500"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+     <li>The Move Tool in SketchUp lives a secret life as a copy tool. Not only that but it can copy multiple entities at the same time. Below I have my original window at the left. I pressed the &quot;control&quot; key to switch the &quot;move&quot; to a &quot;copy&quot;. </li>
+    <br><img src="dialogs/tut_copy_01.png" alt="" width="500"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+ <li>Once that second window is placed, I can type "/5" into the measurement box to place an additional 4 copies equally spaced over the wall.(5 new copies plus one original).</li>
+   <br><img src="dialogs/tut_copy_02.png" alt="" width="500"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+ <li>Next instead of putting my copy all the way across the building, I placed it next to the first window.</li>
+   <br><img src="dialogs/tut_copy_03.png" alt="" width="500"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+ <li>New if I type "*5" instead of the "/5" it still make the same number of copies, but this time it makes each copy as far away from its neighbor as the first one.</li>
+   <br><img src="dialogs/tut_copy_04.png" alt="" width="500"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+    <li>Look at status bar tips - this is just a reminder, there is a lot of good, otherwise undocumented information there that is specific to your current tool.</li>
+</ul>
 </div>
 
-<H3>Step_Title</H3>
+<H3>Inference Engine</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>SketchUp has an extensive inference engine that tries to help us model to the locations we want to. This is well covered on their online <a href="http://sketchup.google.com/support/bin/answer.py?answer=70143" target="_new">inference documentation</a>.</li>
+    <li>The Shift key is very impotent while you are using inferences, as it can lock you into to your current inference. </li>
+</ul>
 </div>
 
 

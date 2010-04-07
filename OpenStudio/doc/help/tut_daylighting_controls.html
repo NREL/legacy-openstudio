@@ -106,12 +106,16 @@ function msout(num) {
 <H3>Making a new Daylighting Control Pair</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Enter into the Zone where you want to place the Daylighting Controls.If you are not in a zone you will see this error.<br><br>
-    <img src="dialogs/daylightingcontrols.JPG" alt=""></li><br>
-    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the controls.</li>
-    <li>See (Making Changes) below to learn how to relocate the individual control units once you have placed them.</li>
+    <li>Enter into the Zone where you want to place the Daylighting Controls.If you are not in a zone you will see this alert. If you don't have any objects to click on to activate the Zone, you can select the Zone in SketchUp's Outliner Window.<br><br>
+     <img src="dialogs/daylightingcontrols.JPG" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the controls. When you place the sensor it will locate 30 inches above the surface you click on. If you want it at a different height you can change it via the move tool or the Object Info window.</li>
+      <br><img src="dialogs/tut_daylighting_01.png" alt="" width="500"></li><br>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+   <li>See (Making Changes) below to learn how to relocate the individual control units once you have placed them.</li>
     <li>You can't add more than one pair in a single EnergyPlus Zone.</li>
     <li>The New Daylighting Tool isn't the only way to add EnergyPlus Daylighting Controls to your model (see making copies below).</li>
+    <li>To get results out of EnergyPlus for your Daylighting Controls you also need to make sure lights are part of your energy model. This could be through OpenStudio with the Zone Load tool, but you could also add lights to the IDF file with another application.</li>
 </ul>
 </div>
 
@@ -119,8 +123,13 @@ function msout(num) {
 <div style="margin-left:10px">
 <ul>
      <li>You can change the position of the two sensors through the Object Info dialog box.</li>
-     <li>The Object Info dialog box is also where you change attributres for the sensors.</li>
+     <br><img src="dialogs/tut_daylighting_02.png" alt="" width="500"></li><br>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <li>The Object Info dialog box is also where you change attributes for the sensors.</li>
      <li>If you change the Glare Calculation Azimuth Angle of View Direction setting, the arrow on Daylighting Control will reflect this change.</li>
+     <li>You can also change the position of the sensors by entering the daylighting object and using SketchUp's move tool to drag the sensors around.</li>
+     <br><img src="dialogs/tut_daylighting_03.png" alt="" width="500"></li><br>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
 </ul>
 </div>
 
@@ -135,7 +144,7 @@ function msout(num) {
 <H3>Using OpenStudio to validate your Daylighting Sensors in existing IDF files</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>If you import an IDF into OpenStudio any Daylight Controls you have will show up in OpenStudio. You can use OpenStudio to quickly check and see if the Daylight Controls are were you expected them to be. If you need to add or move any, then you can make the changes in OpenStudio and save back to your IDF file.</li>
+     <li>If you import an IDF into OpenStudio any Daylight Controls it contains will show up in OpenStudio. You can use OpenStudio to quickly check and see if the Daylight Controls are were you expected them to be. If you need to add or move any, then you can make the changes in OpenStudio and save back to your IDF file.</li>
 </ul>
 </div>
  

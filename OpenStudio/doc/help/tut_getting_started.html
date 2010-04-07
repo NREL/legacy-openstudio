@@ -103,23 +103,123 @@ function msout(num) {
 <H2>Getting Started - What are zones, surfaces, and sub-surfaces</H2>
 <br>
 
-<H3>Step_Title</H3>
+<H3>Adding a New Zone and its base-surfaces</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>There are two ways to start to work with OpenStudio. One way is to import an existing EnergyPlus IDF file. The other way is to start a new model. When you first open SketchUp with OpenStudio running, it loads a template IDF file.</li>
+    <li>The first thing you need to do is create your first Zone. You do that with the New Zone Tool. After selecting the tool from the OpenStudio Toolbar you click in the model where you want the zone origin to be.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_01.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+<ul>
+    <li>After you insert the zone you should see a blue bounding box around your selected zone.<br>
+      <br>
+    <img src="dialogs/tut_getting_started_02.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+<ul>
+    <li>You can double click on the small tick mark to activate your zone. There may be times that it is tough or impossible to select your zone with this method, for example if it is right on the edge of another zone. There are a few other alternative ways to edit a zone listed below.
+      <ul>
+        <li>Double click on some geometry in the zone (as mentioned above, if you have something to click)</li>
+        <li>Right click on geometry in the zone and choose &quot;Edit Group&quot; (same issues as with method above)</li>
+        <li>Double click the zone in the Outliner Window, or single click and then right click &quot;Edit Group&quot;</li>
+        <li>With the group selected go to go to the edit menu and choose &quot;Group/Edit Group&quot;</li>
+      </ul>
+    </li>
+    <li>Once you do have the zone activated, it should appear like it does below. Your blue solid bounding box is now a dashed line.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_03.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+<ul>
+    <li>So now you need to start modeling. Your first surface will be a wall, floor or roof. Typically it will be a floor. I have drawn it here with the Rectangle Tool, but you can one of the other SketchUp drawing tools, including the Line Tool.<br><br>
+    <img src="dialogs/tut_getting_started_04.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+<ul>
+    <li>After the floor is drawn you can use the Push/Pull Tool to create a building out of your floor. Again you can create geometry with the Line or other tools, but Push/Pull works very well for this. You should see colors similar to below. With OpenStudio zones you never paint materials yourself. OpenStudio determines what type of surface it is, and then automatically colors it.<br><br>
+    <img src="dialogs/tut_getting_started_05.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+</ul>
 </div>
 
-<H3>Step_Title</H3>
+<H3>Creating Sub-surfaces</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>Once you have four walls and a roof, you can start adding sub-surfaces to your model. Sub-surfaces are, as their name suggests, surfaces that sit within a base-surface. This includes doors, windows and skylights. There are a number of guidelines to follow with sub-surfaces.
+      <ul>
+        <li>Don't make a sub-surface as large as it's base-surface. If you want a full wall window, inset the window a small amount.</li>
+        <li>Don't put two sub-surfaces side by side.</li>
+        <li>Don't create a subsurface that touches more than one edge of a base surface.</li>
+        <li>If you want to erase a sub-surface, just erase the edges, and not the face. Don't erase the edges that are also part of the base-surface edge. (e.g. the bottom of a door).<br>
+        </li>
+      </ul>
+    </li>
+    <br>
+      <img src="dialogs/tut_getting_started_06.png" width="500" alt=""><br>
+    
+    <P2i>(Credit: David Goldwasser / NREL)</P2i>
+    <br><br>
+</ul>
+<ul>
+    <li>Sub-surfaces also have their own automatic color scheme. Doors are brown, and windows are a translucent blue. If you draw something and it isn't the color you expected, that is a sign that something is wrong. Check with the Object Info Window or the Information Tool to see what OpenStudio has interpreted the surface to be.</li>
+    <li>You can resize both your base-surfaces and sub-surfaces as you design your building. Just make sure to keep an eye on the coloring and the Object Info Window for any problems that come up.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_07.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+
+<ul>
+    <li>Below you can see the Information Tool displaying information about the surface that it is being dragged over. A wall in the first image, and a window in the following image.<br>
+      <br>
+    <img src="dialogs/tut_getting_started_09.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i>
+    <br>
+    <img src="dialogs/tut_getting_started_10.png" width="500" alt=""><br>
+</ul>
+<ul>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i>
+    <br><br>
+</ul>
 </div>
 
-<H3>Step_Title</H3>
+<H3>Adding a Shading Group</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>Next I'm adding a Shading Group. Every face drawn in a Shading Group becomes a shading surface.</li>
+    <li>You can see on this example that I used the Outliner to activate an empty Shading Group.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_11.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+
+<ul>
+    <li>Below I'm drawing a horizontal shading surface over the door and window. A key to drawing this with the face correctly oriented is to draw using the right hand rule, which is to say that I draw the points in a counter-clockwise direction. For all surfaces in OpenStudio the darker material is on the front face, and the lighter material is on the back face. If you see lighter materials where they shouldn't be it is a sign to check out your model before you proceed.<br><br>
+    <img src="dialogs/tut_getting_started_13.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
+<ul>
+    <li>Below is a completed zone with shading group.<br><br>
+    <img src="dialogs/tut_getting_started_14.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+</ul>
 </div>
 
+<H3>What's Next?</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>So now you have your zone, what is next?</li>
+    <li>Maybe you are ready to to run your simulation, but more than likely you want to add another Zone</li>
+    <li>The Surface Matching Tutorial is a good place to go to learn about making necessary connections between adjacent zones.
+</ul>
+</div>
 
-					</td>
+				  </td>
 				</tr>
 			</table>
 <!-- end of main content table -->
