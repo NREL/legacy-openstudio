@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -91,8 +91,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -105,7 +105,7 @@ function msout(num) {
 <br>
 <H3>Help and documentation are broken down into three categories that you can see to the left</H3>
 <ul>
-    <li>The <b>Reference Guide</b> gives a short description and dialog screenshots for all of the OpenStudio Features. This includes toolbar commands as well as menu commands.</li><br>
+    <li>The <b>Reference Guide</b> gives a short description and dialog screenshots for all of the OpenStudio toolbar commands as well as menu items.</li><br>
     <li>The <b>Tutorials</b> go into more detail than the reference guide, and are focused on a workflow vs. a specific tool. Some of the tutorials are directly about OpenStudio tools, others are about native SketchUp tools that you may find useful in your OpenStudio workflow.</li><br>
     <li>The last section is the <b>Release Notes</b>. This contains installation instructions, software requirements, known issues, links to external resources and other content.</li><br>
 </ul>
@@ -114,28 +114,27 @@ function msout(num) {
 <br>
 <H4>What It Is</H4>
 <ul>
-    <li>At this stage of development, the plugin is mainly a geometry editor for EnergyPlus.  The plugin allows you to create a building geometry from scratch:  add zones, draw heat transfer surfaces, draw windows and doors, draw shading surfaces, etc. The best part is that everything is drawn using the standard tools provided by SketchUp.  Once you have something you like, you can save what you have drawn as an EnergyPlus input file.  </li>
-    <li>The plugin also allows you to open any EnergyPlus input file, whether it was drawn with the plugin or not, and begin making geometry changes...modify zones, delete surfaces, add new surfaces, etc.  </li>
-    <li>This release of OpenStudio also allows you to work with a number of non-geometry EnergyPlus objects such as Daylighting Sensors, people, schedules, power density, electric and gas equipment, and infiltration rates. You can learn more about these under <a href="release_notes.html" target="new_features">New Features</a> on the Release Notes Page.</li>
+    <li>At this stage of development, the plugin is mainly a geometry editor for EnergyPlus.  The plugin allows you to create a building geometry from scratch: add thermal zones, draw heat transfer surfaces, draw windows and doors, draw shading surfaces, etc. </li>
+    <li>The plugin also allows you to open existing EnergyPlus input files, whether they were drawn with the plugin or not, and begin making geometry changes: modify zones, delete surfaces, add new surfaces, etc.  </li>
+    <li>This release of OpenStudio also allows you to work with daylighting related input objects Daylighting:Controls and Output:IlluminanceMap.  There is also a basic functionality to add people, lights, electric and gas rquipment, infiltration rates, and ideal loads air systems to your model so you can quickly get a running simulation starting from scratch. You can learn more about these under <a href="release_notes.html" target="new_features">New Features</a> on the Release Notes Page.</li>
 </ul>
 
 <H4>What It Is Not</H4>
 <ul>
-    <li>The plugin is not yet a full-featured interface for EnergyPlus.  It will help you create some non-geometry EnergyPlus objects but will not replace the need to work with the EnergyPlus IDF file elsewhere.  In order to effectively use EnergyPlus with the plugin you will still have to be willing to learn about building simulation and get your hands dirty working with the low-level EnergyPlus syntax of the text input file.  Or, alternatively, you could use the plugin in conjunction with another third-party interface to make the job easier.  </li>
-    <li>The plugin is also not a translator from SketchUp to EnergyPlus.  You cannot use the plugin to convert an old SketchUp model that you have into an EnergyPlus input file...at least, not without thinking about how to divide your building into thermal zones and then creating those zones and their connections.  To use the plugin as intended, you must have the energy model in mind from the beginning as you create your SketchUp model.</li>
-    <li>Here is a link to a tutorial on <a href="tut_building_maker.html">creating an OpenStuidoenergy model from an existing 3d architectural model</a>.</li>
-    <li>I also have a tutorial for <a href="tut_cad_dxf.html">creating OpenStudio energy models from 2d plans and elevations.</a></li>
+    <li>The plugin is not yet a full-featured interface for EnergyPlus.  It will help you create some non-geometry EnergyPlus objects but will not replace the need to work with the EnergyPlus IDF file outside of SketchUp.  In order to effectively use EnergyPlus with the plugin you will still have to be willing to learn about building simulation and get your hands dirty working with the low-level EnergyPlus syntax of the text input file.</li>
+    <li>The plugin is also not a translator from SketchUp to EnergyPlus.  You cannot use the plugin to convert an old SketchUp model that you have into an EnergyPlus input file...at least, not without thinking about how to divide your building into thermal zones and then simplying existing geometry into those zones.  To use the plugin as intended, you must have the energy model in mind as you create your EnergyPlus model. Some of the <a href="tutorials.html">tutorials</a> cover workflows for converting existing models to EnergyPlus input.</li>
 </ul>
 
 <H4>Conventions</H4>
 <ul>
-    <li>We also use some conventions for terminology.  In SketchUp every object you draw on the screen is called an entity.  Entities include groups, faces, and edges, among others.  These terms are consist with the SketchUp documentation so they should't be a surprise if you are already a veteran user.  On the EnergyPlus side, the input data file (IDF) is made up of objects as well.  An EnergyPlus input object is a block of text with data values separated by commas and everything terminated with a semicolon.  The individual data values are called fields. The input objects used for describing the geometry of the building are called zones  and surfaces.  If you are an EnergyPlus user, then these terms should be very familiar to you. For the purposes of the plugin, there is a one-to-one relationship between groups &gt; zones and faces  &gt; surfaces. </li>
- </ul>
+    <li>In SketchUp every object you draw on the screen is called an entity.  Entities include groups, faces, and edges, among others.  These terms are consist with the SketchUp documentation so they should't be a surprise if you are already a veteran user.</li>
+    <li>On the EnergyPlus side, the input data file (IDF) is made up of objects as well.  An EnergyPlus input object is a block of text with data values separated by commas and everything terminated with a semicolon.  The individual data values are called fields.  Allowable values for each field are defined in the Input Data Dictionary (IDD).</li>
+</ul>
 
 <H4>Conclusion</H4>
 <ul>
-    <li>OpenStudio makes it easier to enter  geometry data for your EnergyPlus input files - a task that was once both difficult and time consuming.  This release also begins to add support for non-geometry features of EnergyPlus. We expect to expand access to these non-geometry features in future releases.</li>
-    <li>Before you get started we recommend that you take a look at the <a href="release_notes.html#known_issues">known issues</a>.  If you have problems, feedback, or questions about the plugin, see the <a href="release_notes.html#troubleshooting">troubleshooting</a> on the Release Notes page for information on how to contact us.  </li>
+    <li>OpenStudio makes it easy to enter geometry data for your EnergyPlus input files - a task that was once both difficult and time consuming.  This release also begins to add support for non-geometry features of EnergyPlus.  We expect to expand access to these non-geometry features in future releases.</li>
+    <li>Before you get started we recommend that you take a look at the <a href="release_notes.html#known_issues">known issues</a>.  If you have problems, feedback, or questions about the plugin, see the <a href="release_notes.html#troubleshooting">troubleshooting</a> on the <a href="release_notes.html">Release Notes</a> page for information on how to contact us.  </li>
     <li>Thanks for reading, and good luck with all of your EnergyPlus endeavors!  We hope you find the plugin useful.  </li>
 </ul>
 
@@ -149,11 +148,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

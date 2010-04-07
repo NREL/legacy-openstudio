@@ -5,7 +5,7 @@
 <title>OpenStudio Documentation: Help</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -61,16 +61,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -91,8 +91,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -120,13 +120,13 @@ function msout(num) {
 <A NAME="run"></A>
 <H3>Run EnergyPlus Simulation</H3>
 <div style="margin-left:20px">
-    <P>The Run Simulation command displays a dialog window that allows you to select run control options, select a weather file and run period, and choose how you want your results to be reported.  Hit the Run button to launch a simulation of the current EnergyPlus input file.  The EnergyPlus engine will begin to run in a shell command window.  You may continue to work in SketchUp while the simulation is running.  If you decide not to run the simulation at this time, you can still hit the Apply button to save your changes to the input file. </P>
+    <P>The Run Simulation command displays a dialog window that allows you to select run control options, select a weather file, configure run periods, and choose results to be reported.  Hit the Run button to launch a simulation of the current EnergyPlus input file.  The EnergyPlus engine will begin to run in a shell command window.  You may continue to work in SketchUp while the simulation is running.  If you decide not to run the simulation at this time, you can still hit the Apply button to save your configuration. </P>
     <img src="dialogs/RunSimulation.png" alt=""><br><br>
-    <P>Options for run control let you choose whether you want to run design day simulations or the weather file simulation or both.  You can also select the start and end dates for the weather file run period here. Changing these options will update the RunPeriod object in the input file.
+    <P>Options for run control let you choose whether you want to run design day simulations, weather file simulation, or both.  You can also select the start and end dates for the weather file run period here. Changing these options will update the RunPeriod object in the simulated input file.
 
-        <br><br>Options for reporting results allow you to choose what data you want reported back from the simulation. The option “Report Annual Building Utility Performance Summary (ABUPS)” reports a file that gives a helpful summary of the building energy usage over the run period along with a breakdown of end uses. The option “Report user variables and meters” simply preserves any Output:Variable and Output:Meter objects already in the input file.  If this option is not checked, all of the Output:Variable and Output:Meter objects are stripped from the input file.  The option “Report zone temperatures” adds Output:Variable objects for zone mean air temperature (MAT) and zone mean radiant temperature (MRT).  The option “Report inside and outside surface temperatures” adds Output:Variable objects for all inside and outside surface temperatures.  The two preceding options might be useful for data visualization studies.
+        <br><br>Options for reporting results allow you to choose what data you want reported back from the simulation. The option &#39;Report Annual Building Utility Performance Summary (ABUPS)&#39; reports a file that gives a helpful summary of the building energy usage over the run period along with a breakdown of end uses. The option &#39;Report user variables and meters&#39; simply preserves any Output:Variable and Output:Meter objects already in the input file.  If this option is not checked, all of the Output:Variable and Output:Meter objects are stripped from the input file.  The option &#39;Report zone temperatures&#39; adds Output:Variable objects for zone mean air temperature (MAT) and zone mean radiant temperature (MRT).  The option &#39;Report inside and outside surface temperatures&#39; adds Output:Variable objects for all inside and outside surface temperatures.  The two preceding options might be useful for data visualization studies.
 
-        <br><br>There are also options for various actions that should be performed when the simulation has completed. The option Close shell command window” will automatically close the shell window (MS-DOS console).  If this option is unchecked, you will have to manually close the window before any other actions can automatically be performed (e.g., show the error file). The option “Show error file” opens the eplusout.err file in the preferred text editor. We highly recommended that you always check your ERR file after any EenrgyPlus run!  The option “Show Annual Building Utility Performance Summary (ABUPS)” opens the ABUPS file for viewing.  The option “Show report variables and meters file (CSV)” opens the report variable output in comma-delimited (CSV) format.  If any of the Output:Variable options were selected, the EnergyPlus output file is postprocessed into a CSV file whether or not the option to show it is selected.  </P>
+        <br><br>There are also options for various actions that should be performed when the simulation has completed. The option Close shell command window&#39; will automatically close the shell window (MS-DOS console).  If this option is unchecked, you will have to manually close the window before any other actions can automatically be performed (e.g., show the error file). The option &#39;Show error file&#39; opens the eplusout.err file in the preferred text editor. We highly recommended that you always check your ERR file after any EenrgyPlus run!  The option &#39;Show Annual Building Utility Performance Summary (ABUPS)&#39; opens the ABUPS file for viewing.  The option &#39;Show report variables and meters file (CSV)&#39; opens the report variable output in comma-delimited (CSV) format.  If any of the Output:Variable options were selected, the EnergyPlus output file is postprocessed into a CSV file whether or not the option to show it is selected.  </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -155,11 +155,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

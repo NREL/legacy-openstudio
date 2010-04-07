@@ -5,7 +5,7 @@
 <title>OpenStudio Documentation: Help</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -61,16 +61,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -91,8 +91,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -123,7 +123,7 @@ function msout(num) {
 <A NAME="new_zone"></A>
 <H3>Create a new EnergyPlus Zone</H3>
 <div style="margin-left:20px">
-    <P>The New Zone command activates a tool that allows you to create a new zone.  Use the cursor  to select a point that will become the new zone origin by clicking somewhere in the view. An empty SketchUp group highlighted with a blue bounding box will appear anchored at one corner by a construction point.</P>
+    <P>The New Zone command activates a tool that allows you to create a new zone.  Use the cursor to select a point that will become the new zone origin by clicking somewhere in the view. Note that you cannot currently change the zone origin in OpenStudio once it is placed, you can change it in the IDF file directly but this may alter your geometry. An empty SketchUp group highlighted with a blue bounding box will appear anchored at one corner by a construction point.</P>
     <img src="dialogs/image028.jpg" alt=""><br>
     <P>With the cursor still positioned over the construction point, double-click it to begin editing the zone.  Any new SketchUp entities that you draw inside of the group with the standard tools (Rectangle, Polygon, Pencil, etc.) will immediately add new EnergyPlus heat transfer surfaces (BuildingSurface:Detailed, FenestrationSurface:Detailed, and Shading:Zone:Detailed) to the input file.  Floors, walls, roofs, windows, doors, and attached shading surfaces are all automatically inferred from their tilts and positions relative to other surfaces.  </P>
     <img src="dialogs/image030.jpg" alt=""><br>
@@ -136,7 +136,7 @@ function msout(num) {
 <A NAME="new_shading"></A>
 <H3>Create a new EnergyPlus Shading Group</H3>
 <div style="margin-left:20px">
-    <P>The New Shading Group command activates a tool that allows you to create a new shading group. Shading groups are not an EnergyPlus concept, but are used by the plugin to group and isolate detached shading surfaces from the rest of the SketchUp model.  This tool works almost identically to the New Zone tool, except that any new SketchUp entities that you draw inside of the group will immediately add new detached shading surfaces (Shading:Building:Detailed  and Shading:Site:Detailed) to the input file, instead of heat transfer surfaces. </P>
+    <P>The New Shading Group command activates a tool that allows you to create a new shading group. Shading groups are not an EnergyPlus object so will not be preserved in the IDF file, they are only used by the plugin to group and isolate detached shading surfaces from the rest of the SketchUp model.  This tool works almost identically to the New Zone tool, except that any new SketchUp entities that you draw inside of the group will immediately add new detached shading surfaces (Shading:Building:Detailed and Shading:Site:Detailed) to the input file, instead of heat transfer surfaces. </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -179,11 +179,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>
