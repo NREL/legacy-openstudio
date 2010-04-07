@@ -118,27 +118,31 @@ function msout(num) {
 <hr><br>
 
 <A NAME="run"></A>
-<H3>Run EnergyPlus Simulation</H3>
+<H3><a href="ref_simulations.html#run"><img src="../../lib/resources/icons/RunEnergyPlus-16.png" alt=""></a> Run EnergyPlus Simulation</H3>
 <div style="margin-left:20px">
     <P>The Run Simulation command displays a dialog window that allows you to select run control options, select a weather file, configure run periods, and choose results to be reported.  Hit the Run button to launch a simulation of the current EnergyPlus input file.  The EnergyPlus engine will begin to run in a shell command window.  You may continue to work in SketchUp while the simulation is running.  If you decide not to run the simulation at this time, you can still hit the Apply button to save your configuration. </P>
-    <img src="dialogs/RunSimulation.png" alt=""><br><br>
-    <P>Options for run control let you choose whether you want to run design day simulations, weather file simulation, or both.  You can also select the start and end dates for the weather file run period here. Changing these options will update the RunPeriod object in the simulated input file.
+    <img src="dialogs/RunSimulation.png" alt=""><br>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <P>Options for run control let you choose whether you want to run design day simulations, weather file simulation, or both.  You can also select the start and end dates for the weather file run period here. Changing these options will update the Run Period object in the simulated input file.
 
         <br><br>Options for reporting results allow you to choose what data you want reported back from the simulation. The option &#39;Report Annual Building Utility Performance Summary (ABUPS)&#39; reports a file that gives a helpful summary of the building energy usage over the run period along with a breakdown of end uses. The option &#39;Report user variables and meters&#39; simply preserves any Output:Variable and Output:Meter objects already in the input file.  If this option is not checked, all of the Output:Variable and Output:Meter objects are stripped from the input file.  The option &#39;Report zone temperatures&#39; adds Output:Variable objects for zone mean air temperature (MAT) and zone mean radiant temperature (MRT).  The option &#39;Report inside and outside surface temperatures&#39; adds Output:Variable objects for all inside and outside surface temperatures.  The two preceding options might be useful for data visualization studies.
 
-        <br><br>There are also options for various actions that should be performed when the simulation has completed. The option Close shell command window&#39; will automatically close the shell window (MS-DOS console).  If this option is unchecked, you will have to manually close the window before any other actions can automatically be performed (e.g., show the error file). The option &#39;Show error file&#39; opens the eplusout.err file in the preferred text editor. We highly recommended that you always check your ERR file after any EenrgyPlus run!  The option &#39;Show Annual Building Utility Performance Summary (ABUPS)&#39; opens the ABUPS file for viewing.  The option &#39;Show report variables and meters file (CSV)&#39; opens the report variable output in comma-delimited (CSV) format.  If any of the Output:Variable options were selected, the EnergyPlus output file is postprocessed into a CSV file whether or not the option to show it is selected.  </P>
+        <br><br>
+        There are also options for various actions that should be performed when the simulation has completed. The option Close shell command window&#39; will automatically close the shell window (MS-DOS console).  If this option is unchecked, you will have to manually close the window before any other actions can automatically be performed (e.g., show the error file). The option &#39;Show error file&#39; opens the eplusout.err file in the preferred text editor. We highly recommended that you always check your ERR file after any EnergyPlus run!  The option &#39;Show Annual Building Utility Performance Summary (ABUPS)&#39; opens the ABUPS file for viewing.  The option &#39;Show report variables and meters file (CSV)&#39; opens the report variable output in comma-delimited (CSV) format.  If any of the Output:Variable options were selected, the EnergyPlus output file is postprocessed into a CSV file whether or not the option to show it is selected.  </P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="eefg"></A>
-<H3>Connect to the EnergyPlus Example File Generator</H3>
+<H3><a href="ref_simulations.html#eefg"><img src="../../lib/resources/icons/EEFG-16.png" alt=""></a> Connect to the EnergyPlus Example File Generator</H3>
 <div style="margin-left:20px">
-    <P>Content</P>
+    <P>This launches the US Department of Energy's Example File Generator. This is another method to add data to your IDF file. This launches as a web window within SketchUp. After you complete the process, the sample file will be sent to you via email. Below is a screenshot of the website.</P>
+    <img src="dialogs/EPEFG.JPG" width="500" alt=""><br>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="help"></A>
-<H3>OpenStudio User Guide</H3>
+<H3><a href="ref_simulations.html#help"><img src="../../lib/resources/icons/Help-16.png" alt=""></a> OpenStudio User Guide</H3>
 <div style="margin-left:20px">
     <P>This command opens the User Guide help pages (what you are reading right now) in your default web browser.</P>
 </div>
