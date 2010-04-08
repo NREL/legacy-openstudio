@@ -122,20 +122,20 @@ function msout(num) {
 <H4>What It Is Not</H4>
 <ul>
     <li>The plugin is not yet a full-featured interface for EnergyPlus.  It will help you create some non-geometry EnergyPlus objects but will not replace the need to work with the EnergyPlus IDF file outside of SketchUp.  In order to effectively use EnergyPlus with the plugin you will still have to be willing to learn about building simulation and get your hands dirty working with the low-level EnergyPlus syntax of the text input file.</li>
-    <li>The plugin is also not a translator from SketchUp to EnergyPlus.  You cannot use the plugin to convert an old SketchUp model that you have into an EnergyPlus input file...at least, not without thinking about how to divide your building into thermal zones and then simplying existing geometry into those zones.  To use the plugin as intended, you must have the energy model in mind as you create your EnergyPlus model. Some of the <a href="tutorials.html">tutorials</a> cover workflows for converting existing models to EnergyPlus input.</li>
+    <li>The plugin is also not a translator from SketchUp to EnergyPlus.  You cannot use the plugin to convert an old SketchUp model that you have into an EnergyPlus input file...at least, not without thinking about how to divide your building into thermal zones.  To use the plugin as intended, you must have the energy model in mind as you create your EnergyPlus model. Some of the <a href="tutorials.html">tutorials</a> cover workflows for converting existing models to EnergyPlus input.</li>
 </ul>
 
 <H4>Conventions</H4>
 <ul>
     <li>In SketchUp every object you draw on the screen is called an entity.  Entities include groups, faces, and edges, among others.  These terms are consist with the SketchUp documentation so they should't be a surprise if you are already a veteran user.</li>
-    <li>On the EnergyPlus side, the input data file (IDF) is made up of objects as well.  An EnergyPlus input object is a block of text with data values separated by commas and everything terminated with a semicolon.  The individual data values are called fields.  Allowable values for each field are defined in the Input Data Dictionary (IDD).</li>
+    <li>The EnergyPlus input data file (IDF) is made up of objects as well.  An EnergyPlus input object is a block of text with data values separated by commas and terminated by a semicolon.   Allowable values for each field of the object are defined by the Input Data Dictionary (IDD).  The InputOutputReference.pdf file in the EnergyPlus documenation gives details about the meaning and impact of each field of each object in the simulation.</li>
 </ul>
 
 <H4>Conclusion</H4>
 <ul>
     <li>OpenStudio makes it easy to enter geometry data for your EnergyPlus input files - a task that was once both difficult and time consuming.  This release also begins to add support for non-geometry features of EnergyPlus.  We expect to expand access to these non-geometry features in future releases.</li>
     <li>Before you get started we recommend that you take a look at the <a href="release_notes.html#known_issues">known issues</a>.  If you have problems, feedback, or questions about the plugin, see the <a href="release_notes.html#troubleshooting">troubleshooting</a> on the <a href="release_notes.html">Release Notes</a> page for information on how to contact us.  </li>
-    <li>Thanks for reading, and good luck with all of your EnergyPlus endeavors!  We hope you find the plugin useful.  </li>
+    <li>Thanks for reading and good luck with all of your EnergyPlus endeavors!  We hope you find the OpenStudio plugin useful.  </li>
 </ul>
 
 					</td>

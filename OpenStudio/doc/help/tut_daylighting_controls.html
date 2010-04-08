@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,54 +100,36 @@ function msout(num) {
 
 
 
-<H2>Creating and modifying EnergyPlus Daylighting Controls</H2>
+<H2>Daylighting Controls</H2>
 <br>
 
-<H3>Making a new Daylighting Control Pair</H3>
+<H3>Adding a Daylighting:Controls Object</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Enter into the Zone where you want to place the Daylighting Controls.If you are not in a zone you will see this alert. If you don't have any objects to click on to activate the Zone, you can select the Zone in SketchUp's Outliner Window.<br><br>
+    <li>Enter into the zone where you want to place the Daylighting:Controls object. If you try to add Daylighting:Controls outside of a zone you will see this alert.<br><br>
      <img src="dialogs/daylightingcontrols.JPG" alt=""><br></li>
          <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the controls. When you place the sensor it will locate 30 inches above the surface you click on. If you want it at a different height you can change it via the move tool or the Object Info window.</li>
+    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the Daylighting:Controls object. When you place the object it will locate 30 inches above the surface, edge, or vertex that you click on.</li>
       <br><img src="dialogs/tut_daylighting_01.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-   <li>See (Making Changes) below to learn how to relocate the individual control units once you have placed them.</li>
-    <li>You can't add more than one pair in a single EnergyPlus Zone.</li>
-    <li>The New Daylighting Tool isn't the only way to add EnergyPlus Daylighting Controls to your model (see making copies below).</li>
-    <li>To get results out of EnergyPlus for your Daylighting Controls you also need to make sure lights are part of your energy model. This could be through OpenStudio with the Zone Load tool, but you could also add lights to the IDF file with another application.</li>
+    <li>See below to learn how to relocate the Daylighting:Controls once you have placed them.</li>
+    <li>You can't add more than one Daylighting:Controls object to a single zone.</li>
+    <li>To get results out of EnergyPlus for your Daylighting:Controls you also need to make sure the zone also has a Lights object. You can add lights through OpenStudio with the Zone Load tool.</li>
 </ul>
 </div>
 
-<H3>Making changes and modifications</H3>
+<H3>Making Changes</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>You can change the position of the two sensors through the Object Info dialog box.</li>
+     <li>You can switch between one and two sensors as well as change the position of each sensor through the Object Info dialog box.</li>
      <br><img src="dialogs/tut_daylighting_02.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-     <li>The Object Info dialog box is also where you change attributes for the sensors.</li>
-     <li>If you change the Glare Calculation Azimuth Angle of View Direction setting, the arrow on Daylighting Control will reflect this change.</li>
-     <li>You can also change the position of the sensors by entering the daylighting object and using SketchUp's move tool to drag the sensors around.</li>
+     <li>You can also change the position of the sensors by double-clicking the Daylighting:Controls object and using SketchUp's move tool to drag the sensors around.</li>
      <br><img src="dialogs/tut_daylighting_03.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+	 <li>The arrow on Daylighting:Controls object reflects the Glare Calculation Azimuth Angle of View Direction setting.  Rotating the sensors does not change this setting.</li>
 </ul>
 </div>
-
-<H3>Making copies of Daylighting Controls</H3>
-<div style="margin-left:10px">
-<ul>
-     <li>As an alternative to using the New Daylighting Controls Tool, you can copy your controls from one Zone and paste them into another.</li>
-     <li>Don't copy a second pair into the same Zone or you will run into errors when you run your simulation. EnergyPlus only supports one pair for each Zone.</li>
-</ul>
-</div>
-
-<H3>Using OpenStudio to validate your Daylighting Sensors in existing IDF files</H3>
-<div style="margin-left:10px">
-<ul>
-     <li>If you import an IDF into OpenStudio any Daylight Controls it contains will show up in OpenStudio. You can use OpenStudio to quickly check and see if the Daylight Controls are were you expected them to be. If you need to add or move any, then you can make the changes in OpenStudio and save back to your IDF file.</li>
-</ul>
-</div>
- 
 
           </td>
 				</tr>
@@ -159,11 +141,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

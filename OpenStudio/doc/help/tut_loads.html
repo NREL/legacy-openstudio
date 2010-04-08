@@ -100,40 +100,40 @@ function msout(num) {
 
 
 
-<H2>Adding Internal Gains and Ideal Loads Air System to your model</H2>
+<H2>Zone Loads</H2>
 <br>
 
     <H3>Internal Gains</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>Internal gains include people, lights, equipment, and infiltration.  This dialog does not allow user to view gains in current zones,
-		    only allows user to specify values that will be written to the file.</li>
-		<li>Applying internal gains to file removes existing objects of these types from selected Zones.</li>
-		<li>Does not currently include hot water end uses, ventilation air requirements, or exterior loads such as parking lot lighting.</li>
-		<li>You can get a report of the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed.</li>
+		<li>Internal gains include people, lights, equipment, and infiltration.  Unlike the Object Info dialog, this dialog does not allow user to view gains in current zones.  It only allows the user to specify values that will be written to the file.</li>
+		<li>Applying internal gains to selected zones removes existing objects of these types from the selected zones.</li>
+		<li>Lights objects are required in order to add Daylighting:Controls to a zone.</li>
+		<li>Internal Gains do not currently include hot water end uses, ventilation air requirements, or exterior loads such as parking lot lighting.</li>
+		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
 		</ul>
 	</div>
 
 	<H3>Ideal Loads Air System</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>For models which are starting from scratch, 'HVACTemplate:Zone:IdealLoadsAirSystem' gives the quickest path for load calcs.</li>
-		<li>Applying internal gains to file removes existing objects of this type from selected Zones.</li>
-		<li>You can get a report of the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also run a DIFF on the IDF file using a file comparison tool. We have a link to these under Release Notes <a href="release_notes.html" target="other_tools">other tools.</a></li>
+		<li>EnergyPlus simulations may experience problems if internal gains are present but no system is included to remove energy from zones with internal gains.</li>
+		<li>For models which are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the quickest path for load calculations using EnergyPlus.</li>
+		<li>Adding HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes existing objects of this type from the selected zones.</li>
+		<li>A HVACTemplate:Thermostat is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating and cooling setpoints.</li>
+		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
 		</ul>
 	</div>
 
 	<H3>Saved Preferences</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>The default values for internal gains correspond to a general office building. The default schedules are those
-		    present when starting a new model from scratch.  However the user can save settings for internal
-		    gains corresponding to other space types or variations.  These saved settings can be reloaded and applied to model other space
-		    types or to generate perturbations on the current model.</li>
+		<li>The initial values for internal gains correspond to a general office building. The initial schedules are those included in NewTemplate.idf when starting a new model from scratch and also correspond to a general office building.</li>
+		<li>The user can save settings for internal gains corresponding to other space types or other variations. These saved settings can be reloaded and applied to model other space types or to generate perturbations on the current model.</li>
 		</ul>
 	</div>
 
-        <img src="dialogs/tut_zone_loads_01.png" alt=""></li><br><br>
+	<img src="dialogs/tut_zone_loads_01.png" alt=""><br><br>
 
 					</td>
 				</tr>

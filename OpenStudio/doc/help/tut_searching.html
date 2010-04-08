@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,24 +100,23 @@ function msout(num) {
 
 
 
-<H2>Methods to search for EnergyPlus Objects</H2>
+<H2>Searching for EnergyPlus Objects</H2>
 <br>
 
 <H3>Surface and Sub-surface Searching</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>SketchUp's built in Outliner already has searching built into it but that only works for groups and components, not individual faces/surfaces.</li>
-     <li>The Surface Search tool allows you to search individual surfaces and sub-surfaces.</li>
+     <li>The Surface Search tool allows you to search surfaces and sub-surfaces.</li>
      <li>You can enter search criteria in all fields, or in just one</li>
-     <li>If you use multiple fields, objects must match both criteria to show in the results</li>
-     <li>You enter text into the filter to run your search. The search will pick up partial words as well as whole words, and is not case sensitive.</li>
+     <li>If you use multiple fields, objects must match both criteria to appear in the results</li>
+     <li>The name search field will match partial words as well as whole words and is not case sensitive.</li>
      <br><img src="dialogs/tut_surface_searching_01.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
      <br>
      <P2i>model prior to search being run</P2i>
      <br>
      <br><img src="dialogs/tut_surface_searching_02.png" alt=""></li><br>
-     <P2i>Searching for west facing windows on the third floor. (west is set in "Construction")</P2i><br><br>
+     <P2i>Searching for on the third floor for surfaces with construction named 'ASHRAE 90.1-2004_Sec 5.5-5_0.3_0.4_fixed_west_window'.</P2i><br><br>
      <li>Results are shown by hiding everything in the model except for the results.</li>
      <br><img src="dialogs/tut_surface_searching_03.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
@@ -135,42 +134,41 @@ function msout(num) {
 </ul>
 </div>
 
-<H3>Using Outliner to search Zones and other non-surface EnergyPlus objects</H3>
+<H3>Using Outliner to Search Groups (Zones) and Components (Daylighting:Controls and Output:IlluminanceMap)</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>To search for specific Zones or other non-surface EnergyPlus Objects (e.g. Daylighting Controls) you can use SketchUp's built in Outliner</li>
+     <li>You can use SketchUp's built in Outliner to search for groups (zones) and components (Daylighting:Controls and Output:IlluminanceMap).</li>
      <li>Without any search terms entered, the outliner shows all SketchUp groups and components.</li>
      <li>The hierarchy can be expanded or collapsed with the button on the right side of the dialog box.</li>
-     <li>You enter text into the filter to run your search. The search will pick up partial words as well as whole words, and is not case sensitive.</li>
+     <li>You enter text into the filter to run your search. The search will match partial words as well as whole words, and is not case sensitive.</li>
      <li>The search only affects the Outliner and does not change what your model looks like. However, you can click on an object in the Outliner to select or activate it.</li>
-     <li>You can run a Zone search on top of a Surface search for interesting results. You will still see hidden items on the Outliner but they will be screened back. If you do want to hide specific zones, you can select them with the outliner, and then manually hide them, or move them to a specific layer and hide that layer.</li>
-     <li>Outliner objects are Black if there is no filter/search set and red if there is a filter. To clear a filter just empty out the text box at the top of the Outliner.</li>
+     <li>Outliner objects are black if there is no filter/search set and red if there is a filter. To clear a filter just empty out the text box at the top of the Outliner.</li>
      <br><img src="dialogs/tut_zone_searching_01.png" alt=""></li><br>
      <P2i>Outliner before search</P2i><br><br>
      <br><img src="dialogs/tut_zone_searching_02.png" alt=""></li><br>
      <P2i>Outliner after search</P2i><br><br>
+     <li>You can run an Outliner search on top of a Surface search for interesting results. You will still see hidden items on the Outliner but they will be screened back. If you do want to hide specific zones, you can select them with the outliner, and then manually hide them, or move them to a specific layer and hide that layer.</li>
+     <li>You also use the Outliner to filter the displayed zones (for instance to zones with "Office" in the name) and then run a Surface search on the remaining selection.</li>
 </ul>
 </div>
 
-<H3>Using Layers to make viewing and hiding specific zones much easier</H3>
+<H3>Using Layers</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>As I mentioned above, you can take EnergyPlus Zones and move them to specific layers based on your needs at the time. You could layer them by use type, for example office zones on one layer, and public zones on another. Or you could take zones that you have populated will data onto one layer, while zones that you still need to work on are on another layer. It is important to note however that the layers you use are only for this session. When you re-import the IDF at a later date, they will be back on layer0. This will be addressed on future versions of OpenStudio.</li>
-     <li>Once your objects are on specific Zones you can now control visibility of the zones to make working on your model a little easier to manage. One thing to note is that when you hide a layer those objects won't be visible even if you turn on &quot;show hidden geometry&quot;. Show hidden geometry only shows hidden objects on layers that are active.</li>
-     <li>You can also use SketchUp's built in &quot;Color by Layer&quot; to view your zones by layer. You can access this through the layer window or the style window. I have a few styles, including this one saved under OpenStudio/lib/resources/styles.</li>
-     <li>One last use for layers is to turn the Il luminance Maps and Daylighting Control objects on and off. This just effects their visibility and has no impact on the IDF file. Unless you delete them, they will be in your IDF (visible or not).</li>
+     <li>You can move zones and surfaces to new layers based on your needs. For example you could assign zones to layers based on space type or you could assign surfaces to layers by construction. It is important to note that the layer assignments are not saved to the IDF and will only last for the current session. When you re-open the IDF at a later date, all objects will be back on layer0. This will be addressed in a future version of OpenStudio.</li>
+     <li>Once your objects are on specific layer you can control visibility of each layer to make working on your model a little easier to manage. One thing to note is that when you hide a layer, objects on that layer won't be visible even if you turn on &quot;show hidden geometry&quot;. Show hidden geometry only shows hidden objects on layers that are active.</li>
+     <li>You can also use SketchUp's built in &quot;Color by Layer&quot; to view your model by layer. You can access this through the layer window or the style window. A few styles are saved under OpenStudio/lib/resources/styles.</li>
+     <li>One last use for layers is to display or hide Output:IlluminanceMap and Daylighting:Controls objects.</li>
      <br><img src="dialogs/tut_layers_01.png" width="500" alt=""></li><br>
     <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>selected two zones and moved them with the Entity Info Window to the &quot;retail&quot; layer</P2i><br><br>
+    <P2i>select two zones and move them with the Entity Info Window to a layer named &quot;retail&quot;</P2i><br><br>
      <br><img src="dialogs/tut_layers_03.png" width="500" alt=""></li><br>
     <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>here I have turned off all zones except for &quot;office&quot;.</P2i><br><br>
+    <P2i>turn off all zones except for those on the &quot;office&quot; layer</P2i><br><br>
          <br><img src="dialogs/tut_layers_02.png" width="500" alt=""></li><br>
     <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>I set layer colors in the &quot;Layer&quot; dialog box and then turned on color by layer using</P2i><br>
-      <P2i>the &quot;Style&quot; window. I can save a style with these settings, and you could even save</P2i><br>
-      <P2i>a SketchUp file with these layers and their colors already setup to your office standards.
-    </P2i>
+    <P2i>set layer colors in the &quot;Layer&quot; dialog box and then color by layer using</P2i><br>
+      <P2i>the &quot;Style&quot; window</P2i>
     <br><br>
 </ul>
 </div>
@@ -184,11 +182,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

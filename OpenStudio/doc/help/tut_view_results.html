@@ -100,7 +100,7 @@ function msout(num) {
 
 
 
-<H2>View simulation results in OpenStudio</H2>
+<H2>View Simulation Results</H2>
 <br>
 
 <H3>Load data from ESO file</H3>
@@ -113,11 +113,12 @@ function msout(num) {
     <li>Once an input file has been simulated and ESO file generated the user can load the ESO file into OpenStudio.  The IDF file related to
         the simulation should be open so results can be related back to input geometry.</li>
     <li>Because the ESO file can be fairly slow to parse, OpenStudio can create a '*.eso.cache' file (set this option in Plugins->OpenStudio->Preferences)
-        after loading the ESO file to speed up loading on subsequent sessions.  The cached file will be refreshed when it is out of date compared to the regular ESO file.</li>
+        after loading the ESO file to speed up loading on subsequent sessions.  The cached file will be refreshed when it is out of date compared to the  ESO file.</li>
+    <li>The file OpenStudio/examples/GeometryTest.idf is included with pre-run EnergyPlus results for use in this tutorial.</li>
 </ul>
 </div>
 
-<H3>Select data for visualization</H3>
+<H3>Select Data for Visualization</H3>
 <div style="margin-left:10px">
 <ul>
     <li>Once the ESO file is loaded a list of available run periods (sizing and weather file periods reported in the simulation) and available variables
@@ -128,22 +129,21 @@ function msout(num) {
       variables the user can display results separately for the inside and outside surfaces.</li>
           <br><img src="dialogs/RenderingSurfaceVariables.png"  alt=""></li><br>
       <p2i>list of surface variables available</P2i><br><br>
-      
+
                 <br><img src="dialogs/RenderingZoneVariables.png"  alt=""></li><br>
       <p2i>list of zone variables available</P2i><br><br>
-      
+
           <li>OpenStudio cannot currently display data at the HVAC Timestep reporting frequency.</li>
-    <li>The user can choose to display data either in absolute units from the ESO, or after normalizing by surface area for surface variables or Zone floor
-        area for Zone level variables.  Normalizing the data is helpful for some variable types like Lighting Power, so that large zones do not
-        appear to have very different properties than smaller zones, but normalization does not make sense for other variables such as Surface Temperature.</li>
+    <li>The user can choose to display data either in absolute units from the ESO, or after normalizing by surface area for surface variables or Zone floor area for Zone level variables.  Normalizing data is helpful for some variable types like Lighting Power, so that large zones do not
+        appear to have very different properties than smaller zones.  However, normalization does not make sense for other variables such as Surface Temperature.</li>
                 <br><img src="dialogs/tut_rendering_05.png" width="500" alt=""></li><br>
        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
-     <p2i>Zone/Sys Sensible Cooloring Rate at 2:00pm on 7/18</P2i><br>   
- 
+     <p2i>Zone/Sys Sensible Cooling Rate at 2:00pm on 7/18</P2i><br>
+
                 <br><img src="dialogs/tut_rendering_06.png" width="500" alt=""></li><br>
         <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
-     <p2i>Normalized Zone/Sys Sensible Cooloring Rate at 2:00pm on 7/18</P2i><br><br>   
- 
+     <p2i>Normalized Zone/Sys Sensible Cooling Rate at 2:00pm on 7/18</P2i><br><br>
+
     <li>The user can choose a minimum and maximum value for the color scale used to visualize report variables.  If visualizing report variables in
         absolute units the user can automatically set the range using the minimum and maximum values of each variable.  This option is not available
         if normalizing the report variable by surface or floor area, in that case the user must set the range by hand.  It may help to apply the normalization
@@ -151,7 +151,7 @@ function msout(num) {
 </ul>
 </div>
 
-<H3>Viewing the data</H3>
+<H3>Viewing the Data</H3>
 <div style="margin-left:10px">
 <ul>
      <li>Once you have selected the data and run period for visualization, press "Apply" or "OK" to save your settings.</li>
@@ -163,21 +163,21 @@ function msout(num) {
        	 design day.</li>
                 <br><img src="dialogs/tut_rendering_01.png" width="500" alt=""></li><br>
         <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
-     <p2i>Surface Ext Solar Incident at 8:36am on 5/12</P2i><br>   
+     <p2i>Surface Ext Solar Incident at 8:36am on 5/12</P2i><br>
                 <br><img src="dialogs/tut_rendering_02.png" width="500" alt=""></li><br>
         <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
-     <p2i>Surface Ext Solar Incident at 8:36am on 5/12</P2i><br>   
+     <p2i>Surface Ext Solar Incident at 8:36am on 5/12</P2i><br>
                 <br><img src="dialogs/tut_rendering_03.png" width="500" alt=""></li><br>
        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
       <p2i>Daylighting Illum at Ref Point 1 at 3:08pm on 5/12 (Zone Variable)</P2i>
       <br>
-      <br>     
+      <br>
       <li>The color scale tool may be used to generate a color scale for reference. <em>(see images above)</em></li>
      <li>The data tool may be used to show the data value for a given surface or Zone at the current time. <em>(see images above)</em></li>
 </ul>
 </div>
 
-<H3>Animating the data</H3>
+<H3>Animating the Data</H3>
 <div style="margin-left:10px">
 <ul>
      <li>The OpenStudio animation tools can be used to configure an animation of the results as they change over some period of time.</li>
@@ -187,6 +187,15 @@ function msout(num) {
      <p2i>Outside and Inside Surface Temperature at 2:00pm on 8/25 (Zone Variable)</P2i>
       <br><p2i>You can animate through the Animations Settings or the Scenes (both shown)</P2i>
       </ul>
+</div>
+
+<H3>Going Deeper</H3>
+<div style="margin-left:10px">
+<ul>
+     <li>The OpenStudio data visualization feature is a unique way to visualize results from EnergyPlus simulations.  However, timeseries plots of data are also very helpful for typical engineering uses.</li>
+     <li>The CSV output files created from the ESO file by the ReadVarsESO program can be opened in a spreadsheet tool for analysis.</li>
+     <li>NREL has developed <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a>, to  plot timeseries output of EnergyPlus and compare results from multiple simulations.</li>
+</ul>
 </div>
 
 					</td>

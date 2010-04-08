@@ -100,16 +100,16 @@ function msout(num) {
 
 
 
-<H2>Run EnergyPlus simulation from within OpenStudio</H2>
+<H2>Run EnergyPlus</H2>
 <br>
 
 <H3>Setup EnergyPlus</H3>
 <div style="margin-left:10px">
 <ul>
     <li>Download and install EnergyPlus 5.0 from <a href="http://apps1.eere.energy.gov/buildings/energyplus/">http://apps1.eere.energy.gov/buildings/energyplus/</a>.</li>
-    <li>Configure OpenStudio preferences to point to the installed location of EnergyPlus.</li>
-    <li>Download weather files at <a href="http://www.eere.energy.gov/buildings/energyplus/cfm/weather_data.cfm">www.energyplus.gov</a> or
-        use <a href="http://earth.google.com/">Google Earth</a> to browse the <a href="http://apps1.eere.energy.gov/buildings/energyplus/download/energyplusweatherdata.kmz"> EnergyPlus weather file layer</a>.</li>
+    <li>Configure Plugins->OpenStudio->Preferences to point to the installed location of EnergyPlus.</li>
+    <li>Download weather files at <a href="http://www.eere.energy.gov/buildings/energyplus/cfm/weather_data.cfm" target="_blank">www.energyplus.gov</a> or
+        use <a href="http://earth.google.com/" target="_blank">Google Earth</a> to browse the <a href="http://apps1.eere.energy.gov/buildings/energyplus/download/energyplusweatherdata.kmz"> EnergyPlus weather file layer</a>.</li>
 </ul>
 </div>
 
@@ -135,28 +135,26 @@ function msout(num) {
      <li>Results
        <ul>
          <li>
-           Report Annual Building Utility Performance Summary
-           (You can choose HTML, CSV, Tabbed, or Fixed format)</li>
+           Report Annual Building Utility Performance Summary - You can choose HTML, CSV, Tabbed, or Fixed format</li>
          <li>
-           Request results in SQLite format
+           Request results in SQLite format - Output is written to a SQLite database as well as ESO file.  Needed in order to use the <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a> application for visualizing detailed timeseries output.
          </li>
          <li>
-           Report zone temperatures
+           Report zone temperatures - Requests 'Zone Mean Air Temperature' and 'Zone Mean Radiant Temperature' report variables.
          </li>
          <li>
-           Report daylighting results
+           Report daylighting results - Requests 'Daylight Illum at Ref Point' and 'Glare Index at Ref Point' report variables.
          </li>
          <li>
-           Report user variables and meters
+           Report user variables and meters - Preserves user report variables.
          </li>
          <li>
-           Report DXF file for verification
-           - This will create a DXF that you can import into SketchUp or a different cad application.</li>
+           Report DXF file for verification - EnergyPlus will create a DXF that you can import into SketchUp or another different CAD application.</li>
          <li>
-           Report surface temperatures
+           Report surface temperatures - Requests 'Surface Inside Temperature' and 'Surface Outside Temperature' report variables.
          </li>
          <li>
-           Report zone loads
+           Report zone loads - Requests 'Ideal Loads Air Heating Rate', 'Ideal Loads Air Sensible Cooling Rate', and 'Ideal Loads Air Total Cooling Rate' report variables.
          </li>
        </ul>
      </li>
@@ -201,11 +199,11 @@ function msout(num) {
     <br><img src="dialogs/tut_simulation_02.png" width="500" valt=""></li><br>
        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
       <p2i>Error file</P2i>
-      
+
           <br><br><img src="dialogs/tut_simulation_03.png" width="500" alt=""></li><br>
         <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
      <p2i>Annual Building Utility Performance report</P2i><br><br>
-      
+
       </div>
 
 					</td>

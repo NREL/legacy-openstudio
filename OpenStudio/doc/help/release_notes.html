@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Release Notes</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -59,16 +59,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -89,8 +89,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -136,60 +136,51 @@ function msout(num) {
 </ul>
 <P2i>(note: Admin rights will be required to install these applications)</P2i><br>
 
+<A NAME="new_features"></A>
+<H2>New Features</H2>
+<ul>
+<li>Added support for <a href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus 5.0</a></li>
+<li>Daylighting:Controls and Output:IlluminanceMap Input Objects.</li>
+<li>Surface and sub-surface search.</li>
+<li>Quickly add internal gains and HVACTemplate:Zone:IdealLoadsAirSystem to zones.</li>
+<li>Automatic surface matching and unmatching tool.</li>
+<li>Default construction manager.</li>
+<li>Improved documentation and tutorials.</li>
+</ul>
+
 <A NAME="bugs_fixed"></A>
 <H2>Bugs Fixed</H2>
 <ul>
-<li>Back faces of  EnergyPlus Shading Surfaces now have different colors than their front faces</li>
-<li>Stability improvements to the Object Info Dialog</li>
-<li>More_bug_fixes_to_add</li>
+<li>Improved support for simple geometry.</li>
+<li>Removed dependency on Windows system dlls not shipped with plugin.</li>
+<li>Run EnergyPlus through OpenStudio as a non-admin.</li>
+<li>Back faces of EnergyPlus Shading Surfaces now have different colors than their front faces.</li>
+<li>Stability improvements to the Object Info Dialog.</li>
 </ul>
 
 <A NAME="known_issues"></A>
 <H2>Known Issues</H2>
 <ul>
-<li>Only Save your IDF file, do not save the SketchUp(skp) file. When you want to re open a project import the IDF file. Opening SKP files that have an associated IDF file can result in a set of duplicates surfaces that are slightly offset from the original surfaces</li>
-<li>The Object Info Window doesn't take data until you tab to the next field or click elsewhere in the window.</li>
+<li>When working with OpenStudio, only save your IDF file, do not save the SketchUp SKP file. Opening SKP files that have an associated IDF file can result in a set of duplicates surfaces that are slightly offset from the original surfaces and other problems.</li>
 <li>Toolbar Tool tips may not work correctly on the Mac if you have made your Toolbars horizontal. The tips also don't' show on the Mac in the status bar under any conditions.</li>
 <li>If you create a group out of multiple EnergyPlus Zones, and then hide one of those Zones you will get an error</li>
-<li>You can not draw a sub-surface that shares two edges with a base surface. So you can put a window at the edge of wall, but not at an edge as well as the roof or floor.</li>
-<li>You also can not place two sub-surfaces right against each other. Place a small space between them.</li>
-<li>If you try and draw a shading surface in line with the roof it will mistakenly be recognized as a roof. If you do want a shading device in line with the roof you first have to draw it lower, and then move it up into place.</li>
-<li>Shading surfaces also can not be draw while touching the floor. Similar to above, you would draw them smaller and then stretch them down the floor.This could occur on vertical fins</li>
-<li>More_known_issues_to_add</li>
-<li>Input fields in the Object Info window do not validate.  It's possible to put in bad values.</li>
-<li>The Object Info Window only works on one object at a time. If you select multiple objects or surfaces and make a change, it will only affect one of those selected objects.</li>
+<li>Certain dialogs (Rendering Settings and Last Report) do not work on the Mac due to the JavaScript engine in Safari.</li>
 </ul>
 
-
-<A NAME="misc"></A>
-<H2>Miscellaneous Notes</H2>
-<ul>
-<li>Added support for <a href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus 5.X</a></li>
-<li>Added support for Windows 7</li>
-<li>Removed dependence on wxSU</li>
-<li>You can now run EnergyPlus Simulations as a non-admin user.</li>
-<li>Zone Origins don't move once they are set. You can move the SketchUp group but it won't move the zone origin. If you want to move the Zone origin you need to edit the IDF file elsewhere. You can however set the  zone rotation through the OpenStudio Object Info Window.</li>
-<li>Creating a new zone or shading group requires the user to double-click the group to edit it instead of automatically opening for edit when the group is placed.</li>
-</ul>
 
 <A NAME="troubleshooting"></A>
 <H2>Troubleshooting</H2>
 <H3>OpenStudio</H3>
 <ul>
-    <li>We recognize that there are still bugs in OpenStudio.
-SketchUp is a flexible and dynamic program that allows
-the user to draw all kinds of geometry in many different ways...we certainly
-haven’t been able to test every single one of them. We welcome your assistance
-in identifying bugs so that we can get them fixed in the next version. We also welcome any feedback on how we might
-improve the plugin, feature requests, compliments, criticisms, etc.</li>
+    <li>We recognize that there are still bugs in OpenStudio. SketchUp is a flexible and dynamic program that allows the user to draw all kinds of geometry in many different ways...we certainly haven’t been able to test every single one of them. We welcome your assistance in identifying bugs so that we can get them fixed in the next version. We also welcome any feedback on how we might improve the plugin, feature requests, compliments, criticisms, etc.</li>
     <li>For all bug reports, feedback, and questions about OpenStudio, please visit the collaborative project website on <a href="http://openstudio.sourceforge.net/" target="_new">SourceForge.net.</a></li>
-<li>The project website allows you to join the user support mailing list, browse the list of known issues in the bug tracker, or post a new bug report.</li>
-<li>If the plugin detects that an error has occurred, an “Error Alert” window will appear. Your first step for resolving the error should be to visit the project website to check the bug tracker and user support mailing list to determine if someone else has encountered the same problem. If the issue has already been reported, there is a good chance you will find a workaround posted as well.</li>
-<li>If you think you have found an unreported bug, the next step is to send an email to the user support mailing list. You can help us the most if you follow these suggestions:</li>
+    <li>The project website allows you to join the user support mailing list, browse the list of known issues in the bug tracker, or post a new bug report.</li>
+   	<li>If the plugin detects that an error has occurred, an 'Error Alert' window will appear. Your first step for resolving the error should be to visit the project website to check the bug tracker and user support mailing list to determine if someone else has encountered the same problem. If the issue has already been reported, there is a good chance you will find a workaround posted as well.</li>
+	<li>If you think you have found an unreported bug, the next step is to send an email to the user support mailing list. You can help us the most if you follow these suggestions:</li>
     <ul>
         <li>Describe the bug in your email message.  Tell us what you were doing when it happened, and if possible, describe the steps necessary to reproduce the problem.</li>
-        <li>If the “Error Alert” window appeared, copy and paste the error message and backtrace into your email.</li>
-        <li>Attach the EnergyPlus input file (.idf) and the SketchUp file (.skp) with your email.
+        <li>If the 'Error Alert' window appeared, copy and paste the error message and backtrace into your email.</li>
+        <li>Attach the EnergyPlus input file (.idf) with your email.
         <li>We will try to respond to your email as quickly as possible.  Thanks for your help and patience!</li>
     </ul>
  </li>
@@ -215,8 +206,7 @@ improve the plugin, feature requests, compliments, criticisms, etc.</li>
 <H3>Other Tools</H3>
 <ul>
 <li>Comparison Tools - Its often nice to have tool to run comparisons of two different IDF files to see what has changed. This comparison is often called a DIFF. <a href="http://en.wikipedia.org/wiki/Comparison_of_file_comparison_tools" target="_new">Click here</a> to open a Wikipedia page showing many of software options for this.</li>
-<li><a href="path" target="_new">Text Editors</a></li>
-<li><a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ResultsViewer / ZeroKit</a></li>
+<li>NREL has developed <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a> for plotting timeseries data for multiple simulations.</li>
 </ul>
 
 					</td>
@@ -229,11 +219,11 @@ improve the plugin, feature requests, compliments, criticisms, etc.</li>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

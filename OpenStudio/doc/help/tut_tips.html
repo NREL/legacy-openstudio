@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,21 +100,21 @@ function msout(num) {
 
 
 
-<H2>Selection, drawing, and inferences tips</H2>
+<H2>Selection, Modeling, and Inference</H2>
 <br>
 
 <H3>Selecting Geometry</H3>
 <div style="margin-left:10px">
 <ul>
     <li>At first glance selecting geometry in SketchUp is pretty easy, and it is. But there are a lot of special selection techniques that can save a lot of time that it is worth learning about.</li>
-    <li>Single click - If you click once on a face with the selection tool, as you would expect, SketchUp selects the face.</li>
-    <li>A Double click not only selects a face, but also the bounding edges.</li>
-    <li>A triple click widens the selection to all connected entities.</li>
-    <li>A contextual (right) click will also allow you to select other entities on the same layer, or with the same material.</li>
+    <li>Single click selects the face.</li>
+    <li>Double click not only selects a face, but also the bounding edges.</li>
+    <li>Triple click widens the selection to all connected entities.</li>
+    <li>Contextual (right) click will also allow you to select other entities on the same layer, or with the same material.</li>
     <li>Holding down the &quot;Shift&quot; key will allow you to add to or remove objects from your selection. If you pick a selection that had some selected, and some un-selected, they will all get reversed.</li>
     <li>The &quot;Control&quot; key only adds to the selection without anything being removed.</li>
     <li>And holding &quot;Control&quot; and &quot;Shift&quot; together set the selection tool to on remove entities from the selection without adding anything.</li>
-    <li>You don't have to select just by clicking, you can drag a box, however if you create the window from left to right, vs. right to left you get different results.</li>
+    <li>You don't have to select just by clicking, you can drag a box.  However if you create the window from left to right, vs. right to left you get different results.</li>
     <li>If you draw your selection from left to right only entities that are fully within the box are selected.</li>
     <li>If instead you draw your selection box from right to left, any objects that are even partially within the box are included in the selection.</li>
 </ul>
@@ -124,25 +124,25 @@ function msout(num) {
 <div style="margin-left:10px">
 <ul>
     <li>While you can use SketchUp without every typing in lengths for objects, it is often very useful to be able to enter exact numbers in the &quot;Measurements&quot; box. You can use this for both creating and altering entities.</li>
-    <li>A nice trick with the measruemnt box that works with most tools is that you can set the value, and then if you don't like it you can go back and keep changing it until you are happy with the results. This works as long as you don't do anything else. in SketchUp until you are done. This will make more sense with an example that I'll give for Multiple Copy/Move</li>
-    <li>Push/Pull repeat - If you have used the Push/Pull tool to extrude something by a set amount, you can re-apply this value to other surfaces to be push/pulled by just double clicking on the surface with the Push/Pull tool selected. I useful example of this would be to push all of the walls of your zone in by 12 inches. You may want to do this if you modeled off of the outside of the exterior wall,but now want to model to the inside wall.</li>
-    <li>Construction lines are a nice tool when you need to want to create reference lines to lock new geometry to, but don't want to clutter up your model, or alter faces that the construction lines cross. Below I setup construction lines as a guide for windows.</li>
+    <li>A nice trick with the measurement box that works with most tools is that you can set the value, and then if you don't like it you can go back and keep changing it until you are happy with the results. This works as long as you don't do anything else in SketchUp until you are done. This will make more sense with the Multiple Copy/Move example.</li>
+    <li>Push/Pull repeat - If you have used the Push/Pull tool to extrude something by a set amount, you can re-apply this value to other surfaces to be push/pulled by just double clicking on the surface with the Push/Pull tool selected. A useful example of this would be to push all of the walls of your zone in by 12 inches. You may want to do this if you modeled off of the outside of the exterior wall,but now want to model to the inside wall.</li>
+    <li>Construction lines are a nice tool when you need to want to create reference lines to lock new geometry to, but don't want to clutter up your model,or alter faces that the construction lines cross. Construction lines as a guide for windows are shown below.</li>
     <br><img src="dialogs/tu_tips_const_01.png" alt="" width="500"><br></li>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
      <br><br>
-     <li>The Move Tool in SketchUp lives a secret life as a copy tool. Not only that but it can copy multiple entities at the same time. Below I have my original window at the left. I pressed the &quot;control&quot; key to switch the &quot;move&quot; to a &quot;copy&quot;. </li>
+     <li>The Move Tool in SketchUp lives a secret life as a copy tool. Not only that but it can copy multiple entities at the same time. Starting with the original window at the left, press the &quot;control&quot; key to switch the &quot;move&quot; to a &quot;copy&quot;. </li>
     <br><img src="dialogs/tut_copy_01.png" alt="" width="500"><br></li>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
      <br><br>
- <li>Once that second window is placed, I can type "/5" into the measurement box to place an additional 4 copies equally spaced over the wall.(5 new copies plus one original).</li>
+ <li>Once that second window is placed, type "/5" into the measurement box to place an additional 4 copies equally spaced over the wall.(5 new copies plus one original).</li>
    <br><img src="dialogs/tut_copy_02.png" alt="" width="500"><br></li>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
      <br><br>
- <li>Next instead of putting my copy all the way across the building, I placed it next to the first window.</li>
+ <li>Next instead of placing the copy all the way across the building, place it next to the first window.</li>
    <br><img src="dialogs/tut_copy_03.png" alt="" width="500"><br></li>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
      <br><br>
- <li>New if I type "*5" instead of the "/5" it still make the same number of copies, but this time it makes each copy as far away from its neighbor as the first one.</li>
+ <li>If you now type "*5" instead of the "/5" it still make the same number of copies, but this time it makes each copy as far away from its neighbor as the first one.</li>
    <br><img src="dialogs/tut_copy_04.png" alt="" width="500"><br></li>
      <P2i>(Credit: David Goldwasser / NREL)</P2i>
      <br><br>
@@ -153,8 +153,8 @@ function msout(num) {
 <H3>Inference Engine</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>SketchUp has an extensive inference engine that tries to help us model to the locations we want to. This is well covered on their online <a href="http://sketchup.google.com/support/bin/answer.py?answer=70143" target="_new">inference documentation</a>.</li>
-    <li>The Shift key is very impotent while you are using inferences, as it can lock you into to your current inference. </li>
+    <li>SketchUp has an extensive inference engine that tries to help snap to useful locations. This is well covered on their online <a href="http://sketchup.google.com/support/bin/answer.py?answer=70143" target="_new">inference documentation</a>.</li>
+    <li>The Shift key is very importent while you are using inferences, as it can lock you into to your current inference.</li>
 </ul>
 </div>
 
@@ -169,11 +169,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

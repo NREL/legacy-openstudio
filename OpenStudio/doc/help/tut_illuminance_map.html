@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,51 +100,36 @@ function msout(num) {
 
 
 
-<H2>Creating and modifying EnergyPlus Illuminance Maps</H2>
+<H2>Output Illuminance Maps</H2>
 <br>
 
-<H3>Making a new Illuminance Map</H3>
+<H3>Adding an Output:IlluminanceMap</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Enter into the Zone where you want to place the Illuminance Map. If you are not in a zone you will see this error. If you don't have any objects to click on to activate the Zone, you can select the Zone in SketchUp's Outliner Window.<br>
-      <br>
+    <li>Enter into the zone where you want to place the Output:IlluminanceMap. If you try to add Output:IlluminanceMap outside of a zone you will see this alert.<br><br>
     <img src="dialogs/illuminancemap.JPG" alt=""><br></li>
          <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the map. After you click the scale tool will be active. You will see 8 pins you can use to scale. The edges scale in one direction, the corner will scale in two directions.
+    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the Output:IlluminanceMap. When you place the object it will locate 30 inches above the surface, edge, or vertex that you click on.</li>
+    <li>After you click the scale tool will be active. You will see 8 pins you can use to scale. The edges scale in one direction, the corner will scale in two directions.</li>
      <br><img src="dialogs/tut_illuminance_01.png" alt="" width="500"><br></li>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>See (Making Changes) below to learn how to relocate and resize the Illuminance Map units once you have placed it.</li>
-    <li>Similar to Daylighting Controls, you can't add more than one Illuminance Map object to an EnergyPlus Zone.</li>
-    <li>The New Illuminance Map Tool isn't the only way to add EnergyPlus Illuminance Map to your model (see making copies below).</li>
-    <li>To get results out of EnergyPlus for your Illuminance Map you also need to make sure Daylighting Controls and lights are part of your energy model. The lights can be added through OpenStudio with the Zone Load tool, but you could also add lights to the IDF file with another application.</li>
+    <li>See below to learn how to relocate and resize the Output:IlluminanceMap once you have placed it.</li>
+    <li>You can't add more than one Output:IlluminanceMap object to a zone.</li>
+    <li>To get results out of EnergyPlus for your Output:IlluminanceMap you also need to make sure that the zone has Daylighting:Controls and Lights objects.</li>
 </ul>
 </div>
 
-<H3>Making changes and modifications</H3>
+<H3>Making Changes</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>You can change the position and size of the map using the Scale Tool as shown below. Notice how you have the same number of gridlines after scaling the Illuminance Map.</li>
+     <li>You can change the size of the Output:IlluminanceMap using the Scale Tool as shown below. Notice that you have the same number of gridlines after scaling the Illuminance Map.</li>
       <br><img src="dialogs/tut_illuminance_02.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>If you just want to move, but not resize it you can use the Move Tool</li>
-     <li>Or you  can change the position and size of the map through the Object Info dialog box.</li>
+     <li>You can move the Output:IlluminanceMap with the Move Tool</li>
+     <li>You can change the position and size of the Output:IlluminanceMap through the Object Info dialog box.</li>
      <br><img src="dialogs/tut_illuminance_03.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-     <li>The Object Info dialog box is also where you change attributes for the map. For Example, the number of "x" and "y" gridpoints. The texture on the map will reflect the values you have for the gridpoints. The map above has 50x10 gird points, vs. 10x10 gridpoints on the previous image.</li>
-</ul>
-</div>
-
-<H3>Making copies of Illuminance Maps</H3>
-<div style="margin-left:10px">
-<ul>
-     <li>As an alternative to using the New Illuminance Map Tool, you can copy your map from one Zone and paste it into another.</li>
-</ul>
-</div>
-
-<H3>Using OpenStudio to validate your Il luminance Maps in existing IDF files</H3>
-<div style="margin-left:10px">
-<ul>
-     <li>If you import an IDF into OpenStudio any Il luminance Maps you have will show up in OpenStudio. You can use OpenStudio to quickly check and see if the Il luminance Maps and their data points are where you expected them to be. If you need to add or move any, then you can make the changes in OpenStudio and save back to your IDF file.</li>
+     <li>You can change the number of grid points using the Object Info dialog box. The texture on the map will reflect the values you have for the grid points, data is recorded at points where lines cross. The map above has 50x10 grid points, vs. 10x10 grid points on the previous image. EnergyPlus supports up to 2,500 grid points (e.g. 50x50 grid points) per Output:IlluminanceMap.</li>
 </ul>
 </div>
 
@@ -159,11 +144,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

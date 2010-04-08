@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,22 +100,22 @@ function msout(num) {
 
 
 
-<H2>Using Styles to find highlight surfaces with reversed normals</H2>
+<H2>Using Styles to Show Reversed Faces</H2>
 <br>
 
 <div style="margin-left:10px">
  <ul>
-    <li>Every face in SketchUp has a front and a back. If you are just making an architectural model which way these faces point may not be very important, but it is critical for energy modeling that the faces are oriented correctly. A face's normal is a line perpendicular to the face going out through the front of the face.</li>
-    <li>As a general rule in OpenStudio the exterior of a zone should be the front face, and the interior of the zone (inside of roof, inside of wall, top of floor) is the back of the face or surface.</li>
-    <li>The only exception to this case is with shading surfaces. Generally both the front and back are exposed outside, and both sides of the shading surface block the sun equally. If you start adding photovoltaic systems to shading surfaces (outside of OpenStudio) then it will be important that the normals are correct so your panels are facing the sun vs. the ground.</li>
+    <li>Every face in SketchUp has a front and a back.  Architectural models may not care which way these faces point.  But it is critical for energy modeling that the faces are oriented correctly. A face's normal is a line perpendicular to the face going out through the front of the face.</li>
+    <li>In OpenStudio the exterior of a surface is the front face and the interior of the surface is the back of the face.</li>
     <li>OpenStudio does use a unique front and back face color for surfaces, but it doesn't always jump out at you on a complex model when something is reversed. In particular for windows. You can turn transparency off, but you can also setup a style that is much easier to read.</li>
     <li>Below is the typical OpenStudio coloring.</li>
         <br><img src="dialogs/tut_normal_01.png" alt="" width="500"></li><br>
          <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-     <li>And next is the same model with a custom style. For this style, under &quot;face settings&quot; I have set the rendering to &quot;display shaded using all same&quot;. Lastly I set the front color to white, and the back color to bright red. This model was clean to start with but I introduced some reversed faces for this demonstration. You can see how easily they jump out below.</li>
+     <li>Next is the same model with a custom style. For this style, under &quot;face settings&quot; the rendering option is set to &quot;display shaded using all same&quot;. By setting the front color to white and the back color to bright red reversed faces are readily apparent. This model was clean to start with but reversed faces were added for demonstration.</li>
         <br><img src="dialogs/tut_normal_02.png" alt="" width="500"></li><br>
          <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-         <br><li>You can create this style on your own, but I have also saved it under OpenStudio/lib/resources/styles. You can import it into SketchUp from here.</ul>
+         <br><li>You can create this style on your own, but it is also saved under OpenStudio/lib/resources/styles.</li>
+</ul>
 </div>
 
 				  </td>
@@ -128,11 +128,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

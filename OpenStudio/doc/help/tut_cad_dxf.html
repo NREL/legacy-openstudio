@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,7 +100,7 @@ function msout(num) {
 
 
 
-<H2>Importing 2D DXF's into OpenStudio as a modeling guide</H2>
+<H2>Convert 2D DXF to EnergyPlus</H2>
 <br>
 
 <H3>Importing the DXF</H3>
@@ -112,19 +112,18 @@ function msout(num) {
             <li><a href="http://dl.google.com/sketchup/gsu7/AllowDWGImportInSketchUp7.msi">Windows download link for DXF/DWG plugin</a></li>
             <li><a href="http://dl.google.com/sketchup/gsu7/AllowDWGImportInSketchUp7.dmg">Mac download link for DXF/DWG plugin</a></li>
         </ul>
-    <li>You will have to use "File/Import" vs. "File/Open" to import the file. When you choose import make sure you set the file type to (*.dwg/*.dxf) as shown below. You may also need to click "Options" to see if units are being handled correctly so scale preserved.</li><br>
+    <li>You will have to use File->Import vs. File->Open to import the file. When you choose import make sure you set the file type to (*.dwg/*.dxf) as shown below. You may also need to click "Options" to see if units are being handled correctly so scale is preserved.</li><br>
     <img src="dialogs/tut_2d_dxf_01.png" alt="" width="500"></li><br>
-       <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
     <li>Below is what your DXF will look like once imported.</li><br>
     <img src="dialogs/tut_2d_dxf_02.png" alt="" width="500"></li><br>
     <p2i>(Credit for DXF source file: Google)</P2i>
     <br><br>
-	<li>If you look at your layers you will notice that it preserves the DXF/DWG layer structure. So you may be able to visually clean up the model by turning off unnecessary layers.</li>
-    <li>If you have an elevation with your DXF you will want to rotate that up so you can refer to heights on it. After you select the elevation entities pick the SketchUp rotate tool. You need to set the plane and origin for the rotation. I make a temporary cube to easily pick the plane I want to rotate on, but there are other methods as well, such as switching to one of the standard camera views.</li>
+	<li>If you look at your layers you will notice that the DXF/DWG layer structure is preserved. You may be able to visually clean up the model by turning off unnecessary layers.</li>
+    <li>If you have an elevation with your DXF you will want to rotate that up so you can refer to heights on it. After you select the elevation entities pick the SketchUp rotate tool. You need to set the plane and origin for the rotation. A temporary cube can be made to easily pick the plane for rotation, but there are other methods as well, such as switching to one of the standard camera views.</li>
     <br><img src="dialogs/tut_2d_dxf_03.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Once you get the rotation plane set, you can hold down shift to lock it in. This allows you to move to pick the origin without losing your rotation plane.
-    <li>I pick an origin on the elevation that matches the floor plane for the first floor. This keeps elevation in sync with the plan. When I'm done with the rotation I delete my temporary cube.</li>
+    <li>Once you get the rotation plane set, you can hold down shift to lock it in. This allows you to move to pick the origin without losing your rotation plane. Pick a rotation origin on the elevation that matches the floor plane for the first floor. This keeps elevation in sync with the plan.</li>
     <br><img src="dialogs/tut_2d_dxf_04.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
    	<img src="dialogs/tut_2d_dxf_05.png" alt="" width="500"></li><br>
@@ -136,21 +135,20 @@ function msout(num) {
 <H3>Adding EnergyPlus Zones</H3>
 <div style="margin-left:10px">
     <ul>
-    <li>Now that you have your DXF file prepped, it is time to add EnergyPlus Zones.</li>
     <li>Make sure you are not in your DXF component and create a new zone, and enter into the zone to create the geometry.</li>
-    <li>Draw the plan for your first zone. In this case it was just a rectangle.</li>
+    <li>Draw floor over the plan for your first zone.</li>
     <br><img src="dialogs/tut_2d_dxf_06.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Next I used the elevation to find the height for this zone. Later I will use it to pull in window heights</li>
+    <li>Next use the elevation to find the height for this zone.  Extrude the floor up to this height.  You may also use the elevation to reference window and door heights.</li>
     <br><img src="dialogs/tut_2d_dxf_07.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
     <li>Add the next zone and repeat.</li>
     <br><img src="dialogs/tut_2d_dxf_08.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Below you can see the project with the other zones added in, I set the view to X-ray mode so you can see the plan and the zones.</li>
+    <li>Below you can see the project with the other zones added in.</li>
     <br><img src="dialogs/tut_2d_dxf_09.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>The following images show the process for adding sub-surfaces. I drew temporary construction lines from both the plan and from the elevation to help locate and size the window.</li>
+    <li>The following images show the process for adding sub-surfaces. Draw temporary construction lines from both the plan and from the elevation to help locate and size the windows.</li>
     <br><img src="dialogs/tut_2d_dxf_10.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
     <img src="dialogs/tut_2d_dxf_11.png" alt="" width="500"></li><br>
@@ -159,8 +157,7 @@ function msout(num) {
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
     <img src="dialogs/tut_2d_dxf_13.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>If you had the second floor plan you could insert that at the appropriate height and continue your modeling. You would have to model the attic as well.</li>
-    <li>If you would like to re-create this, I have placed the DWG file of architectural plan and elevation in OpenStudio's Examples folder. I have also saved the IDF file with the Energy Plus objects I created.
+    <li>If you had the second floor plan you could insert zones at the appropriate height and continue your modeling. You would have to model the attic as a separate zone as well.  If you plan to use automatic surface matching, be careful to line up surfaces between floors.</li>
     </ul>
 </div>
 
@@ -175,11 +172,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

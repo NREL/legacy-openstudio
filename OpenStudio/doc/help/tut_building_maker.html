@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,66 +100,63 @@ function msout(num) {
 
 
 
-<H2>Using BuildingMaker to create EnergyPlus projects</H2>
+<H2>Convert 3D CAD Models to EnergyPlus</H2>
 <br>
 
 <H3>Sources of 3d Models</H3>
 <div style="margin-left:10px">
     <ul>
-    <li>The model used in this tutorial came from 3D Warehouse, but there other sources that your 3d models could come from that would share a similar workflow.</li>
-    <li>3d models could come from AutoCad, Revit, Microstation, direct from Google Earth or some other third party Cad application.</li>
-    <li>You could use previously modeled SketchUp files that you now want to do energy modeling on.</li>
-    <li>Simple photo textured models generated using Google Building Maker or SketchUp's Match Photo feature could also be the source for an OpenStudio model.</li>
-    <li>Whatever you use, after you open or import it, it is probably a good idea to wrap it into a single group or component so you can show and hide it easily.</li>
+    <li>3D models could come from SketchUp, AutoCad, Revit, Microstation, direct from Google Earth or some other CAD application.</li>
+    <li><a href="http://sketchup.google.com/3dwarehouse/details?mid=bdadddfa2194165213b3aa556448a966" target="_blank">The model used in this tutorial</a> came from Google's 3D Warehouse but converting 3D models from other sources would share a similar workflow.</li>
+    <li>Whatever you 3D model you use for reference, it is probably a good idea to wrap it into a single group or component so you can show and hide it easily.</li>
     </ul>
 </div>
 
-<H3>Adding EnergyPlus Zones</H3>
+<H3>Adding Zones</H3>
 <div style="margin-left:10px">
     <ul>
-    <li>I'm going to turn the model below into a three zone EnergyPlus model with shading groups around the windows.</li>
+    <li>The first step is to determine how the 3D model should be converted to a thermal model for EnergyPlus.  This requires engineering judgement and depends on the needs of the analysis.  In this example, the model below will be converted to a three zone EnergyPlus model with shading groups around the windows.</li>
     <br><img src="dialogs/tut_3d_import_01.png" alt="" width="500"></li><br>
       <p2i>(Credit for 3D Warehouse Model: Google)</P2i><br><br>
-    <li>Create a new zone and start to draw it.</li>
-    <li>Instead of drawing the ground first, which would be typical, here I draw the roof first. Now when you draw faces about the ground plane sometimes the face normal is reversed depending upon how you draw it. If you draw with the line tool and follow the right hand rule (start with any point and draw the rest of your face going around counter-clockwise) surface normal's should be correct. If you use the rectangle tool, its a little hard to predict which way the surface normal will point. If your normal is reversed, OpenStudio will make it a floor. You will know if this happens by the color, or you can use the Object Info Window or Information Tool. If this happens, use the Object Info Window to turn it into the surface into a roof before you continue.</li>
+    <li>Create a new zone and open it for drawing.</li>
+    <li>In this case it is easier to draw roof first instead of drawing the ground first, which would be typical. Recall that faces drawn off of the ground plane set face normal according to vertex entry order. If you draw with the line tool and follow the right hand rule (start with any point and draw the rest of your face going around counter-clockwise) the surface normal will point up, which is correct for a roof. If you use the rectangle tool, it is hard to predict which way the surface normal will point. If your normal is reversed, OpenStudio will make it a floor. You will know if this happens by the color, or you can use the Object Info Window or Information Tool. If this happens, use the Object Info Window to turn the surface into a roof before you continue.  Also verify that the darker surface (outside) is pointing up, right-click and choose Reverse Face if it is not.</li>
     <br><img src="dialogs/tut_3d_import_02.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Next I use the Push/Pull tool to turn my roof into a 3d object. I use SketchUp's <a href="http://sketchup.google.com/support/bin/answer.py?answer=70140" target="_new">inference engine</a> to snap to an object in my original model that is on the ground plane.</li>
+    <li>Next use the Push/Pull tool to extrude the roof into a 3d object. You can use SketchUp's <a href="http://sketchup.google.com/support/bin/answer.py?answer=70140" target="_new">inference engine</a> to snap to an object in the original model that is on the ground plane.  Verify that the walls and floor are correctly identified.</li>
     <br><img src="dialogs/tut_3d_import_03.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>A minor adjustment I make below is to push the roof down from the top of parapet to the roof. You could also use the Push/Pull tool to push the exterior walls in by the wall thickness.</li>
+    <li>Push the roof surface down from the top of parapet to the roof.</li>
     <br><img src="dialogs/tut_3d_import_04.png" alt="" width="500"></li><br>
        <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-   <li>Next you can see the three zones overlaid with the architectural model. I have X ray mode on to make everything translucent.</li>
+   <li>Next you can see the three zones overlaid with the architectural model, X ray mode is on to make everything translucent.</li>
     <br><img src="dialogs/tut_3d_import_05.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Below I have turned off the original architectural model so you just see the EnergyPlus Zones. The zones are basic at this pont. Next I will add shading surfaces and then sub-surfaces.</li>
+    <li>Turn off the original architectural model so you just see the EnergyPlus Zones.</li>
     <br><img src="dialogs/tut_3d_import_06.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
     </ul>
 </div>
 
-<H3>Creating Shading Groups and Surfaces</H3>
+<H3>Adding Shading Surfaces</H3>
 <div style="margin-left:10px">
     <ul>
-    <li>To create the shading surfaces, I first made a shading group. I again used SketchUp's line tool and the inference locks to draw three shading surfaces associated with a window. I could have also copied them, and then pasted in place within the shading group, but that should be done with care and only when the model geometry is very clean. Similarly you can also use the Move/Copy tool to make multiple copies if the window and shading group if the geometry is the same.</li>
+    <li>To create the shading surfaces, first make a shading group and then use SketchUp's line tool and the inference locks to draw three shading surfaces associated with a window. Once you have drawn one set of shading surfaces you can use the Move/Copy tool to make multiple copies if the  shading geometry is the same.</li>
     <br><img src="dialogs/tut_3d_import_07.png" alt="" width="500"></li><br><br>
-    <li>Below is the model after all of the shading groups are done.</li>
+    <li>Below is the model after all of the shading groups are added.</li>
     <br><img src="dialogs/tut_3d_import_08.png" alt="" width="500"></li><br><br>
     </ul>
 </div>
 
-<H3>Added Sub-surfaces</H3>
+<H3>Adding Sub-Surfaces</H3>
 <div style="margin-left:10px">
     <ul>
-    <li>If you want to add sub-surfaces go back into the individual zones. You may be able to copy or draw over the existing window geometry from the architectural model.</li>
-    <li>In this example the wall and window are made of one face, and you can only tell where the window is because of the photo texture. To make things easier I used temporary construction guides, similar to what I did in the 2d import tutorial.</li>
+    <li>You may be able to copy or draw over the existing window geometry from the architectural model while editing surfaces in your zones to create sub-surfaces.</li>
+    <li>This model does not have vertices of the windows for inferencing, the windows are only present as part of reference 3D model's photo texture. Create temporary construction guides from the photo texture similar to the 2D import tutorial.</li>
     <br><img src="dialogs/tut_3d_import_09.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>The last screen-shot below shows a split model with the architectural model on the left and the EnergyPlus energy model on the right. You can see that while things line up, there is a specific subset of the overall building geometry that OpenStudio needs. Putting a lot of thought into how you make your Zones and other objects will improve the accuracy of your energy analysis, and will also speed up the simulation time.</li>
+    <li>The last screen-shot shows a split model with the architectural model on the left and the OpenStudio model on the right. You can see that some of the architectural details are not included in the EnergyPlus model. Putting thought into how you make your zones and other objects will improve the accuracy of your energy analysis and speed up simulation time.</li>
     <br><img src="dialogs/tut_3d_import_11.png" alt="" width="500"></li><br>
       <p2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>If you would like to re-create this, I have placed the SketchUp file of architectural model in OpenStudio's Examples folder. I have also saved the IDF file with the Energy Plus objects I created.
     </ul>
 </div>
 
@@ -173,11 +170,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

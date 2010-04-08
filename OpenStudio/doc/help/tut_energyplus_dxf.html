@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,32 +100,25 @@ function msout(num) {
 
 
 
-<H2>Importing EnergyPlus generated DXF into SketchUp</H2>
+<H2>Verify Geometry with EnergyPlus DXF Output</H2>
 <br>
 
-<H3>Importing the DXF into SketchUp</H3>
+<H3>Importing DXF into SketchUp</H3>
 <div style="margin-left:10px">
 <ul>
-<li>If you have Google SketchUp Pro then DXF/DWG import is already part of your application. For the free version of Google SketchUp 7 you can install the DXF/DWG import as a plugin. It will function exactly as SU7 Pro and SU6.</li>
-<li><a href="http://sketchup.google.com/support/bin/answer.py?answer=161784" target="_new">Here is the link </a>to the plugin on SketchUp's website.</li>
+<li>If you have Google SketchUp Pro then DXF/DWG import is already part of your application. Users of the free version of Google SketchUp 7 can install the DXF/DWG import as a plugin which functions exactly as in SU7 Pro and SU6.</li>
+<li><a href="http://sketchup.google.com/support/bin/answer.py?answer=161784" target="_new">Here is the link </a>to the DXF plugin on SketchUp's website.</li>
 <li>Once the plugin is installed go to the import under the file menu, and navigate to your DXF file. If you just installed the plugin you will have to restart SketchUp.</li>
      <br><img src="dialogs/tut_dxf_ep_01.png" alt="" width="500"></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
  <li>Make sure your units are set correctly. If the DXF came from EnergyPlus then units are in meters.</li>
      <br><img src="dialogs/tut_dxf_ep_02.png" alt=""></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
- <li>The DXF looks very much like an OpenStudio model. It shares the same colors as the EnergyPlus DXF Export. One difference is that the windows in the DXF don't cut through the base surface, but instead sit as a separate surface of their own. As a result the base surface does not have holes punched in it. Each zone of the DXF file sits on its own Layer. This can be very nice for isolating zones you want to review.</li>
+ <li>The DXF looks very much like an OpenStudio model, the same color scheme is used in both models. One difference is that the windows in the DXF don't cut through the base surface, but instead sit as a separate surface of their own. As a result the base surface does not have holes punched in it. Additionally, each zone of the DXF file sits on its own layer. This can be very nice for isolating zones you want to review.</li>
      <br><img src="dialogs/tut_dxf_ep_04.png" width="500"alt=""></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
- </ul>
-</div>
-
-<H3>Comparing the EnergyPlus generated DXF to your OpenStudio IDF model</H3>
-<div style="margin-left:10px">
-<ul>
-<li>A good diagnostic use for placing an EnergyPlus DXF with its matching IDF imported into OpenStudio is to look for errors caused by coordinate systems, out of plane geometry, rotation of objects or zones, or other issue that may cause problems with your simulation.</li>
-<li>In the example used here the DXF was exactly in line with the Open Studio project. I produced a split view to show the alignment. I converted the DXF to a wireframe for this demonstration.</li>
- <li>Make sure your units are set correctly. If the DXF came from EnergyPlus then units are in meters.</li>
+<li>Because the EnergyPlus DXF is created by the EnergyPlus engine itself, it is a good output to look at for errors caused by coordinate systems, out of plane geometry, rotation of objects or zones, or other issues that may cause problems with your simulation.</li>
+<li>In the example used here the DXF was placed exactly in line with the OpenStudio model, a split view was created to show the alignment, and the DXF was converted to wireframe.</li>
      <br><img src="dialogs/tut_dxf_ep_03.png" width="500" alt=""></li><br>
      <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
 </ul>
@@ -141,11 +134,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>

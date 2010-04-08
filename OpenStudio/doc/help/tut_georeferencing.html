@@ -4,7 +4,7 @@
 <title>OpenStudio Documentation: Tutorials</title>
 
 
-<link rel="stylesheet" type="text/css" href="includes/ep.css"> 
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
 <!-- rollovers -->
 <script language="Javascript" type="text/javascript">
 <!--
@@ -60,16 +60,16 @@ function msout(num) {
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td colspan="3" width="100%">
-    
+
 			<table cellspacing="0" border="0" width="100%" cellpadding="0">
 				<tr>
 					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
 					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
 				</tr>
 			</table>
-      
+
 		</td>
-      
+
 	</tr>
 <!-- end of third column -->
 
@@ -90,8 +90,8 @@ function msout(num) {
 <!--startindex-->
 	</td>
 	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-    
-    
+
+
 <!-- main content -->
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
@@ -100,30 +100,32 @@ function msout(num) {
 
 
 
-<H2>Geo-Referencing your model</H2>
+<H2>Geo-Referencing</H2>
 <br>
 
-<H3>Geo-Referencing your model and finding nearby buildings</H3>
+<H3>Geo-Referencing</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>If you want to go beyond just placing your building in a city, you can geo-reference it to a specific site. This can be done manually or with Google Earth. Below I used the &quot;Get Current View&quot; tool form the Google toolbar in SketchUp. That goes to Google Earth and brings in the current view (shown in the second image). The base image is now geotagged, as is the model, so if I can now move it to it's correct location on the site. It is important to make sure you set North to up in Google Earth before you get the current view. Otherwise SketchUp will want to change its North direction, which will create conflicts with what OpenStudio needs.</li>
-    <li>A nice feature is to be able to bring in nearby buildings from 3D Warehouse. This isn't very easy to work with right now, as it doesn't sort the buildings by their proximity. An alternative is to go to Google Earth and visually pick the buildings you want. You can click on them and then download the SketchUp or KMZ files.</li>
-         <br><img src="dialogs/tut_geo_02.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-         <br><img src="dialogs/tut_geo_01.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i></ul>
+    <li>SketchUp allows you to geo-reference your building to a specific site. This can be done manually or with <a href="http://earth.google.com/" target="_blank">Google Earth</a>. The &quot;Get Current View&quot; tool form the Google toolbar in SketchUp goes to Google Earth and brings in the current view. The base image is now geotagged, as is the SketchUp/OpenStudio model. It is important to make sure you set North to up in Google Earth before you get the current view. Otherwise SketchUp will want to change its North direction, which will create conflicts with OpenStudio.</li>
+		 <br><img src="dialogs/tut_geo_02.png" alt="" width="500"></li><br>
+		 <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+</ul>
 </div>
 
-<H3>Importing  nearby buildings and creating shading surfaces</H3>
+<H3>Importing Nearby Buildings as Shading Surfaces</H3>
 <ul>
-    <li>The buildings come in correctly located, because they are georeferenced as well as our building.</li>
+    <li>A nice use of geo-referencing is to bring in nearby buildings from 3D Warehouse. This isn't very easy to work with right now, as it doesn't sort the buildings by their proximity. An alternative is to go to Google Earth and visually pick the buildings you want. You can click on them and then download the SketchUp or KMZ files.</li>
+         <br><img src="dialogs/tut_geo_01.png" alt="" width="500"></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <li>The buildings come in correctly located because they are geo-referenced.</li>
          <br>
          <img src="dialogs/tut_geo_03.png" alt="" width="500">
          </li><br>
          <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>Below I have cleaned up the textures to just keep the ones I need, and I dropped them into a Shading Group. Now they will provide EnergyPlus context for determining when and where on our building the sun will shine.</li>
+    <li>It is easy to copy surfaces of surrounding buildings (you only need surfaces that will provide shading, not the entire building) into a Shading Group. OpenStudio will convert these surfaces to shading surfaces and they will be input to EnergyPlus for determining when and where on our building the sun will shine.</li>
          <br><img src="dialogs/tut_geo_04.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i></ul>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i>
+</ul>
 </div>
 
 					</td>
@@ -136,11 +138,11 @@ function msout(num) {
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-				
+
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-               
+
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
 	</tr>
