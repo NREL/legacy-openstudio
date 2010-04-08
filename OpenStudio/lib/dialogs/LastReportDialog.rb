@@ -25,7 +25,6 @@ module OpenStudio
     
     def update
       super
-      on_load
     end
 
   end
