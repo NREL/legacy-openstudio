@@ -35,9 +35,16 @@ module OpenStudio
           @hash['X1'] = @input_object.fields[3].to_f
           @hash['Y1'] = @input_object.fields[4].to_f
           @hash['Z1'] = @input_object.fields[5].to_f
-          @hash['X2'] = @input_object.fields[6].to_f
-          @hash['Y2'] = @input_object.fields[7].to_f
-          @hash['Z2'] = @input_object.fields[8].to_f
+          
+          if @hash['NUMPOINTS'].to_i == 2
+            @hash['X2'] = @input_object.fields[6].to_f
+            @hash['Y2'] = @input_object.fields[7].to_f
+            @hash['Z2'] = @input_object.fields[8].to_f
+          else
+            @hash['X2'] = ""
+            @hash['Y2'] = ""
+            @hash['Z2'] = ""
+          end
         else
           i = 1
           m_to_ft = 3.2808399
@@ -45,9 +52,17 @@ module OpenStudio
           @hash['X1'] = (m_to_ft*@input_object.fields[3].to_f).round_to(Plugin.model_manager.length_precision)
           @hash['Y1'] = (m_to_ft*@input_object.fields[4].to_f).round_to(Plugin.model_manager.length_precision)
           @hash['Z1'] = (m_to_ft*@input_object.fields[5].to_f).round_to(Plugin.model_manager.length_precision)
-          @hash['X2'] = (m_to_ft*@input_object.fields[6].to_f).round_to(Plugin.model_manager.length_precision)
-          @hash['Y2'] = (m_to_ft*@input_object.fields[7].to_f).round_to(Plugin.model_manager.length_precision)
-          @hash['Z2'] = (m_to_ft*@input_object.fields[8].to_f).round_to(Plugin.model_manager.length_precision)
+          
+          if @hash['NUMPOINTS'].to_i == 2
+            @hash['X2'] = (m_to_ft*@input_object.fields[6].to_f).round_to(Plugin.model_manager.length_precision)
+            @hash['Y2'] = (m_to_ft*@input_object.fields[7].to_f).round_to(Plugin.model_manager.length_precision)
+            @hash['Z2'] = (m_to_ft*@input_object.fields[8].to_f).round_to(Plugin.model_manager.length_precision)
+          else
+            @hash['X2'] = ""
+            @hash['Y2'] = ""
+            @hash['Z2'] = ""
+          end
+
         end
         
         @hash['X_LABEL'] = "X-Coordinate of Reference Point " + Plugin.model_manager.units_hash['m'][i] + ":"
@@ -82,9 +97,16 @@ module OpenStudio
         @input_object.fields[3] = @hash['X1'].to_f
         @input_object.fields[4] = @hash['Y1'].to_f
         @input_object.fields[5] = @hash['Z1'].to_f
-        @input_object.fields[6] = @hash['X2'].to_f
-        @input_object.fields[7] = @hash['Y2'].to_f
-        @input_object.fields[8] = @hash['Z2'].to_f
+        
+        if @input_object.fields[2].to_i == 2 and not @hash['X2'].to_s.empty? and not @hash['Y2'].to_s.empty? and not @hash['Z2'].to_s.empty?
+          @input_object.fields[6] = @hash['X2'].to_f
+          @input_object.fields[7] = @hash['Y2'].to_f
+          @input_object.fields[8] = @hash['Z2'].to_f
+        else
+          @input_object.fields[6] = ""
+          @input_object.fields[7] = ""
+          @input_object.fields[8] = ""
+        end
       else
         i = 1
         m_to_ft = 3.2808399
@@ -92,11 +114,18 @@ module OpenStudio
         @input_object.fields[3] = (ft_to_m*@hash['X1'].to_f).round_to(Plugin.model_manager.length_precision)
         @input_object.fields[4] = (ft_to_m*@hash['Y1'].to_f).round_to(Plugin.model_manager.length_precision)
         @input_object.fields[5] = (ft_to_m*@hash['Z1'].to_f).round_to(Plugin.model_manager.length_precision)
-        @input_object.fields[6] = (ft_to_m*@hash['X2'].to_f).round_to(Plugin.model_manager.length_precision)
-        @input_object.fields[7] = (ft_to_m*@hash['Y2'].to_f).round_to(Plugin.model_manager.length_precision)
-        @input_object.fields[8] = (ft_to_m*@hash['Z2'].to_f).round_to(Plugin.model_manager.length_precision)
+        
+        if @input_object.fields[2].to_i == 2 and not @hash['X2'].to_s.empty? and not @hash['Y2'].to_s.empty? and not @hash['Z2'].to_s.empty?
+          @input_object.fields[6] = (ft_to_m*@hash['X2'].to_f).round_to(Plugin.model_manager.length_precision)
+          @input_object.fields[7] = (ft_to_m*@hash['Y2'].to_f).round_to(Plugin.model_manager.length_precision)
+          @input_object.fields[8] = (ft_to_m*@hash['Z2'].to_f).round_to(Plugin.model_manager.length_precision)
+        else
+          @input_object.fields[6] = ""
+          @input_object.fields[7] = ""
+          @input_object.fields[8] = ""
+        end
       end
-
+      
       # Update object text with changes
       @hash['OBJECT_TEXT'] = @input_object.to_idf
 

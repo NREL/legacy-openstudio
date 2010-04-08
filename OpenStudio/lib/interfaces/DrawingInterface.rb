@@ -248,9 +248,7 @@ module OpenStudio
         if (original_interface.input_object)  # DetachedShadingGroups do not have an input object!
           # Copy the input object so that all user field edits are preserved in the new surface.
           # 'copy_object' gives the input object a new unique name.
-          puts original_interface.input_object.to_idf
           @input_object = Plugin.model_manager.input_file.copy_object(original_interface.input_object)
-          puts @input_object.to_idf
           @entity.input_object_key = @input_object.key
         end
 

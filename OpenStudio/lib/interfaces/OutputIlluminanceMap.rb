@@ -79,7 +79,7 @@ module OpenStudio
         entity_transformation = @entity.transformation
       
         sketchup_min_position = (parent_transformation*entity_transformation).origin
-        puts "sketchup_min_position = #{sketchup_min_position}"
+        #puts "sketchup_min_position = #{sketchup_min_position}"
         self.sketchup_min = sketchup_min_position
         
         # the fixed rotation angle
@@ -172,6 +172,10 @@ module OpenStudio
       super
       
       if(valid_entity?)
+      
+        # do not want to trigger update_input_object in here
+        had_observers = remove_observers
+        
         set_entity_name
         
         # scale the component to get to desired size, base size is 1mx1m so scaling is easy
@@ -183,7 +187,7 @@ module OpenStudio
         
         # currently zone origin is separate from parent group's origin
         parent_transformation = @parent.entity.transformation
-        puts "parent_transformation = #{parent_transformation.origin}"
+        #puts "parent_transformation = #{parent_transformation.origin}"
         
         # the fixed rotation angle
         rotation_angle = 0
@@ -195,7 +199,7 @@ module OpenStudio
         
         # move the minimum point, no scaling yet
         transformation = parent_transformation.inverse*Geom::Transformation.translation(sketchup_min)*entity_rotation*Geom::Transformation.scaling([0,0,0], scalex, scaley, 1)
-        puts "transformation = #{transformation.origin}"
+        #puts "transformation = #{transformation.origin}"
         @entity.transformation = transformation
         
         # set number of grid points        
@@ -240,13 +244,15 @@ module OpenStudio
         # find the face
         @entity.definition.entities[0].definition.entities.each do |entity|
           if entity.is_a? Sketchup::Face
-            puts "Found face #{entity}"
+            #puts "Found face #{entity}"
             entity.position_material(gridfront, pts, true)
             entity.position_material("grid-back", pts, false)
             break
           end
         end
-    
+        
+        add_observers if had_observers
+        
       end
     end
 

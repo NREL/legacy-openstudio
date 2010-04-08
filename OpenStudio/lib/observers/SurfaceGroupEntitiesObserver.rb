@@ -162,7 +162,7 @@ module OpenStudio
               error_message = ""
             
               if (drawing_interface.class == DaylightingControls)
-                puts "SurfaceGroupEntitiesObserver.onElementAdded(Daylighting:Controls):" + entity.to_s
+                puts "new daylighting controls"
                 
                 if (@drawing_interface.class == Zone)
                 
@@ -188,7 +188,7 @@ module OpenStudio
                 end
                 
               elsif(drawing_interface.class == OutputIlluminanceMap)
-                puts "SurfaceGroupEntitiesObserver.onElementAdded(OutputIlluminanceMap):" + entity.to_s
+                puts "new output illuminance map"
                 
                 if (@drawing_interface.class == Zone)
                 
@@ -214,8 +214,7 @@ module OpenStudio
                 end
                              
               end
-              
-              
+
               if need_to_remove
                 DrawingUtils.clean_entity(entity)
                 Sketchup.active_model.entities.erase_entities(entity)
@@ -224,7 +223,7 @@ module OpenStudio
               end
               
             else
-              puts "SurfaceGroupEntitiesObserver.onElementAdded(no drawing_interface):" + entity.to_s
+              puts "unknown object added"
             end
             
           end

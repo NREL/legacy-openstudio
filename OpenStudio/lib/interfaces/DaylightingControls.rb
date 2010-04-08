@@ -94,23 +94,17 @@ module OpenStudio
         
         # sensor 1, always have sensor one
         sensor1_position = (parent_transformation*entity_transformation*sensor1_transformation).origin
-        puts "sensor1_position = #{sensor1_position}"
         self.sketchup_sensor1 = sensor1_position
                 
         # sensor 2 position has been updated if it was blank before
         if @input_object.fields[2].to_i == 2
           if (@input_object.fields[6].to_s.empty? or @input_object.fields[7].to_s.empty? or @input_object.fields[8].to_s.empty?)
-            puts "reset_lengths"
             reset_lengths
+            update_entity
           else
             sensor2_position = (parent_transformation*entity_transformation*sensor2_transformation).origin
-            puts "sensor2_position = #{sensor2_position}"
             self.sketchup_sensor2 = sensor2_position
           end
-        else
-          @input_object.fields[6] = ""
-          @input_object.fields[7] = ""
-          @input_object.fields[8] = ""
         end
         
         #puts "After DaylightingControls.update_input_object"
@@ -165,6 +159,7 @@ module OpenStudio
     # change the entity to reflect the InputObject
     def update_entity
 
+      # do not want to call super if just want to redraw
       super
       
       if(valid_entity?)
@@ -172,6 +167,9 @@ module OpenStudio
         #puts "Before DaylightingControls.update_entity"
         #puts "input_object_sensor2 = #{input_object_sensor2}"
         #puts @input_object.to_idf
+        
+        # do not want to trigger update_input_object in here
+        had_observers = remove_observers
         
         # total_transformation = parent_transformation*entity_transformation*sensor_translation*sensor_rotation
         # sensor_position = parent_transformation*entity_transformation*sensor_translation*[0,0,0]
@@ -188,26 +186,28 @@ module OpenStudio
           rotation_angle = -Plugin.model_manager.building.azimuth + @parent.azimuth.radians
         end
         sensor_rotation = Geom::Transformation.rotation([0, 0, 0], [0, 0, 1], rotation_angle.degrees+glare_angle.degrees)
-        
+            
         # move sensors, works because we have a unique definition
         sensor1_transformation = (parent_transformation*entity_transformation).inverse*Geom::Transformation.translation(sketchup_sensor1)*sensor_rotation
-        puts "sensor1_transformation = #{sensor1_transformation.origin}"
+        #puts "sensor1_transformation = #{sensor1_transformation.origin}"
         @entity.definition.entities[0].transformation = sensor1_transformation
         
         if sketchup_sensor2
           sensor2_transformation = (parent_transformation*entity_transformation).inverse*Geom::Transformation.translation(sketchup_sensor2)*sensor_rotation
-          puts "sensor2_transformation = #{sensor2_transformation.origin}"
+          #puts "not reset, sensor2_transformation = #{sensor2_transformation.origin}"
           @entity.definition.entities[1].transformation = sensor2_transformation
           @entity.definition.entities[1].hidden = false
         else
           sensor2_transformation = sensor1_transformation
-          puts "sensor2_transformation = #{sensor2_transformation.origin}"
+          #puts "reset to sensor1, sensor2_transformation = #{sensor2_transformation.origin}"
           @entity.definition.entities[1].transformation = sensor2_transformation
           @entity.definition.entities[1].hidden = true
           @input_object.fields[6] = ""
           @input_object.fields[7] = ""
           @input_object.fields[8] = ""     
         end
+        
+        add_observers if had_observers
         
         #puts "After DaylightingControls.update_entity"
         #puts "input_object_sensor2 = #{input_object_sensor2}"
