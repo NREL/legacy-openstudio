@@ -18,6 +18,15 @@ module OpenStudio
       
       add_callbacks
     end
+    
+    def on_load
+      super
+    end
+    
+    def update
+      super
+      on_load
+    end
 
   end
 

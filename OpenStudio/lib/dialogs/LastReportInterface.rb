@@ -14,13 +14,25 @@ module OpenStudio
       super
       @dialog = LastReportDialog.new(nil, self, @hash)
       
-      @hash['LAST_REPORT'] = ''
+      @last_report = ''
+      @hash['LAST_REPORT'] = @last_report
     end
     
     def last_report=(text)
-      @hash['LAST_REPORT'] = text
-      @dialog.update
+      @last_report = text
+      populate_hash
     end
+    
+    def populate_hash
+      @hash['LAST_REPORT'] = @last_report
+      super
+    end
+    
+    def report
+      super
+    end
+    
+
    
   end
 

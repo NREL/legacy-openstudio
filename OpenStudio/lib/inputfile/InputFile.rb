@@ -413,8 +413,8 @@ module OpenStudio
           version_string = DataDictionary::version(@data_dictionary.path)
           pattern = Regexp.new("^#{Regexp.escape(object.fields[1].to_s)}")
           if not pattern.match(version_string)
-            Plugin.model_manager.add_error("Error:  " + "Idf file '#{path}' has version '#{object.fields[1]}', plugin version is '#{version_string}'\n")
-            Plugin.model_manager.add_error("Please convert your file to the plugin version to avoid corrupting your input file.\n\n")
+            Plugin.model_manager.add_error("Warning:  " + "Idf file '#{path}' has version '#{object.fields[1]}', plugin version is '#{version_string}'\n")
+            Plugin.model_manager.add_error("Please convert your file to the plugin version using the EnergyPlus transition program for best results.\n\n")
           end
         end
 
