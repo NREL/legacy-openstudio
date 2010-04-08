@@ -100,22 +100,30 @@ function msout(num) {
 
 
 
-<H2>GeoReferencing your model</H2>
+<H2>Geo-Referencing your model</H2>
 <br>
 
-<H3>Step_Title</H3>
+<H3>Geo-Referencing your model and finding nearby buildings</H3>
 <div style="margin-left:10px">
-    <P>content</P>
+<ul>
+    <li>If you want to go beyond just placing your building in a city, you can geo-reference it to a specific site. This can be done manually or with Google Earth. Below I used the &quot;Get Current View&quot; tool form the Google toolbar in SketchUp. That goes to Google Earth and brings in the current view (shown in the second image). The base image is now geotagged, as is the model, so if I can now move it to it's correct location on the site. It is important to make sure you set North to up in Google Earth before you get the current view. Otherwise SketchUp will want to change its North direction, which will create conflicts with what OpenStudio needs.</li>
+    <li>A nice feature is to be able to bring in nearby buildings from 3D Warehouse. This isn't very easy to work with right now, as it doesn't sort the buildings by their proximity. An alternative is to go to Google Earth and visually pick the buildings you want. You can click on them and then download the SketchUp or KMZ files.</li>
+         <br><img src="dialogs/tut_geo_02.png" alt="" width="500"></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+         <br><img src="dialogs/tut_geo_01.png" alt="" width="500"></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i></ul>
 </div>
 
-<H3>Step_Title</H3>
-<div style="margin-left:10px">
-    <P>content</P>
-</div>
-
-<H3>Step_Title</H3>
-<div style="margin-left:10px">
-    <P>content</P>
+<H3>Importing  nearby buildings and creating shading surfaces</H3>
+<ul>
+    <li>The buildings come in correctly located, because they are georeferenced as well as our building.</li>
+         <br>
+         <img src="dialogs/tut_geo_03.png" alt="" width="500">
+         </li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <li>Below I have cleaned up the textures to just keep the ones I need, and I dropped them into a Shading Group. Now they will provide EnergyPlus context for determining when and where on our building the sun will shine.</li>
+         <br><img src="dialogs/tut_geo_04.png" alt="" width="500"></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i></ul>
 </div>
 
 					</td>
@@ -124,7 +132,7 @@ function msout(num) {
 <!-- end of main content table -->
 
 
-		</td>
+	  </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>

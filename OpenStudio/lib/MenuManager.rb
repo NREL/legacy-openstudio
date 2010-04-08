@@ -449,6 +449,7 @@ module OpenStudio
       @plugin_menu.add_separator
       @plugin_menu.add_item(@new_zone_cmd)
       @plugin_menu.add_item(@new_shading_cmd)
+      @plugin_menu.add_item(@zone_loads_cmd)
       @plugin_menu.add_item(@new_daylighting_cmd)
       @plugin_menu.add_item(@new_illuminance_cmd)
       @plugin_menu.add_separator
@@ -456,7 +457,6 @@ module OpenStudio
       @plugin_menu.add_item(@surface_search_cmd)
       @plugin_menu.add_item(@set_default_constructions_cmd)
       @plugin_menu.add_item(@surface_matching_cmd)
-      @plugin_menu.add_item(@zone_loads_cmd)
       @plugin_menu.add_item(@edit_thermostats_cmd)
       @plugin_menu.add_item(@new_construct_cmd)
       @plugin_menu.add_item(@new_schedule_cmd)
@@ -517,6 +517,7 @@ module OpenStudio
       @command_toolbar.add_separator
       @command_toolbar.add_item(@new_zone_cmd)
       @command_toolbar.add_item(@new_shading_cmd)
+      @command_toolbar.add_item(@zone_loads_cmd)
       @command_toolbar.add_item(@new_daylighting_cmd)
       @command_toolbar.add_item(@new_illuminance_cmd)
       @command_toolbar.add_separator
@@ -525,7 +526,6 @@ module OpenStudio
       @command_toolbar.add_item(@outliner_cmd)
       @command_toolbar.add_item(@surface_search_cmd)
       @command_toolbar.add_separator
-      @command_toolbar.add_item(@zone_loads_cmd)
       @command_toolbar.add_item(@surface_matching_cmd)
       @command_toolbar.add_item(@set_default_constructions_cmd)
       @command_toolbar.add_separator
