@@ -129,20 +129,9 @@ module OpenStudio
     def on_click_variable_type
     
       if (@hash['VARIABLE_TYPE'] == "SURFACE")
-      
-        enable_element("INSIDE_VARIABLE")
         set_element_value("NORMALIZE_VARIABLE_BY", "net surface area")
         variable_defs = get_surface_variables.to_a
-        
       else
-      
-        @hash['INSIDE_VARIABLE'] = ""
-        @inside_units = ""
-        @inside_min = ""
-        @inside_max = ""
-        set_element_value("INSIDE_VARIABLE", @hash['INSIDE_VARIABLE']) 
-
-        disable_element("INSIDE_VARIABLE")
         set_element_value("NORMALIZE_VARIABLE_BY", "zone floor area")
         variable_defs = get_zone_variables.to_a
       end
@@ -168,16 +157,14 @@ module OpenStudio
           set_element_value("OUTSIDE_VARIABLE", variable_names[0])
         end
         on_change_outside_variable
-        
-        if (@hash['VARIABLE_TYPE'] == "SURFACE")
-          if (variable_names.index(@hash['INSIDE_VARIABLE']))
-            set_element_value("INSIDE_VARIABLE", @hash['INSIDE_VARIABLE'])
-          else
-            @hash['INSIDE_VARIABLE'] = variable_names[0]
-            set_element_value("INSIDE_VARIABLE", variable_names[0])
-          end
-          on_change_inside_variable
+
+        if (variable_names.index(@hash['INSIDE_VARIABLE']))
+          set_element_value("INSIDE_VARIABLE", @hash['INSIDE_VARIABLE'])
+        else
+          @hash['INSIDE_VARIABLE'] = variable_names[0]
+          set_element_value("INSIDE_VARIABLE", variable_names[0])
         end
+        on_change_inside_variable
 
       end 
       

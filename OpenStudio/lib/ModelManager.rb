@@ -680,18 +680,19 @@ module OpenStudio
 
           for zone in self.zones
             outside_variable_key = @results_manager.output_file.get_variable_key(outside_variable_name, zone.input_object.name.upcase)
+            inside_variable_key = @results_manager.output_file.get_variable_key(inside_variable_name, zone.input_object.name.upcase)
 
             for base_surface in zone.children
               if (base_surface.respond_to?(:outside_variable_key))
                 base_surface.outside_variable_key = outside_variable_key
-                base_surface.inside_variable_key = outside_variable_key  # outside and inside are the same for zone variables
+                base_surface.inside_variable_key = inside_variable_key 
               
                 base_surface.outside_normalization = zone.unit_floor_area
                 base_surface.inside_normalization = zone.unit_floor_area
 
                 for sub_surface in base_surface.children
                   sub_surface.outside_variable_key = outside_variable_key
-                  sub_surface.inside_variable_key = outside_variable_key  # outside and inside are the same for zone variables
+                  sub_surface.inside_variable_key = inside_variable_key 
                 
                   sub_surface.outside_normalization = zone.unit_floor_area
                   sub_surface.inside_normalization = zone.unit_floor_area
