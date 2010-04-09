@@ -541,8 +541,13 @@ Do you want to continue?", MB_OKCANCEL)
     end
     
     def on_last_report
-      Plugin.dialog_manager.show(LastReportInterface)
-      Plugin.dialog_manager.active_interface(LastReportInterface).last_report = @last_report
+      if (Plugin.platform == Platform_Windows)
+        Plugin.dialog_manager.show(LastReportInterface)
+        Plugin.dialog_manager.active_interface(LastReportInterface).last_report = @last_report
+      else
+        # mac last report web dialog not working, puts to ruby console or messagebox as a work around
+        UI.messagebox @last_report,MB_MULTILINE
+      end
     end
     
   end
