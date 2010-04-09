@@ -20,6 +20,8 @@ module OpenStudio
     
     def last_report=(text)
       @last_report = text
+      populate_hash
+      update
     end
     
     def populate_hash
