@@ -63,12 +63,19 @@ module OpenStudio
       
         enable_element("CLASS")
         enable_element("NAME")
-        disable_element("TYPE")
         enable_element("CONSTRUCTION")
+        
+        @hash['TYPE'] = ""
+        disable_element("TYPE")
+        @hash['OUTSIDE_BOUNDARY_CONDITION'] = ""
         disable_element("OUTSIDE_BOUNDARY_CONDITION")
+        @hash['SUN'] = ""
         disable_element("SUN")
+        @hash['WIND'] = ""
         disable_element("WIND")
+        @hash['SHADING_CONTROL_NAME'] = ""
         disable_element("SHADING_CONTROL_NAME")
+        @hash['FRAME_AND_DIVIDER_NAME'] = ""
         disable_element("FRAME_AND_DIVIDER_NAME")
         
         object_names = Plugin.model_manager.construction_manager.constructions.collect { |object| object.name }
@@ -84,9 +91,12 @@ module OpenStudio
         enable_element("OUTSIDE_BOUNDARY_CONDITION")
         enable_element("SUN")
         enable_element("WIND")
-        disable_element("SHADING_CONTROL_NAME")
-        disable_element("FRAME_AND_DIVIDER_NAME")
         
+        @hash['SHADING_CONTROL_NAME'] = ""
+        disable_element("SHADING_CONTROL_NAME")
+        @hash['FRAME_AND_DIVIDER_NAME'] = ""
+        disable_element("FRAME_AND_DIVIDER_NAME")
+                
         set_select_options("TYPE", ["", "Floor", "Wall", "Ceiling", "Roof"])
         
         object_names = Plugin.model_manager.construction_manager.constructions.collect { |object| object.name }
@@ -110,11 +120,15 @@ module OpenStudio
         enable_element("NAME")
         enable_element("TYPE")
         enable_element("CONSTRUCTION")
-        disable_element("OUTSIDE_BOUNDARY_CONDITION")
-        disable_element("SUN")
-        disable_element("WIND")
         enable_element("SHADING_CONTROL_NAME")
         enable_element("FRAME_AND_DIVIDER_NAME")
+        
+        @hash['OUTSIDE_BOUNDARY_CONDITION'] = ""
+        disable_element("OUTSIDE_BOUNDARY_CONDITION")
+        @hash['SUN'] = ""
+        disable_element("SUN")
+        @hash['WIND'] = ""
+        disable_element("WIND")
         
         set_select_options("TYPE", ["", "Window", "Door", "Glass Door", "Tubular Daylight Dome", "Tubular Daylight Diffuser"])
         
@@ -140,12 +154,20 @@ module OpenStudio
       
         enable_element("CLASS")
         enable_element("NAME")
+
+        @hash['TYPE'] = ""
         disable_element("TYPE")
+        @hash['CONSTRUCTION'] = ""
         disable_element("CONSTRUCTION")
+        @hash['OUTSIDE_BOUNDARY_CONDITION'] = ""
         disable_element("OUTSIDE_BOUNDARY_CONDITION")
+        @hash['SUN'] = ""
         disable_element("SUN")
+        @hash['WIND'] = ""
         disable_element("WIND")
+        @hash['SHADING_CONTROL_NAME'] = ""
         disable_element("SHADING_CONTROL_NAME")
+        @hash['FRAME_AND_DIVIDER_NAME'] = ""
         disable_element("FRAME_AND_DIVIDER_NAME")
         
         set_select_options("TYPE", [""])
