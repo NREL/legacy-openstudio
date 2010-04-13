@@ -1,8 +1,7 @@
 [Accelerator]
-Count=36
+Count=35
 0 0 0 Space selectSelectionTool:
 0 0 0 G Edit/Make Component...
-0 0 0 B selectPaintTool:
 0 0 0 F selectOffsetTool:
 0 0 1 Z viewZoomExtents:
 0 0 0 Q selectDollyTool:
@@ -31,8 +30,8 @@ Count=36
 0 0 0 L Plugins/OpenStudio/Surface Search
 0 0 0 ; Plugins/OpenStudio/Surface Matching
 0 0 0 ' Plugins/OpenStudio/Default Constructions
-0 0 0 N Plugins/OpenStudio/New Zone Tool
 0 0 0 M Plugins/OpenStudio/Zone Loads
 0 0 0 , Plugins/OpenStudio/New Daylighting Control Tool
 0 0 0 . Plugins/OpenStudio/New Illuminance Map Tool
-0 0 0 / Plugins/OpenStudio/New Shading Group Tool
+0 0 0 B Plugins/OpenStudio/New Zone Tool
+0 0 0 N Plugins/OpenStudio/New Shading Group Tool

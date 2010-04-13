@@ -8,9 +8,6 @@
 	<string>g</string>
 	<integer>0</integer>
 	<string>makeComponent:</string>
-	<string>b</string>
-	<integer>0</integer>
-	<string>selectPaintTool:</string>
 	<string>f</string>
 	<integer>0</integer>
 	<string>selectOffsetTool:</string>
@@ -92,9 +89,6 @@
 	<string>'</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Default Constructions</string>
-	<string>n</string>
-	<integer>0</integer>
-	<string>/Plugins/OpenStudio/New Zone Tool</string>
 	<string>m</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Zone Loads</string>
@@ -104,8 +98,11 @@
 	<string>.</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Illuminance Map Tool</string>
-	<string>/</string>
+	<string>n</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Shading Group Tool</string>
+	<string>b</string>
+	<integer>0</integer>
+	<string>/Plugins/OpenStudio/New Zone Tool</string>
 </array>
 </plist>

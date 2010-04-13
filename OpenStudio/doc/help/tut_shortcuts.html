@@ -117,20 +117,42 @@ function msout(num) {
  <ul>
     <li>I have made a set of OpenStudio keyboard shortcuts that you can use on Windows or Mac</li>
     <li>On Windows you can import and export keyboard shortcuts from within SketchUp under ->Preferences->Shortcuts</li>
-    <li>On Mac you need to manually replace the file at the following directory<br>
+    <li>On Mac you need to manually replace the file at the following directory, where &quot;user_name&quot; is your user name.<br>
       (User/user_name/Library/Application Support/Google SketchUp 7/SketchUp/Shortcuts.plist)</li>
-    <li>If you have setup custom shortcuts that you want to save, you should Export these on windows, or on the Mac, manually copy the exiisting &quot;Shortcuts.plist&quot; file.</li>
-    <li>The OpenStudio shortcut file is under &quot;...Google SketchUp 7\Plugins\OpenStudio\lib\resources\shortcuts-windows&quot;.<br>
-      (&quot;...\resources\shortcuts-mac&quot; for mac)
+    <li>If you have setup custom shortcuts that you want to save, you should export these on Windows; or on the Mac, manually copy the existing &quot;Shortcuts.plist&quot; file to a different location.</li>
+    <li>The OpenStudio shortcut file is under &quot;...Google SketchUp 7\Plugins\OpenStudio\lib\resources\shortcuts-windows\windows_shortcuts.dat&quot;.<br>
+      (or &quot;...\resources\shortcuts-mac\Shortcuts.plist&quot; for mac)
     </li>
     <li>Add more text about how these are organized.</li>
-         <br><img src="dialogs/OpenStudio-shortcuts.png"  width="650" alt="" ></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i>
+         <br><img src="dialogs/OpenStudio-shortcuts.png"  width="750" alt="" ></li><br>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <li>I have organized the shortcuts by the type of function they perform, vs. trying to match the first letter of the function with the corresponding key.</li>
+    <li>The top row is all about changing what you are viewing vs. changing anything about the model. (One exception is that you can create a section cut.)</li>
+<ul>
+<li>Camera Tools (pan, orbit, zoom, zoom extents)</li>
+<li>Section Tools (create section cut, view/hide section plane, view/hide section cut)</li>
+<li>View Tools (view/hide rest of model, view/hide hidden geometry, x-ray mode)</li>
+<li>the last shortcut turns shadows on and off. You have to go to the shadows dialog to change the time of day or year used for the shadows, or the way in which they are rendered.</li>
 </ul>
-</div>
-
-
-					</td>
+    <li>The left side of the middle row has tools to modify existing geometry.</li>
+<ul>
+<li>Move, Push/Pull, Scale</li>
+</ul>
+    <li>The right side of the middle row has tools for viewing OpenStudio data.</li>
+<ul>
+<li>Info Tool, Info Dialog, Search Surfaces, Surface Matching,  Default Constructions</li>
+</ul>
+    <li>The bottom row is for tools to create new geometry and objects.</li>
+<ul>
+<li>Rectangle, Line, Tape Measure (for guide lines), Eraser</li>
+<li>New Zone, New Shading Group, Zone Loads, New Daylighting Controls, New Illuminance Map</li>
+</ul>
+     <li>The Escape key is set to SketchUp's default shortcut to exit out of a group or component.</li>
+     <li>The &quot;~&quot; key is set to enter into a group. You can press this after making a new Zone or Shading Group to enter into it.</li>
+     <li>Another SketchUp default shortcut is the space bar, which changes your active tool to the selection tool.</li>
+     <li>You can customize these shortcuts to your liking.</li>
+ </ul>
+</div></td>
 				</tr>
 			</table>
 <!-- end of main content table -->
