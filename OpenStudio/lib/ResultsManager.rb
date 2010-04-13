@@ -87,8 +87,8 @@ module OpenStudio
 
             run_period.type = RUN_PERIOD_TYPE_DESIGN_DAY
             
-            run_period.start_month = design_day.fields[12].to_i
-            run_period.start_date = design_day.fields[11].to_i
+            run_period.start_month = design_day.fields[2].to_i
+            run_period.start_date = design_day.fields[3].to_i
             run_period.end_month = run_period.start_month
             run_period.end_date = run_period.start_date
 
@@ -104,7 +104,7 @@ module OpenStudio
       run_periods.compact!
 
       # Check the RUNPERIOD objects--they should be in the same order in the ESO as in the IDF
-      run_period_input_objects = Plugin.model_manager.input_file.find_objects_by_class_name("SizingPeriod:WeatherFileDays").to_a
+      run_period_input_objects = Plugin.model_manager.input_file.find_objects_by_class_name("RunPeriod").to_a
       for i in 0...run_period_input_objects.length
         run_period_input_object = run_period_input_objects[i]
         run_period = run_periods[i]
