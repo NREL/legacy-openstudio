@@ -172,6 +172,42 @@ function onReportUpdate(element) {
 
 <tr>
 <td>
+<input name="OA_PER_PERSON_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="OA_PER_PERSON" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Outdoor Air per Person Schedule:
+</td>
+<td>
+<select name="OA_PER_PERSON_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+<input name="OA_PER_AREA_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="OA_PER_AREA" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Outdoor Air per Area Schedule:
+</td>
+<td>
+<select name="OA_PER_AREA_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
 &nbsp;&nbsp;Infiltration Rate (ACH):
 </td>
 <td>
@@ -192,6 +228,7 @@ function onReportUpdate(element) {
 <td>
 </td>
 <td style="text-align:right;">
+<input id="RESET" onclick="onReset()" type="button" class="button" value="Reset to Default Office" style="width:120px; margin-left:3px;">
 <input id="NEW_SCHEDULE" onclick="onNewSchedule()" type="button" class="button" value="New Schedule Stub" style="width:120px; margin-left:3px;">
 </td>
 </tr>

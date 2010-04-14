@@ -12,9 +12,9 @@ module OpenStudio
 
     def initialize(container, interface, hash)
       super
-	  w = Plugin.platform_select(600, 600)
-      h = Plugin.platform_select(680, 740)
-      @container = WindowContainer.new("Zone Loads", w, h, 150, 150)
+      w = Plugin.platform_select(600, 600)
+      h = Plugin.platform_select(800, 840)
+      @container = WindowContainer.new("Zone Loads", w, h, 150, 150, false)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/ZoneLoads.html")
       
       # value_hash is actual values in metric units, this is what gets saved and written to idf
@@ -28,6 +28,10 @@ module OpenStudio
       @value_hash['ELEC_EQUIPMENT_SCHEDULE'] = ""
       @value_hash['GAS_EQUIPMENT_DENSITY'] = 0.0
       @value_hash['GAS_EQUIPMENT_SCHEDULE'] = ""
+      @value_hash['OA_PER_PERSON'] = 0.0
+      @value_hash['OA_PER_PERSON_SCHEDULE'] = ""
+      @value_hash['OA_PER_AREA'] = 0.0
+      @value_hash['OA_PER_AREA_SCHEDULE'] = ""
       @value_hash['INFILTRATION_RATE'] = 0.0
       @value_hash['INFILTRATION_SCHEDULE'] = ""
       @value_hash['ADD_IDEAL_LOADS'] = true
@@ -48,12 +52,16 @@ module OpenStudio
       @hash['GAS_EQUIPMENT_DENSITY_TEXT'] = ""
       @hash['GAS_EQUIPMENT_DENSITY'] = ""
       @hash['GAS_EQUIPMENT_SCHEDULE'] = ""
+      @hash['OA_PER_PERSON_TEXT'] = ""
+      @hash['OA_PER_PERSON'] = ""
+      @hash['OA_PER_PERSON_SCHEDULE'] = ""
+      @hash['OA_PER_AREA_TEXT'] = ""
+      @hash['OA_PER_AREA'] = ""
+      @hash['OA_PER_AREA_SCHEDULE'] = ""
       @hash['INFILTRATION_RATE'] = ""
       @hash['INFILTRATION_SCHEDULE'] = ""
       @hash['ADD_IDEAL_LOADS'] = true
       @hash['THERMOSTAT_NAME'] = ""
-      
-      reset_values
       
       @last_report = ""
       
@@ -70,6 +78,10 @@ module OpenStudio
       @value_hash['ELEC_EQUIPMENT_SCHEDULE'] = "Office Equipment Schedule"
       @value_hash['GAS_EQUIPMENT_DENSITY'] = 0.0000
       @value_hash['GAS_EQUIPMENT_SCHEDULE'] = "Office Equipment Schedule"
+      @value_hash['OA_PER_PERSON'] = 0.0025
+      @value_hash['OA_PER_PERSON_SCHEDULE'] = @value_hash['OCCUPANCY_SCHEDULE']
+      @value_hash['OA_PER_AREA'] = 0.0003
+      @value_hash['OA_PER_AREA_SCHEDULE'] = "Always On"
       @value_hash['INFILTRATION_RATE'] = 0.5
       @value_hash['INFILTRATION_SCHEDULE'] = "Infiltration Half On Schedule"
       @value_hash['ADD_IDEAL_LOADS'] = true
@@ -81,6 +93,7 @@ module OpenStudio
 
       if (Plugin.model_manager.units_system == "SI")
         i = 0
+        m3s_to_ls = 1000.0
         @hash['PEOPLE_DENSITY_TEXT'] = "  People per Zone Floor Area " + Plugin.model_manager.units_hash['People/100m2'][i] + ":"
         @hash['PEOPLE_DENSITY'] = (100.0*@value_hash['PEOPLE_DENSITY']).round_to(6).to_s
         @hash['OCCUPANCY_SCHEDULE'] = @value_hash['OCCUPANCY_SCHEDULE']
@@ -94,6 +107,12 @@ module OpenStudio
         @hash['GAS_EQUIPMENT_DENSITY_TEXT'] = "  Gas Equipment Power Density " + Plugin.model_manager.units_hash['W/m2'][i] + ":"
         @hash['GAS_EQUIPMENT_DENSITY'] = @value_hash['GAS_EQUIPMENT_DENSITY'].round_to(4).to_s
         @hash['GAS_EQUIPMENT_SCHEDULE'] = @value_hash['GAS_EQUIPMENT_SCHEDULE']
+        @hash['OA_PER_PERSON_TEXT'] = "  Outdoor Air per Person " + Plugin.model_manager.units_hash['L/sec/person'][i] + ":"
+        @hash['OA_PER_PERSON'] = (m3s_to_ls*@value_hash['OA_PER_PERSON']).round_to(6).to_s
+        @hash['OA_PER_PERSON_SCHEDULE'] = @value_hash['OA_PER_PERSON_SCHEDULE']
+        @hash['OA_PER_AREA_TEXT'] = "  Outdoor Air per Area " + Plugin.model_manager.units_hash['L/sec/m2'][i] + ":"
+        @hash['OA_PER_AREA'] = (m3s_to_ls*@value_hash['OA_PER_AREA']).round_to(6).to_s
+        @hash['OA_PER_AREA_SCHEDULE'] = @value_hash['OA_PER_AREA_SCHEDULE']
         @hash['INFILTRATION_RATE'] = @value_hash['INFILTRATION_RATE'].round_to(4).to_s
         @hash['INFILTRATION_SCHEDULE'] = @value_hash['INFILTRATION_SCHEDULE']
         @hash['ADD_IDEAL_LOADS'] = @value_hash['ADD_IDEAL_LOADS']    
@@ -102,6 +121,7 @@ module OpenStudio
         i = 1
         m2_over_ft2 = 0.092903
         ft2_over_m2 = 1/m2_over_ft2
+        m3s_to_cfm = 2118.8799728
         @hash['PEOPLE_DENSITY_TEXT'] = "  People per Zone Floor Area " + Plugin.model_manager.units_hash['People/100m2'][i] + ":"
         @hash['PEOPLE_DENSITY'] = (1000.0*m2_over_ft2*@value_hash['PEOPLE_DENSITY']).round_to(6).to_s
         @hash['OCCUPANCY_SCHEDULE'] = @value_hash['OCCUPANCY_SCHEDULE']
@@ -115,6 +135,12 @@ module OpenStudio
         @hash['GAS_EQUIPMENT_DENSITY_TEXT'] = "  Gas Equipment Power Density " + Plugin.model_manager.units_hash['W/m2'][i] + ":"
         @hash['GAS_EQUIPMENT_DENSITY'] = (m2_over_ft2*@value_hash['GAS_EQUIPMENT_DENSITY']).round_to(4).to_s
         @hash['GAS_EQUIPMENT_SCHEDULE'] = @value_hash['GAS_EQUIPMENT_SCHEDULE']
+        @hash['OA_PER_PERSON_TEXT'] = "  Outdoor Air per Person " + Plugin.model_manager.units_hash['L/sec/person'][i] + ":"
+        @hash['OA_PER_PERSON'] = (m3s_to_cfm*@value_hash['OA_PER_PERSON']).round_to(6).to_s
+        @hash['OA_PER_PERSON_SCHEDULE'] = @value_hash['OA_PER_PERSON_SCHEDULE']
+        @hash['OA_PER_AREA_TEXT'] = "  Outdoor Air per Area " + Plugin.model_manager.units_hash['L/sec/m2'][i] + ":"
+        @hash['OA_PER_AREA'] = (m3s_to_cfm*m2_over_ft2*@value_hash['OA_PER_AREA']).round_to(6).to_s
+        @hash['OA_PER_AREA_SCHEDULE'] = @value_hash['OA_PER_AREA_SCHEDULE']  
         @hash['INFILTRATION_RATE'] = @value_hash['INFILTRATION_RATE'].round_to(4).to_s
         @hash['INFILTRATION_SCHEDULE'] = @value_hash['INFILTRATION_SCHEDULE']
         @hash['ADD_IDEAL_LOADS'] = @value_hash['ADD_IDEAL_LOADS'] 
@@ -127,6 +153,8 @@ module OpenStudio
 
       if (Plugin.model_manager.units_system == "SI")
         i = 0
+        m3s_to_ls = 1000.0
+        ls_to_m3s = 1/m3s_to_ls
         @value_hash['PEOPLE_DENSITY'] = @hash['PEOPLE_DENSITY'].to_f/100.0
         @value_hash['OCCUPANCY_SCHEDULE'] = @hash['OCCUPANCY_SCHEDULE']
         @value_hash['ACTIVITY_SCHEDULE'] = @hash['ACTIVITY_SCHEDULE']
@@ -136,6 +164,12 @@ module OpenStudio
         @value_hash['ELEC_EQUIPMENT_SCHEDULE'] = @hash['ELEC_EQUIPMENT_SCHEDULE']
         @value_hash['GAS_EQUIPMENT_DENSITY'] = @hash['GAS_EQUIPMENT_DENSITY'].to_f
         @value_hash['GAS_EQUIPMENT_SCHEDULE'] = @hash['GAS_EQUIPMENT_SCHEDULE']
+        @value_hash['OA_PER_AREA_TEXT'] = @hash['OA_PER_AREA_TEXT']
+        @value_hash['OA_PER_PERSON'] = ls_to_m3s*@hash['OA_PER_PERSON'].to_f
+        @value_hash['OA_PER_PERSON_SCHEDULE'] = @hash['OA_PER_PERSON_SCHEDULE']
+        @value_hash['OA_PER_AREA_TEXT'] = @hash['OA_PER_AREA_TEXT']
+        @value_hash['OA_PER_AREA'] = ls_to_m3s*@hash['OA_PER_AREA'].to_f
+        @value_hash['OA_PER_AREA_SCHEDULE'] = @hash['OA_PER_AREA_SCHEDULE']    
         @value_hash['INFILTRATION_RATE'] = @hash['INFILTRATION_RATE'].to_f
         @value_hash['INFILTRATION_SCHEDULE'] = @hash['INFILTRATION_SCHEDULE']
         @value_hash['ADD_IDEAL_LOADS'] = @hash['ADD_IDEAL_LOADS']   
@@ -144,6 +178,8 @@ module OpenStudio
         i = 1
         m2_over_ft2 = 0.092903
         ft2_over_m2 = 1/m2_over_ft2
+        m3s_to_cfm = 2118.8799728
+        cfm_to_m3s = 1/m3s_to_cfm
         @value_hash['PEOPLE_DENSITY'] = ft2_over_m2*@hash['PEOPLE_DENSITY'].to_f/1000.0
         @value_hash['OCCUPANCY_SCHEDULE'] = @hash['OCCUPANCY_SCHEDULE']
         @value_hash['ACTIVITY_SCHEDULE'] = @hash['ACTIVITY_SCHEDULE']
@@ -153,6 +189,12 @@ module OpenStudio
         @value_hash['ELEC_EQUIPMENT_SCHEDULE'] = @hash['ELEC_EQUIPMENT_SCHEDULE']
         @value_hash['GAS_EQUIPMENT_DENSITY'] = ft2_over_m2*@hash['GAS_EQUIPMENT_DENSITY'].to_f
         @value_hash['GAS_EQUIPMENT_SCHEDULE'] = @hash['GAS_EQUIPMENT_SCHEDULE']
+        @value_hash['OA_PER_AREA_TEXT'] = @hash['OA_PER_AREA_TEXT']
+        @value_hash['OA_PER_PERSON'] = cfm_to_m3s*@hash['OA_PER_PERSON'].to_f
+        @value_hash['OA_PER_PERSON_SCHEDULE'] = @hash['OA_PER_PERSON_SCHEDULE']
+        @value_hash['OA_PER_AREA_TEXT'] = @hash['OA_PER_AREA_TEXT']
+        @value_hash['OA_PER_AREA'] = cfm_to_m3s*ft2_over_m2*@hash['OA_PER_AREA'].to_f
+        @value_hash['OA_PER_AREA_SCHEDULE'] = @hash['OA_PER_AREA_SCHEDULE']      
         @value_hash['INFILTRATION_RATE'] = @hash['INFILTRATION_RATE'].to_f
         @value_hash['INFILTRATION_SCHEDULE'] = @hash['INFILTRATION_SCHEDULE']
         @value_hash['ADD_IDEAL_LOADS'] = @hash['ADD_IDEAL_LOADS']  
@@ -196,6 +238,8 @@ module OpenStudio
       set_select_options("LIGHTS_SCHEDULE", schedule_names)  
       set_select_options("ELEC_EQUIPMENT_SCHEDULE", schedule_names)  
       set_select_options("GAS_EQUIPMENT_SCHEDULE", schedule_names)  
+      set_select_options("OA_PER_PERSON_SCHEDULE", schedule_names) 
+      set_select_options("OA_PER_AREA_SCHEDULE", schedule_names) 
       set_select_options("INFILTRATION_SCHEDULE", schedule_names)  
       
       if @hash['ADD_IDEAL_LOADS']
@@ -289,7 +333,6 @@ module OpenStudio
     end
     
     def on_reset
-      reset_values
       update
     end
     
@@ -396,7 +439,7 @@ module OpenStudio
         result = UI.messagebox(
 "Warning this will remove all objects of type
 'People', 'Lights', 'ElectricEquipment', 'GasEquipment',
-'ZoneInfiltration:DesignFlowRate', and 
+'ZoneVentilation:DesignFlowRate', 'ZoneInfiltration:DesignFlowRate', and 
 'HVACTemplate:Zone:IdealLoadsAirSystem' within the selection.\n  
 This operation cannot be undone.\n  
 Do you want to continue?", MB_OKCANCEL)
@@ -404,7 +447,7 @@ Do you want to continue?", MB_OKCANCEL)
         result = UI.messagebox(
 "Warning this will remove all objects of type
 'People', 'Lights', 'ElectricEquipment', 'GasEquipment',
-and 'ZoneInfiltration:DesignFlowRate' within the selection.\n  
+'ZoneVentilation:DesignFlowRate', and 'ZoneInfiltration:DesignFlowRate' within the selection.\n  
 This operation cannot be undone.\n  
 Do you want to continue?", MB_OKCANCEL)
     end
@@ -426,6 +469,7 @@ Do you want to continue?", MB_OKCANCEL)
         remove_objects_in_zone("Lights", 2, zone_name)
         remove_objects_in_zone("ElectricEquipment", 2, zone_name)
         remove_objects_in_zone("GasEquipment", 2, zone_name)
+        remove_objects_in_zone("ZoneVentilation:DesignFlowRate", 2, zone_name)
         remove_objects_in_zone("ZoneInfiltration:DesignFlowRate", 2, zone_name)
         
         if @hash['ADD_IDEAL_LOADS']
@@ -439,93 +483,127 @@ Do you want to continue?", MB_OKCANCEL)
         end
         
         # People
-        input_object = InputObject.new("People")
-        input_object.fields[1] = "#{zone_name} People" # Name
-        input_object.fields[2] = zone_name  # Zone Name
-        input_object.fields[3] = get_schedule(@hash['OCCUPANCY_SCHEDULE'] ) # Schedule Name
-        input_object.fields[4] = "People/Area"  # Number of People Calculation Method
-        input_object.fields[5] = "" # Number of People
-        input_object.fields[6] = @value_hash['PEOPLE_DENSITY'].round_to(6).to_s # People per Zone Floor Area
-        input_object.fields[7] =  ""  # Zone Floor Area per Person
-        input_object.fields[8] = "0.3"  # Fraction Radiant
-        input_object.fields[9] = ""  # Sensible Heat Fraction
-        input_object.fields[10] = get_schedule(@hash['ACTIVITY_SCHEDULE'] )  # Activity Level Schedule Name
-        input_object.fields[11] = ""  # Enable ASHRAE 55 Comfort Warnings
-        input_object.fields[12] = ""  # Mean Radiant Temperature Calculation Type
-        input_object.fields[13] = ""  # Surface Name/Angle Factor List Name
-        input_object.fields[14] = ""  # Work Efficiency Schedule Name
-        input_object.fields[15] = ""  # Clothing Insulation Schedule Name
-        input_object.fields[16] = ""  # Air Velocity Schedule Name
-        input_object.fields[17] = ""  # Thermal Comfort Model 1 Type
-        input_object.fields[18] = ""  # Thermal Comfort Model 2 Type
-        input_object.fields[19] = ""  # Thermal Comfort Model 3 Type
-        add_object_to_zone(input_object, zone_name)
+        if @value_hash['PEOPLE_DENSITY'] > 0
+          input_object = InputObject.new("People")
+          input_object.fields[1] = "#{zone_name} People" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['OCCUPANCY_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "People/Area"  # Number of People Calculation Method
+          input_object.fields[5] = "" # Number of People
+          input_object.fields[6] = @value_hash['PEOPLE_DENSITY'].round_to(6).to_s # People per Zone Floor Area
+          input_object.fields[7] =  ""  # Zone Floor Area per Person
+          input_object.fields[8] = "0.3"  # Fraction Radiant
+          input_object.fields[9] = ""  # Sensible Heat Fraction
+          input_object.fields[10] = get_schedule(@hash['ACTIVITY_SCHEDULE'] )  # Activity Level Schedule Name
+          input_object.fields[11] = ""  # Enable ASHRAE 55 Comfort Warnings
+          input_object.fields[12] = ""  # Mean Radiant Temperature Calculation Type
+          input_object.fields[13] = ""  # Surface Name/Angle Factor List Name
+          input_object.fields[14] = ""  # Work Efficiency Schedule Name
+          input_object.fields[15] = ""  # Clothing Insulation Schedule Name
+          input_object.fields[16] = ""  # Air Velocity Schedule Name
+          input_object.fields[17] = ""  # Thermal Comfort Model 1 Type
+          input_object.fields[18] = ""  # Thermal Comfort Model 2 Type
+          input_object.fields[19] = ""  # Thermal Comfort Model 3 Type
+          add_object_to_zone(input_object, zone_name)
+        end
         
         # Lights
-        input_object = InputObject.new("Lights")
-        input_object.fields[1] = "#{zone_name} Lights" # Name
-        input_object.fields[2] = zone_name  # Zone Name
-        input_object.fields[3] = get_schedule(@hash['LIGHTS_SCHEDULE'] ) # Schedule Name
-        input_object.fields[4] = "Watts/Area"  # Design Level Calculation Method
-        input_object.fields[5] = ""  # Lighting Level
-        input_object.fields[6] = @value_hash['LIGHTS_DENSITY'].round_to(4).to_s  # Watts per Zone Floor Area
-        input_object.fields[7] = ""  # Watts per Person
-        input_object.fields[8] = ""  # Return Air Fraction
-        input_object.fields[9] = ""  # Fraction Radiant
-        input_object.fields[10] = ""  # Fraction Visible
-        input_object.fields[11] = ""  # Fraction Replaceable
-        input_object.fields[12] = "Lights"  # End-Use Subcategory
-        input_object.fields[13] = ""  # Return Air Fraction Calculated from Plenum Temperature
-        input_object.fields[14] = ""  # Return Air Fraction Function of Plenum Temperature Coefficient 1
-        input_object.fields[15] = ""  # Return Air Fraction Function of Plenum Temperature Coefficient 2
-        add_object_to_zone(input_object, zone_name)
+        if @value_hash['LIGHTS_DENSITY'] > 0
+          input_object = InputObject.new("Lights")
+          input_object.fields[1] = "#{zone_name} Lights" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['LIGHTS_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "Watts/Area"  # Design Level Calculation Method
+          input_object.fields[5] = ""  # Lighting Level
+          input_object.fields[6] = @value_hash['LIGHTS_DENSITY'].round_to(4).to_s  # Watts per Zone Floor Area
+          input_object.fields[7] = ""  # Watts per Person
+          input_object.fields[8] = ""  # Return Air Fraction
+          input_object.fields[9] = ""  # Fraction Radiant
+          input_object.fields[10] = ""  # Fraction Visible
+          input_object.fields[11] = ""  # Fraction Replaceable
+          input_object.fields[12] = "Lights"  # End-Use Subcategory
+          input_object.fields[13] = ""  # Return Air Fraction Calculated from Plenum Temperature
+          input_object.fields[14] = ""  # Return Air Fraction Function of Plenum Temperature Coefficient 1
+          input_object.fields[15] = ""  # Return Air Fraction Function of Plenum Temperature Coefficient 2
+          add_object_to_zone(input_object, zone_name)
+        end
 
         # ElectricEquipment
-        input_object = InputObject.new("ElectricEquipment")
-        input_object.fields[1] = "#{zone_name} ElectricEquipment" # Name
-        input_object.fields[2] = zone_name  # Zone Name
-        input_object.fields[3] = get_schedule(@hash['ELEC_EQUIPMENT_SCHEDULE'] ) # Schedule Name
-        input_object.fields[4] = "Watts/Area" # Design Level Calculation Method
-        input_object.fields[5] = "" # Design Level 
-        input_object.fields[6] = @value_hash['ELEC_EQUIPMENT_DENSITY'].round_to(4).to_s # Watts per Zone Floor Area
-        input_object.fields[7] = "" # Watts per Person
-        input_object.fields[8] = "" # Fraction Latent
-        input_object.fields[9] = "" # Fraction Radiant
-        input_object.fields[10] = "" # Fraction Lost
-        input_object.fields[11] = "ElectricEquipment" # End-Use Subcategory
-        add_object_to_zone(input_object, zone_name)
+        if @value_hash['ELEC_EQUIPMENT_DENSITY'] > 0
+          input_object = InputObject.new("ElectricEquipment")
+          input_object.fields[1] = "#{zone_name} ElectricEquipment" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['ELEC_EQUIPMENT_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "Watts/Area" # Design Level Calculation Method
+          input_object.fields[5] = "" # Design Level 
+          input_object.fields[6] = @value_hash['ELEC_EQUIPMENT_DENSITY'].round_to(4).to_s # Watts per Zone Floor Area
+          input_object.fields[7] = "" # Watts per Person
+          input_object.fields[8] = "" # Fraction Latent
+          input_object.fields[9] = "" # Fraction Radiant
+          input_object.fields[10] = "" # Fraction Lost
+          input_object.fields[11] = "ElectricEquipment" # End-Use Subcategory
+          add_object_to_zone(input_object, zone_name)
+        end
 
         # GasEquipment
-        input_object = InputObject.new("GasEquipment")
-        input_object.fields[1] = "#{zone_name} GasEquipment" # Name
-        input_object.fields[2] = zone_name  # Zone Name
-        input_object.fields[3] = get_schedule(@hash['GAS_EQUIPMENT_SCHEDULE'] ) # Schedule Name
-        input_object.fields[4] = "Watts/Area" # Design Level Calculation Method
-        input_object.fields[5] = "" # Design Level 
-        input_object.fields[6] = @value_hash['GAS_EQUIPMENT_DENSITY'].round_to(4).to_s # Watts per Zone Floor Area
-        input_object.fields[7] = "" # Watts per Person
-        input_object.fields[8] = "" # Fraction Latent
-        input_object.fields[9] = "" # Fraction Radiant
-        input_object.fields[10] = "" # Fraction Lost
-        input_object.fields[11] = "GasEquipment" # End-Use Subcategory
-        add_object_to_zone(input_object, zone_name)
+        if @value_hash['GAS_EQUIPMENT_DENSITY'] > 0
+          input_object = InputObject.new("GasEquipment")
+          input_object.fields[1] = "#{zone_name} GasEquipment" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['GAS_EQUIPMENT_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "Watts/Area" # Design Level Calculation Method
+          input_object.fields[5] = "" # Design Level 
+          input_object.fields[6] = @value_hash['GAS_EQUIPMENT_DENSITY'].round_to(4).to_s # Watts per Zone Floor Area
+          input_object.fields[7] = "" # Watts per Person
+          input_object.fields[8] = "" # Fraction Latent
+          input_object.fields[9] = "" # Fraction Radiant
+          input_object.fields[10] = "" # Fraction Lost
+          input_object.fields[11] = "GasEquipment" # End-Use Subcategory
+          add_object_to_zone(input_object, zone_name)
+        end
+
+        # ZoneVentilation:DesignFlowRate
+        if @value_hash['OA_PER_PERSON'] > 0
+          input_object = InputObject.new("ZoneVentilation:DesignFlowRate")
+          input_object.fields[1] = "#{zone_name} Ventilation per Person" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['OA_PER_PERSON_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "Flow/Person" # Design Flow Rate Calculation Method
+          input_object.fields[5] = "" # Design Flow Rate
+          input_object.fields[6] = "" # Flow Rate per Zone Floor Area
+          input_object.fields[7] = @value_hash['OA_PER_PERSON'].round_to(6).to_s # Flow Rate per Person
+          input_object.fields[8] = ""  # Air Changes per Hour
+          add_object_to_zone(input_object, zone_name)
+        end
+        
+        # ZoneVentilation:DesignFlowRate
+        if @value_hash['OA_PER_AREA'] > 0 
+          input_object = InputObject.new("ZoneVentilation:DesignFlowRate")
+          input_object.fields[1] = "#{zone_name} Ventilation per Area" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['OA_PER_AREA_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "Flow/Area" # Design Flow Rate Calculation Method
+          input_object.fields[5] = "" # Design Flow Rate
+          input_object.fields[6] = @value_hash['OA_PER_AREA'].round_to(6).to_s # Flow per Zone Floor Area
+          input_object.fields[7] = "" # Flow Rate per Person
+          input_object.fields[8] = ""  # Air Changes per Hour
+          add_object_to_zone(input_object, zone_name)
+        end
 
         # ZoneInfiltration:DesignFlowRate
-        input_object = InputObject.new("ZoneInfiltration:DesignFlowRate")
-        input_object.fields[1] = "#{zone_name} Infiltration" # Name
-        input_object.fields[2] = zone_name  # Zone Name
-        input_object.fields[3] = get_schedule(@hash['INFILTRATION_SCHEDULE'] ) # Schedule Name
-        input_object.fields[4] = "AirChanges/Hour" # Design Flow Rate Calculation Method
-        input_object.fields[5] = "" # Design Flow Rate
-        input_object.fields[6] = "" # Flow per Zone Floor Area
-        input_object.fields[7] = "" # Flow per Exterior Surface Area
-        input_object.fields[8] = @value_hash['INFILTRATION_RATE'].round_to(4).to_s  # Air Changes per Hour
-        input_object.fields[9] = "" # Constant Term Coefficient
-        input_object.fields[10] = "" # Temperature Term Coefficient
-        input_object.fields[11] = "" # Velocity Term Coefficient
-        input_object.fields[12] = "" # Velocity Squared Term Coefficient
-        add_object_to_zone(input_object, zone_name)
-        
+        if @value_hash['INFILTRATION_RATE'] > 0
+          input_object = InputObject.new("ZoneInfiltration:DesignFlowRate")
+          input_object.fields[1] = "#{zone_name} Infiltration" # Name
+          input_object.fields[2] = zone_name  # Zone Name
+          input_object.fields[3] = get_schedule(@hash['INFILTRATION_SCHEDULE'] ) # Schedule Name
+          input_object.fields[4] = "AirChanges/Hour" # Design Flow Rate Calculation Method
+          input_object.fields[5] = "" # Design Flow Rate
+          input_object.fields[6] = "" # Flow per Zone Floor Area
+          input_object.fields[7] = "" # Flow per Exterior Surface Area
+          input_object.fields[8] = @value_hash['INFILTRATION_RATE'].round_to(4).to_s  # Air Changes per Hour
+          add_object_to_zone(input_object, zone_name)
+        end
+
         if @hash['ADD_IDEAL_LOADS']
           # HVACTemplate:Zone:IdealLoadsAirSystem
           input_object = InputObject.new("HVACTemplate:Zone:IdealLoadsAirSystem")

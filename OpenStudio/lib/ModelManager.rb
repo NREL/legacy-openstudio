@@ -292,6 +292,7 @@ module OpenStudio
       @units_hash['L'] = ["(Liters)", "(Gallons)", 1.0]
       @units_hash['C'] = ["(" + 176.chr + "C)", "(" + 176.chr + "F)", 1.0]
       @units_hash['L/sec'] = ["(L/sec)", "(cfm)", 1.0]
+      @units_hash['L/sec/person'] = ["(L/sec/person" + 178.chr + ")", "(cfm/person)", 1.0]
       @units_hash['L/sec/m2'] = ["(L/sec/m" + 178.chr + ")", "(cfm/ft" + 178.chr + ")", 1.0]
       # Expand as necessary...
 

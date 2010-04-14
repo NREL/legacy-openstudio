@@ -106,10 +106,12 @@ function msout(num) {
     <H3>Internal Gains</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>Internal gains include people, lights, equipment, and infiltration.  Unlike the Object Info dialog, this dialog does not allow user to view gains in current zones.  It only allows the user to specify values that will be written to the file.</li>
-		<li>Applying internal gains to selected zones removes existing objects of these types from the selected zones.</li>
+		<li>Internal gains include people, lights, equipment, outdoor air for ventilation, and infiltration. Unlike the Object Info dialog, this dialog does not allow user to view internal gains in current zones.  It only allows the user to specify values that will be written to the file.</li>
+		<li>Internal gains are modeled using the input objects 'People', 'Lights', 'ElectricEquipment', 'GasEquipment', 'ZoneVentilation:DesignFlowRate', and 'ZoneInfiltration:DesignFlowRate'.  Most fields of these objects are defaulted.  Look at the InputOutputReference and Energy+.idd for a full list of all fields.
+		<li>A set of internal gains and schedules for a typical office building have been added for reference only.  The schedules are present in the NewTemplate.idf file but will not be available in all existing IDF files.  You can reset the internal gains dialog to these values with the "Reset to Default Office" button.</li>
+		<li>No IDF objects will be added for internal gains with values less than or equal to zero.</li>
+		<li>Applying internal gains to selected zones removes existing objects from the selected zones.</li>
 		<li>Lights objects are required in order to add Daylighting:Controls to a zone.</li>
-		<li>Internal Gains do not currently include hot water end uses, ventilation air requirements, or exterior loads such as parking lot lighting.</li>
 		<li>Renaming zones after applying internal gains can cause problems.  However, you can always fix these by hand in the IDF.</li>
 		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
 		</ul>
