@@ -22,7 +22,7 @@ module OpenStudio
 
   class ModelManager
    
-    attr_accessor :guid, :units_system, :units_hash, :length_precision, :angle_precision, :construction_manager, :schedule_manager, :results_manager
+    attr_accessor :guid, :units_system, :units_hash, :length_precision, :angle_precision, :construction_manager, :schedule_manager, :results_manager, :zone_loads_manager
     attr_accessor :input_file, :components, :weather_file, :model_interface, :rendering_mode, :unviewed_errors, :model_observer, :selection_observer
 
 

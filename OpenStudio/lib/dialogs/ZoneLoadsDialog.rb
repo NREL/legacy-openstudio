@@ -69,22 +69,22 @@ module OpenStudio
     end
     
     def reset_values
-      @value_hash['PEOPLE_DENSITY'] = 0.01076
+      @value_hash['PEOPLE_DENSITY'] = 0.05382 # 5 people/1000ft2
       @value_hash['OCCUPANCY_SCHEDULE'] = "Office Occupancy Schedule"
       @value_hash['ACTIVITY_SCHEDULE'] = "Office Activity Schedule"
-      @value_hash['LIGHTS_DENSITY'] = 9.1460
+      @value_hash['LIGHTS_DENSITY'] = 10.7639104 # 1.0 W/ft2
       @value_hash['LIGHTS_SCHEDULE'] = "Office Lights Schedule"
-      @value_hash['ELEC_EQUIPMENT_DENSITY'] = 14.4184
+      @value_hash['ELEC_EQUIPMENT_DENSITY'] = 10.7639104 # 1.0 W/ft2
       @value_hash['ELEC_EQUIPMENT_SCHEDULE'] = "Office Equipment Schedule"
-      @value_hash['GAS_EQUIPMENT_DENSITY'] = 0.0000
+      @value_hash['GAS_EQUIPMENT_DENSITY'] = 0.0000 
       @value_hash['GAS_EQUIPMENT_SCHEDULE'] = "Office Equipment Schedule"
-      @value_hash['OA_PER_PERSON'] = 0.0025
+      @value_hash['OA_PER_PERSON'] = 0.00236 # 5 cfm/person
       @value_hash['OA_PER_PERSON_SCHEDULE'] = @value_hash['OCCUPANCY_SCHEDULE']
-      @value_hash['OA_PER_AREA'] = 0.0003
+      @value_hash['OA_PER_AREA'] = 0.000305 # 0.06 cfm/ft2
       @value_hash['OA_PER_AREA_SCHEDULE'] = "Always On"
       @value_hash['INFILTRATION_RATE'] = 0.5
       @value_hash['INFILTRATION_SCHEDULE'] = "Infiltration Half On Schedule"
-      @value_hash['ADD_IDEAL_LOADS'] = true
+      @value_hash['ADD_IDEAL_LOADS'] = false
       @value_hash['THERMOSTAT_NAME'] = "Constant Setpoint Thermostat"
     end
 
@@ -228,6 +228,9 @@ module OpenStudio
     
     # update the html page from the hash
     def update
+    
+      @value_hash = Plugin.model_manager.zone_loads_manager if not Plugin.model_manager.zone_loads_manager.nil?
+    
       update_hash
       
       schedule_names = Plugin.model_manager.input_file.find_objects_by_class_name("SCHEDULE:YEAR", "SCHEDULE:COMPACT", "SCHEDULE:FILE").collect { |object| object.name }
@@ -265,6 +268,7 @@ module OpenStudio
     # update the hash from html page
     def report
       update_value_hash
+      Plugin.model_manager.zone_loads_manager = @value_hash
       super
     end    
     
@@ -333,6 +337,7 @@ module OpenStudio
     end
     
     def on_reset
+      reset_values
       update
     end
     
