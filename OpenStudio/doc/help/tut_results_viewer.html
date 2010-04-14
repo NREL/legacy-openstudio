@@ -100,48 +100,94 @@ function msout(num) {
 
 
 
-<H2>Zone Loads</H2>
+<H2>Opening SQL files in ResultsViewer</H2>
 <br>
 
-    <H3>Internal Gains</H3>
-	<div style="margin-left:10px">
-		<ul>
-		<li>Internal gains include people, lights, equipment, outdoor air for ventilation, and infiltration. Unlike the Object Info dialog, this dialog does not allow user to view internal gains in current zones.  It only allows the user to specify values that will be written to the file.</li>
-		<li>Internal gains are modeled using the input objects 'People', 'Lights', 'ElectricEquipment', 'GasEquipment', 'ZoneVentilation:DesignFlowRate', and 'ZoneInfiltration:DesignFlowRate'.  Most fields of these objects are defaulted.  Look at the InputOutputReference and Energy+.idd for a full list of all fields.
-		<li>A set of internal gains and schedules for a typical office building have been added for reference only.  The schedules are present in the NewTemplate.idf file but will not be available in all existing IDF files.  You can reset the internal gains dialog to these values with the "Reset to Default Office" button.</li>
-		<li>No IDF objects will be added for internal gains with values less than or equal to zero.</li>
-		<li>Applying internal gains to selected zones removes existing objects from the selected zones.</li>
-		<li>Lights objects are required in order to add Daylighting:Controls to a zone.</li>
-		<li>Remember to remove 'ZoneVentilation:DesignFlowRate' when moving your file to more advanced HVAC systems which provide outdoor air to the space through the system and not at the zone level.</li>
-		<li>Renaming zones after applying internal gains can cause problems.  However, you can always fix these by hand in the IDF.</li>
-		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
-		</ul>
-	</div>
 
-	<H3>Ideal Loads Air System</H3>
-	<div style="margin-left:10px">
-		<ul>
-		<li>EnergyPlus simulations may experience problems if internal gains are present but no system is included to remove energy from zones with internal gains.</li>
-		<li>For models which are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the quickest path for load calculations using EnergyPlus.</li>
-		<li>Adding HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes existing objects of this type from the selected zones.</li>
-		<li>A HVACTemplate:Thermostat is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating and cooling setpoints.</li>
-		<li>HVACTemplate:Zone:IdealLoadsAirSystem provides an example of how to use the other HVACTemplate objects to quickly add typical HVAC systems to your model.</li>
-		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
-		</ul>
-	</div>
+<H3>About ResultsViewer</H3>
+<div style="margin-left:10px">
+<ul>
+<li>ResultsViewer is a new application to view simulation results from EnergyPlus. It has a lot of features, and can view data in a number of ways.</li>
+<li>This tutorial isn't meant to teach you how to use ResultViewer, but rather it is intended to introduce you to it, and show you some same results as viewed through it. The results here are from the &quot;GeometryTest.idf&quot; used elsewhere in the OpenStudio documentation.</li>
+<li>When running a simulation check the &quot;Request results in SQLite format&quot; to have access to the data in Results Viewer.</li>
+<li><a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm">Click here</a> to learn more about ResultsViewer and to download it.</li>
+     </ul>
+</div>
 
-	<H3>Saved Preferences</H3>
-	<div style="margin-left:10px">
-		<ul>
-		<li>The initial values for internal gains correspond to a general office building. The initial schedules are those included in NewTemplate.idf when starting a new model from scratch and also correspond to a general office building.</li>
-		<li>The user can save settings for internal gains corresponding to other space types or other variations. These saved settings can be reloaded and applied to model other space types or to generate perturbations on the current model.</li>
-		</ul>
-	</div>
+<H3>Daylight Illuminance Sample</H3>
+<div style="margin-left:10px">
+<ul>
+<li>Daylighting Controls Reference Piont data for &quot;DOOR ROOMS AND COMMON AREAS&quot; zone as a line plot.</li>
+<li>This graphs lux values over the course of the year. The interface allows you to zoom in on particular dates.</li>
+    <br><img src="dialogs/ResultsViewer_01.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
 
-	<img src="dialogs/tut_zone_loads_01.png" alt=""><br>
+<li>The same data can also be viewed as a flood plot.</li>
+<li>Below hours are on the &quot;Y&quot; axis, and days of the year are on the &quot;X&quot; axis.</li>
+<li>The lux values are now represented as color, with a legend to the right of the plot.</li>
+<li>Depending on your needs at the time, you may find one method more useful than another.</li>
+    <br><img src="dialogs/ResultsViewer_01b.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+
+</ul>
+</div>
+
+<H3>Exterior Surface Tempuratures Example</H3>
+<div style="margin-left:10px">
+<ul>
+<li>Exterior surface tempuratures for the roof of the &quot;DOOR ROOMS AND COMMON AREAS&quot; zone shown as a line plot over the course of a year.</li>
+    <br>
+    <img src="dialogs/ResultsViewer_02.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+
+<li>This is the same data set, but now viewd zoomed in to a few weeks vs. a year.</li>
+<li>Here you can see the day to day fluctuation fo the surface tempurature.</li>
+    <br>
+    <img src="dialogs/ResultsViewer_03.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+
+<li>The same data, this time as a flood plot.</li>
+    <br>
+    <img src="dialogs/ResultsViewer_02b.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+</ul>
+</div>
+     
+<H3>Glare Index</H3><br><br>
+<div style="margin-left:10px">
+<ul>
+<li>Instead of a screenshot, the image below is a sample of what you can export directly out of ResultsViewer. You can save as an image adn then import into a presentation or paper.</li>
+<li>This image shows the Glare at the locatino of the Daylighting Control Reference Point.</li>
+    <br><img src="dialogs/ResultsViewer_04.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+
+<li>Below is another glare example, this time of the &quot;PSI Foyer&quot; which is the sloped roof that gets a lot of direct sunlight.</li>
+    <br><img src="dialogs/ResultsViewer_05.png" alt="" width="700"><br></li>
+     <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <br><br>
+</ul>
+</div>
+
+<H3>OpenStudio Screenshot of Building Being Used for this Tutorial</H3>
+<div style="margin-left:10px">
+<ul>
+<li>For reference, below is an image from OpenStudio of the building being used for the results on this tutorial.</li>
+ <br><img src="dialogs/tut_rendering_02.png" width="500" alt=""></li><br>
         <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+     <p2i>Surface Ext Solar Incident at 1:15pm on 5/12</P2i><br><br>
+<li>If you want to see what simulation results for this building look like directly in Open Studio look at the<a href="tut_view_results.html"> "View Simulation Results Tutorial.&quot;</a></li>
 
-					</td>
+
+
+</ul>
+</div>
+				  </td>
 				</tr>
 			</table>
 <!-- end of main content table -->

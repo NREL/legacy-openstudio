@@ -55,134 +55,113 @@ function msout(num) {
 <!--startindex-->
 
 <!-- End EERE header -->
-
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<tr>
-		<td colspan="3" width="100%">
-
-			<table cellspacing="0" border="0" width="100%" cellpadding="0">
-				<tr>
-					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
-					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
-				</tr>
-			</table>
-
-		</td>
-
-	</tr>
-<!-- end of third column -->
-
-<!-- start of left navigation, first column -->
-
-	<tr valign="top">
-		<td valign="top" width="176"><!-- left navigation include -->
-<!--stopindex-->
-<img src="images/spacer.gif" alt="" width="1" height="3"><br>
-
-
-<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
-<img src="images/gray.gif" alt="" width="176" height="7"><br>
-<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
-<img src="images/gray.gif" alt="" width="176" height="7"><br>
-<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
-<img src="images/gray.gif" alt="" width="176" height="7"><br>
-<!--startindex-->
-	</td>
-	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
-
-
-<!-- main content -->
-		<td valign="top" width="100%">
-			<table cellspacing="0" border="0" cellpadding="12" width="100%">
-				<tr>
-          <td valign="top">
-
-
-
-<H2>Selection, Modeling, and Inference</H2>
-<br>
-
-<H3>Selecting Geometry</H3>
-<div style="margin-left:10px">
-<ul>
-    <li>At first glance selecting geometry in SketchUp is pretty easy, and it is. But there are a lot of special selection techniques that can save a lot of time that it is worth learning about.</li>
-    <li>Single click selects the face.</li>
-    <li>Double click not only selects a face, but also the bounding edges.</li>
-    <li>Triple click widens the selection to all connected entities.</li>
-    <li>Contextual (right) click will also allow you to select other entities on the same layer, or with the same material.</li>
-    <li>Holding down the &quot;Shift&quot; key will allow you to add to or remove objects from your selection. If you pick a selection that had some selected, and some un-selected, they will all get reversed.</li>
-    <li>The &quot;Control&quot; key only adds to the selection without anything being removed.</li>
-    <li>And holding &quot;Control&quot; and &quot;Shift&quot; together set the selection tool to on remove entities from the selection without adding anything.</li>
-    <li>You don't have to select just by clicking, you can drag a box.  However if you create the window from left to right, vs. right to left you get different results.</li>
-    <li>If you draw your selection from left to right only entities that are fully within the box are selected.</li>
-    <li>If instead you draw your selection box from right to left, any objects that are even partially within the box are included in the selection.</li>
-</ul>
-</div>
-
-<H3>Drawing and Modeling</H3>
-<div style="margin-left:10px">
-<ul>
-    <li>While you can use SketchUp without every typing in lengths for objects, it is often very useful to be able to enter exact numbers in the &quot;Measurements&quot; box. You can use this for both creating and altering entities.</li>
-    <li>A nice trick with the measurement box that works with most tools is that you can set the value, and then if you don't like it you can go back and keep changing it until you are happy with the results. This works as long as you don't do anything else in SketchUp until you are done. This will make more sense with the Multiple Copy/Move example.</li>
-    <li>Push/Pull repeat - If you have used the Push/Pull tool to extrude something by a set amount, you can re-apply this value to other surfaces to be push/pulled by just double clicking on the surface with the Push/Pull tool selected. A useful example of this would be to push all of the walls of your zone in by 12 inches. You may want to do this if you modeled off of the outside of the exterior wall,but now want to model to the inside wall.</li>
-    <li>Construction lines are a nice tool when you need to want to create reference lines to lock new geometry to, but don't want to clutter up your model,or alter faces that the construction lines cross. Construction lines as a guide for windows are shown below.</li>
-    <br><img src="dialogs/tu_tips_const_01.png" alt="" width="500"><br></li>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br><br>
-     <li>The Move Tool in SketchUp lives a secret life as a copy tool. Not only that but it can copy multiple entities at the same time. Starting with the original window at the left, press the &quot;control&quot; key to switch the &quot;move&quot; to a &quot;copy&quot;. </li>
-    <br><img src="dialogs/tut_copy_01.png" alt="" width="500"><br></li>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br><br>
- <li>Once that second window is placed, type "/5" into the measurement box to place an additional 4 copies equally spaced over the wall.(5 new copies plus one original).</li>
-   <br><img src="dialogs/tut_copy_02.png" alt="" width="500"><br></li>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br><br>
- <li>Next instead of placing the copy all the way across the building, place it next to the first window.</li>
-   <br><img src="dialogs/tut_copy_03.png" alt="" width="500"><br></li>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br><br>
- <li>If you now type "*5" instead of the "/5" it still make the same number of copies, but this time it makes each copy as far away from its neighbor as the first one.</li>
-   <br><img src="dialogs/tut_copy_04.png" alt="" width="500"><br></li>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br><br>
-    <li>Look at status bar tips - this is just a reminder, there is a lot of good, otherwise undocumented information there that is specific to your current tool.</li>
-</ul>
-</div>
-
-<H3>Inference Engine</H3>
-<div style="margin-left:10px">
-<ul>
-    <li>SketchUp has an extensive inference engine that tries to help snap to useful locations. This is well covered on their online <a href="http://sketchup.google.com/support/bin/answer.py?answer=70143" target="_new">inference documentation</a>.</li>
-    <li>The Shift key is very importent while you are using inferences, as it can lock you into to your current inference.</li>
-</ul>
-</div>
-
-
-					</td>
-				</tr>
-			</table>
-<!-- end of main content table -->
-
-
-		</td>
-        <td>
-        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
-				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
-
-               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
-
-               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
-
-               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
-        </td>
-	</tr>
+<tr valign="top">
+  <td><div style="padding-bottom:2px;">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td colspan="3" width="100%"><table cellspacing="0" border="0" width="100%" cellpadding="0">
+          <tr>
+            <td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <!-- end of third column -->
+      <!-- start of left navigation, first column -->
+      <tr valign="top">
+        <td valign="top" width="176"><!-- left navigation include -->
+          <!--stopindex-->
+          <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+          <a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+          <img src="images/gray.gif" alt="" width="176" height="7"><br>
+          <a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+          <img src="images/gray.gif" alt="" width="176" height="7"><br>
+          <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+          <img src="images/gray.gif" alt="" width="176" height="7"><br>
+          <!--startindex--></td>
+        <td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+        <!-- main content -->
+        <td valign="top" width="100%"><table cellspacing="0" border="0" cellpadding="12" width="100%">
+          <tr>
+            <td valign="top"><h2>Selection, Modeling, and Inference</h2>
+              <br>
+              <h3>Selecting Geometry</h3>
+              <div style="margin-left:10px">
+                <ul>
+                  <li>At first glance selecting geometry in SketchUp is pretty easy, and it is. But there are a lot of special selection techniques that can save a lot of time that it is worth learning about.</li>
+                  <li>Single click selects the face.</li>
+                  <li>Double click not only selects a face, but also the bounding edges.</li>
+                  <li>Triple click widens the selection to all connected entities.</li>
+                  <li>Contextual (right) click will also allow you to select other entities on the same layer, or with the same material.</li>
+                  <li>Holding down the &quot;Shift&quot; key will allow you to add to or remove objects from your selection. If you pick a selection that had some selected, and some un-selected, they will all get reversed.</li>
+                  <li>The &quot;Control&quot; key only adds to the selection without anything being removed.</li>
+                  <li>And holding &quot;Control&quot; and &quot;Shift&quot; together set the selection tool to on remove entities from the selection without adding anything.</li>
+                  <li>You don't have to select just by clicking, you can drag a box.  However if you create the window from left to right, vs. right to left you get different results.</li>
+                  <li>If you draw your selection from left to right only entities that are fully within the box are selected.</li>
+                  <li>If instead you draw your selection box from right to left, any objects that are even partially within the box are included in the selection.</li>
+                </ul>
+              </div>
+              <h3>Drawing and Modeling</h3>
+              <div style="margin-left:10px">
+                <ul>
+                  <li>While you can use SketchUp without every typing in lengths for objects, it is often very useful to be able to enter exact numbers in the &quot;Measurements&quot; box. You can use this for both creating and altering entities.</li>
+                  <li>A nice trick with the measurement box that works with most tools is that you can set the value, and then if you don't like it you can go back and keep changing it until you are happy with the results. This works as long as you don't do anything else in SketchUp until you are done. This will make more sense with the Multiple Copy/Move example.</li>
+                  <li>Push/Pull repeat - If you have used the Push/Pull tool to extrude something by a set amount, you can re-apply this value to other surfaces to be push/pulled by just double clicking on the surface with the Push/Pull tool selected. A useful example of this would be to push all of the walls of your zone in by 12 inches. You may want to do this if you modeled off of the outside of the exterior wall,but now want to model to the inside wall.</li>
+                  <li>Guide lines are a nice tool when you need to want to create reference lines to lock new geometry to, but don't want to clutter up your model,or alter faces that the construction lines cross. Guide lines are created with the Tape Measure Tool, by clicking on an edge, and then clicking again where you ant the line to be. They are used below to aid in positioning the distance between the windows and the edge of the building.</li>
+                  <br>
+                  <img src="dialogs/tu_tips_const_01.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser / NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>The Move Tool in SketchUp lives a secret life as a copy tool. Not only that but it can copy multiple entities at the same time. Starting with the original window at the left, press the &quot;control&quot; key to switch the &quot;move&quot; to a &quot;copy&quot;. </li>
+                  <br>
+                  <img src="dialogs/tut_copy_01.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser / NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Once that second window is placed, type "/5" into the measurement box to place an additional 4 copies equally spaced over the wall.(5 new copies plus one original).</li>
+                  <br>
+                  <img src="dialogs/tut_copy_02.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser / NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Next instead of placing the copy all the way across the building, place it next to the first window.</li>
+                  <br>
+                  <img src="dialogs/tut_copy_03.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser / NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>If you now type "*5" instead of the "/5" it still make the same number of copies, but this time it makes each copy as far away from its neighbor as the first one.</li>
+                  <br>
+                  <img src="dialogs/tut_copy_04.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser / NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Look at status bar tips - this is just a reminder, there is a lot of good, otherwise undocumented information there that is specific to your current tool.</li>
+                </ul>
+              </div>
+              <h3>Inference Engine</h3>
+              <div style="margin-left:10px">
+                <ul>
+                  <li>SketchUp has an extensive inference engine that tries to help snap to useful locations. This is well covered on their online <a href="http://sketchup.google.com/support/bin/answer.py?answer=70143" target="_new">inference documentation</a>.</li>
+                  <li>The Shift key is very impotent while you are using inferences, as it can lock you into to your current inference.</li>
+                </ul>
+              </div></td>
+          </tr>
+        </table>
+          <!-- end of main content table --></td>
+        <td><div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+          <div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+          <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+          <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+          <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </div></td>
+      </tr>
+    </table>
+    <a href="http://www.buildings.energy.gov"></a></div></td>
+</tr>
 </table>
-
-
-
-
-
 <!-- footer  -->
 
 <br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
