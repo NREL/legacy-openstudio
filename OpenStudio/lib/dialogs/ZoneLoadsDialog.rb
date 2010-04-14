@@ -14,7 +14,7 @@ module OpenStudio
       super
       w = Plugin.platform_select(600, 600)
       h = Plugin.platform_select(800, 840)
-      @container = WindowContainer.new("Zone Loads", w, h, 150, 150, false)
+      @container = WindowContainer.new("Zone Loads", w, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/ZoneLoads.html")
       
       # value_hash is actual values in metric units, this is what gets saved and written to idf
