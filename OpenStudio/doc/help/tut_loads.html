@@ -112,6 +112,7 @@ function msout(num) {
 		<li>No IDF objects will be added for internal gains with values less than or equal to zero.</li>
 		<li>Applying internal gains to selected zones removes existing objects from the selected zones.</li>
 		<li>Lights objects are required in order to add Daylighting:Controls to a zone.</li>
+		<li>Remember to remove 'ZoneVentilation:DesignFlowRate' when moving your file to more advanced HVAC systems which provide outdoor air to the space through the system and not at the zone level.</li>
 		<li>Renaming zones after applying internal gains can cause problems.  However, you can always fix these by hand in the IDF.</li>
 		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
 		</ul>
@@ -124,6 +125,7 @@ function msout(num) {
 		<li>For models which are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the quickest path for load calculations using EnergyPlus.</li>
 		<li>Adding HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes existing objects of this type from the selected zones.</li>
 		<li>A HVACTemplate:Thermostat is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating and cooling setpoints.</li>
+		<li>HVACTemplate:Zone:IdealLoadsAirSystem provides an example of how to use the other HVACTemplate objects to quickly add typical HVAC systems to your model.</li>
 		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
 		</ul>
 	</div>
