@@ -84,8 +84,6 @@ module OpenStudio
       @value_hash['OA_PER_AREA_SCHEDULE'] = "Always On"
       @value_hash['INFILTRATION_RATE'] = 0.5
       @value_hash['INFILTRATION_SCHEDULE'] = "Infiltration Half On Schedule"
-      @value_hash['ADD_IDEAL_LOADS'] = false
-      @value_hash['THERMOSTAT_NAME'] = "Constant Setpoint Thermostat"
     end
 
     # translate from value hash to hash

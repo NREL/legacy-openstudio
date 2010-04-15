@@ -325,7 +325,7 @@ module OpenStudio
     # unmatch this sub surface with any other sub surface
     def unset_other_side_sub_surface
       @input_object.fields[5] = ""
-      @input_object.fields[3] = default_construction # after making interior
+      @input_object.fields[3] = default_construction # after making exterior
     end
 
   end

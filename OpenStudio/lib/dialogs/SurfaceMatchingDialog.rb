@@ -256,7 +256,7 @@ Do you want to continue?", MB_OKCANCEL)
       @last_report << "Action, FenestrationSurface:Detailed #1, BuildingSurface:Detailed #1, FenestrationSurface:Detailed #2, BuildingSurface:Detailed #2\n"
       
       Plugin.model_manager.sub_surfaces.each do |sub_surface|
-        if selection.contains?(sub_surface.entity) or selection.contains?(sub_surface.parent.entity)
+        if selection.contains?(sub_surface.entity) or selection.contains?(sub_surface.parent.entity) or selection.contains?(sub_surface.parent.parent.entity)
           if not sub_surface.input_object.fields[5].to_s.empty?
           
             # try to get the other side surface
@@ -272,7 +272,7 @@ Do you want to continue?", MB_OKCANCEL)
               other_name = other_name + " - SubSurface Not Found"
             else
               other_base_surface = other_sub_surfaces[0].input_object.fields[4]
-              other_surfaces[0].unset_other_side_sub_surface
+              other_sub_surfaces[0].unset_other_side_sub_surface
             end
             
             @last_report << "Unmatch, '#{sub_surface.name}', '#{sub_surface.input_object.fields[4]}', '#{other_name}', '#{other_base_surface}'\n"
