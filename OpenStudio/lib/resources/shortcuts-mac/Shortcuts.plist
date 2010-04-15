@@ -104,5 +104,7 @@
 	<string>b</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Zone Tool</string>
+	<integer>]</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Layer</string>
 </array>
 </plist>

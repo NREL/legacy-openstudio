@@ -35,7 +35,7 @@ module OpenStudio
     attr_accessor :new_daylighting_cmd, :new_illuminance_cmd
     attr_accessor :surface_matching_cmd, :surface_search_cmd, :zone_loads_cmd, :edit_thermostats_cmd
     attr_accessor :run_cmd, :proto_wiz_cmd, :comp_wiz_cmd, :info_tool_cmd
-    attr_accessor :surf_mode_cmd, :data_mode_cmd, :data_settings_cmd, :color_scale_cmd, :data_tool_cmd
+    attr_accessor :surf_mode_cmd, :data_mode_cmd, :data_settings_cmd, :color_scale_cmd, :data_tool_cmd, :display_color_by_layer_cmd
     attr_accessor :anim_settings_cmd, :rwd_to_start_cmd, :rwd_anim_cmd, :play_anim_cmd, :fwd_anim_cmd, :fwd_to_end_cmd
     attr_accessor :prefs_cmd, :help_cmd, :about_cmd
     attr_accessor :test_cmd  # for testing only
@@ -326,7 +326,12 @@ module OpenStudio
         end
       }
   
-  
+      @display_color_by_layer_cmd = UI::Command.new("By Layer") { Plugin.model_manager.display_color_by_layer }
+      #@display_color_by_layer_cmd.small_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-16x16.png"
+      #@display_color_by_layer_cmd.large_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-24x24.png"
+      @display_color_by_layer_cmd.tooltip = "Render By Layer"
+      @display_color_by_layer_cmd.status_bar_text = "Render SketchUp entities by layer"
+
       @data_settings_cmd = UI::Command.new("Settings...") { Plugin.dialog_manager.show(RenderingSettingsInterface) }
       @data_settings_cmd.small_icon = Plugin.dir + "/lib/resources/icons/RenderSettings-16x16.png"
       @data_settings_cmd.large_icon = Plugin.dir + "/lib/resources/icons/RenderSettings-24x24.png"
@@ -485,6 +490,7 @@ module OpenStudio
       @rendering_menu.add_separator
       @rendering_menu.add_item(@surf_mode_cmd)
       @rendering_menu.add_item(@data_mode_cmd)
+      @rendering_menu.add_item(@display_color_by_layer_cmd)
       @rendering_menu.add_separator
       @rendering_menu.add_item(@data_settings_cmd)
       @rendering_menu.add_item(@color_scale_cmd)

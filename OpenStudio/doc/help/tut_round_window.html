@@ -100,65 +100,72 @@ function msout(num) {
 
 
 
-<H2>Custom Shortcuts</H2>
+<H2><a href="tut_round_window.html">Using the Offset Tool to Mimic Round Windows</a></H2>
 <br>
 
 <div style="margin-left:10px">
- <ul>
-    <li>SketchUp offers default shortcuts, but you can also setup your own shortcuts for almost any SketchUp function</li>
-    <li>Not only can shortcuts be set for SketchUp functions, but also for plugin functions, including all of the OpenStudio functions.</li>
-    <li>They can be found under Window->Preferences->Shortcuts</li>
-         <br><img src="dialogs/tut_shortcut_01.png" alt="" ></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i>
+<ul>
+
+    <li>As a rule of them in OpenStudio, you don't want to have a sub-surface share an edge with with another sub-surface or it's base surface. The exception is a door, which shares an edge with the bottom of it's base surface.</li>
+    <li>Another rule to follow is to only make sub-surfaces as rectangles or triangles, not complex polygons, such as the object shown below. (note: complex polygons are fine for base surfaces such as walls and roofs)</li>
+    <br>
+   <img src="dialogs/tut_round_win_01.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>Below the Offset Tool is used to create a subsurface 24&quot; inside of the edge of the base surface. Click once on an edge while the correct face is shown, and then either click a second time to set the offset distance, or use the &quot;Measurements&quot; box at the bottom right of SketchUp's window.</li>
+    <li><a href="http://sketchup.google.com/support/bin/answer.py?answer=94870" target="_new">Click Here</a> to learn more about SketchUp's Offset Tool.</li>
+    <br>
+   <img src="dialogs/tut_round_win_02.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>Below is the results of the offset. It looks like a window, but it won't function properly since it is a complex sub-surface.</li>
+    <br>
+   <img src="dialogs/tut_round_win_03.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>Below shows a strategy to simply the surface while maintaining a good approximation of its size and geometry.</li>
+    <li>The circle is bisected with a triangle. Then to further refine it two more triangles are drawn bisecting the two circular segments. You could further refine it with more triangles, but three seems accurate enough here.</li>
+    <br>
+   <img src="dialogs/tut_round_win_04.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>After drawing the circles, use the erase tool to remove the edges that were not included as part of the three triangles. This includes the segmented edges of the original offset semicircle.</li><br>
+   <img src="dialogs/tut_round_win_05.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>So now the windows are the correct geometry (triangles or rectangles), but there is still a problem.</li>
+    <li>The windows are sharing edges with each other, that has to be resolved.</li>
+    <li>Below the Offset Tool is used again to offset the main triangle in. 2&quot; was used, but you could make it 1/4&quot; if you wanted to.</li>
+    <li>Repeat this on the smaller triangles as well as shown below.</li>
+    <br>
+    <img src="dialogs/tut_round_win_06.png" width="500" alt=""><br>
+    </li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>Use the eraser tool to remove the edge of the main triangle.</li><br>
+   <img src="dialogs/tut_round_win_07.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>Below you can see the final product.</li><br>
+   <img src="dialogs/tut_round_win_08.png" width="500" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+
+    <li>The surface area of your new window area will be slightly smaller than your original window that represents what is going to be built. This may be addressed by the fact that the window will have mullions, so the smaller one may actually be more accurate.</li>
+    <li>If you do want to really get a simulation based on the larger area, you can scale your windows up if your base surface provides enough space, or you can alter the material properties of the window construction used in this instance to make it slightly more translucent (mimicking a slightly larger surface). Just be careful if you choose this route, ad you don't want to alter the property in other areas using that material. So you need to make a unique window construction for this use.</li>
+    <br>
+
 </ul>
 </div>
 
-<div style="margin-left:10px">
- <ul>
-    <li>You can export and import a set of keyboard shortcuts for Windows or Mac. OpenStudio includes a set with both SketchUp and OpenStudio tools included on it. (pictured below).</li>
-    <li>On Windows you can import and export keyboard shortcuts from within SketchUp under ->Preferences->Shortcuts</li>
-    <li>On Mac the file needs to be manually replaced at the following directory, where &quot;user_name&quot; is your user name.<br>
-      (User/user_name/Library/Application Support/Google SketchUp 7/SketchUp/Shortcuts.plist)</li>
-    <li>If you have setup custom shortcuts that you want to save, you should export these on Windows; or on the Mac, manually copy the existing &quot;Shortcuts.plist&quot; file to a different location.</li>
-    <li>The OpenStudio shortcut file is under &quot;...Google SketchUp 7\Plugins\OpenStudio\lib\resources\shortcuts-windows\windows_shortcuts.dat&quot;.<br>
-      (or &quot;...\resources\shortcuts-mac\Shortcuts.plist&quot; for mac)
-    </li>
-         <br><img src="dialogs/OpenStudio-shortcuts.png" alt=""></li><br><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i>
-         <br><br>
-    <li>The shortcuts are  organized the shortcuts by the type of function they perform, vs. trying to match the first letter of the function with the corresponding key.</li>
-    <li>The top row contains shortcuts for changing what you are viewing vs. altering the content of  the model. (One exception is that you can create a section cut.)</li>
-<ul>
-<li>Camera Tools (pan, orbit, zoom, zoom extents)</li>
-<li>Section Tools (create section cut, view/hide section plane, view/hide section cut)</li>
-<li>View Tools (view/hide rest of model, view/hide hidden geometry, x-ray mode, color by layer)</li>
-<li>the last shortcut turns shadows on and off. You have to go to the shadows dialog to change the time of day or year used for the shadows, or the way in which they are rendered.</li>
-</ul>
-    <li>The left side of the middle row has tools to modify existing geometry.</li>
-<ul>
-<li>Move, Push/Pull, Scale</li>
-</ul>
-    <li>The right side of the middle row has tools for viewing OpenStudio data.</li>
-<ul>
-<li>Info Tool, Info Dialog, Search Surfaces, Surface Matching,  Default Constructions</li>
-</ul>
-    <li>The bottom row is for tools to create new geometry and objects.</li>
-<ul>
-<li>Rectangle, Line, Tape Measure (for guide lines), Eraser</li>
-<li>New Zone, New Shading Group, Zone Loads, New Daylighting Controls, New Illuminance Map</li>
-</ul>
-     <li>The Escape key is set to SketchUp's default shortcut to exit out of a group or component.</li>
-     <li>The &quot;~&quot; key is set to enter into a group. You can press this after making a new Zone or Shading Group to enter into it.</li>
-     <li>Another SketchUp default shortcut is the space bar, which changes your active tool to the selection tool.</li>
-     <li>You can customize these shortcuts to your liking.</li>
- </ul>
-</div></td>
+
+
+					</td>
 				</tr>
 			</table>
 <!-- end of main content table -->
 
 
-		</td>
+	  </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>

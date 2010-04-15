@@ -1,5 +1,5 @@
 [Accelerator]
-Count=35
+Count=36
 0 0 0 Space selectSelectionTool:
 0 0 0 G Edit/Make Component...
 0 0 0 F selectOffsetTool:
@@ -35,3 +35,4 @@ Count=35
 0 0 0 . Plugins/OpenStudio/New Illuminance Map Tool
 0 0 0 B Plugins/OpenStudio/New Zone Tool
 0 0 0 N Plugins/OpenStudio/New Shading Group Tool
+0 0 0 ] Plugins/OpenStudio/Rendering/By Layer

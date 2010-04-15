@@ -718,6 +718,18 @@ module OpenStudio
       paint
     end
 
+    def display_color_by_layer
+       model = Sketchup.active_model
+       renderingoptions = model.rendering_options
+       value = renderingoptions["DisplayColorByLayer"]
+
+       if (value)
+         value = renderingoptions["DisplayColorByLayer"] = false
+       else
+        value = renderingoptions["DisplayColorByLayer"] = true
+       end
+    end
+
 
   end
   
