@@ -15,7 +15,7 @@ module OpenStudio
       super
       w = Plugin.platform_select(537, 600)
       h = Plugin.platform_select(770, 800)
-      @container = WindowContainer.new("Run Simulation", w, h, 100, 50, false)
+      @container = WindowContainer.new("Run Simulation", w, h, 100, 50)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/RunSimulation.html")
 
       add_callbacks

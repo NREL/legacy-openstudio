@@ -13,7 +13,7 @@ module OpenStudio
     def initialize(container, interface, hash)
       super
       h = Plugin.platform_select(370, 395)
-      @container = WindowContainer.new("", 112, h, 150, 150, false)
+      @container = WindowContainer.new("", 112, h, 150, 150)
       @container.set_file(Plugin.dir + "/lib/dialogs/html/ColorScale.html")
       add_callbacks
     end
