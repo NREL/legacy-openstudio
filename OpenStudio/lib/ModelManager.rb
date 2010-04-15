@@ -730,6 +730,21 @@ module OpenStudio
        end
     end
 
+    def render_mode_5
+      model = Sketchup.active_model
+      renderingoptions = model.rendering_options
+      value = renderingoptions["RenderMode"]
+
+      front = renderingoptions["FaceFrontColor"] = "white"
+      back = renderingoptions["FaceBackColor"] = "red"
+
+      if (value == 5)
+       value = renderingoptions["RenderMode"] = 2
+      else
+       value = renderingoptions["RenderMode"] = 5
+      end
+    end
+
 
   end
   

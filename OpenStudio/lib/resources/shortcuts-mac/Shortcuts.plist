@@ -106,5 +106,7 @@
 	<string>/Plugins/OpenStudio/New Zone Tool</string>
 	<integer>]</integer>
 	<string>/Plugins/OpenStudio/Rendering/By Layer</string>
+	<integer>[</integer>
+	<string>/Plugins/OpenStudio/By Surface Normal</string>
 </array>
 </plist>
