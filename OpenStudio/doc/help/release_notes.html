@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Release Notes</title>
 
 
@@ -95,21 +96,7 @@ function msout(num) {
 		<td valign="top" width="100%">
 			<table cellspacing="0" border="0" cellpadding="12" width="100%">
 				<tr>
-          <td valign="top">
-
-
-
-<A NAME="new_features"></A>
-<H2>New Features</H2>
-<P2><a href="ref_modeling_tools.html#new_daylighting"<img src="../../lib/resources/icons/NewDaylighting-16.png"> Create a new EnergyPlus Daylighting Controls Object</a></P2><P2i>(New)</P2i><br>
-<P2><a href="ref_modeling_tools.html#new_illuminance"<img src="../../lib/resources/icons/NewIlluminance-16.png"> Create a new EnergyPlus Illuminance Map Object</a></P2><P2i>(New)</P2i><br>
-<P2><a href="ref_modeling_tools.html#zone_loads"<img src="../../lib/resources/icons/ZoneLoads-16.png"> Add Internal Loads to an EnergyPlus Zone</a></P2><P2i>(New)</P2i><br>
-<P2><a href="ref_modeling_tools.html#surface_matching"<img src="../../lib/resources/icons/SurfaceMatchingSelected-16.png"> Match Surfaces between EnergyPlus Zones</a><P2i>(New)</P2i></P2><br>
-<P2><a href="ref_view_data.html#surface_search"><img src="../../lib/resources/icons/SurfaceSearch-16.png"> Search Surfaces</a></P2><P2i>(New)</P2i><br>
-<P2><a href="ref_view_data.html#default_const_prefs"><img src="../../lib/resources/icons/SetDefaultConstPrefs-16.png"> Set Default EnergyPlus Constructions</a></P2><P2i>(New)</P2i>
-
-<A NAME="requirements"></A>
-<H2>Requirements</H2>
+          <td valign="top"><H2><A NAME="requirements"></A>Requirements</H2>
 <H3>Supported Operating Systems</H3>
 <ul>
 <li>Windows XP</li>
@@ -140,31 +127,32 @@ function msout(num) {
 <H2>New Features</H2>
 <ul>
 <li>Added support for <a href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus 5.0</a></li>
-<li>Daylighting:Controls and Output:IlluminanceMap Input Objects.</li>
-<li>Surface and sub-surface search.</li>
-<li>Quickly add internal gains and HVACTemplate:Zone:IdealLoadsAirSystem to zones.</li>
-<li>Automatic surface matching and unmatching tool.</li>
-<li>Default construction manager.</li>
-<li>Improved documentation and tutorials.</li>
+<li><a href="ref_modeling_tools.html#new_daylighting"><img src="../../lib/resources/icons/NewDaylighting-16.png" alt=" "></a> <a href="ref_modeling_tools.html#new_daylighting">Daylighting:Controls</a></li>
+<li><a href="ref_modeling_tools.html#new_illuminance"><img src="../../lib/resources/icons/NewIlluminance-16.png" alt=""></a> <a href="ref_modeling_tools.html#new_illuminance">Output:IlluminanceMap Input Objects</a></li>
+<li><a href="ref_view_data.html#surface_search"><img src="../../lib/resources/icons/SurfaceSearch-16.png" alt=""></a> <a href="ref_view_data.html#surface_search">Surface and sub-surface search</a></li>
+<li><a href="ref_modeling_tools.html#zone_loads"><img src="../../lib/resources/icons/ZoneLoads-16.png" alt=""></a> <a href="file:///C:/Program Files/Google/Google SketchUp 7/Plugins/OpenStudio/doc/new/tut_rotating.html">Quickly add internal gains and HVACTemplate:Zone:IdealLoadsAirSystem to zones</a></li>
+<li><a href="ref_modeling_tools.html#surface_matching"><img src="../../lib/resources/icons/SurfaceMatchingSelected-16.png" alt=""></a> <a href="ref_modeling_tools.html#surface_matching">Automatic surface matching and unmatching tool</a></li>
+<li><a href="ref_view_data.html#default_const_prefs"><img src="../../lib/resources/icons/SetDefaultConstPrefs-16.png" alt=""></a> <a href="ref_view_data.html#default_const_prefs">Default construction manager</a></li>
+<li>Improved documentation and tutorials</li>
 </ul>
 
 <A NAME="bugs_fixed"></A>
 <H2>Bugs Fixed</H2>
 <ul>
-<li>Improved support for simple geometry.</li>
-<li>Removed dependency on Windows system dlls not shipped with plugin.</li>
-<li>Run EnergyPlus through OpenStudio as a non-admin.</li>
+<li>Improved support for simple geometry</li>
+<li>Removed dependency on Windows system dlls not shipped with plugin</li>
+<li>Run EnergyPlus through OpenStudio as a non-admin</li>
 <li>Back faces of EnergyPlus Shading Surfaces now have different colors than their front faces.</li>
-<li>Stability improvements to the Object Info Dialog.</li>
+<li>Stability improvements to the Object Info Dialog</li>
 </ul>
 
 <A NAME="known_issues"></A>
 <H2>Known Issues</H2>
 <ul>
-<li>When working with OpenStudio, only save your IDF file, do not save the SketchUp SKP file. Opening SKP files that have an associated IDF file can result in a set of duplicates surfaces that are slightly offset from the original surfaces and other problems.</li>
-<li>Toolbar Tool tips may not work correctly on the Mac if you have made your Toolbars horizontal. The tips also don't' show on the Mac in the status bar under any conditions.</li>
-<li>If you create a group out of multiple EnergyPlus Zones, and then hide one of those Zones you will get an error</li>
-<li>Certain dialogs (Rendering Settings and Last Report) do not work on the Mac due to the JavaScript engine in Safari.</li>
+   <li>When       working with OpenStudio, save only your IDF file. Do not save the SketchUp       SKP file. Opening SKP files that have an associated IDF file can result in       a set of duplicates surfaces that are slightly offset from the original       surfaces and cause other problems. </li>
+   <li>Toolbar       Tool tips may not work correctly on a Mac if you have made your Toolbars       horizontal. The tips also do not show on a Mac in the status bar under any       conditions. </li>
+   <li>If       you create a group out of multiple EnergyPlus Zones, and then hide a zone,       you will receive an error message.</li>
+   <li>Certain       dialogs (Rendering Settings and Last Report) do not work on a Mac because       the JavaScript engine in Safari. </li>
 </ul>
 
 
@@ -172,31 +160,30 @@ function msout(num) {
 <H2>Troubleshooting</H2>
 <H3>OpenStudio</H3>
 <ul>
-    <li>We recognize that there are still bugs in OpenStudio. SketchUp is a flexible and dynamic program that allows the user to draw all kinds of geometry in many different ways...we certainly haven’t been able to test every single one of them. We welcome your assistance in identifying bugs so that we can get them fixed in the next version. We also welcome any feedback on how we might improve the plugin, feature requests, compliments, criticisms, etc.</li>
-    <li>For all bug reports, feedback, and questions about OpenStudio, please visit the collaborative project website on <a href="http://openstudio.sourceforge.net/" target="_new">SourceForge.net.</a></li>
-    <li>The project website allows you to join the user support mailing list, browse the list of known issues in the bug tracker, or post a new bug report.</li>
-   	<li>If the plugin detects that an error has occurred, an 'Error Alert' window will appear. Your first step for resolving the error should be to visit the project website to check the bug tracker and user support mailing list to determine if someone else has encountered the same problem. If the issue has already been reported, there is a good chance you will find a workaround posted as well.</li>
-	<li>If you think you have found an unreported bug, the next step is to send an email to the user support mailing list. You can help us the most if you follow these suggestions:</li>
-    <ul>
-        <li>Describe the bug in your email message.  Tell us what you were doing when it happened, and if possible, describe the steps necessary to reproduce the problem.</li>
-        <li>If the 'Error Alert' window appeared, copy and paste the error message and backtrace into your email.</li>
-        <li>Attach the EnergyPlus input file (.idf) with your email.
-        <li>We will try to respond to your email as quickly as possible.  Thanks for your help and patience!</li>
-    </ul>
- </li>
-</ul>
+       <li>We       recognize that OpenStudio still contains bugs. SketchUp is a flexible and       dynamic program that allows the user to draw all kinds of geometry in many       ways, and we have not been able to test all of them. We welcome your       assistance in identifying bugs so we can fix them in the next version. We welcome       feedback about how we might improve the plugin. We would also like to learn       about feature requests, compliments, criticisms, etc. </li>
+       <li>For all bug reports, feedback, and questions  about OpenStudio, visit the collaborative project Web site at <a href="http://openstudio.sourceforge.net/" target="_new">SourceForge.net.</a></li>
+          <li>The       project Web site enables you to join the user support mailing list, browse       the list of known issues in the bug tracker, or post a new bug report. </li>
+          <li>If       the plugin detects an error, an Error Alert window appears. Your first       step should be to visit the project Web site to check the bug tracker and       user support mailing list to see if someone else has encountered the same       problem. If the issue has already been reported, a workaround has likely       been posted. </li>
+
+  <li>If you think you have found an unreported bug, the next step is to send an email to the user support mailing list. You can help us the most if you follow these suggestions:</li>
+  <ul>
+         <li>Describe the bug. Tell us what you were doing        when it happened, and if possible, describe how to reproduce the problem. </li>
+         <li>If the Error Alert window appeared, copy and        paste the error message and backtrace it into your e-mail. </li>
+         <li>Attach the EnergyPlus input file (.idf) to your        e-mail. </li>
+         <li>We will respond to your e-mail as quickly as possible.  Thanks for your help and patience! </li>
+       </ul></ul>
 
 <A NAME="energyplus"></A>
 <H3>EnergyPlus</H3>
 <ul>
 <li>The <a href="http://energyplus.helpserve.com/" target="_new">EnergyPlus forum and knowledgebase,</a> can help with EnergyPlus questions that fall outside of the scope of OpenStudio.</li>
-<li>There is also extensive PDF documentation of EnergyPlus under your EnergyPlus install. It's in a sub folder of EnergyPlus called "documentation". Two PDF's in particular that you may want to look at are &quot;InputOutputReference.pdf&quot; and &quot;AuxiliaryPrograms.pdf&quot;</li>
+   <li>There       is also extensive PDF documentation of EnergyPlus under your EnergyPlus       install in a subfoldercalled &quot;documentation&quot;. Refer to       &quot;InputOutputReference.pdf&quot; and &quot;AuxiliaryPrograms.pdf&quot;. </li>
 </ul>
 
 <A NAME="sketchup"></A>
 <H3>SketchUp</H3>
 <ul>
-<li><a href="http://sketchup.google.com/support/bin/answer.py?hl=en&answer=36207" target="_new">Link to SketchUp's online Help Guides and Video Tutorials.</a></li>
+<li><a href="http://sketchup.google.com/support/bin/answer.py?hl=en&answer=36207" target="_new">Link to SketchUp's On-Line Help Guides and Video Tutorials</a></li>
 <li><a href="http://www.youtube.com/view_play_list?p=4EA4466179F2B044" target="_new">Link to Google's YouTube videos on SketchUp</a></li>
 <li><a href="http://www.google.com/support/forum/p/sketchup/label?lid=54c1b3b816c199ba&hl=en" target="_new">Link to Google's user forum for SketchUp</a></li>
 <li><a href="http://www.google.com/support/forum/p/sketchup/label?lid=54c1b3b816c199ba&hl=en" target="_new">Link to SketchUcation's SketchUp forum</a></li>
@@ -205,11 +192,12 @@ function msout(num) {
 <A NAME="other_tools"></A>
 <H3>Other Tools</H3>
 <ul>
-<li>Comparison Tools - Its often nice to have tool to run comparisons of two different IDF files to see what has changed. This comparison is often called a DIFF. <a href="http://en.wikipedia.org/wiki/Comparison_of_file_comparison_tools" target="_new">Click here</a> to open a Wikipedia page showing many of software options for this.</li>
-<li>NREL has developed <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a> for plotting timeseries data for multiple simulations.</li>
-</ul>
+   <li>Comparison       Tools - You may wish to run comparisons of two IDF files to see what has       changed. This comparison is often called a DIFF. A <a href="http://en.wikipedia.org/wiki/Comparison_of_file_comparison_tools">Wikipedia       page</a> shows many software options for this. </li>
 
-					</td>
+  <li>NREL has developed <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a> for plotting time series data for multiple simulations.</li>
+</ul>
+<P2i><A href="#top">Back to Top</A></P2i>
+				  </td>
 				</tr>
 			</table>
 <!-- end of main content table -->
@@ -239,7 +227,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

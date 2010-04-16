@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -103,78 +104,86 @@ function msout(num) {
 <H2>Searching for EnergyPlus Objects</H2>
 <br>
 
-<H3>Surface and Sub-surface Searching</H3>
+<H3>Search Surfaces and Subsurfaces</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>The Surface Search tool allows you to search surfaces and sub-surfaces.</li>
-     <li>You can enter search criteria in all fields, or in just one</li>
-     <li>If you use multiple fields, objects must match both criteria to appear in the results</li>
-     <li>The name search field will match partial words as well as whole words and is not case sensitive.</li>
-     <br><img src="dialogs/tut_surface_searching_01.png" alt="" width="500"></li><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br>
-     <P2i>model prior to search being run</P2i>
-     <br>
-     <br><img src="dialogs/tut_surface_searching_02.png" alt=""></li><br>
-     <P2i>Searching for on the third floor for surfaces with construction named 'ASHRAE 90.1-2004_Sec 5.5-5_0.3_0.4_fixed_west_window'.</P2i><br><br>
-     <li>Results are shown by hiding everything in the model except for the results.</li>
-     <br><img src="dialogs/tut_surface_searching_03.png" alt="" width="500"></li><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <br>
-     <P2i>search results</P2i>
-     <br><br>
-     <li>There is a toolbar button for a built in SketchUp feature to <a href="ref_rendering.html#view_hidden">view hidden geometry</a>. This is a good way to get your bearings after a search by showing and hiding hidden geometry.</li>
-     <br><img src="dialogs/tut_surface_searching_04.png" alt="" width="500"></li><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i>
-     <P2i><br>
-       viewing hidden geometry</P2i>
-     <br><br>
-     <li>When you are done using a search you can choose "Unhide All" to show the rest of the EnergyPlus objects.</li>
-     <li>Surface Searches can be run on a selection or on the entire model.</li>
+     <li>The Surface  Search tool allows you to search surfaces and subsurfaces. </li>
+     <li>You can  enter search criteria in all fields, or in just one. </li>
+     <li>If you use  multiple fields, objects must match both criteria to appear in the results. </li>
+     <li>The name search field will match partial and whole  words, and is not case sensitive.</li>
+
+  <br><img src="dialogs/tut_surface_searching_01.png" alt="" width="500"></li><br>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br>
+  <P2i>Model before search ins run</P2i>
+  <br>
+  <br><img src="dialogs/tut_surface_searching_02.png" alt=""></li><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+<P2i>Searching  on the third floor for surfaces with construction named 'ASHRAE 90.1-2004_Sec 5.5-5_0.3_0.4_fixed_west_window'.</P2i><br><br>
+  <li>Results are shown by hiding everything in the model except  the results.</li>
+  <br><img src="dialogs/tut_surface_searching_03.png" alt="" width="500"></li><br>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br>
+  <P2i>search results</P2i>
+  <br><br>
+  <li>There is a toolbar button for a built in SketchUp feature to <a href="ref_rendering.html#view_hidden">view hidden geometry</a>. Showing and hiding hidden geometry is a good way  for you to get your bearings after a search. </li>
+  <br><img src="dialogs/tut_surface_searching_04.png" alt="" width="500"></li><br>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <P2i><br>
+    viewing hidden geometry</P2i>
+  <br><br>
+  <li>When you have  finished using a search, you can choose &quot;Unhide All&quot; to show the rest  of the EnergyPlus objects. </li>
+  <li>You can run  surface searches run on a selection or on the entire model. </li>
 </ul>
 </div>
 
-<H3>Using Outliner to Search Groups (Zones) and Components (Daylighting:Controls and Output:IlluminanceMap)</H3>
+<H3>Use Outliner to Search Groups (Zones) and Components (Daylighting:Controls and Output:IlluminanceMap)</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>You can use SketchUp's built in Outliner to search for groups (zones) and components (Daylighting:Controls and Output:IlluminanceMap).</li>
-     <li>Without any search terms entered, the outliner shows all SketchUp groups and components.</li>
-     <li>The hierarchy can be expanded or collapsed with the button on the right side of the dialog box.</li>
-     <li>You enter text into the filter to run your search. The search will match partial words as well as whole words, and is not case sensitive.</li>
-     <li>The search only affects the Outliner and does not change what your model looks like. However, you can click on an object in the Outliner to select or activate it.</li>
-     <li>Outliner objects are black if there is no filter/search set and red if there is a filter. To clear a filter just empty out the text box at the top of the Outliner.</li>
-     <br><img src="dialogs/tut_zone_searching_01.png" alt=""></li><br>
-     <P2i>Outliner before search</P2i><br><br>
-     <br><img src="dialogs/tut_zone_searching_02.png" alt=""></li><br>
-     <P2i>Outliner after search</P2i><br><br>
-     <li>You can run an Outliner search on top of a Surface search for interesting results. You will still see hidden items on the Outliner but they will be screened back. If you do want to hide specific zones, you can select them with the outliner, and then manually hide them, or move them to a specific layer and hide that layer.</li>
-     <li>You also use the Outliner to filter the displayed zones (for instance to zones with "Office" in the name) and then run a Surface search on the remaining selection.</li>
+     <li>You can use  SketchUp's built in Outliner to search for groups (zones) and components  (Daylighting:Controls and Output:IlluminanceMap). </li>
+     <li>With no search  terms entered, the outliner shows all SketchUp groups and components. </li>
+     <li>You can  expand or collapse the hierarchy with the button on the right side of the  dialog box. </li>
+     <li>Enter text  into the filter to run your search. The search will match partial and whole  words, and is not case sensitive. </li>
+     <li>The search  affects the Outliner only, and does not change what your model looks like.  However, you can click on an object in the Outliner to select or activate it. </li>
+     <li>Outliner objects are black if no filter/search is set  and red if there is a filter. To clear a filter, empty the text box at the top  of the Outliner.</li>
+
+  <br><img src="dialogs/tut_zone_searching_01.png" alt=""></li><br>
+  <P2i>Outliner before search</P2i><br><br>
+  <br><img src="dialogs/tut_zone_searching_02.png" alt=""></li><br>
+  <P2i>Outliner after search</P2i><br><br>
+  <li>You can run  an Outliner search on top of a surface search for interesting results. You will  still see hidden items on the Outliner but they will be screened back. If you want  to hide specific zones, you can select them with the Outliner and then manually  hide them, or you can move them to a specific layer and hide that layer. </li>
+  <li>You also use the Outliner to filter the displayed zones (for instance to zones with "Office" in the name) and then run a Surface search on the remaining selection.</li>
 </ul>
 </div>
 
 <H3>Using Layers</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>You can move zones and surfaces to new layers based on your needs. For example you could assign zones to layers based on space type or you could assign surfaces to layers by construction. It is important to note that the layer assignments are not saved to the IDF and will only last for the current session. When you re-open the IDF at a later date, all objects will be back on layer0. This will be addressed in a future version of OpenStudio.</li>
-     <li>Once your objects are on specific layer you can control visibility of each layer to make working on your model a little easier to manage. One thing to note is that when you hide a layer, objects on that layer won't be visible even if you turn on &quot;show hidden geometry&quot;. Show hidden geometry only shows hidden objects on layers that are active.</li>
-     <li>You can also use SketchUp's built in &quot;Color by Layer&quot; to view your model by layer. You can access this through the layer window or the style window. A few styles are saved under OpenStudio/lib/resources/styles.</li>
-     <li>One last use for layers is to display or hide Output:IlluminanceMap and Daylighting:Controls objects.</li>
-     <br><img src="dialogs/tut_layers_01.png" width="500" alt=""></li><br>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>select two zones and move them with the Entity Info Window to a layer named &quot;retail&quot;</P2i><br><br>
-     <br><img src="dialogs/tut_layers_03.png" width="500" alt=""></li><br>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>turn off all zones except for those on the &quot;office&quot; layer</P2i><br><br>
-         <br><img src="dialogs/tut_layers_02.png" width="500" alt=""></li><br>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>set layer colors in the &quot;Layer&quot; dialog box and then color by layer using</P2i><br>
-      <P2i>the &quot;Style&quot; window</P2i>
-    <br><br>
+     <li>You can move  zones and surfaces to new layers. For example, you can assign zones to layers  based on space type or assign surfaces to layers by construction. The layer  assignments are not saved to the IDF and will last for the current session only.  When you reopen the IDF, all objects will be back on layer0. This will be  addressed in a future version of OpenStudio. </li>
+     <li>Once your  objects are on specific layer, you can control visibility of each layer to facilitate  working on your model. When you hide a layer, objects on it will not be visible  even if you turn on &quot;show hidden geometry&quot;, which shows only hidden  objects on layers that are active. </li>
+     <li>You can also  use SketchUp's built in &quot;Color by Layer&quot; to view your model by layer.  You can access this through the layer window or the style window. A few styles  are saved under OpenStudio/lib/resources/styles. </li>
+     <li>You can  display or hide Output:IlluminanceMap and Daylighting:Controls objects. </li>
+
+  <br><img src="dialogs/tut_layers_01.png" width="500" alt=""></li><br>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+  <P2i>select two zones and move them with the Entity Info Window to a layer named &quot;retail&quot;</P2i>
+  .<br>
+  <br>
+  <br><img src="dialogs/tut_layers_03.png" width="500" alt=""></li><br>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+  <P2i>turn off all zones except  those on the &quot;office&quot; layer</P2i>
+  .<br><br>
+  <br><img src="dialogs/tut_layers_02.png" width="500" alt=""></li><br>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+  <P2i>Set layer colors in the &quot;Layer&quot; dialog  box and then use 
+the &quot;Style&quot; window to color by layer. There is also an OpenStudio Menu Item to enalbe this.</P2i>
+  <br>
 </ul>
 </div>
 				  </td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -202,7 +211,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

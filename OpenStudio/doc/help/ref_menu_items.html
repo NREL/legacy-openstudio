@@ -103,67 +103,89 @@ function msout(num) {
 <a href="ref_file_mgt.html#top">File Management and Errors</a><br>
 <a href="ref_modeling_tools.html#top">Modeling Tools</a><br>
 <a href="ref_view_data.html#top">Viewing Model Data</a><br>
-<a href="ref_simulations.html#top">Running Simulations / Help</a><br>
+<a href="ref_simulations.html#top">Running Simulations/Help</a><br>
 <a href="ref_rendering.html#top">Rendering Options</a><br>
 </H2>
 
 <H2>OpenStudio Menu Items</H2>
-<P2><a href="ref_menu_items.html#file_info"> File Information</a></P2><br>
-<P2><a href="ref_menu_items.html#sim_info"> Simulation Information</a></P2><br>
-<P2><a href="ref_menu_items.html#thermostat"> Edit Thermostats</a></P2><br>
-<P2><a href="ref_menu_items.html#const_stub"> New Construction Stub</a></P2><br>
-<P2><a href="ref_menu_items.html#schedule_stub"> New Schedule Stub</a></P2><br>
-<P2><a href="ref_menu_items.html#pref"> Preferences</a></P2><br>
-<P2><a href="ref_menu_items.html#updates"> Check for Updates</a></P2><br>
+<P2><a href="ref_menu_items.html#file_info">File Information</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#sim_info"> Simulation Information</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#thermostat"> Edit Thermostats</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#const_stub"> New Construction Stub</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#schedule_stub"> New Schedule Stub</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#by_layer"> Render By Layer</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#by_normal"> Render by Surface Normal</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#pref"> Preferences</a></P2>
+<br>
+<P2><a href="ref_menu_items.html#updates"> Check for Updates</a></P2>
+<br>
 <P2><a href="ref_menu_items.html#about"> About OpenStudio</a></P2>
-
 <hr><br>
 
 <A NAME="file_info"></A>
 <H3>File Information</H3>
 <div style="margin-left:20px">
-    <P>The File Info command displays a dialog window with
-information about the EnergyPlus input file that you are working with,
-including the file name, the file path, the file size (as currently saved), and
-a count of some of the different types of EnergyPlus objects.</P>
-<img src="dialogs/rg_fileinfo.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <P>The File Info command displays a dialog window with  information about your current EnergyPlus input file, including the file name,  the file path, the file size (as currently saved), and a count of some types of  EnergyPlus objects.</P>
+    <P><img src="dialogs/rg_fileinfo.png" alt=""><br>
+    </P>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="sim_info"></A>
 <H3>Simulation Information</H3>
 <div style="margin-left:20px">
-    <P>The Simulation Info command displays a dialog window which allows you to set the fields for the GlobalGeometryRules and Site:Location objects in EnergyPlus.</P>
+    <P>The Simulation Info command displays a dialog window that  enables you to set the fields for the GlobalGeometryRules and Site:Location  objects in EnergyPlus.</P>
 <img src="dialogs/SimulationInfo.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="thermostat"></A>
 <H3>Edit Thermostats</H3>
 <div style="margin-left:20px">
-    <P>This lets you edit and create new thermostats for your model. This dialog box is also available through the Zone Loads dialog box.</P>
+    <P>This enables you to edit and create new thermostats  for your model. This is also available through the Zone Loads dialog box.</P>
 <img src="dialogs/rg_thermostat.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="const_stub"></A>
 <H3>New Construction Stub</H3>
 <div style="margin-left:20px">
-    <P>The New Construction Stub command creates a new Construction object in the input file.  A dialog prompts you to enter the name of the new construction. Keep in mind that the new object is only a &#39;stub&#39; it does not have any material layers assigned to it yet, so you will have to edit the input file to add material layers to the Construction  and create the associated Material objects before your input file will run properly. You can access this through the Default Constructions dialog or through  Menu/OpenStudio/New Construction Stub.</P>
+    <P>The New Construction Stub command creates a new  Construction object in the input file. A dialog prompts you to enter the name  of the new construction. The new object is only a stub. It has no material  layers assigned to it, so you will have to edit the input file to add material  layers to the Construction and create the associated Material objects before  your input file will run properly. You can access this through the Default  Constructions dialog or through Menu/OpenStudio/New Construction Stub.</P>
 <img src="dialogs/rg_const_stub.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="schedule_stub"></A>
 <H3>New Schedule Stub</H3>
 <div style="margin-left:20px">
-    <P>The New Schedule Stub command creates a new schedule object in the input file.  A dialog prompts you to enter the name of the new schedule. Keep in mind that the new object is only a &#39;stub&#39; it does not have any data assigned to it yet, so you will have to edit the input file to add material layers to the Construction  and create the associated Material objects before your input file will run properly. You can access this through the Zone Loads dialog or through  Menu/OpenStudio/New Schedule Stub.</P>
+    <P>The New Schedule Stub command creates a new schedule  object in the input file. A dialog prompts you to enter the name of the new  schedule. The new object is only a stub. It has no data assigned to it yet, so  you will have to edit the input file to add material layers to the Construction  and create the associated Material objects before your input file will run  properly. You can access this through the Zone Loads dialog or through  Menu/OpenStudio/New Schedule Stub.</P>
 <img src="dialogs/rg_schedule_stub.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="by_layer"></A>
+<H3>Render by Layer</H3>
+<div style="margin-left:20px">
+    <P>This command toggles SketchUp's built in "Render by Layer" mode on and off. This is applied globby to all faces, and does not alter the individial face materials. When this mode is on, you will not see the true face material.</P>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="by_normal"></A>
+<H3>Render by Surface Normal</H3>
+<div style="margin-left:20px">
+    <P>This command sets the face front and back colors to white and red respectivly. It also changes the face style setting to "Display shaded using all same". This is a diagnostic tool to quickly identify faces with reversed normals. This is applied globby to all faces, and does not alter the individial face materials. When this mode is on, you will not see the true face material.</P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -172,7 +194,7 @@ a count of some of the different types of EnergyPlus objects.</P>
 <div style="margin-left:20px">
     <P>The Preferences command displays a dialog window with various user preferences for the plugin that are preserved between SketchUp sessions.  This is where you set the path to the executable for the EnergyPlus engine. </P>
 <img src="dialogs/rg_preferences.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -182,14 +204,14 @@ a count of some of the different types of EnergyPlus objects.</P>
 <div style="margin-left:20px">
     <P>You can run this to see if you are using the most current release of OpenStudio.</P>
 <img src="dialogs/rg_update.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
 <A NAME="about"></A>
 <H3>About OpenStudio</H3>
 <div style="margin-left:20px">
-    <P>This command displays a modal dialog window with version and copyright information about the plugin.</P>
+    <P>This command displays a modal dialog window with version and copyright information.</P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -224,7 +246,7 @@ a count of some of the different types of EnergyPlus objects.</P>
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

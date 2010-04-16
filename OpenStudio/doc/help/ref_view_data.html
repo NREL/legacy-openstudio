@@ -113,7 +113,7 @@ function msout(num) {
 <P2><a href="ref_view_data.html#default_const_prefs"><img src="../../lib/resources/icons/SetDefaultConstPrefs-16.png"> Set Default EnergyPlus Constructions</a></P2><P2i> (New)</P2i>
 
 <H2>
-<a href="ref_simulations.html#top">Running Simulations / Help</a><br>
+<a href="ref_simulations.html#top">Running Simulations/Help</a><br>
 <a href="ref_rendering.html#top">Rendering Options</a><br>
 <a href="ref_menu_items.html#top">OpenStudio Menu Items</a><br>
 </H2>
@@ -123,9 +123,9 @@ function msout(num) {
 <A NAME="info_tool"></A>
 <H3><a href="ref_view_data.html#info_tool"><img src="../../lib/resources/icons/InfoTool-16.png" alt=""></a> Information Tool</H3>
 <div style="margin-left:20px">
-    <P>The Info Tool command activates a cursor-like tool that displays information about the face that it is hovering over.  A tooltip momentarily shows the EnergyPlus object text for that face.  The status bar shows the position of the cursor in world coordinates. Below is a screenshot of the information tool being used on a base surface of a zone. The data tool will work on all surfaces and sub-surfaces, but will not identify data for object like Daylighting Controls or Illuminance Maps. You can get the same information for them by opening the Object Information Dialog box while the object is selected. (see next subject for screenshot of this)</P>
-        <img src="dialogs/tut_getting_started_10.png" width="500" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <P>The Information Tool command activates a cursor-like  tool that hovers over information about the face. A tooltip momentarily shows  the EnergyPlus object text for that face. The status bar shows the position of  the cursor in world coordinates. The following screenshot shows the information  tool being used on a base surface of a zone. The data tool will work on all  surfaces and subsurfaces, but will not identify data for objects such as Daylighting  Controls or Illuminance Maps. You can see the same information for these by  opening the Object Information Dialog box while the object is selected. (See the  next subject for a screenshot of this.)</P>
+<img src="dialogs/tut_getting_started_10.png" width="500" alt=""><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
@@ -133,22 +133,22 @@ function msout(num) {
 <A NAME="object_info"></A>
 <H3><a href="ref_view_data.html#object_info"><img src="../../lib/resources/icons/ObjectInfo-16.png" alt=""></a> Object Information Window</H3>
 <div style="margin-left:20px">
-    <P>The Object Info command displays a dialog window with information about the EnergyPlus object that is currently selected.  The content of the Object Info dialog changes based on the type of object selected. Select a zone group to get object information about the zone.  Open a zone group for editing (double-click), and select a face to get object information about that heat transfer surface.  Open a shading group for editing and select a face to get object information about that detached shading surface.  With no selection, you get object information about the Building object.  Changing selections with the Object Info dialog open will dynamically update the contents with information about the new selection.
-
-        <br><br>The contents of the Object Info dialog window are divided into three sections:  object inputs, object summary, and object text.  The fields in the object inputs section allow you to directly change the fields of the corresponding EnergyPlus input object. The list of fields depends on the type of object that is selected.  For example, for a typical BuildingSurface:Detailed object you can easily assign a new name, set the surface type, set the construction, set the boundary conditions, etc.   Don&#39;t worry, changing the name of the object will automatically update all other objects that reference it.  Changes that you make are not committed until you click on the dialog outside of the text field! Coordinates for surface vertices cannot be edited from this dialog.  You must use the standard SketchUp tools to modify the geometry.
-
-        <br><br>The object summary section displays useful information about the object such as number of vertices, gross area, net area, percent glazing, etc.  Like the input fields, the content of the summary depends on the type of object that is selected.
-
-        <br><br>The object text section displays the actual text of the input object as it appears in the EnergyPlus input file.  The text can be selected and copied but it cannot be edited directly.  Use the input fields in the Object Inputs section to make changes.  All changes are made instantaneously and will show up immediately in the object text. Note that original comments and formatting of the input file are preserved when you make changes.  </P>
-    <img src="dialogs/ObjectInfoZone.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>Object Info Window while Zone is selected</P2i><br><br>
+    <P>The Object Information command displays a dialog  window with information about the currently selected EnergyPlus object. The  content of this dialog changes based on the type of object selected. Select a  zone group to see object information about the zone. Double click on a zone  group for editing and select a face to see object information about that heat  transfer surface. Open a shading group for editing and select a face to see object  information about that detached shading surface. With no selection, you see object  information about the Building object. Changing selections with the Object Information  dialog open will dynamically update the contents with information about the new  selection. <br>
+      <br>
+      The contents of the Object Information dialog window are divided into three  sections: Object Inputs, Object Summary, and Object Text. The fields in the  object inputs section enable you to directly change the fields of the  corresponding EnergyPlus input object. The list of fields depends on the type  of object you select. For example, for a typical BuildingSurface:Detailed  object you can easily assign a new name, set the surface type, set the  construction, set the boundary conditions, etc. All other objects that  reference that object will update automatically. Your changes are not committed  until you click on the dialog outside of the text field. Coordinates for  surface vertices cannot be edited from this dialog. You must use the standard  SketchUp tools to modify the geometry. <br>
+  <br>
+      The object summary section displays number of vertices, gross area, net area,  percent glazing, etc. Like the input fields, the content of the summary depends  on the type of object you select. <br>
+  <br>
+      The Object Text section displays the actual text of the input object as it  appears in the EnergyPlus input file. You can select and copy the text, but you  cannot edit it directly. Use the input fields in the Object Inputs section to  make changes. All changes are made instantaneously and will show up immediately  in the object text. Original comments and formatting of the input file are  preserved. </P>
+<img src="dialogs/ObjectInfoZone.png" alt=""><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+    <P2i>Object Information Window while Zone is selected</P2i><br><br>
     <img src="dialogs/ObjectInfo.JPG" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>Object Info Window while surface is selected</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+    <P2i>Object Information Window while surface is selected</P2i><br><br>
     <img src="dialogs/ObjectInfoTop.png" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-    <P2i>Object Info for Building (while nothing is selected)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+    <P2i>Object Information for Building (while nothing is selected)</P2i><br><br>
 
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
@@ -157,11 +157,10 @@ function msout(num) {
 <H3><a href="ref_view_data.html#outliner"><img src="../../lib/resources/icons/Outliner-16.png" alt=""></a> Outliner
   <P2i>(Native SketchUp Feature)</P2i></H3>
 <div style="margin-left:20px">
-    <P>The Outliner shows you in a hierarchal way, all of the top level and nested components and groups in your model. You can filter what is show, collapse or expand it, and you can also make selections in the model by clicking on these objects. It is useful your OpenStudio workflow for a number of reasons. First, it is a great way to select objects that may be hard to otherwise select, such as a zone with no surfaces in it. It is also a powerful search tool on large projects with many zones. If you make a habit of naming your zones you can make better use of this.</P>
- 
-      <img src="dialogs/tut_zone_searching_01.png"alt=""><br>
+    <P>The Outliner shows a hierarchy of all the top-level  and nested components and groups in your model. You can filter what is shown,  collapse or expand it, and make selections in the model by clicking on these  objects. You can select objects that may be hard to otherwise select, such as a  zone with no surfaces in it. It is also a powerful search tool on large  projects with many zones. If you consistently name your zones, you can make better  use of this.</P>
+<img src="dialogs/tut_zone_searching_01.png"alt=""><br>
 
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -169,10 +168,10 @@ function msout(num) {
 <H3><a href="ref_view_data.html#surface_search"><img src="../../lib/resources/icons/SurfaceSearch-16.png" alt=""></a> Surface Search
   <P2i>(New)</P2i></H3>
 <div style="margin-left:20px">
-    <P>OpenStudio Surface Search tool picks up where the Outliner leaves off. This is a very powerful surface search tool that allows you to search over just about every parameter of your surfaces. The results are selected, and also visually isolated, by hiding all other surfaces. When you are done with your search, you can unhide the rest of the surfaces by clicking &quot;Unhide All&quot; on the Surface Search dialog. Before searching on a large IDF you can speed up the surface matching by closing the Outliner and Object Information windows.</P>
-       <img src="dialogs/tut_surface_searching_02.png"  alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <P>Here is a link to a more extensive tutorial on <a href="tut_searching.html">searching data in OpenStudio models</a>.</P>
+    <P>OpenStudio Surface Search tool picks up where the  Outliner leaves off. This powerful surface search tool enables you to search most  parameters of your surfaces. It selects and visually isolates the results by  hiding all other surfaces. When you are finished, you can click &quot;Unhide  All&quot; on the Surface Search dialog to unhide the rest of the surfaces.  Before searching on a large IDF, you can close the Outliner and Object  Information windows to expedite the surface matching.</P>
+<img src="dialogs/tut_surface_searching_02.png"  alt=""><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <P> See <a href="tut_searching.html">Searching Data in OpenStudio Models</a> for a more extensive tutorial.</P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -180,10 +179,10 @@ function msout(num) {
 <H3><a href="ref_view_data.html#default_const_prefs"><img src="../../lib/resources/icons/SetDefaultConstPrefs-16.png" alt=""></a> Set Default EnergyPlus Constructions
   <P2i>(New)</P2i></H3>
 <div style="margin-left:20px">
-    <P>The Default Constructions dialog box is a powerful tool that lets you   set default constructions for different types of EnergyPlus Surfaces. Default Constructions are used to set constructions on new geometry as   it is drawn.</P>
-       <img src="dialogs/tut_default_const_01.png" width="500" alt=""><br>
-     <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <P>Here is a link to a more extensive tutorial on <a href="tut_default_const_prefs.html">setting default constructions preferences</a>.</P>
+    <P>This powerful tool enables you set default  constructions for different types of EnergyPlus surfaces. Default Constructions  are used to set constructions on new geometry as it is drawn.</P>
+<img src="dialogs/tut_default_const_01.png" width="500" alt=""><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <P>See <a href="tut_default_const_prefs.html">Setting Default Constructions Preferences</a> for a more extensive tutorial.</P>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>
 
@@ -218,7 +217,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

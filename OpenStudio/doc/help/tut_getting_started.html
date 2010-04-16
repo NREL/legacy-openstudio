@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -103,27 +104,27 @@ function msout(num) {
 <H2>Getting Started</H2>
 <br>
 
-<H3>Starting from scratch</H3>
+<H3>Start from scratch</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>When you first open SketchUp with OpenStudio running, or any time you start a new IDF file, OpenStudio loads the NewTemplate.idf file located in the OpenStudio plugin directory.  This file comes pre-populated with some of the basic EnergyPlus objects such as schedules, constructions, and location (the default location is Chicago).</li>
+    <li>When you  first open SketchUp with OpenStudio running, or any time you start a new IDF  file, OpenStudio loads the NewTemplate.idf file located in the OpenStudio  plugin directory. This file comes prepopulated with some basic EnergyPlus  objects such as schedules, constructions, and location (the default location is  Chicago). </li>
     <li>Sooner or later you are going to need to get familiar with EnergyPlus outside of OpenStudio so take a look around the EnergyPlus directory to familiarize yourself with the utility programs, example models, datasets/libraries, and extensive documentation.</li>
 </ul>
 
-<H3>Adding a new zone with surfaces</H3>
+<H3>Add a new zone with surfaces</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>After starting a new IDF file, the first step is typically to create your first zone with the New Zone Tool. After selecting the tool from the OpenStudio Toolbar click in the model where you want the zone origin to be.  Note that the zone origin cannot currently be modified from within the OpenStudio interface.<br>
+    <li>After starting a new IDF file, create your first  zone with the New Zone Tool. After selecting the tool from the OpenStudio  Toolbar, click in the model where you want the zone origin to be. The zone  origin cannot currently be modified from within the OpenStudio interface.<br>
       <br>
       <img src="dialogs/tut_getting_started_01.png" width="500" alt=""><br>
     </li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 <ul>
     <li>After you insert the zone you should see a blue bounding box around your selected zone.<br>
       <br>
     <img src="dialogs/tut_getting_started_02.png" width="500" alt=""><br></li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 <ul>
     <li>You can double click on the small tick mark to activate your zone. There may be times that it is tough or impossible to select your zone with this method, for example if it is right on the edge of another zone. There are a few other alternative ways to edit a zone listed below.
@@ -138,86 +139,86 @@ function msout(num) {
       <br>
       <img src="dialogs/tut_getting_started_03.png" width="500" alt=""><br>
     </li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 <ul>
     <li>Now you can begin drawing surfaces within your zone. Your first surface will typically be a floor. You may draw the floor with the Rectangle Tool or one of the other SketchUp drawing tools, such as the Line Tool.  Note that SketchUp uses the right hand rule, based on vertex entry order, to determine the outward normal direction for new surfaces EXCEPT for surfaces drawn on the z = 0 plane.  Surfaces drawn on the z = 0 plane are assigned outward normals pointing down, correct for floors, regardless of vertex entry order.<br><br>
     <img src="dialogs/tut_getting_started_04.png" width="500" alt=""><br></li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 <ul>
     <li>After the floor is drawn use the Push/Pull Tool to extrude the floor surface.  This extrusion will create new surfaces and OpenStudio will infer their type (wall or roof) based on the surface's outward normal. Again you can create geometry with the Line or other tools, but Push/Pull works very well for extruding a floor to create walls and a ceiling.  OpenStudio has a color scheme to allow floors, walls, and roofs to be easily identified.  Throughout OpenStudio, darker colors are used to identify the outside of a surface, while lighter colors identify the inside.  If a surface is oriented the 'wrong way' you may right click on it and select Reverse Face.<br><br>
     <img src="dialogs/tut_getting_started_05.png" width="500" alt=""><br></li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </ul>
 </div>
 
-<H3>Creating sub-surfaces</H3>
+<H3>Create subsurfaces</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Once you have four walls and a roof, you can start adding sub-surfaces to your model. Sub-surfaces are, as their name suggests, surfaces that sit within a base-surface. This includes doors, windows and skylights. There are a number of guidelines to follow with sub-surfaces.
+    <li>Once you have four walls and a roof, you can start adding subsurfaces to your model. Subsurfaces are, as their name suggests, surfaces that sit within a base surface. This includes doors, windows and skylights. There are a number of guidelines to follow with subsurfaces.
       <ul>
-        <li>Don't make a sub-surface as large as it's base surface. If you want a full wall window, inset the window a small amount.  This is easily done using the Offset Tool (available in the large SketchUp toolset).</li>
-        <li>Don't all a sub-surface to share an edge with another sub-surface or a base surface.</li>
-        <li>If you want to erase a sub-surface make sure to erase the edges and not just the face.  You can either erase just the edges or double-click on the sub-surface to select the face andd edges.  Don't erase edges that are also part of the base-surface edge. (e.g. the bottom of a door).<br>
+        <li>Do not make a sub-surface as large as it's base surface. If you want a full wall window, inset the window a small amount.  This is easily done using the Offset Tool (available in the large SketchUp toolset).</li>
+        <li>Do not all a sub-surface to share an edge with another sub-surface or a base surface.</li>
+        <li>If you want to erase a sub-surface make sure to erase the edges and not just the face.  You can either erase just the edges or double-click on the sub-surface to select the face andd edges.  Do not erase edges that are also part of the base surface edge. (e.g. the bottom of a door).<br>
         </li>
       </ul>
     </li>
     <br>
       <img src="dialogs/tut_getting_started_06.png" width="500" alt=""><br>
 
-    <P2i>(Credit: David Goldwasser / NREL)</P2i>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
     <br><br>
 </ul>
 <ul>
-    <li>Sub-surfaces also have their own automatic color scheme. Doors are brown, and windows are a translucent blue. If you draw something and it isn't the color you expected, that is a sign that something is wrong. Check with the Object Info Window or the Information Tool to see what OpenStudio has interpreted the surface to be.</li>
-    <li>You can resize both your surfaces and sub-surfaces as you design your building. Just make sure to keep an eye on the coloring and the Object Info Window for any problems that come up.<br>
+    <li>Subsurfaces also have their own automatic color scheme. Doors are brown, and windows are a translucent blue. If you draw something and it is not the color you expected, that is a sign that something is wrong. Check with the Object Info Window or the Information Tool to see what OpenStudio has interpreted the surface to be.</li>
+    <li>You can resize both your surfaces and subsurfaces as you design your building. Just make sure to keep an eye on the coloring and the Object Info Window for any problems that come up.<br>
       <br>
       <img src="dialogs/tut_getting_started_07.png" width="500" alt=""><br>
     </li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 
 <ul>
     <li>Below you can see the Information Tool displaying information about the surface that it is being dragged over. A wall in the first image, and a window in the following image.<br>
       <br>
     <img src="dialogs/tut_getting_started_09.png" width="500" alt=""><br></li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
     <br>
     <img src="dialogs/tut_getting_started_10.png" width="500" alt=""><br>
 </ul>
 <ul>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
     <br><br>
 </ul>
 </div>
 
-<H3>Adding a Shading Group</H3>
+<H3>Add a Shading Group</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Next you may add a Shading Group at the top level of the SketchUp model (e.g. not within a zone). Every face drawn in a Shading Group becomes a shading surface.<br>
+    <li>Next you may add a Shading Group at the top-level of the SketchUp model (e.g. not within a zone). Every face drawn in a Shading Group becomes a shading surface.<br>
       <br>
       <img src="dialogs/tut_getting_started_11.png" width="500" alt=""><br>
     </li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 
 <ul>
     <li>You may now active the shading group using the outliner and draw a horizontal shading surface over the door and window.<br><br>
     <img src="dialogs/tut_getting_started_13.png" width="500" alt=""><br></li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 <ul>
     <li>Below is a completed zone with shading group.<br><br>
     <img src="dialogs/tut_getting_started_14.png" width="500" alt=""><br></li>
-    <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </ul>
 </div>
 
 <H3>What's Next?</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>More than likely you will want to add more zones, surfaces, sub-surfaces, and shading to define the geometry of your building.</li>
+    <li>More than likely you will want to add more zones, surfaces, subsurfaces, and shading to define the geometry of your building.</li>
     <li>The <a href="tut_default_const_prefs.html">Default Constructions</a> tutorial will help you control which constructions are applied to new surfaces as they are drawn.</li>
     <li>The <a href="tut_matching_surfaces.html">Surface Matching</a> tutorial is a good place to go to learn about making necessary connections between surfaces in adjacent zones.</li>
     <li>The <a href="tut_loads.html">Zone Loads</a> tutorial will show you how to add basic internal gains (such as lighting and equipment) to your zones.</li>
@@ -228,6 +229,7 @@ function msout(num) {
 				  </td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -255,7 +257,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

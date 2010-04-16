@@ -103,39 +103,47 @@ function msout(num) {
 
 <H2>OpenStudio version 1.0.5 help and documentation</H2>
 <br>
-<H3>Help and documentation are broken down into three categories that you can see to the left</H3>
+<H3>Help and documentation are sorted into three categories (see left navigation).</H3>
 <ul>
-    <li>The <b>Reference Guide</b> gives a short description and dialog screenshots for all of the OpenStudio toolbar commands as well as menu items.</li><br>
-    <li>The <b>Tutorials</b> go into more detail than the reference guide, and are focused on a workflow vs. a specific tool. Some of the tutorials are directly about OpenStudio tools, others are about native SketchUp tools that you may find useful in your OpenStudio workflow.</li><br>
-    <li>The last section is the <b>Release Notes</b>. This contains installation instructions, software requirements, known issues, links to external resources and other content.</li><br>
+    <li>The <b>Reference Guide </b>provides       a short description and dialog screenshots for all OpenStudio toolbar       commands and menu items.</li>
+
+  <br>
+  <li>The <b>Tutorials</b>provide more details and focus on workflow rather  than a specific tool. Some tutorials deal directly with OpenStudio tools; others  with native SketchUp tools that you may find useful in your OpenStudio  workflow.</li>
+  <br>
+  <li>The last section is the <b>Release Notes</b>. This contains installation instructions, software requirements, known issues, links to external resources, and other content.</li><br>
 </ul>
 
 <H3>About OpenStudio 1.0.5</H3>
 <br>
 <H4>What It Is</H4>
 <ul>
-    <li>At this stage of development, the plugin is mainly a geometry editor for EnergyPlus.  The plugin allows you to create a building geometry from scratch: add thermal zones, draw heat transfer surfaces, draw windows and doors, draw shading surfaces, etc. </li>
-    <li>The plugin also allows you to open existing EnergyPlus input files, whether they were drawn with the plugin or not, and begin making geometry changes: modify zones, delete surfaces, add new surfaces, etc.  </li>
-    <li>This release of OpenStudio also allows you to work with daylighting related input objects Daylighting:Controls and Output:IlluminanceMap.  There is also a basic functionality to add people, lights, electric and gas rquipment, infiltration rates, and ideal loads air systems to your model so you can quickly get a running simulation starting from scratch. You can learn more about these under <a href="release_notes.html" target="new_features">New Features</a> on the Release Notes Page.</li>
+       <li>Is       mainly a geometry editor for EnergyPlus. It enables you to create a       building geometry from scratch: add thermal zones, draw heat transfer       surfaces, draw windows and doors, draw shading surfaces, etc. </li>
+       <li>Enables       you to open EnergyPlus input files, whether or not they were drawn with       the plugin, and begin to make geometry changes: modify zones, delete       surfaces, add new surfaces, etc. </li>
+
+  <li>Enables you to work with the daylighting-related  input objects Daylighting:Controls and Output:IlluminanceMap. You can also add  people, lights, electric and gas equipment, infiltration rates, and ideal loads  air systems so you can quickly have a running simulation starting from scratch. You can learn more about these under <a href="release_notes.html#new_features" target="new_features">New Features</a> on the Release Notes Page.</li>
 </ul>
 
 <H4>What It Is Not</H4>
 <ul>
-    <li>The plugin is not yet a full-featured interface for EnergyPlus.  It will help you create some non-geometry EnergyPlus objects but will not replace the need to work with the EnergyPlus IDF file outside of SketchUp.  In order to effectively use EnergyPlus with the plugin you will still have to be willing to learn about building simulation and get your hands dirty working with the low-level EnergyPlus syntax of the text input file.</li>
-    <li>The plugin is also not a translator from SketchUp to EnergyPlus.  You cannot use the plugin to convert an old SketchUp model that you have into an EnergyPlus input file...at least, not without thinking about how to divide your building into thermal zones.  To use the plugin as intended, you must have the energy model in mind as you create your EnergyPlus model. Some of the <a href="tutorials.html">tutorials</a> cover workflows for converting existing models to EnergyPlus input.</li>
+       <li>Is       not yet a full-featured interface for EnergyPlus. It will help you create       some nongeometry EnergyPlus objects, but you will still need to work with       the EnergyPlus IDF file outside of SketchUp. To effectively use EnergyPlus       with the plugin, you will still have to be willing to learn about building       simulation and work with the low-level EnergyPlus syntax of the text input       file. </li>
+
+  <li>Is also not a translator from SketchUp to  EnergyPlus. You cannot use the plugin to convert an old SketchUp model into an  EnergyPlus input file unless you consider how to divide your building into  thermal zones. To use the plugin as intended, you must have the energy model in  mind as you create your EnergyPlus model. Some of the <a href="tutorials.html">tutorials</a> cover workflows for converting existing models to EnergyPlus input.</li>
 </ul>
 
 <H4>Conventions</H4>
 <ul>
-    <li>In SketchUp every object you draw on the screen is called an entity.  Entities include groups, faces, and edges, among others.  These terms are consist with the SketchUp documentation so they should't be a surprise if you are already a veteran user.</li>
-    <li>The EnergyPlus input data file (IDF) is made up of objects as well.  An EnergyPlus input object is a block of text with data values separated by commas and terminated by a semicolon.   Allowable values for each field of the object are defined by the Input Data Dictionary (IDD).  The InputOutputReference.pdf file in the EnergyPlus documenation gives details about the meaning and impact of each field of each object in the simulation.</li>
+       <li>In       SketchUp, every object you draw on the screen is called an entity.       Entities include groups, faces, and edges. These terms are consist with       the SketchUp documentation, which a veteran user will recognize. </li>
+       <li>The       EnergyPlus input data file (IDF) is also composed of objects. An       EnergyPlus input object is a block of text with data values separated by       commas and terminated by a semicolon. Allowable values for each field of       the object are defined by the Input Data Dictionary (IDD). The       InputOutputReference.pdf file in the EnergyPlus documentation provides details       about the meaning and impact of each field of each object. </li>
 </ul>
+
 
 <H4>Conclusion</H4>
 <ul>
-    <li>OpenStudio makes it easy to enter geometry data for your EnergyPlus input files - a task that was once both difficult and time consuming.  This release also begins to add support for non-geometry features of EnergyPlus.  We expect to expand access to these non-geometry features in future releases.</li>
-    <li>Before you get started we recommend that you take a look at the <a href="release_notes.html#known_issues">known issues</a>.  If you have problems, feedback, or questions about the plugin, see the <a href="release_notes.html#troubleshooting">troubleshooting</a> on the <a href="release_notes.html">Release Notes</a> page for information on how to contact us.  </li>
-    <li>Thanks for reading and good luck with all of your EnergyPlus endeavors!  We hope you find the OpenStudio plugin useful.  </li>
+       <li>OpenStudio       makes it easy to enter geometry data for your EnergyPlus input files&mdash;a       task that was once both difficult and time consuming. This release also       begins to add support for nongeometry features of EnergyPlus. We expect to       expand access to these in future releases. </li>
+
+  <li>Before you start, we recommend you look at the <a href="release_notes.html#known_issues">known issues</a>.  If you have problems, feedback, or questions about the plugin, see the <a href="release_notes.html#troubleshooting">troubleshooting</a> on the <a href="release_notes.html">Release Notes</a> page.  </li>
+     <li>Thanks       for reading, and good luck with all your EnergyPlus endeavors. We hope you       find the OpenStudio plugin useful. </li>
+
 </ul>
 
 					</td>
@@ -168,7 +176,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -106,31 +107,34 @@ function msout(num) {
 <H3>Geo-Referencing</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>SketchUp allows you to geo-reference your building to a specific site. This can be done manually or with <a href="http://earth.google.com/" target="_blank">Google Earth</a>. The &quot;Get Current View&quot; tool form the Google toolbar in SketchUp goes to Google Earth and brings in the current view. The base image is now geotagged, as is the SketchUp/OpenStudio model (the lattitude and longitude will be set for EnergyPlus). It is important to make sure you set North to up in Google Earth before you get the current view. Otherwise SketchUp will want to change its North direction, which will create conflicts with OpenStudio.</li>
+    <li>SketchUp allows you to geo-reference your building to a specific site manually or with <a href="http://earth.google.com/" target="_blank">Google Earth</a>. The &quot;Get Current View&quot; tool from the Google toolbar in SketchUp goes to Google Earth and brings in the current view. The base image is now geotagged, as is the SketchUp/OpenStudio model (the latitude  and longitude will be set for EnergyPlus). Set North to up in Google Earth before you get the current view. Otherwise SketchUp will  change its North direction, which will create conflicts with OpenStudio.</li>
 		 <br><img src="dialogs/tut_geo_02.png" alt="" width="500"></li><br>
-		 <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
+		 <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
 </ul>
 </div>
 
-<H3>Importing Nearby Buildings as Shading Surfaces</H3>
+<H3>Import Nearby Buildings as Shading Surfaces</H3>
 <ul>
-    <li>A nice use of geo-referencing is to bring in nearby buildings from 3D Warehouse. This isn't very easy to work with right now, as it doesn't sort the buildings by their proximity. An alternative is to go to Google Earth and visually pick the buildings you want. You can click on them and then download the SketchUp or KMZ files.</li>
+    <li>Use of geo-referencing is to bring in nearby buildings from 3D Warehouse. This is not very easy to work with right now, as it does not sort the buildings by their proximity. An alternative is to use Google Earth and visually pick the buildings you want. You can click on them to download the SketchUp or KMZ files.</li>
          <br><img src="dialogs/tut_geo_01.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>The buildings come in correctly located because they are geo-referenced.</li>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Buildings come in correctly located because they are geo-referenced.</li>
          <br>
          <img src="dialogs/tut_geo_03.png" alt="" width="500">
          </li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-    <li>It is easy to copy surfaces of surrounding buildings (you only need surfaces that will provide shading, not the entire building) into a Shading Group. OpenStudio will convert these surfaces to shading surfaces and they will be input to EnergyPlus for determining when and where on our building the sun will shine.</li>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>It is easy to copy surfaces of surrounding buildings into a Shading Group. </li>
+    <li>You only need surfaces that will provide shading verses the entire building.</li>
+    <li>OpenStudio will convert  faces to shading surfaces.</li>
          <br><img src="dialogs/tut_geo_04.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i>
 </ul>
 </div>
 
 					</td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -158,7 +162,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

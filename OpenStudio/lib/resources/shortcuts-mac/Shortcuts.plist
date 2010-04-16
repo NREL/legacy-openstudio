@@ -47,28 +47,28 @@
 	<string>c</string>
 	<integer>0</integer>
 	<string>selectMeasureTool:</string>
-	<string>v</string>
+	<string>f</string>
 	<integer>0</integer>
 	<string>selectEraseTool:</string>
-	<string>t</string>
+	<string>g</string>
 	<integer>0</integer>
 	<string>selectSectionPlaneTool:</string>
-	<string>y</string>
+	<string>t</string>
 	<integer>0</integer>
 	<string>sectionToggleDisplay:</string>
-	<string>u</string>
+	<string>y</string>
 	<integer>0</integer>
 	<string>sectionToggleActivation:</string>
-	<string>i</string>
+	<string>u</string>
 	<integer>0</integer>
 	<string>toggleHideRestOfModel:</string>
-	<string>o</string>
+	<string>i</string>
 	<integer>0</integer>
 	<string>viewShowHidden:</string>
-	<string>p</string>
+	<string>o</string>
 	<integer>0</integer>
 	<string>toggleGlobalTransparency:</string>
-	<string>\</string>
+	<string>p</string>
 	<integer>0</integer>
 	<string>toggleShadows:</string>
 	<string>h</string>
@@ -89,24 +89,26 @@
 	<string>'</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Default Constructions</string>
-	<string>m</string>
-	<integer>0</integer>
-	<string>/Plugins/OpenStudio/Zone Loads</string>
-	<string>,</string>
-	<integer>0</integer>
-	<string>/Plugins/OpenStudio/New Daylighting Control Tool</string>
 	<string>.</string>
 	<integer>0</integer>
-	<string>/Plugins/OpenStudio/New Illuminance Map Tool</string>
+	<string>/Plugins/OpenStudio/Zone Loads</string>
 	<string>n</string>
 	<integer>0</integer>
-	<string>/Plugins/OpenStudio/New Shading Group Tool</string>
+	<string>/Plugins/OpenStudio/New Daylighting Control Tool</string>
+	<string>m</string>
+	<integer>0</integer>
+	<string>/Plugins/OpenStudio/New Illuminance Map Tool</string>
 	<string>b</string>
 	<integer>0</integer>
+	<string>/Plugins/OpenStudio/New Shading Group Tool</string>
+	<string>v</string>
+	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Zone Tool</string>
-	<integer>]</integer>
+	<string>}</string>
+	<integer>524288</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Surface Normal</string>
+	<string>]</string>
+	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Rendering/By Layer</string>
-	<integer>[</integer>
-	<string>/Plugins/OpenStudio/By Surface Normal</string>
 </array>
 </plist>

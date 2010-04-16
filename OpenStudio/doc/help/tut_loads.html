@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -106,44 +107,44 @@ function msout(num) {
     <H3>Internal Gains</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>Internal gains include people, lights, equipment, outdoor air for ventilation, and infiltration. Unlike the Object Info dialog, this dialog does not allow user to view internal gains in current zones.  It only allows the user to specify values that will be written to the file.</li>
+		  <li>Internal  gains include people, lights, equipment, and infiltration. Unlike the Object  Info dialog, this dialog does not allow you to view gains in current zones, but  only to specify values that will be written to the file. </li>
 		<li>Internal gains are modeled using the input objects 'People', 'Lights', 'ElectricEquipment', 'GasEquipment', 'ZoneVentilation:DesignFlowRate', and 'ZoneInfiltration:DesignFlowRate'.  Most fields of these objects are defaulted.  Look at the InputOutputReference and Energy+.idd for a full list of all fields.
-		<li>A set of internal gains and schedules for a typical office building have been added for reference only.  The schedules are present in the NewTemplate.idf file but will not be available in all existing IDF files.  You can reset the internal gains dialog to these values with the "Reset to Default Office" button.</li>
+		  <li>A set of internal gains and schedules for a typical office building have been added for reference only.  The schedules are present in the NewTemplate.idf file but will not be available in all existing IDF files.  You can reset the internal gains dialog to these values with the "Reset to Default Office" button.</li>
 		<li>No IDF objects will be added for internal gains with values less than or equal to zero.</li>
-		<li>Applying internal gains to selected zones removes existing objects from the selected zones.</li>
-		<li>Lights objects are required in order to add Daylighting:Controls to a zone.</li>
+		<li>Applying  internal gains to selected zones removes these types of objects. </li>
+        <li>Lights  objects are required to add Daylighting:Controls to a zone. </li>
 		<li>Remember to remove 'ZoneVentilation:DesignFlowRate' when moving your file to more advanced HVAC systems which provide outdoor air to the space through the system and not at the zone level.</li>
 		<li>Renaming zones after applying internal gains can cause problems.  However, you can always fix these by hand in the IDF.</li>
-		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
+		<li>You can obtain  the last Zone Loads Report in comma separated value (CSV) format to verify the  operations that have been performed. You can also save a copy of the IDF before  and after the operation and then use a file comparison tool to run a DIFF. </li>
 		</ul>
 	</div>
 
 	<H3>Ideal Loads Air System</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>EnergyPlus simulations may experience problems if internal gains are present but no system is included to remove energy from zones with internal gains.</li>
-		<li>For models which are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the quickest path for load calculations using EnergyPlus.</li>
-		<li>Adding HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes existing objects of this type from the selected zones.</li>
-		<li>A HVACTemplate:Thermostat is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating and cooling setpoints.</li>
-		<li>HVACTemplate:Zone:IdealLoadsAirSystem provides an example of how to use the other HVACTemplate objects to quickly add typical HVAC systems to your model.</li>
-		<li>You can get the last Zone Loads Report in Comma Separated Value (CSV) format to verify the operations that have been performed. You can also save a copy of the IDF before and after the operation and then run a DIFF using a file comparison tool.</li>
+		  <li>EnergyPlus  simulations may experience problems if internal gains are present but no system  is included to remove energy from zones with internal gains. </li>
+          <li>For models that  are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the  quickest path for load calculations that use EnergyPlus. </li>
+          <li>Adding  HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes these types of objects. </li>
+          <li>HVACTemplate:Thermostat  is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating  and cooling set points. </li>
+          <li>You can obtain  the last Zone Loads Report in comma separated value (CSV) format to verify the  operations that have been performed. You can also save a copy of the IDF before  and after the operation and then use a file comparison tool to run a DIFF. </li>
 		</ul>
 	</div>
 
 	<H3>Saved Preferences</H3>
 	<div style="margin-left:10px">
 		<ul>
-		<li>The initial values for internal gains correspond to a general office building. The initial schedules are those included in NewTemplate.idf when starting a new model from scratch and also correspond to a general office building.</li>
-		<li>The user can save settings for internal gains corresponding to other space types or other variations. These saved settings can be reloaded and applied to model other space types or to generate perturbations on the current model.</li>
+		  <li>The initial  values for internal gains correspond to a general office building. The initial  schedules are those included in NewTemplate.idf when starting a new model from  scratch and correspond to a general office building. </li>
+          <li>You can save  settings for internal gains that correspond to other space types or variations.  You can then reload and apply these settings to model other space types or to  generate perturbations on the current model. </li>
 		</ul>
 	</div>
 
 	<img src="dialogs/tut_zone_loads_01.png" alt=""><br>
-        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+        <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
 
 					</td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -171,7 +172,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

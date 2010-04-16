@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -105,22 +106,24 @@ function msout(num) {
 
 <div style="margin-left:10px">
  <ul>
-    <li>Every face in SketchUp has a front and a back.  Architectural models may not care which way these faces point.  But it is critical for energy modeling that the faces are oriented correctly. A face's normal is a line perpendicular to the face going out through the front of the face.</li>
-    <li>In OpenStudio the exterior of a surface is the front face and the interior of the surface is the back of the face.</li>
-    <li>OpenStudio does use a unique front and back face color for surfaces, but it doesn't always jump out at you on a complex model when something is reversed. In particular for windows. You can turn transparency off, but you can also setup a style that is much easier to read.</li>
-    <li>Below is the typical OpenStudio coloring.</li>
-        <br><img src="dialogs/tut_normal_01.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
-     <li>Next is the same model with a custom style. For this style, under &quot;face settings&quot; the rendering option is set to &quot;display shaded using all same&quot;. By setting the front color to white and the back color to bright red reversed faces are readily apparent. This model was clean to start with but reversed faces were added for demonstration.</li>
-        <br><img src="dialogs/tut_normal_02.png" alt="" width="500"></li><br>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br>
-         <br><li>You can create this style on your own, but it is also saved under OpenStudio/lib/resources/styles.</li>
-</ul>
+    <li>Every face  in SketchUp has a front and a back. Architectural models may not care which way  these faces point, but for energy modeling the faces must be oriented  correctly. A face's normal is a line perpendicular to the face going out  through the front of the face. </li>
+    <li>In  OpenStudio the exterior of a surface is the front of the face and the interior  of the surface is the back of the face. </li>
+    <li>OpenStudio uses  a unique front and back face color for surfaces, but it on a complex model (especially  for windows), this may not be obvious when something is reversed. You can turn the  transparency off, but you can also set up a style that is much easier to read. </li>
+    <li>The typical OpenStudio coloring follows:</li>
+
+   <br><img src="dialogs/tut_normal_01.png" alt="" width="500"></li><br>
+   <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+   <li>Next is the same model with a custom style. For this style, under &quot;face settings&quot; the rendering option is set to &quot;display shaded using all same&quot;. By setting the front color to white and the back color to bright red reversed faces are readily apparent. This model was clean to start with, but reversed faces were added for demonstration.</li>
+   <br><img src="dialogs/tut_normal_02.png" alt="" width="500"></li><br>
+   <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+   <br><li>You can create this style on your own, but it is also saved under OpenStudio/lib/resources/styles.</li>
+ </ul>
 </div>
 
 				  </td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -148,7 +151,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

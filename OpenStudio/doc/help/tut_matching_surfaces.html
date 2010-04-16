@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -106,87 +107,89 @@ function msout(num) {
 <H3>Drawing the surfaces to be matched</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>In order to match surfaces, OpenStudio requires that their vertices line up exactly. In more technical terms, OpenStudio requires second level space boundaries.</li>
+     <li>OpenStudio requires that  vertices line up exactly. In more technical terms, OpenStudio requires second level space boundaries.</li>
      <li>In some cases it may help to save your IDF and re-open it before using the surface matching tool as OpenStudio does some geometry clean-up when it opens a file.</li>
      <li>You should always verify the results of the surface matching operation using the Surface Search Tool, Object Info Dialog, EnergyPlus output, or some other means.</li>
-     <li>Two methods for drawing surfaces in this way are given below.</li>
+     <li>Two methods for drawing surfaces follow:
 
-     <H3>Method 1</H3>
+       <H3>Method 1</H3>
      <ul>
-     <li>The first method for drawing surfaces to be matched uses SketchUp's drawing tools and inference locks.</li>
-	 <li>Enter into the zone you want to draw your new surface in, but leave the other zones visible.</li>
-	 <li>Using the line tool you draw lines that snap to objects in the other zone. SketchUp will indicate this with a pop up note that says "Endpoint Outside Activity".</li>
+     <li>This method uses SketchUp's drawing tools and inference locks.</li>
+	 <li>Enter into the zone where you want to draw your new surface, but leave the other zones visible.</li>
+	 <li>Use the line tool to draw lines that snap to objects in another zone. SketchUp will indicate this with a pop-up note that reads "Endpoint Outside Activity".</li>
 	 <li>You may have to navigate around the model with the pan and orbit tools to draw all the edges of your surface.</li>
-	 <li>If geometry in other zones are in your way, you can temporarily hide them. Select them and then right-click->hide, or go to "hide" under the edit menu.</li>
+	 <li>If geometries in other zones are in your way, you can temporarily hide them. Select them and then right-click->hide, or go to "hide" in the edit menu.</li>
 	 <br>
      <img src="dialogs/tut_surface_matching_01.png" alt="" width="500">
      <br>
-     <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
-	 <P2i>drawing using line tool and SketchUp's inference locks to snap to existing geometry </P2i><br>
-     <P2i>in other EnergyPlus Zones.</P2i>
+     <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
+	 <P2i>This drawing uses line tool and SketchUp's  inference locks to snap to geometry in other EnergyPlus zones. </P2i>
+	 <P2i></P2i>
      <br>
      <br>
      <img src="dialogs/tut_surface_matching_01b.png" alt="" width="500"><br>
-	 <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
-	 <P2i>clicking on second point in other EnergyPlus Zone.</P2i>
+	 <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
+	 <P2i>Click on second point in another EnergyPlus zone</P2i>
 	 <br>
 	 <br>
      <img src="dialogs/tut_surface_matching_01c.png" alt="" width="500"><br>
-     <p2i> (Credit: David Goldwasser / NREL)</P2i>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i>
      <br>
-     <P2i>clicking on the third point in other EnergyPlus Zone.</P2i>
+     <P2i>Click on the third point in another EnergyPlus zone. </P2i>
      <br>
      <br>
      <img src="dialogs/tut_surface_matching_01d.png" alt="" width="500"><br>
-     <p2i> (Credit: David Goldwasser / NREL)</P2i><br>
-     <P2i>final surface in  EnergyPlus Zone.</P2i>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i><br>
+     <P2i>Final surface in EnergyPlus zone. </P2i>
      <br>
      <br>
      </ul>
 
      <H3>Method 2</H3>
      <ul>
-     <li>The second method uses "copy" and then "paste in place" vs. manually drawing the second surface.</li>
-	 <li>Double click the surface that you want to duplicate in another zone.</li>
-	 <li>You should have the face and its bounding edges selected.</li>
-	 <li>Shift click on the face to unselect it, but leave the edges selected. The face is unselected to prevent the face-normal of the new copy from being reversed.</li>
-	 <li>Now copy the selection, exit out of the current zone and enter into zone that needs the new surface. Once there choose Paste in Place (edit/paste in place). There is no default shortcut set for "paste in place" but there is a separate tutorial that shows you how to <a href="tut_shortcuts.html">create your own shortcuts.</a></li>
-	 <br><img src="dialogs/tut_surface_matching_02.png" alt="" width="500"></li><br>
-	 <P2i>(Credit: David Goldwasser / NREL)</P2i>
+     <li>This method uses &quot;copy&quot;  and then &quot;paste in place&quot; instead of manually drawing the second  surface.</li>
+     <li>Double click the surface  you want to duplicate in another zone.</li>
+     <li>Select the face and its bounding edges. </li>
+     <li>Shift-click on the face to unselect it (this prevents  the face-normal of the new copy from being reversed), but leave the edges  selected. &nbsp;</li>
+	 <li>Copy the selection, exit from the current zone,  and enter into the zone that needs the new surface. Choose Paste in Place  (edit/paste in place). There is no default shortcut set for &quot;paste in  place&quot;, but a separate tutorial shows you how to <a href="tut_shortcuts.html">create your own shortcuts.</a></li>
+	 <br><img src="dialogs/tut_surface_matching_02.png" alt="" width="500"><br>
+	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
 	 <br>
-	 <P2i>Selecting a face and its edges by double clicking</P2i>
-	 <br><br>
-	 <br><img src="dialogs/tut_surface_matching_02b.png" alt="" width="500"></li><br>
-	 <P2i>(Credit: David Goldwasser / NREL)</P2i>
-	 <P2i><br>Then shift clicking to de-select the face</P2i>
-	 <br><br>
-	 <br><img src="dialogs/tut_surface_matching_03.png" alt="" width="500"></li><br>
-	 <P2i>(Credit: David Goldwasser / NREL)</P2i>
+	 <P2i>Select a face and its edges by double clicking.</P2i>
 	 <br>
-	 <P2i>Here you can see the resulting edges and surface in the second EnergyPlus Zone</P2i>
+	 <br>
+	 <br><img src="dialogs/tut_surface_matching_02b.png" alt="" width="500"><br>
+	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <P2i><br>
+	   Shift-click to unselect the face. </P2i>
+	 <br><br>
+	 <br><img src="dialogs/tut_surface_matching_03.png" alt="" width="500"><br>
+	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <br>
+	 <P2i>Here you can see the resulting edges and surface in the second EnergyPlus Zone.</P2i>
 	 <br><br>
      </ul>
-</ul>
+</li></ul>
 </div>
 
 <H3>Surface Matching Tool</H3>
 <div style="margin-left:10px">
 <ul>
      <li>Once your surfaces are drawn, you can use the Surface Matching Tool to match them together.</li>
-     <li>You can match surfaces and sub-surfaces for selected objects or for all objects in the model.  Matching two surfaces or sub-surfaces
-         sets the boundary condition of each surface to point to each other and reassigns the default interior construction for that type.</li>
-     <li>You can also use this tool to un-match surfaces.  Unmatching two surfaces resets their boundary conditions to be outdoors or ground and
-         reassigns the default exterior construction for that type.</li>
-     <li>You can get a report of the last match or un-match performed in Comma Separated Value (CSV) format to verify the operations that have been performed.</li>
-         <br><img src="dialogs/tut_surface_matching_04.png" alt=""><br></li>
+     <li>You can  match surfaces and subsurfaces for selected objects or for all objects in the  model. This sets the boundary condition of each surface to point to each other  and reassigns the default interior construction for that type. </li>
+     <li>You can also  use this tool to unmatch surfaces. This resets their boundary conditions to be  outdoors or ground and reassigns the default exterior construction for that  type. </li>
+<li>You can obtain a report of the last match or unmatch  performed in comma separated value (CSV) format to verify the operations that  have been performed.</li>
+</ul>
+<ul>
+  <br><img src="dialogs/tut_surface_matching_04.png" alt=""><br></li>
 </ul>
 </div>
 
 <H3>Workflows for Surface Matching</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>You can match surfaces together one at a time as you make them or you can create all surfaces for your model and match them at the end.</li>
-     <li>After matching you can verify correct results using the <a href="tut_searching.html">Surface Search Tool</a>.  For example, this can be used to check that no surfaces with outdoor boundary conditions are inside the building and vice versa.</li>
+     <li>You can match surfaces together  as you make them or you can create all surfaces for your model and match them at the end.</li>
+     <li>After matching, you can verify correct results using the <a href="tut_searching.html">Surface Search Tool</a> to verify correct results. You can, for example,  check that no surfaces with outdoor boundary conditions are inside the building,  and vice versa. </li>
      </ul>
 </div>
 
@@ -194,6 +197,7 @@ function msout(num) {
 					</td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -221,7 +225,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

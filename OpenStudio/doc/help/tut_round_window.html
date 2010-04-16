@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -106,32 +107,32 @@ function msout(num) {
 <div style="margin-left:10px">
 <ul>
 
-    <li>As a rule of them in OpenStudio, you don't want to have a sub-surface share an edge with with another sub-surface or it's base surface. The exception is a door, which shares an edge with the bottom of it's base surface.</li>
-    <li>Another rule to follow is to only make sub-surfaces as rectangles or triangles, not complex polygons, such as the object shown below. (note: complex polygons are fine for base surfaces such as walls and roofs)</li>
+    <li>As a rule of them in OpenStudio, you do not want to have a sub-surface share an edge with with another sub-surface or it's base surface. The exception is a door, which shares an edge with the bottom of it's base surface.</li>
+    <li>Another rule to follow is to only make subsurfaces as rectangles or triangles, not complex polygons, such as the object shown below. (note: complex polygons are fine for base surfaces such as walls and roofs)</li>
     <br>
    <img src="dialogs/tut_round_win_01.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>Below the Offset Tool is used to create a subsurface 24&quot; inside of the edge of the base surface. Click once on an edge while the correct face is shown, and then either click a second time to set the offset distance, or use the &quot;Measurements&quot; box at the bottom right of SketchUp's window.</li>
     <li><a href="http://sketchup.google.com/support/bin/answer.py?answer=94870" target="_new">Click Here</a> to learn more about SketchUp's Offset Tool.</li>
     <br>
    <img src="dialogs/tut_round_win_02.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
-    <li>Below is the results of the offset. It looks like a window, but it won't function properly since it is a complex sub-surface.</li>
+    <li>Below is the results of the offset. It looks like a window, but it will not function properly since it is a complex sub-surface.</li>
     <br>
    <img src="dialogs/tut_round_win_03.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>Below shows a strategy to simply the surface while maintaining a good approximation of its size and geometry.</li>
     <li>The circle is bisected with a triangle. Then to further refine it two more triangles are drawn bisecting the two circular segments. You could further refine it with more triangles, but three seems accurate enough here.</li>
     <br>
    <img src="dialogs/tut_round_win_04.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>After drawing the circles, use the erase tool to remove the edges that were not included as part of the three triangles. This includes the segmented edges of the original offset semicircle.</li><br>
    <img src="dialogs/tut_round_win_05.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>So now the windows are the correct geometry (triangles or rectangles), but there is still a problem.</li>
     <li>The windows are sharing edges with each other, that has to be resolved.</li>
@@ -140,18 +141,18 @@ function msout(num) {
     <br>
     <img src="dialogs/tut_round_win_06.png" width="500" alt=""><br>
     </li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>Use the eraser tool to remove the edge of the main triangle.</li><br>
    <img src="dialogs/tut_round_win_07.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>Below you can see the final product.</li><br>
    <img src="dialogs/tut_round_win_08.png" width="500" alt=""><br></li>
-         <P2i>(Credit: David Goldwasser / NREL)</P2i><br><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
     <li>The surface area of your new window area will be slightly smaller than your original window that represents what is going to be built. This may be addressed by the fact that the window will have mullions, so the smaller one may actually be more accurate.</li>
-    <li>If you do want to really get a simulation based on the larger area, you can scale your windows up if your base surface provides enough space, or you can alter the material properties of the window construction used in this instance to make it slightly more translucent (mimicking a slightly larger surface). Just be careful if you choose this route, ad you don't want to alter the property in other areas using that material. So you need to make a unique window construction for this use.</li>
+    <li>If you do want to really get a simulation based on the larger area, you can scale your windows up if your base surface provides enough space, or you can alter the material properties of the window construction used in this instance to make it slightly more translucent (mimicking a slightly larger surface). Just be careful if you choose this route, ad you do not want to alter the property in other areas using that material. So you need to make a unique window construction for this use.</li>
     <br>
 
 </ul>
@@ -162,6 +163,7 @@ function msout(num) {
 					</td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -189,7 +191,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 

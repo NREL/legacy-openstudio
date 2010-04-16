@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -103,7 +104,7 @@ function msout(num) {
 <H2>Run EnergyPlus</H2>
 <br>
 
-<H3>Setup EnergyPlus</H3>
+<H3>Set Up EnergyPlus</H3>
 <div style="margin-left:10px">
 <ul>
     <li>Download and install EnergyPlus 5.0 from <a href="http://apps1.eere.energy.gov/buildings/energyplus/">http://apps1.eere.energy.gov/buildings/energyplus/</a>.</li>
@@ -120,24 +121,21 @@ function msout(num) {
        <ul>
          <li>The Run Simulation dialog gives a variety of options for configuring the simulation before running EnergyPlus. These options may result in a different
            input file than the one you are working with.  To see the input file as simulated check in the Run Directory indicated by the dialog.</li>
-         <li>"Run design day simulations" allows the user to select whether reports from design day simulations are reported in the detailed (ESO)
-           output file of EnergyPlus.  Sizing calculations are still performed, but report data is not output during the sizing period if this box is
-           not checked.</li>
-         <li>&quot;Run weather file simulation&quot; will run simulation based on an EPW weather file.</li>
-       </ul>
+         <li>&quot;Run design day simulations&quot; enables you to  select whether reports from design day simulations are reported in the detailed  (ESO) output file of EnergyPlus. Sizing calculations are still performed, but  report data are not output during the sizing period if this box is not checked. </li>
+         <li>&quot;Run weather file simulation&quot; will run a simulation  based on an EPW weather file. </li>
+         </ul>
      </li>
      <li>Weather File Simulation
        <ul>
          <li>&quot;EPW Path&quot; is required when you have checked the &quot;Run weather file simulation&quot; There are links in the dialog box to download weather files from the EnergyPlus website or as a Google Earth Layer.</li>
-         <li>&quot;Annual simulation&quot; - Your simulation can be run for an entire year, or just a portion of a year. If you un-check &quot;Annual simulation then you can set the start and end dates.</li>
+         <li>&quot;Annual simulation&quot; - Your simulation can be  run for either a part year or an entire year. If you uncheck &quot;Annual  simulation&rdquo;, you can set the start and end dates. </li>
        </ul>
      </li>
      <li>Results
        <ul>
          <li>
            Report Annual Building Utility Performance Summary - You can choose HTML, CSV, Tabbed, or Fixed format</li>
-         <li>
-           Request results in SQLite format - Output is written to a SQLite database as well as ESO file.  Needed in order to use the <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a> application for visualizing detailed timeseries output.
+         <li>Request results in SQLite format - Output is  written to a SQLite database and an ESO file. You need this to use the <a href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm" target="_new">ZeroKit ResultsViewer</a> application for visualizing detailed timeseries output.
          </li>
          <li>
            Report zone temperatures - Requests 'Zone Mean Air Temperature' and 'Zone Mean Radiant Temperature' report variables.
@@ -148,8 +146,7 @@ function msout(num) {
          <li>
            Report user variables and meters - Preserves user report variables.
          </li>
-         <li>
-           Report DXF file for verification - EnergyPlus will create a DXF that you can import into SketchUp or another different CAD application.</li>
+         <li>Report DXF file for verification - EnergyPlus will  create a DXF that you can import into SketchUp or another CAD application. </li>
          <li>
            Report surface temperatures - Requests 'Surface Inside Temperature' and 'Surface Outside Temperature' report variables.
          </li>
@@ -164,19 +161,18 @@ function msout(num) {
            Close shell command window
          </li>
          <li>
-           Show error file (ERR)
-           &nbsp;&nbsp;Recommended </li>
+           Show error file (ERR) Recommended </li>
          <li>
-           Show Annual Building Utility Performance Summary(ABUPS)
+           Show Annual Building Utility Performance Summary (ABUPS)
          </li>
          <li>
-           Show report variables and meters file(CSV)
+           Show report variables and meters file (CSV)
          </li>
        </ul>
      </li>
      </ul>
     <br><img src="dialogs/RunSimulation.png" alt=""></li><br>
-        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+        <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
      <p2i>Run Simulation dialog box</P2i>
       <br><br>
 </div>
@@ -184,31 +180,27 @@ function msout(num) {
 <H3>Run EnergyPlus</H3>
 <div style="margin-left:10px">
 <ul>
-    <li>Once the simulation options are set they may be stored for later by pressing "Apply" or the simulation may be started by pressing "Run".</li>
-    <li>Before running EnergyPlus, OpenStudio will clean up the temporary directory used for simulation and copy in the IDF, IDD, and EPW files for simulation.</li>
-	<li>OpenStudio will then run the ExpandObjectsHVAC preprocessor to convert any HVACTemplate objects to detailed input objects for simulation.</li>
-	<li>OpenStudio will then start an EnergyPlus simulation in a new thread and begin waiting for the simulation to finish.  On Mac, the user has to quit the terminal
-	    application by hand before OpenStudio will see that the simulation is complete.</li>
-	<li>After the simulation completes, OpenStudio will run the ReadVarsESO program to convert ESO results to CSV format if reporting has been requested.</li>
-	<li>OpenStudio will then copy results back to the input directory (but not the modified IDF file) and
-	    rename then from the standard EnergyPlus output filenames to new names based on the input filename.  Make sure that you have write access to the
-	    directory that the input file is in or else this copy will fail.</li>
-	<li>Finally, OpenStudio will open the error file, ABUPS report, and/or CSV file if requested.  It is a good idea to always check for EnergyPlus warning and error
-	    messages in the error file.
-</ul>
+    <li>Once the simulation  options are set, you can store them by pressing &quot;Apply&quot;. Alternatively,  you can pressing &quot;Run&quot; to start the simulation. </li>
+    <li>Before  running EnergyPlus, OpenStudio will clean up the temporary directory used for  simulation and copy in the IDF, IDD, and EPW files for simulation. </li>
+    <li>OpenStudio  will then run the ExpandObjectsHVAC preprocessor to convert any HVACTemplate  objects to detailed input objects for simulation. </li>
+    <li>OpenStudio  will then start an EnergyPlus simulation in a new thread and begin waiting for  the simulation to finish. On a Mac, you have to quit the terminal application manually  before OpenStudio will see that the simulation is complete. </li>
+    <li>After the  simulation finishes, OpenStudio will run the ReadVarsESO program to convert ESO  results to CSV format if reporting has been requested. </li>
+    <li>OpenStudio  will then copy results (but not the modified IDF file) back to the input  directory and rename then from the standard EnergyPlus output filenames to new  names based on the input filename. Make sure that you have write access to the  directory that the input file is in or this copy will fail. </li>
+    <li>Finally,  OpenStudio will open the error file, ABUPS report, and/or CSV file if  requested. You should always check for EnergyPlus warning and error messages in  the error file. </li></ul>
     <br><img src="dialogs/tut_simulation_02.png" width="500" valt=""></li><br>
-       <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+       <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
       <p2i>Error file</P2i>
 
           <br><br><img src="dialogs/tut_simulation_03.png" width="500" alt=""></li><br>
-        <p2i>(Credit: David Goldwasser / NREL)</P2i><br>
+        <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
      <p2i>Annual Building Utility Performance report</P2i><br><br>
 
       </div>
 
-					</td>
+				  </td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
@@ -236,7 +228,7 @@ function msout(num) {
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
 	<tr>
-		<td><p class="footer"><a href="#">Webmaster</a> | <a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 
