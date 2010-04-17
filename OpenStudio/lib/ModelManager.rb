@@ -716,6 +716,24 @@ module OpenStudio
     def set_mode(mode)
       @rendering_mode = mode
       paint
+
+       model = Sketchup.active_model
+       renderingoptions = model.rendering_options
+       #change RenderMode to 2 (so you can see material)
+       render_mode_value = renderingoptions["RenderMode"] = 2
+       #change DisplayColorByLayer to false (so you can see material)
+       color_by_layer_value = renderingoptions["DisplayColorByLayer"] = false
+    end
+
+    # this will make materials visible, but won't change the set_mode (mode)
+    def set_mode_only
+
+       model = Sketchup.active_model
+       renderingoptions = model.rendering_options
+       #change RenderMode to 2 (so you can see material)
+       render_mode_value = renderingoptions["RenderMode"] = 2
+       #change DisplayColorByLayer to false (so you can see material)
+       color_by_layer_value = renderingoptions["DisplayColorByLayer"] = false
     end
 
     def display_color_by_layer
@@ -728,6 +746,10 @@ module OpenStudio
        else
         value = renderingoptions["DisplayColorByLayer"] = true
        end
+
+       #if render mode is 5, change it to 2 (so you can see color by layer)
+       render_mode_value = renderingoptions["RenderMode"] = 2
+
     end
 
     def render_mode_5

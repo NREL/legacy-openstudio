@@ -35,12 +35,12 @@ module OpenStudio
     attr_accessor :new_daylighting_cmd, :new_illuminance_cmd
     attr_accessor :surface_matching_cmd, :surface_search_cmd, :zone_loads_cmd, :edit_thermostats_cmd
     attr_accessor :run_cmd, :proto_wiz_cmd, :comp_wiz_cmd, :info_tool_cmd
-    attr_accessor :surf_mode_cmd, :data_mode_cmd, :data_settings_cmd, :color_scale_cmd, :data_tool_cmd, :display_color_by_layer_cmd, :render_mode_5_cmd
+    attr_accessor :surf_mode_cmd, :data_mode_cmd, :data_settings_cmd, :color_scale_cmd, :data_tool_cmd, :display_color_by_layer_cmd, :render_mode_5_cmd, :set_mode_only_cmd
     attr_accessor :anim_settings_cmd, :rwd_to_start_cmd, :rwd_anim_cmd, :play_anim_cmd, :fwd_anim_cmd, :fwd_to_end_cmd
     attr_accessor :prefs_cmd, :help_cmd, :about_cmd
     attr_accessor :test_cmd  # for testing only
 
-    attr_accessor :plugin_menu, :rendering_menu, :animation_menu
+    attr_accessor :plugin_menu, :rendering_menu, :animation_menu, :help_menu
     attr_accessor :command_toolbar, :rendering_toolbar, :animation_toolbar
 
 
@@ -326,6 +326,12 @@ module OpenStudio
         end
       }
   
+      # this commoand won't change how materials are assigned byt will
+      # just turn off display by normal and color by layer so materials are visible
+      @set_mode_only_cmd = UI::Command.new("By Material") { Plugin.model_manager.set_mode_only }
+      @set_mode_only_cmd.tooltip = "Render By Material"
+      @set_mode_only_cmd.status_bar_text = "Render SketchUp entities by SketchUp material"
+
       @display_color_by_layer_cmd = UI::Command.new("By Layer") { Plugin.model_manager.display_color_by_layer }
       #@display_color_by_layer_cmd.small_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-16x16.png"
       #@display_color_by_layer_cmd.large_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-24x24.png"
@@ -413,7 +419,7 @@ module OpenStudio
 
   # Help / About
 
-      @help_cmd = UI::Command.new("User Guide") { UI.open_external_file(Plugin.dir + "/doc/help/index.html") }
+      @help_cmd = UI::Command.new("OpenStudio User Guide") { UI.open_external_file(Plugin.dir + "/doc/help/index.html") }
       @help_cmd.small_icon = Plugin.dir + "/lib/resources/icons/Help-16.png"
       @help_cmd.large_icon = Plugin.dir + "/lib/resources/icons/Help-24.png"
       @help_cmd.tooltip = "Help"
@@ -497,6 +503,7 @@ module OpenStudio
       @rendering_menu.add_separator
       @rendering_menu.add_item(@surf_mode_cmd)
       @rendering_menu.add_item(@data_mode_cmd)
+      @rendering_menu.add_item(@set_mode_only_cmd)
       @rendering_menu.add_item(@display_color_by_layer_cmd)
       @rendering_menu.add_item(@render_mode_5_cmd)
       @rendering_menu.add_separator
@@ -513,6 +520,11 @@ module OpenStudio
       @animation_menu.add_item(@fwd_to_end_cmd)
       @animation_menu.add_separator
       @animation_menu.add_item(@anim_settings_cmd)
+
+      # Add the help menu
+      @help_menu = UI.menu("Help")#.add_submenu(Plugin.name)
+
+      @help_menu.add_item(@help_cmd)
 
     end
     
