@@ -35,7 +35,8 @@ module OpenStudio
     attr_accessor :new_daylighting_cmd, :new_illuminance_cmd
     attr_accessor :surface_matching_cmd, :surface_search_cmd, :zone_loads_cmd, :edit_thermostats_cmd
     attr_accessor :run_cmd, :proto_wiz_cmd, :comp_wiz_cmd, :info_tool_cmd
-    attr_accessor :surf_mode_cmd, :data_mode_cmd, :data_settings_cmd, :color_scale_cmd, :data_tool_cmd, :display_color_by_layer_cmd, :render_mode_5_cmd, :set_mode_only_cmd
+    attr_accessor :surf_mode_cmd, :data_mode_cmd, :data_settings_cmd, :color_scale_cmd, :data_tool_cmd
+    attr_accessor :display_color_by_layer_cmd, :render_mode_5_cmd, :set_mode_only_cmd, :boundary_mode_cmd
     attr_accessor :anim_settings_cmd, :rwd_to_start_cmd, :rwd_anim_cmd, :play_anim_cmd, :fwd_anim_cmd, :fwd_to_end_cmd
     attr_accessor :prefs_cmd, :help_cmd, :about_cmd
     attr_accessor :test_cmd  # for testing only
@@ -325,7 +326,22 @@ module OpenStudio
           end
         end
       }
-  
+
+      @boundary_mode_cmd = UI::Command.new("By Boundary") { Plugin.model_manager.set_mode(2) }
+      #@boundary_mode_cmd.small_icon = Plugin.dir + "/lib/resources/icons/RenderByBoundary-16x16.png"
+      #@boundary_mode_cmd.large_icon = Plugin.dir + "/lib/resources/icons/RenderByBoundary-24x24.png"
+      @boundary_mode_cmd.tooltip = "Render By Boundary Condition"
+      @boundary_mode_cmd.status_bar_text = "Render EnergyPlus objects by boundary condition"
+      @boundary_mode_cmd.set_validation_proc {
+        if (Plugin.model_manager)
+          if (Plugin.model_manager.rendering_mode == 1)
+            next(MF_CHECKED)
+          else
+            next(MF_UNCHECKED)
+          end
+        end
+      }
+
       # this commoand won't change how materials are assigned byt will
       # just turn off display by normal and color by layer so materials are visible
       @set_mode_only_cmd = UI::Command.new("By Material") { Plugin.model_manager.set_mode_only }
@@ -503,6 +519,7 @@ module OpenStudio
       @rendering_menu.add_separator
       @rendering_menu.add_item(@surf_mode_cmd)
       @rendering_menu.add_item(@data_mode_cmd)
+      @rendering_menu.add_item(@boundary_mode_cmd)
       @rendering_menu.add_item(@set_mode_only_cmd)
       @rendering_menu.add_item(@display_color_by_layer_cmd)
       @rendering_menu.add_item(@render_mode_5_cmd)

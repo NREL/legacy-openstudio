@@ -211,6 +211,8 @@ module OpenStudio
         paint_surface_type
       elsif (Plugin.model_manager.rendering_mode == 1)
         paint_data
+      elsif (Plugin.model_manager.rendering_mode == 2)
+        paint_boundary
       end
     end
 
@@ -301,6 +303,16 @@ module OpenStudio
 
     # Override in subclasses.
     def paint_surface_type
+    end
+
+    # Override in subclasses.
+    def boundary
+      return(nil)
+    end
+
+
+    # Override in subclasses.
+    def paint_boundary
     end
 
 

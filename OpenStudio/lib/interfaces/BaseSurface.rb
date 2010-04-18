@@ -159,6 +159,86 @@ module OpenStudio
       end
     end
 
+    def boundary
+      # field 7 is sun, 8 is wind
+      return(@input_object.fields[5])
+    end
+
+    def sun
+      return(@input_object.fields[7])
+    end
+
+    def wind
+      return(@input_object.fields[8])
+    end
+
+
+    def paint_boundary
+      if (valid_entity?)
+        if (boundary.upcase == "SURFACE")
+          @entity.material = Plugin.model_manager.construction_manager.surface_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.surface_int
+        elsif (boundary.upcase == "ADIABATIC")
+          @entity.material = Plugin.model_manager.construction_manager.adiabatic_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.adiabatic_int
+        elsif (boundary.upcase == "ZONE")
+          @entity.material = Plugin.model_manager.construction_manager.zone_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.zone_int
+        elsif (boundary.upcase == "OUTDOORS")
+          # add if statements to break into nosunnowind, nosun, nowind, or both sunwind
+               if (sun.upcase == "SUNEXPOSED")
+                  if (wind.upcase == "WINDEXPOSED")
+                    @entity.material = Plugin.model_manager.construction_manager.outdoorssunwind_ext
+                    @entity.back_material = Plugin.model_manager.construction_manager.outdoorssunwind_int
+                   else
+                    @entity.material = Plugin.model_manager.construction_manager.outdoorssun_ext
+                    @entity.back_material = Plugin.model_manager.construction_manager.outdoorssun_int
+                   end
+               else
+                  if (wind.upcase == "WINDEXPOSED")
+                    @entity.material = Plugin.model_manager.construction_manager.outdoorswind_ext
+                    @entity.back_material = Plugin.model_manager.construction_manager.outdoorswind_int
+                  else
+                    @entity.material = Plugin.model_manager.construction_manager.outdoors_ext
+                    @entity.back_material = Plugin.model_manager.construction_manager.outdoors_int
+                  end
+               end
+        elsif (boundary.upcase == "GROUND")
+          @entity.material = Plugin.model_manager.construction_manager.ground_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.ground_int
+        elsif (boundary.upcase == "GROUNDFCFACTORMETHOD")
+          @entity.material = Plugin.model_manager.construction_manager.groundfcfactormethod_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundfcfactormethod_int
+        elsif (boundary.upcase == "GROUNDSLABPREPROCESSORAVERAGE")
+          @entity.material = Plugin.model_manager.construction_manager.groundslabpreprocessoraverage_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundslabpreprocessoraverage_int
+        elsif (boundary.upcase == "GROUNDSLABPREPROCESSORCORE")
+          @entity.material = Plugin.model_manager.construction_manager.groundslabpreprocessorcore_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundslabpreprocessorcore_int
+        elsif (boundary.upcase == "GROUNDSLABPREPROCESSORPERIMETER")
+          @entity.material = Plugin.model_manager.construction_manager.groundslabpreprocessorperimeter_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundslabpreprocessorperimeter_int
+        elsif (boundary.upcase == "GROUNDBASEMENTPREPROCESSORAVERAGEWALL")
+          @entity.material = Plugin.model_manager.construction_manager.groundbasementpreprocessoraveragewall_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundbasementpreprocessoraveragewall_int
+        elsif (boundary.upcase == "GROUNDBASEMENTPREPROCESSORAVERAGEFLOOR")
+          @entity.material = Plugin.model_manager.construction_manager.groundbasementpreprocessoraveragefloor_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundbasementpreprocessoraveragefloor_int
+        elsif (boundary.upcase == "GROUNDBASEMENTPREPROCESSORUPPERWALL")
+          @entity.material = Plugin.model_manager.construction_manager.groundbasementpreprocessorupperwall_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundbasementpreprocessorupperwall_int
+        elsif (boundary.upcase == "GROUNDBASEMENTPREPROCESSORLOWERWALL")
+          @entity.material = Plugin.model_manager.construction_manager.groundbasementpreprocessorlowerwall_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.groundbasementpreprocessorlowerwall_int
+        elsif (boundary.upcase == "OTHERSIDECOEFFICIENTS")
+          @entity.material = Plugin.model_manager.construction_manager.othersidecoefficients_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.othersidecoefficients_int
+        elsif (boundary.upcase == "OTHERSIDECONDITIONSMODEL")
+          @entity.material = Plugin.model_manager.construction_manager.othersideconditionsmodel_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.othersideconditionsmodel_int
+        end
+      end
+    end
 
     # Returns the polygon of the face in absolute coordinates.
     # This is overridden from the Surface class to subtract the vertices of any sub surfaces.

@@ -15,6 +15,17 @@ module OpenStudio
     attr_accessor :default_window_ext, :default_window_int, :default_door_ext, :default_door_int, :default_save_path
     attr_reader :attached_shading, :detached_building_shading, :detached_fixed_shading
     attr_reader :attached_shading_back, :detached_building_shading_back, :detached_fixed_shading_back
+      #added for boundary render mode
+    attr_reader :surface_ext, :adiabatic_ext, :zone_ext, :ground_ext, :groundfcfactormethod_ext, :groundslabpreprocessoraverage_ext
+    attr_reader :groundslabpreprocessorcore_ext, :groundslabpreprocessorperimeter_ext, :groundbasementpreprocessoraveragewall_ext
+    attr_reader :groundbasementpreprocessoraveragefloor_ext, :groundbasementpreprocessorupperwall_ext, :groundbasementpreprocessorlowerwall_ext
+    attr_reader :othersidecoefficients_ext, :othersideconditionsmodel_ext
+    attr_reader :surface_int, :adiabatic_int, :zone_int, :outdoors_int, :ground_int, :groundfcfactormethod_int, :groundslabpreprocessoraverage_int
+    attr_reader :groundslabpreprocessorcore_int, :groundslabpreprocessorperimeter_int, :groundbasementpreprocessoraveragewall_int
+    attr_reader :groundbasementpreprocessoraveragefloor_int, :groundbasementpreprocessorupperwall_int, :groundbasementpreprocessorlowerwall_int
+    attr_reader :othersidecoefficients_int, :othersideconditionsmodel_int
+    attr_reader :outdoors_ext, :outdoorssun_ext, :outdoorswind_ext, :outdoorssunwind_ext
+    attr_reader :outdoors_int, :outdoorssun_int, :outdoorswind_int, :outdoorssunwind_int
 
     def initialize
 
@@ -45,6 +56,63 @@ module OpenStudio
 
       @detached_fixed_shading = get_material("EnergyPlus_Detached_Fixed_Shading", Sketchup::Color.new(191, 191, 191, 1.0))  # old DXF: "Blue"
       @detached_fixed_shading_back = get_material("EnergyPlus_Detached_Fixed_Shading_back", Sketchup::Color.new(240, 240, 240, 1.0))  # old DXF: "Blue"
+
+      # start textures for boundary conditions
+      @surface_ext = get_material("EnergyPlus_Surface_Ext", Sketchup::Color.new(0, 153, 0, 1.0))
+      @surface_int = get_material("EnergyPlus_Surface_Int", Sketchup::Color.new(0, 153, 0, 1.0))
+
+      @adiabatic_ext = get_material("EnergyPlus_Adiabatic_Ext", Sketchup::Color.new(255, 101, 178, 1.0))
+      @adiabatic_int = get_material("EnergyPlus_Adiabatic_Int", Sketchup::Color.new(255, 101, 178, 1.0))
+
+      @zone_ext = get_material("EnergyPlus_Zone_Ext", Sketchup::Color.new(255, 255, 0, 1.0))
+      @zone_int = get_material("EnergyPlus_Zone_Int", Sketchup::Color.new(255, 255, 0, 1.0))
+
+      @outdoors_ext = get_material("EnergyPlus_Outdoors_Ext", Sketchup::Color.new(163, 204, 204, 1.0))
+      @outdoors_int = get_material("EnergyPlus_Outdoors_Int", Sketchup::Color.new(163, 204, 204, 1.0))
+
+      @outdoorssun_ext = get_material("EnergyPlus_Outdoorssun_Ext", Sketchup::Color.new(40, 204, 204, 1.0))
+      @outdoorssun_int = get_material("EnergyPlus_Outdoorssun_Int", Sketchup::Color.new(40, 204, 204, 1.0))
+
+      @outdoorswind_ext = get_material("EnergyPlus_Outdoorswind_Ext", Sketchup::Color.new(9, 159, 162, 1.0))
+      @outdoorswind_int = get_material("EnergyPlus_Outdoorswind_Int", Sketchup::Color.new(9, 159, 162, 1.0))
+
+      @outdoorssunwind_ext = get_material("EnergyPlus_Outdoorssunwind_Ext", Sketchup::Color.new(68, 119, 161, 1.0))
+      @outdoorssunwind_int = get_material("EnergyPlus_Outdoorssunwind_Int", Sketchup::Color.new(68, 119, 161, 1.0))
+
+      @ground_ext = get_material("EnergyPlus_Ground_Ext", Sketchup::Color.new(204, 183, 122, 1.0))
+      @ground_int = get_material("EnergyPlus_Ground_Int", Sketchup::Color.new(204, 183, 122, 1.0))
+
+      @groundfcfactormethod_ext = get_material("EnergyPlus_Groundfcfactormethod_Ext", Sketchup::Color.new(153, 122, 30, 1.0))
+      @groundfcfactormethod_int = get_material("EnergyPlus_Groundfcfactormethod_Int", Sketchup::Color.new(153, 122, 30, 1.0))
+
+      @groundslabpreprocessoraverage_ext = get_material("EnergyPlus_Groundslabpreprocessoraverage_Ext", Sketchup::Color.new(255, 191, 0, 1.0))
+      @groundslabpreprocessoraverage_int = get_material("EnergyPlus_Groundslabpreprocessoraverage_Int", Sketchup::Color.new(255, 191, 0, 1.0))
+
+      @groundslabpreprocessorcore_ext = get_material("EnergyPlus_Groundslabpreprocessorcore_Ext", Sketchup::Color.new(255, 153, 50, 1.0))
+      @groundslabpreprocessorcore_int = get_material("EnergyPlus_Groundslabpreprocessorcore_Int", Sketchup::Color.new(255, 153, 50, 1.0))
+
+      @groundslabpreprocessorperimeter_ext = get_material("EnergyPlus_Groundslabpreprocessorperimeter_Ext", Sketchup::Color.new(255, 178, 101, 1.0))
+      @groundslabpreprocessorperimeter_int = get_material("EnergyPlus_Groundslabpreprocessorperimeter_Int", Sketchup::Color.new(255, 178, 101, 1.0))
+
+      @groundbasementpreprocessoraveragewall_ext = get_material("EnergyPlus_Groundbasementpreprocessoraveragewall_Ext", Sketchup::Color.new(204, 51, 0, 1.0))
+      @groundbasementpreprocessoraveragewall_int = get_material("EnergyPlus_Groundbasementpreprocessoraveragewall_Int", Sketchup::Color.new(204, 51, 0, 1.0))
+
+      @groundbasementpreprocessoraveragefloor_ext = get_material("EnergyPlus_Groundbasementpreprocessoraveragefloor_Ext", Sketchup::Color.new(204, 81, 40, 1.0))
+      @groundbasementpreprocessoraveragefloor_int = get_material("EnergyPlus_Groundbasementpreprocessoraveragefloor_Int", Sketchup::Color.new(204, 81, 40, 1.0))
+
+      @groundbasementpreprocessorupperwall_ext = get_material("EnergyPlus_Groundbasementpreprocessorupperwall_Ext", Sketchup::Color.new(204, 112, 81, 1.0))
+      @groundbasementpreprocessorupperwall_int = get_material("EnergyPlus_Groundbasementpreprocessorupperwall_Int", Sketchup::Color.new(204, 112, 81, 1.0))
+
+      @groundbasementpreprocessorlowerwall_ext = get_material("EnergyPlus_Groundbasementpreprocessorlowerwall_Ext", Sketchup::Color.new(204, 173, 163, 1.0))
+      @groundbasementpreprocessorlowerwall_int = get_material("EnergyPlus_Groundbasementpreprocessorlowerwall_Int", Sketchup::Color.new(204, 173, 163, 1.0))
+
+      @othersidecoefficients_ext = get_material("EnergyPlus_Othersidecoefficients_Ext", Sketchup::Color.new(63, 63, 63, 1.0))
+      @othersidecoefficients_int = get_material("EnergyPlus_Othersidecoefficients_Int", Sketchup::Color.new(63, 63, 63, 1.0))
+
+      @othersideconditionsmodel_ext = get_material("EnergyPlus_Othersideconditionsmodel_Ext", Sketchup::Color.new(153, 0, 76, 1.0))
+      @othersideconditionsmodel_int = get_material("EnergyPlus_Othersideconditionsmodel_Int", Sketchup::Color.new(153, 0, 76, 1.0))
+
+      # end textures for boundary conditions
 
       reset_defaults
 
