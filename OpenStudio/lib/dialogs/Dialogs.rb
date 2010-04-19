@@ -43,7 +43,7 @@ module OpenStudio
     def on_load
       @container.execute_function("setBackgroundColor('" + default_dialog_color + "')")
       @container.execute_function("document.body.style.borderWidth = '0px'")  # Fix for SU7
-      @container.execute_function("document.body.style.overflow = 'hidden'")  # Fix for SU7
+      @container.execute_function("document.body.style.overflow = 'auto'")  # Fix for SU7
       update_units
       update
     end
