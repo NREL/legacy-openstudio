@@ -33,6 +33,8 @@ New Features for 1.0.5
 
 * Default construction manager.
 
+* Improved documentation and tutorials.
+
 
 
 Bug Fixes for 1.0.5
