@@ -317,7 +317,7 @@ module OpenStudio
 
     def paint_boundary
       if (valid_entity?)
-        if exterior?
+        if input_object.fields[5] == ""
           @entity.material = Plugin.model_manager.construction_manager.subext_ext
           @entity.back_material = Plugin.model_manager.construction_manager.subext_int
         else

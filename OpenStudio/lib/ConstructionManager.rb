@@ -117,11 +117,11 @@ module OpenStudio
 
       # start textures for boundary conditions - subsurfaces
 
-      @subext_ext = get_material("EnergyPlus_SubExt_Ext", Sketchup::Color.new(0, 0, 0, 1.0))
-      @subext_int = get_material("EnergyPlus_SubExt_Int", Sketchup::Color.new(0, 0, 0, 1.0))
+      @subext_ext = get_material("EnergyPlus_SubExt_Ext", Sketchup::Color.new(111, 157, 194, 1.0))
+      @subext_int = get_material("EnergyPlus_SubExt_Int", Sketchup::Color.new(111, 157, 194, 1.0))
 
-      @subint_ext = get_material("EnergyPlus_SubInt_Ext", Sketchup::Color.new(255, 255, 255, 1.0))
-      @subint_int = get_material("EnergyPlus_SubInt_Int", Sketchup::Color.new(150, 150, 150, 1.0))
+      @subint_ext = get_material("EnergyPlus_SubInt_Ext", Sketchup::Color.new(38, 216, 38, 1.0))
+      @subint_int = get_material("EnergyPlus_SubInt_Int", Sketchup::Color.new(38, 216, 38, 1.0))
 
       # end textures for boundary conditions - subsurfaces
 
