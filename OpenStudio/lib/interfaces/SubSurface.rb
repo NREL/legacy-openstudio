@@ -251,7 +251,7 @@ module OpenStudio
     end
     
     def exterior?
-      return (@input_object.fields[5].empty?)
+      return (@input_object.fields[5].nil? or @input_object.fields[5].empty?)
     end
 
     def default_construction    
@@ -317,7 +317,7 @@ module OpenStudio
 
     def paint_boundary
       if (valid_entity?)
-        if input_object.fields[5] == ""
+        if exterior?
           @entity.material = Plugin.model_manager.construction_manager.subext_ext
           @entity.back_material = Plugin.model_manager.construction_manager.subext_int
         else

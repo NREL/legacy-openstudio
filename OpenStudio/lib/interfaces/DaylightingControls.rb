@@ -163,13 +163,16 @@ module OpenStudio
       super
       
       if(valid_entity?)
-      
+              
         #puts "Before DaylightingControls.update_entity"
         #puts "input_object_sensor2 = #{input_object_sensor2}"
         #puts @input_object.to_idf
         
         # do not want to trigger update_input_object in here
         had_observers = remove_observers
+        
+        # need to make unique
+        @entity.make_unique
         
         # total_transformation = parent_transformation*entity_transformation*sensor_translation*sensor_rotation
         # sensor_position = parent_transformation*entity_transformation*sensor_translation*[0,0,0]

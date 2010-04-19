@@ -165,6 +165,7 @@ module OpenStudio
       return(super)
     end
 
+    
     # change the entity to reflect the InputObject
     def update_entity
       #puts "OutputIlluminanceMap.update_entity"
@@ -175,6 +176,9 @@ module OpenStudio
       
         # do not want to trigger update_input_object in here
         had_observers = remove_observers
+        
+        # need to make unique
+        @entity.make_unique
         
         set_entity_name
         
