@@ -251,7 +251,7 @@ module OpenStudio
     end
     
     def exterior?
-      return (@input_object.fields[5].nil? or @input_object.fields[5].empty?)
+      return (@input_object.fields[5].nil? or @input_object.fields[5].to_s.empty?)
     end
 
     def default_construction    
