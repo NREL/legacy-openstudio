@@ -314,12 +314,31 @@ module OpenStudio
         end
       end
     end
-    
+
+    def paint_boundary
+      if (valid_entity?)
+        if @input_object.fields[5] = nil
+          @entity.material = Plugin.model_manager.construction_manager.subext_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.subext_int
+        else
+          @entity.material = Plugin.model_manager.construction_manager.subint_ext
+          @entity.back_material = Plugin.model_manager.construction_manager.subint_int
+        end
+      end
+    end
     
     # match this sub surface to another sub surface
     def set_other_side_sub_surface(other)
       @input_object.fields[5] = other.name
       @input_object.fields[3] = default_construction # after making interior
+      #if render set to by boundary then change materials to surface
+          if (Plugin.model_manager.rendering_mode == 2)
+              #apply material to front and back face
+              @entity.material = Plugin.model_manager.construction_manager.subint_ext
+              @entity.back_material = Plugin.model_manager.construction_manager.subint_int
+          else
+          end
+
     end
     
     # unmatch this sub surface with any other sub surface

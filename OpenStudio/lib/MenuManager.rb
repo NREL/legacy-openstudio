@@ -328,13 +328,13 @@ module OpenStudio
       }
 
       @boundary_mode_cmd = UI::Command.new("By Boundary") { Plugin.model_manager.set_mode(2) }
-      #@boundary_mode_cmd.small_icon = Plugin.dir + "/lib/resources/icons/RenderByBoundary-16x16.png"
-      #@boundary_mode_cmd.large_icon = Plugin.dir + "/lib/resources/icons/RenderByBoundary-24x24.png"
+      @boundary_mode_cmd.small_icon = Plugin.dir + "/lib/resources/icons/RenderByBoundary-16x16.png"
+      @boundary_mode_cmd.large_icon = Plugin.dir + "/lib/resources/icons/RenderByBoundary-24x24.png"
       @boundary_mode_cmd.tooltip = "Render By Boundary Condition"
       @boundary_mode_cmd.status_bar_text = "Render EnergyPlus objects by boundary condition"
       @boundary_mode_cmd.set_validation_proc {
         if (Plugin.model_manager)
-          if (Plugin.model_manager.rendering_mode == 1)
+          if (Plugin.model_manager.rendering_mode == 2)
             next(MF_CHECKED)
           else
             next(MF_UNCHECKED)
@@ -520,7 +520,7 @@ module OpenStudio
       @rendering_menu.add_item(@surf_mode_cmd)
       @rendering_menu.add_item(@data_mode_cmd)
       @rendering_menu.add_item(@boundary_mode_cmd)
-      @rendering_menu.add_item(@set_mode_only_cmd)
+      #@rendering_menu.add_item(@set_mode_only_cmd)
       @rendering_menu.add_item(@display_color_by_layer_cmd)
       @rendering_menu.add_item(@render_mode_5_cmd)
       @rendering_menu.add_separator
@@ -586,6 +586,7 @@ module OpenStudio
       @rendering_toolbar.add_item(@xray_cmd)
       @rendering_toolbar.add_separator
       @rendering_toolbar.add_item(@surf_mode_cmd)
+      @rendering_toolbar.add_item(@boundary_mode_cmd)
       @rendering_toolbar.add_item(@data_mode_cmd)
       @rendering_toolbar.add_separator
       @rendering_toolbar.add_item(@data_settings_cmd)

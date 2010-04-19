@@ -526,7 +526,8 @@ module OpenStudio
       for child in @model_interface.recurse_children
         next if (not child.respond_to?(:outside_variable_key))
 
-        if (@rendering_mode == 0)
+        # added the or statement for render by boundary
+        if (@rendering_mode == 0) or (@rendering_mode == 2)
           child.paint_entity  # Non-surface drawing interfaces do not implement 'paint_entity'.
         else
           # get data details

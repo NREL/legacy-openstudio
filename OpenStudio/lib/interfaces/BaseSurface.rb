@@ -397,6 +397,14 @@ module OpenStudio
       @input_object.fields[7] = "NoSun"
       @input_object.fields[8] = "NoWind"
       @input_object.fields[3] = default_construction # do after making interior
+      #if render set to by boundary then change materials to surface
+          if (Plugin.model_manager.rendering_mode == 2)
+              #apply material to front and back face
+              @entity.material = Plugin.model_manager.construction_manager.surface_ext
+              @entity.back_material = Plugin.model_manager.construction_manager.surface_int
+          else
+          end
+      
     end
     
     # set this base surface to reference no other base surface

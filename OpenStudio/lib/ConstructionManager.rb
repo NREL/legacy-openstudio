@@ -26,6 +26,7 @@ module OpenStudio
     attr_reader :othersidecoefficients_int, :othersideconditionsmodel_int
     attr_reader :outdoors_ext, :outdoorssun_ext, :outdoorswind_ext, :outdoorssunwind_ext
     attr_reader :outdoors_int, :outdoorssun_int, :outdoorswind_int, :outdoorssunwind_int
+    attr_reader :subext_ext, :subext_int, :subint_ext, :subint_int
 
     def initialize
 
@@ -64,8 +65,8 @@ module OpenStudio
       @adiabatic_ext = get_material("EnergyPlus_Adiabatic_Ext", Sketchup::Color.new(255, 101, 178, 1.0))
       @adiabatic_int = get_material("EnergyPlus_Adiabatic_Int", Sketchup::Color.new(255, 101, 178, 1.0))
 
-      @zone_ext = get_material("EnergyPlus_Zone_Ext", Sketchup::Color.new(255, 255, 0, 1.0))
-      @zone_int = get_material("EnergyPlus_Zone_Int", Sketchup::Color.new(255, 255, 0, 1.0))
+      @zone_ext = get_material("EnergyPlus_Zone_Ext", Sketchup::Color.new(255, 0, 0, 1.0))
+      @zone_int = get_material("EnergyPlus_Zone_Int", Sketchup::Color.new(255, 0, 0, 1.0))
 
       @outdoors_ext = get_material("EnergyPlus_Outdoors_Ext", Sketchup::Color.new(163, 204, 204, 1.0))
       @outdoors_int = get_material("EnergyPlus_Outdoors_Int", Sketchup::Color.new(163, 204, 204, 1.0))
@@ -88,8 +89,8 @@ module OpenStudio
       @groundslabpreprocessoraverage_ext = get_material("EnergyPlus_Groundslabpreprocessoraverage_Ext", Sketchup::Color.new(255, 191, 0, 1.0))
       @groundslabpreprocessoraverage_int = get_material("EnergyPlus_Groundslabpreprocessoraverage_Int", Sketchup::Color.new(255, 191, 0, 1.0))
 
-      @groundslabpreprocessorcore_ext = get_material("EnergyPlus_Groundslabpreprocessorcore_Ext", Sketchup::Color.new(255, 153, 50, 1.0))
-      @groundslabpreprocessorcore_int = get_material("EnergyPlus_Groundslabpreprocessorcore_Int", Sketchup::Color.new(255, 153, 50, 1.0))
+      @groundslabpreprocessorcore_ext = get_material("EnergyPlus_Groundslabpreprocessorcore_Ext", Sketchup::Color.new(255, 182, 50, 1.0))
+      @groundslabpreprocessorcore_int = get_material("EnergyPlus_Groundslabpreprocessorcore_Int", Sketchup::Color.new(255, 182, 50, 1.0))
 
       @groundslabpreprocessorperimeter_ext = get_material("EnergyPlus_Groundslabpreprocessorperimeter_Ext", Sketchup::Color.new(255, 178, 101, 1.0))
       @groundslabpreprocessorperimeter_int = get_material("EnergyPlus_Groundslabpreprocessorperimeter_Int", Sketchup::Color.new(255, 178, 101, 1.0))
@@ -113,6 +114,17 @@ module OpenStudio
       @othersideconditionsmodel_int = get_material("EnergyPlus_Othersideconditionsmodel_Int", Sketchup::Color.new(153, 0, 76, 1.0))
 
       # end textures for boundary conditions
+
+      # start textures for boundary conditions - subsurfaces
+
+      @subext_ext = get_material("EnergyPlus_SubExt_Ext", Sketchup::Color.new(0, 0, 0, 1.0))
+      @subext_int = get_material("EnergyPlus_SubExt_Int", Sketchup::Color.new(0, 0, 0, 1.0))
+
+      @subint_ext = get_material("EnergyPlus_SubInt_Ext", Sketchup::Color.new(255, 255, 255, 1.0))
+      @subint_int = get_material("EnergyPlus_SubInt_Int", Sketchup::Color.new(150, 150, 150, 1.0))
+
+      # end textures for boundary conditions - subsurfaces
+
 
       reset_defaults
 
