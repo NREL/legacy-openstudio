@@ -25,13 +25,13 @@ over[2] = "images/ln_release_notes_on.gif";
 
 
 function msover(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = over[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
 }
 
 function msout(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = normal[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
 }
 // -->
 </script>
@@ -59,25 +59,25 @@ function msout(num) {
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<tr>
-		<td colspan="3" width="100%">
+  <tr>
+    <td colspan="3" width="100%">
 
-			<table cellspacing="0" border="0" width="100%" cellpadding="0">
-				<tr>
-					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
-					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
-				</tr>
-			</table>
+      <table cellspacing="0" border="0" width="100%" cellpadding="0">
+        <tr>
+          <td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+          <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+        </tr>
+      </table>
 
-		</td>
+    </td>
 
-	</tr>
+  </tr>
 <!-- end of third column -->
 
 <!-- start of left navigation, first column -->
 
-	<tr valign="top">
-		<td valign="top" width="176"><!-- left navigation include -->
+  <tr valign="top">
+    <td valign="top" width="176"><!-- left navigation include -->
 <!--stopindex-->
 <img src="images/spacer.gif" alt="" width="1" height="3"><br>
 
@@ -89,14 +89,14 @@ function msout(num) {
 <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
 <!--startindex-->
-	</td>
-	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+  </td>
+  <td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
 
 
 <!-- main content -->
-		<td valign="top" width="100%">
-			<table cellspacing="0" border="0" cellpadding="12" width="100%">
-				<tr>
+    <td valign="top" width="100%">
+      <table cellspacing="0" border="0" cellpadding="12" width="100%">
+        <tr>
           <td valign="top">
 
 
@@ -108,28 +108,28 @@ function msout(num) {
  <ul>
     <li>Every face  in SketchUp has a front and a back. Architectural models may not care which way  these faces point, but for energy modeling the faces must be oriented  correctly. A face's normal is a line perpendicular to the face going out  through the front of the face. </li>
     <li>In  OpenStudio the exterior of a surface is the front of the face and the interior  of the surface is the back of the face. </li>
-    <li>OpenStudio uses  a unique front and back face color for surfaces, but it on a complex model (especially  for windows), this may not be obvious when something is reversed. You can turn the  transparency off, but you can also set up a style that is much easier to read. </li>
-    <li>The typical OpenStudio coloring follows:</li>
+    <li>OpenStudio uses  a unique front and back face color for surfaces, but on a complex model it may not be obvious when something is reversed. You can turn the transparency off, but you can also set up a style that is much easier to read. </li>
+    <li>A model using typical OpenStudio coloring is shown below.</li>
 
    <br><img src="dialogs/tut_normal_01.png" alt="" width="500"></li><br>
    <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
-   <li>Next is the same model with a custom style. For this style, under &quot;face settings&quot; the rendering option is set to &quot;display shaded using all same&quot;. By setting the front color to white and the back color to bright red reversed faces easily found. You can quickly switch to this view by choosing &quot;by surface normal&quot; from the OpenStudio/rendering menu. You can also set a ketyboard shortcut for this.</li>
+   <li>Next is the same model with a custom style to show face normals. For this style, under 'face settings' the rendering option is set to 'display shaded using all same'. By setting the front color to white and the back color to bright red reversed faces easily found. You can quickly switch to this view by choosing 'Plugins->OpenStudio->Rendering Options->By Surface Normal' from the OpenStudio menu. You can also set a keyboard shortcut for this.</li>
    <br><img src="dialogs/tut_normal_02.png" alt="" width="500"></li><br>
    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
  </ul>
 </div>
 
-				  </td>
-				</tr>
-			</table>
+          </td>
+        </tr>
+      </table>
 <P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
-		</td>
+    </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
-				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+        <div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
 
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
 
@@ -137,7 +137,7 @@ function msout(num) {
 
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
-	</tr>
+  </tr>
 </table>
 
 
@@ -149,13 +149,13 @@ function msout(num) {
 <br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
-	<tr>
-		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+  <tr>
+    <td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 
 <a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
-		</tr>
+    </tr>
 </table>
 
 

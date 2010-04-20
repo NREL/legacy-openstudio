@@ -25,13 +25,13 @@ over[2] = "images/ln_release_notes_on.gif";
 
 
 function msover(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = over[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
 }
 
 function msout(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = normal[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
 }
 // -->
 </script>
@@ -59,25 +59,25 @@ function msout(num) {
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<tr>
-		<td colspan="3" width="100%">
+  <tr>
+    <td colspan="3" width="100%">
 
-			<table cellspacing="0" border="0" width="100%" cellpadding="0">
-				<tr>
-					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
-					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
-				</tr>
-			</table>
+      <table cellspacing="0" border="0" width="100%" cellpadding="0">
+        <tr>
+          <td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+          <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+        </tr>
+      </table>
 
-		</td>
+    </td>
 
-	</tr>
+  </tr>
 <!-- end of third column -->
 
 <!-- start of left navigation, first column -->
 
-	<tr valign="top">
-		<td valign="top" width="176"><!-- left navigation include -->
+  <tr valign="top">
+    <td valign="top" width="176"><!-- left navigation include -->
 <!--stopindex-->
 <img src="images/spacer.gif" alt="" width="1" height="3"><br>
 
@@ -89,14 +89,14 @@ function msout(num) {
 <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
 <!--startindex-->
-	</td>
-	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+  </td>
+  <td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
 
 
 <!-- main content -->
-		<td valign="top" width="100%">
-			<table cellspacing="0" border="0" cellpadding="12" width="100%">
-				<tr>
+    <td valign="top" width="100%">
+      <table cellspacing="0" border="0" cellpadding="12" width="100%">
+        <tr>
           <td valign="top">
 
 
@@ -106,9 +106,8 @@ function msout(num) {
 
 <div style="margin-left:10px">
 <ul>
-    <li>The  typical rendering mode (shown below) in OpenStudio renders surfaces based on the class of the surface. For example, doors have a color, roofs, etc.</li>
-    <li>Render by Outside Boundary Condition instead renders surfaces based on their boundary condition.</li>
-    <li>If a wall and a floor have the same boundary condition, they would be rendered with the same color.<br>
+    <li>The default rendering mode (shown below) for OpenStudio renders surfaces based on class. This allows doors to be quickly distinguished from roofs or floors by color.</li>
+    <li>Render by Outside Boundary Condition instead renders surfaces based on their boundary condition.  In this mode, a wall and a roof would be rendered with the same color if they have the same boundary condition (e.g. 'Outdoors').<br>
       <br>
       <img src="dialogs/tut_RenderByBoundary_01.png" width="500" alt=""><br>
     </li>
@@ -120,8 +119,8 @@ function msout(num) {
 
 <div style="margin-left:10px">
 <ul>
-    <li>Here is the same model as shown above, but this time with the render mode set to &quot;by boundary&quot;. The tan is &quot;ground&quot; blue is &quot;outside&quot;, and the green represents &quot;surface&quot; boundary conditions. this is where surfaces of one zone are matched with surfaces of another zone.</li>
-    <li>If you look at the exterior of a model, you should see a lot of blue. If you want to see what is going on inside, the section cut tool works great. You can also turn on x-ray mode, but it can be tough to see what you are looking at.<br>
+    <li>Here is the same model as shown above, but this time with the render mode set to show boundary conditions. The tan is 'Ground', blue is 'Outdoors', and the green represents the 'Surface' boundary condition which allows heat transfer through inter-zone surfaces.</li>
+    <li>If you look at the exterior of a model, you should normally see a lot of blue with tan for surfaces on grade. If you want to see what is going on inside, the section cut tool works great. You can also turn on x-ray mode, but it may be tough to see what you are looking at.<br>
       <br>
       <img src="dialogs/tut_RenderByBoundary_02.png" width="500" alt=""><br>
     </li>
@@ -153,17 +152,17 @@ function msout(num) {
 
 
 
-				  </td>
-				</tr>
-			</table>
+          </td>
+        </tr>
+      </table>
 <P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
-		</td>
+    </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
-				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+        <div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
 
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
 
@@ -171,7 +170,7 @@ function msout(num) {
 
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
-	</tr>
+  </tr>
 </table>
 
 
@@ -183,13 +182,13 @@ function msout(num) {
 <br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
-	<tr>
-		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+  <tr>
+    <td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 
 <a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
-		</tr>
+    </tr>
 </table>
 
 

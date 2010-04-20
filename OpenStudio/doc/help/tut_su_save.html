@@ -25,13 +25,13 @@ over[2] = "images/ln_release_notes_on.gif";
 
 
 function msover(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = over[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
 }
 
 function msout(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = normal[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
 }
 // -->
 </script>
@@ -59,25 +59,25 @@ function msout(num) {
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<tr>
-		<td colspan="3" width="100%">
+  <tr>
+    <td colspan="3" width="100%">
 
-			<table cellspacing="0" border="0" width="100%" cellpadding="0">
-				<tr>
-					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
-					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
-				</tr>
-			</table>
+      <table cellspacing="0" border="0" width="100%" cellpadding="0">
+        <tr>
+          <td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+          <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+        </tr>
+      </table>
 
-		</td>
+    </td>
 
-	</tr>
+  </tr>
 <!-- end of third column -->
 
 <!-- start of left navigation, first column -->
 
-	<tr valign="top">
-		<td valign="top" width="176"><!-- left navigation include -->
+  <tr valign="top">
+    <td valign="top" width="176"><!-- left navigation include -->
 <!--stopindex-->
 <img src="images/spacer.gif" alt="" width="1" height="3"><br>
 
@@ -89,14 +89,14 @@ function msout(num) {
 <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
 <!--startindex-->
-	</td>
-	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+  </td>
+  <td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
 
 
 <!-- main content -->
-		<td valign="top" width="100%">
-			<table cellspacing="0" border="0" cellpadding="12" width="100%">
-				<tr>
+    <td valign="top" width="100%">
+      <table cellspacing="0" border="0" cellpadding="12" width="100%">
+        <tr>
           <td valign="top">
 
 
@@ -107,8 +107,7 @@ function msout(num) {
 <div style="margin-left:10px">
 <ul>
     <li>As mentioned elsewhere in the documentation, you don't want to save OpenStudio zones as part of a SketchUp file. But what do you do when you want to use SketchUp content alongside with OpenStudio content for more than your current session? Follow the workflow detailed below.</li>
-    <li>Below you see some non-OpenStudio SketchUp content. This example has a structural grid, and a diagram thermal zones. But it could contain  trees, a site plan, or anything else.</li>
-    <li>The SketchUp file also contains scenes and layers. </li>
+    <li>Below you see some non-OpenStudio SketchUp content. This example has a floor print defining thermal zones, scenes, and layers. But it could contain trees, a site plan, or anything else.</li>
 <br>
   <img src="dialogs/tut_su_save_01.png" width="500" alt=""><br></li>
   <P2i>(Credit: David Goldwasser/NREL)</P2i>
@@ -118,9 +117,8 @@ function msout(num) {
 
 <div style="margin-left:10px">
 <ul>
-    <li>Next  OpenStudio tools were used to create EnergyPlus zones.</li>
-    <li>You can continue to draw SketchUp objects side by side with Open Studio objects, but neither type of object should be nested inside of the other.</li>
-    <li>When you are ready to quit SketchUp, you should follow these steps.</li>
+    <li>You can continue to draw SketchUp objects side by side with OpenStudio objects, but neither type of object should be nested inside of the other.</li>
+    <li>When you are ready to quit SketchUp, you should follow these steps.  Ensure that 'Always erase SketchUp entities when closing an input file' is unchecked under 'Plugins->OpenStudio->Preferences'.</li>
     <li>First, save your IDF file.</li>
 <br>
   <img src="dialogs/tut_su_save_02.png" width="500" alt=""><br></li>
@@ -130,8 +128,8 @@ function msout(num) {
 
 <div style="margin-left:10px">
 <ul>
-    <li>Next close your IDF file under &quot;plugins/OpenStudio/close&quot;.</li>
-    <li>After closing the IDF file all of the Openstudio content will be erased from the SketchUp file.</li>
+    <li>Next close your IDF file under 'Plugins->OpenStudio->Close'.</li>
+    <li>After closing the IDF file all of the Openstudio content will be removed from the SketchUp file.</li>
 <br>
   <img src="dialogs/tut_su_save_03.png" width="500" alt=""><br></li>
   <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
@@ -150,9 +148,9 @@ function msout(num) {
 
 <div style="margin-left:10px">
 <ul>
-    <li>Below is what you see after you quit SketchUp, and open your SketchUp file. Looks like like it did before. You can work on it like this, if you are not using OpenStudio features.</li>
-    <li>When you are ready to use OpenStudio, choose &quot;open&quot; and open your IDF file.</li>
-    <li>Not only will the geometry be in sync, but your scenes will be kept, as will your layers. If however you had previously put some OpenStudio content onto specific layers, it wont' re-import that way. You will have to place it there again.</li>
+    <li>Below is what you see after you quit SketchUp and then re-open your SketchUp file.</li>
+    <li>When you are ready to use OpenStudio then re-open your IDF file.</li>
+    <li>Not only will the geometry be in sync, but your scenes and layers will be kept. If you had previously put some OpenStudio content onto specific layers, they won't re-import that way. You will have to place it there again.</li>
 <br>
   <img src="dialogs/tut_su_save_05.png" width="500" alt=""><br></li>
   <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
@@ -160,7 +158,7 @@ function msout(num) {
 <ul>
     <li>Work with contextual or architectural content alongside with the energy model.</li>
     <li>Keep base plans or elevations in the file. As the design changes, you can update the architectural content and make adjustments as necessary in the energy model. Base plans can have links to external content.</li>
-    <li>You can attach labels to zones containing information for your reference, or to communicate with others who open your SketchUp file. When you re-import your IDF file the labels will still be in the correct position, but wont be glued to the object any more, so if the object moves, the label wont' automatically move with it.</li>
+    <li>You can attach labels to zones containing information for your reference, or to communicate with others who open your SketchUp file. When you re-import your IDF file the labels will still be in the correct position.  However, it will not be glued to the object any more so if the object moves the label will not automatically move with it.</li>
 </ul><br><br>
   <img src="dialogs/tut_su_save_06.png" width="500" alt=""><br></li>
   <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
@@ -169,17 +167,17 @@ function msout(num) {
 
 
 
-					</td>
-				</tr>
-			</table>
+          </td>
+        </tr>
+      </table>
 <P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
-		</td>
+    </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
-				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+        <div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
 
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
 
@@ -187,7 +185,7 @@ function msout(num) {
 
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
-	</tr>
+  </tr>
 </table>
 
 
@@ -199,13 +197,13 @@ function msout(num) {
 <br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
-	<tr>
-		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+  <tr>
+    <td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 
 <a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
-		</tr>
+    </tr>
 </table>
 
 

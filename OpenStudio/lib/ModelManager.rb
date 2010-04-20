@@ -284,7 +284,7 @@ module OpenStudio
       @units_hash['m'] = ["(m)", "(ft)", 1.0]
       @units_hash['m2'] = ["(m" + 178.chr + ")", "(ft" + 178.chr + ")", 1.0]
       @units_hash['m3'] = ["(m" + 179.chr + ")", "(ft" + 179.chr + ")", 1.0]
-      @units_hash['People/100m2'] = ["(Number of People/100 m" + 178.chr + ")", "(Number of People/100 ft" + 178.chr + ")", 1.0]
+      @units_hash['People/100m2'] = ["(Number of People/100 m" + 178.chr + ")", "(Number of People/1000 ft" + 178.chr + ")", 1.0]
       @units_hash['W/m2'] = ["(W/m" + 178.chr + ")", "(W/ft" + 178.chr + ")", 1.0]
       @units_hash['W/linear m'] = ["(W/linear m)", "(W/linear ft)", 1.0]
       @units_hash['m2/TDD'] = ["(m" + 178.chr + "/TDD)", "(f" + 178.chr + "/TDD)", 1.0]
