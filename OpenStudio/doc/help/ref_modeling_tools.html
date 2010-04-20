@@ -151,7 +151,7 @@ function msout(num) {
 <H3><a href="ref_modeling_tools.html#new_daylighting"><img src="../../lib/resources/icons/NewDaylighting-16.png" alt=""></a> Create a new EnergyPlus Daylighting Controls Object
   <P2i> (New)</P2i></H3>
 <div style="margin-left:20px">
-    <P>This tool creates a new EnergyPlus Daylighting  Control. This consists of a pair of sensors, which by default will be placed at  30 inches above the surface you click on. You can move both sensors via  SketchUp tools or the Object Info Window. You can also turn off the second  sensor if you want only one, and many attributes can be set that feed  information to EnergyPlus. The Glare Calculation Azimuth Angle of View  Direction also changes the appearance of the object in OpenStudio. You can have  only one Daylighting Control in each zone. To remove data from the sensors in  EnergyPlus, you also need to include lights, which you can add via the Zone  Loads Tool. The following screenshot shows what the Daylighting Controls look  like; an image of the Object Information Window shows settings for the  Daylighting Controls. The data point for the sensor is at the cross in the  middle of the component.</P>
+    <P>This tool creates a new EnergyPlus Daylighting  Control. This consists of a pair of sensors, which by default will be placed at  30 inches above the surface you click on. You can move both sensors via  SketchUp tools or the Object Info Window. You can also turn off the second  sensor if you want only one, and many attributes can be set that feed  information to EnergyPlus. The Glare Calculation Azimuth Angle of View  Direction also changes the appearance of the object in OpenStudio. You can have  only one Daylighting Control in each zone. To report data from the sensors in  EnergyPlus, you also need to include lights, which you can add via the Zone  Loads Tool. The following screenshot shows what the Daylighting Controls look  like; an image of the Object Information Window shows settings for the  Daylighting Controls. The data point for the sensor is at the cross in the  middle of the component. The arrow points in the direction of the glare calculation.</P>
 <br><img src="dialogs/rg_daylightingcontrols.png" alt="" width="500"><br>
      <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 
@@ -183,7 +183,7 @@ function msout(num) {
 <H3><a href="ref_modeling_tools.html#zone_loads"><img src="../../lib/resources/icons/ZoneLoads-16.png" alt=""></a> Add Zone Loads to an EnergyPlus Zone
   <P2i> (New)</P2i></H3>
 <div style="margin-left:20px">
-    <P>You can use the Zone Loads tool to add loads  from people, lights, and equipment. You can also address air infiltration and  HVAC thermostat set points and schedules. You can apply these settings across  the entire model, to a specific selection of zones, or to a single zone. The  following dialog box shows the data it takes. See <a href="tut_loads.html">Adding Zone Loads to Your Model</a> for a more extensive tutorial.</P>
+    <P>You can use the Zone Loads tool to add loads  from people, lights, and equipment. You can also address ventilation, air infiltration and  HVAC thermostat set points and schedules. You can apply these settings across  the entire model, to a specific selection of zones, or to a single zone. The  following dialog box shows the data it takes. See <a href="tut_loads.html">Adding Zone Loads to Your Model</a> for a more extensive tutorial.</P>
         <img src="dialogs/tut_zone_loads_01.png" alt=""><br>
      <P2i>(Credit: David Goldwasser/NREL)</P2i>
 </div>
@@ -193,7 +193,7 @@ function msout(num) {
 <H3><a href="ref_modeling_tools.html#surface_matching"><img src="../../lib/resources/icons/SurfaceMatchingSelected-16.png" alt=""></a> Match Surfaces between EnergyPlus Zones
   <P2i> (New) </P2i></H3>
 <div style="margin-left:20px">
-    <P>This tool does not draw new geometry, but addresses  data connections that have to be made between coplanar surfaces on adjacent  zones. Once you have drawn the surfaces, you can use this tool to handle the  data connections. Before searching on a large IDF, you can close the Outliner  and Object Information windows to expedite the search.</P>
+    <P>This tool does not draw new geometry, but addresses  data connections that have to be made between coplanar surfaces in adjacent  zones. Once you have drawn the surfaces, you can use this tool to handle the  data connections. Before searching on a large IDF, you can close the Outliner  and Object Information windows to expedite the search.</P>
 <img src="dialogs/tut_surface_matching_04.png" alt=""><br>
          <P2i>(Credit: David Goldwasser/NREL)</P2i>
    

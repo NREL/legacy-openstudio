@@ -108,7 +108,7 @@ function msout(num) {
 <ul>
 <li><a href="http://sketchup.google.com/" target="_new">Google SketchUp 7.x</a> Pro or free versions</li>
 </ul>
-<P2i>(note: 6.x no longer supported)</P2i><br>
+<!--<P2i>(note: 6.x no longer supported)</P2i><br>-->
 <H3>Supported Versions of EnergyPlus</H3>
 <ul>
     <li><a href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus 5.x</a></li>
@@ -133,6 +133,7 @@ function msout(num) {
 <li><a href="ref_modeling_tools.html#zone_loads"><img src="../../lib/resources/icons/ZoneLoads-16.png" alt=""></a> <a href="file:///C:/Program Files/Google/Google SketchUp 7/Plugins/OpenStudio/doc/new/tut_rotating.html">Quickly add internal gains and HVACTemplate:Zone:IdealLoadsAirSystem to zones</a></li>
 <li><a href="ref_modeling_tools.html#surface_matching"><img src="../../lib/resources/icons/SurfaceMatchingSelected-16.png" alt=""></a> <a href="ref_modeling_tools.html#surface_matching">Automatic surface matching and unmatching tool</a></li>
 <li><a href="ref_view_data.html#default_const_prefs"><img src="../../lib/resources/icons/SetDefaultConstPrefs-16.png" alt=""></a> <a href="ref_view_data.html#default_const_prefs">Default construction manager</a></li>
+<P2><a href="ref_rendering.html#render_by_boundary"><img src="../../lib/resources/icons/RenderByBoundary-16x16.png"> Render by Outside Boundary Condition</a></P2> 
 <li>Improved documentation and tutorials</li>
 </ul>
 
@@ -152,7 +153,8 @@ function msout(num) {
    <li>When       working with OpenStudio, save only your IDF file. Do not save the SketchUp       SKP file. Opening SKP files that have an associated IDF file can result in       a set of duplicates surfaces that are slightly offset from the original       surfaces and cause other problems. </li>
    <li>Toolbar       Tool tips may not work correctly on a Mac if you have made your Toolbars       horizontal. The tips also do not show on a Mac in the status bar under any       conditions. </li>
    <li>If       you create a group out of multiple EnergyPlus Zones, and then hide a zone,       you will receive an error message.</li>
-   <li>Certain       dialogs (Rendering Settings and Last Report) do not work on a Mac because       the JavaScript engine in Safari. </li>
+   <li>Rendering Settings Dialog does not work on a Mac because       the JavaScript engine in Safari</li>
+   <li>Can't move zone origin through OpenStudio.</li>
 </ul>
 
 
@@ -160,7 +162,7 @@ function msout(num) {
 <H2>Troubleshooting</H2>
 <H3>OpenStudio</H3>
 <ul>
-       <li>We       recognize that OpenStudio still contains bugs. SketchUp is a flexible and       dynamic program that allows the user to draw all kinds of geometry in many       ways, and we have not been able to test all of them. We welcome your       assistance in identifying bugs so we can fix them in the next version. We welcome       feedback about how we might improve the plugin. We would also like to learn       about feature requests, compliments, criticisms, etc. </li>
+       <li>We       recognize that OpenStudio is not perfect. SketchUp is a flexible and       dynamic program that allows the user to draw all kinds of geometry in many       ways, and we have not been able to test all of them. We welcome your       assistance in identifying bugs so we can fix them in the next version. We welcome       feedback about how we might improve the plugin. We would also like to learn       about feature requests, compliments, criticisms, etc. </li>
        <li>For all bug reports, feedback, and questions  about OpenStudio, visit the collaborative project Web site at <a href="http://openstudio.sourceforge.net/" target="_new">SourceForge.net.</a></li>
           <li>The       project Web site enables you to join the user support mailing list, browse       the list of known issues in the bug tracker, or post a new bug report. </li>
           <li>If       the plugin detects an error, an Error Alert window appears. Your first       step should be to visit the project Web site to check the bug tracker and       user support mailing list to see if someone else has encountered the same       problem. If the issue has already been reported, a workaround has likely       been posted. </li>
