@@ -5,12 +5,6 @@
 	<string> </string>
 	<integer>0</integer>
 	<string>selectSelectionTool:</string>
-	<string>g</string>
-	<integer>0</integer>
-	<string>makeComponent:</string>
-	<string>f</string>
-	<integer>0</integer>
-	<string>selectOffsetTool:</string>
 	<string>e</string>
 	<integer>0</integer>
 	<string>selectZoomTool:</string>
@@ -47,30 +41,6 @@
 	<string>c</string>
 	<integer>0</integer>
 	<string>selectMeasureTool:</string>
-	<string>f</string>
-	<integer>0</integer>
-	<string>selectEraseTool:</string>
-	<string>g</string>
-	<integer>0</integer>
-	<string>selectSectionPlaneTool:</string>
-	<string>t</string>
-	<integer>0</integer>
-	<string>sectionToggleDisplay:</string>
-	<string>y</string>
-	<integer>0</integer>
-	<string>sectionToggleActivation:</string>
-	<string>u</string>
-	<integer>0</integer>
-	<string>toggleHideRestOfModel:</string>
-	<string>i</string>
-	<integer>0</integer>
-	<string>viewShowHidden:</string>
-	<string>o</string>
-	<integer>0</integer>
-	<string>toggleGlobalTransparency:</string>
-	<string>p</string>
-	<integer>0</integer>
-	<string>toggleShadows:</string>
 	<string>h</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Info Tool</string>
@@ -89,32 +59,53 @@
 	<string>'</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Default Constructions</string>
-	<string>.</string>
+	<string>]</string>
 	<integer>0</integer>
-	<string>/Plugins/OpenStudio/Zone Loads</string>
+	<string>/Plugins/OpenStudio/Rendering/By Layer</string>
+	<string>g</string>
+	<integer>0</integer>
+	<string>selectSectionPlaneTool:</string>
+	<string>t</string>
+	<integer>0</integer>
+	<string>sectionToggleDisplay:</string>
+	<string>y</string>
+	<integer>0</integer>
+	<string>sectionToggleActivation:</string>
+	<string>i</string>
+	<integer>0</integer>
+	<string>viewShowHidden:</string>
+	<string>o</string>
+	<integer>0</integer>
+	<string>toggleGlobalTransparency:</string>
+	<string>p</string>
+	<integer>0</integer>
+	<string>toggleShadows:</string>
+	<string>]</string>
+	<integer>524288</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Surface Normal</string>
+	<string>\</string>
+	<integer>0</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Surface Class</string>
+	<string>\</string>
+	<integer>524288</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Boundary</string>
+	<string>f</string>
+	<integer>0</integer>
+	<string>selectEraseTool:</string>
+	<string>b</string>
+	<integer>0</integer>
+	<string>/Plugins/OpenStudio/New Shading Group Tool</string>
 	<string>n</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Daylighting Control Tool</string>
 	<string>m</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Illuminance Map Tool</string>
-	<string>b</string>
+	<string>.</string>
 	<integer>0</integer>
-	<string>/Plugins/OpenStudio/New Shading Group Tool</string>
+	<string>/Plugins/OpenStudio/Zone Loads</string>
 	<string>v</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Zone Tool</string>
-	<string>]</string>
-	<integer>524288</integer>
-	<string>/Plugins/OpenStudio/Rendering/By Surface Normal</string>
-	<string>]</string>
-	<integer>0</integer>
-	<string>/Plugins/OpenStudio/Rendering/By Layer</string>
-	<string>\</string>
-	<integer>0</integer>
-	<string>/Plugins/OpenStudio/Rendering/By Surface Class</string>
-	<string>]\</string>
-	<integer>524288</integer>
-	<string>/Plugins/OpenStudio/Rendering/By Boundary</string>
 </array>
 </plist>

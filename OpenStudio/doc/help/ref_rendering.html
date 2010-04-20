@@ -106,12 +106,25 @@ function msout(num) {
 <a href="ref_simulations.html#top">Running Simulations/Help</a><br>
 </H2>
 
-<H2>Rendering Options</H2>
-<P2><a href="ref_rendering.html#hide_rest"><img src="../../lib/resources/icons/HideRest-16.png"> Hide Rest of Model</a></P2><P2i>(Native SketchUp Feature)</P2i><br>
-<P2><a href="ref_rendering.html#view_hidden"><img src="../../lib/resources/icons/SU_ViewHidden-16.png"> View Hidden Geometry</a></P2><P2i>(Native SketchUp Feature)</P2i><br>
-<P2><a href="ref_rendering.html#x_ray"><img src="../../lib/resources/icons/tbRenderTransparentSmall.png"> View Model in X-ray Mode</a></P2><P2i>(Native SketchUp Feature)</P2i><br>
+<H2><a href="ref_rendering.html#top">Rendering Options</a></H2>
+<P2><a href="ref_rendering.html#hide_rest"><img src="../../lib/resources/icons/HideRest-16.png"> Hide Rest of Model</a></P2>
+<P2i> (Native SketchUp Feature)</P2i><br>
+<P2><a href="ref_rendering.html#view_hidden"><img src="../../lib/resources/icons/SU_ViewHidden-16.png"> View Hidden Geometry</a></P2>
+<P2i> (Native SketchUp Feature)</P2i><br>
+<P2><a href="ref_rendering.html#x_ray"><img src="../../lib/resources/icons/tbRenderTransparentSmall.png"> View Model in X-ray Mode</a></P2>
+<P2i> (Native SketchUp Feature)</P2i><br>
 <P2><a href="ref_rendering.html#render_by_surface"><img src="../../lib/resources/icons/RenderByType-16x16.png"> Render by Surface Class</a></P2><br>
 <P2><a href="ref_rendering.html#render_by_data"><img src="../../lib/resources/icons/RenderByData-16x16.png"> Render by Data</a></P2><br>
+<P2><a href="ref_rendering.html#render_by_boundary"><img src="../../lib/resources/icons/RenderByBoundary-16x16.png"> Render by Outside Boundary Condition</a></P2> 
+<P2><a href="ref_view_data.html#default_const_prefs"> </a></P2>
+<P2i>(New)</P2i>
+<br>
+<P2><a href="ref_rendering.html#render_by_layer"> Render by Layer</a></P2> 
+<P2i>(Native SketchUp Feature)</P2i>
+<br>
+<P2><a href="ref_rendering.html#render_by_normal"> Render by Surface Normal</a></P2> 
+<P2i>(Native SketchUp Feature)</P2i>
+<br>
 <P2><a href="ref_rendering.html#render_settings"><img src="../../lib/resources/icons/RenderSettings-16x16.png"> Render Settings</a></P2><br>
 <P2><a href="ref_rendering.html#color_scale"><img src="../../lib/resources/icons/ColorScale-16x16.png"> Color Scale</a></P2><br>
 <P2><a href="ref_rendering.html#results_data_tool"><img src="../../lib/resources/icons/DataTool-16x16.png"> Simulation Results Data Tool</a></P2><br>
@@ -171,6 +184,40 @@ function msout(num) {
 <div style="margin-left:20px">
     <P>Once you load the ESO file, select the run period, and  select the data variable, you can use the Render by Data command to view the  model colored by the data value. Surfaces or zones are colored by the variable  value at a given time. To change the time, use the SketchUp Shadow Settings  control (Window-&gt;Shadows). If the time is outside the current run period, no  values will display. You can display a color bar or use the data value cursor  to reference the absolute values of the variable. </P>
 <br><img src="dialogs/tut_rendering_03.png" alt="" width="500"><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="render_by_boundary"></A>
+<H3><a href="ref_rendering.html#render_by_data"><img src="../../lib/resources/icons/RenderByBoundary-16x16.png" alt=""></a> Render by Boundary  
+  <P2><a href="ref_view_data.html#default_const_prefs"> </a></P2>
+  <P2i>(New)</P2i>
+</H3>
+<div style="margin-left:20px">
+    <P>This is a good rendering mode to diagnose problems with your model. It colors surface by their outside boundary conditions. It provides a quickly way to globally look at boundary conditions throughout your model.</P>
+<br><img src="dialogs/tut_RenderByBoundary_02.png" alt="" width="500"><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="render_by_layer"></A>
+<H3>Render by Layer 
+  <P2i>(Native SketchUp Feature)</P2i>
+</H3>
+<div style="margin-left:20px">
+    <P>This will render content by layer. You can create zones to represent anything you want to track. For example space types. Create or zones on these layers, or move the to this layer. Keep in mind, that the layer structure isn't saved with the IDF file, so any layer's you setup are just for your current session.</P>
+<br><img src="dialogs/tut_layers_02.png" alt="" width="500"><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="render_by_normal"></A>
+<H3>Render by Normal 
+  <P2i>(Native SketchUp Feature)</P2i>
+</H3>
+<div style="margin-left:20px">
+    <P>This rendering style only has two colors. Red or white. White represents the front of a face/surface, while red represents the back of a face/surface. This is a good diagnostic tool to look for reversed faces. Normally red would be inside of the building, and white outside, but if faces are reversed, the model could appear similar to below.</P>
+<br><img src="dialogs/tut_normal_02.png" alt="" width="500"><br>
      <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
 </div>
 <P2i><A href="#top">Back to Top</A></P2i><br><br>

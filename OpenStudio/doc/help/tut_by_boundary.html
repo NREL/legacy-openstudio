@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<A NAME="top"></A>
 <title>OpenStudio Documentation: Tutorials</title>
 
 
@@ -83,7 +84,7 @@ function msout(num) {
 
 <a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
-<img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
 <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
@@ -100,61 +101,62 @@ function msout(num) {
 
 
 
-<H2>Tutorials on OpenStudio Features</H2>
-<ul>
-<li><a href="tut_getting_started.html">Getting Started</a></li>
-<li><a href="tut_best_practices.html">Best Practices</a></li>
-<li><a href="tut_default_const_prefs.html">Default Constructions</a>
-  <P2i>(New)</P2i>
-</li>
-<li><a href="tut_matching_surfaces.html">Matching Surfaces</a>
-  <P2i>(New)</P2i>
-</li>
-<li><a href="tut_searching.html">Searching for EnergyPlus Objects</a>
-  <P2i>(New)</P2i>
-</li>
-<li><a href="tut_by_boundary.html">Render by Outside Boundary Condition</a>
-  <P2i>(New)</P2i>
-</li>
-<li><a href="tut_loads.html">Zone Loads</a>
-  <P2i>(New)</P2i>
-</li>
-<li><a href="tut_daylighting_controls.html">Daylighting Controls</a>
-  <P2i>(New)</P2i>
-</li>
-<li> <a href="tut_illuminance_map.html">Output Illuminance Maps</a>
-  <P2i>(New)</P2i>
-</li>
-<li><a href="tut_run_simulation.html">Run EnergyPlus</a></li>
-<li><a href="tut_view_results.html">View Simulation Results</a></li>
-<li><a href="tut_energyplus_dxf.html">Verify Geometry with EnergyPlus DXF Output</a></li>
-<li><a href="tut_cad_dxf.html">Convert 2D DXF to EnergyPlus</a></li>
-<li><a href="tut_building_maker.html">Convert 3-D CAD Models to EnergyPlus</a></li>
-</ul>
+<H2>Render by Outside Boundary Condition</H2>
+<br>
 
-<H2>Tutorials on native SketchUp Tools</H2>
+<div style="margin-left:10px">
 <ul>
-<!--<li><a href="tut_save_search.html"> Saving search results for later use</a></li><br>-->
-<li><a href="tut_reversed_normals.html">Using Styles to Show Reversed Faces</a></li>
-<li><a href="tut_round_window.html">Using the Offset Tool to Mimic Round Windows</a></li>
-<li><a href="tut_tips.html">Selection, Modeling, and Inference</a></li>
-<li><a href="tut_section_cut.html">Cameras, Scenes, and Sections Cuts</a></li>
-<li><a href="tut_shortcuts.html">Custom Shortcuts</a></li>
-<li><a href="tut_georeferencing.html">Geo-Referencing</a></li>
-<li><a href="tut_rotating.html">Rotating Axes and Cameras</a></li>
-<li><a href="tut_disabling_extensions.html">Disabling Extensions</a></li>
+    <li>The  typical rendering mode (shown below) in OpenStudio renders surfaces based on the class of the surface. For example, doors have a color, roofs, etc.</li>
+    <li>Render by Outside Boundary Condition instead renders surfaces based on their boundary condition.</li>
+    <li>If a wall and a floor have the same boundary condition, they would be rendered with the same color.<br>
+      <br>
+      <img src="dialogs/tut_RenderByBoundary_01.png" width="500" alt=""><br>
+    </li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br><br>
+</li>
 </ul>
+</div>
 
-<H2>Viewing Simulation Results Outside of OpenStudio</H2>
+<div style="margin-left:10px">
 <ul>
-<!--<li><a href="tut_save_search.html"> Saving search results for later use</a></li><br>-->
-<li><a href="tut_results_excel.html">Opening CSV files in Microsoft Excel</a></li>
-<li><a href="tut_results_viewer.html">Opening SQL files in Results Viewer</a></li>
+    <li>Here is the same model as shown above, but this time with the render mode set to &quot;by boundary&quot;. The tan is &quot;ground&quot; blue is &quot;outside&quot;, and the green represents &quot;surface&quot; boundary conditions. this is where surfaces of one zone are matched with surfaces of another zone.</li>
+    <li>If you look at the exterior of a model, you should see a lot of blue. If you want to see what is going on inside, the section cut tool works great. You can also turn on x-ray mode, but it can be tough to see what you are looking at.<br>
+      <br>
+      <img src="dialogs/tut_RenderByBoundary_02.png" width="500" alt=""><br>
+    </li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br>
+    <li>Below is an example with x-ray mode turned on.<br>
+      <br>
+      <img src="dialogs/tut_RenderByBoundary_05.png" width="500" alt=""><br>
+    </li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br><br></li>
 </ul>
+</div>
 
-					</td>
+<div style="margin-left:10px">
+<ul>
+    <li>There are 18 different colors for the outside boundary conditions.</li>
+    <li>Some of these are grouped. Four are outside conditions, and 9 are ground conditions.</li>
+    <li>Look at EnergyPlus's documentation to learn more about the boundary conditions.<br>
+      <br>
+      <img src="dialogs/tut_BoundaryColorWorksheet.png" width="500" alt=""><br>
+    </li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br><br>
+</li>
+</ul>
+</div>
+
+
+
+
+				  </td>
 				</tr>
 			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 

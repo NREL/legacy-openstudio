@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 cd /
 cd "$run_dir"
 "$engine_path"
