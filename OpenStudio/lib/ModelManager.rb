@@ -557,6 +557,10 @@ module OpenStudio
             color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
             texture = nil
 
+          elsif (range_max == range_min)
+            color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
+            texture = nil
+
           elsif (outside_value < range_min)
             color = nil
             if (rendering_appearance == "COLOR")
@@ -611,6 +615,10 @@ module OpenStudio
             color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
             texture = nil
             
+          elsif (range_max == range_min)
+            color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
+            texture = nil
+
           elsif (inside_value < range_min)
             color = nil
             if (rendering_appearance == "COLOR")
