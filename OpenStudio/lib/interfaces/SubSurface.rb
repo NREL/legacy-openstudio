@@ -345,6 +345,13 @@ module OpenStudio
     def unset_other_side_sub_surface
       @input_object.fields[5] = ""
       @input_object.fields[3] = default_construction # after making exterior
+      #if render set to by boundary then change materials to surface
+          if (Plugin.model_manager.rendering_mode == 2)
+              #apply material to front and back face
+              @entity.material = Plugin.model_manager.construction_manager.outdoorssunwind_ext
+              @entity.back_material = Plugin.model_manager.construction_manager.outdoorssunwind_int
+          else
+          end
     end
 
   end

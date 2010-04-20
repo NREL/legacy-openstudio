@@ -419,14 +419,29 @@ module OpenStudio
         @input_object.fields[6] = ""
         @input_object.fields[7] = "NoSun"
         @input_object.fields[8] = "NoWind"
+      #if render set to by boundary then change materials to surface
+          if (Plugin.model_manager.rendering_mode == 2)
+              #apply material to front and back face
+              @entity.material = Plugin.model_manager.construction_manager.ground_ext
+              @entity.back_material = Plugin.model_manager.construction_manager.ground_int
+          else
+          end
       else
         @input_object.fields[5] = "Outdoors"
         @input_object.fields[6] = ""
         @input_object.fields[7] = "SunExposed"
         @input_object.fields[8] = "WindExposed"
+      #if render set to by boundary then change materials to surface
+          if (Plugin.model_manager.rendering_mode == 2)
+              #apply material to front and back face
+              @entity.material = Plugin.model_manager.construction_manager.outdoorssunwind_ext
+              @entity.back_material = Plugin.model_manager.construction_manager.outdoorssunwind_int
+          else
+          end
       end   
 
       @input_object.fields[3] = default_construction # do after making exterior
+
     end    
 
   end
