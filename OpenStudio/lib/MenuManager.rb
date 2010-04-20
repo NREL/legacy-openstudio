@@ -342,13 +342,6 @@ module OpenStudio
         end
       }
 
-# dfg - remove this
-#      # this commoand won't change how materials are assigned byt will
-#      # just turn off display by normal and color by layer so materials are visible
-#      @set_mode_only_cmd = UI::Command.new("By Material") { Plugin.model_manager.set_mode_only }
-#      @set_mode_only_cmd.tooltip = "Render By Material"
-#      @set_mode_only_cmd.status_bar_text = "Render SketchUp entities by SketchUp material"
-
       @display_color_by_layer_cmd = UI::Command.new("By Layer")  { Plugin.model_manager.set_mode(3) }
       #@display_color_by_layer_cmd.small_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-16x16.png"
       #@display_color_by_layer_cmd.large_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-24x24.png"

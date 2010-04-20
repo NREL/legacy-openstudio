@@ -727,7 +727,6 @@ module OpenStudio
 
     end
 
-
     def set_mode(mode)
       @rendering_mode = mode
       paint
@@ -758,38 +757,6 @@ module OpenStudio
        #change DisplayColorByLayer to false (so you can see material)
        color_by_layer_value = renderingoptions["DisplayColorByLayer"] = false
     end
-
-# dfg - to be removed
-#    def display_color_by_layer
-#       model = Sketchup.active_model
-#       renderingoptions = model.rendering_options
-#       value = renderingoptions["DisplayColorByLayer"]
-#
-#       if (value)
-#         value = renderingoptions["DisplayColorByLayer"] = false
-#       else
-#        value = renderingoptions["DisplayColorByLayer"] = true
-#       end
-#
-#       if render mode is 5, change it to 2 (so you can see color by layer)
-#       render_mode_value = renderingoptions["RenderMode"] = 2
-#
-#    end
-
-#    def render_mode_5
-#      model = Sketchup.active_model
-#      renderingoptions = model.rendering_options
-#      value = renderingoptions["RenderMode"]
-#
-#      front = renderingoptions["FaceFrontColor"] = "white"
-#      back = renderingoptions["FaceBackColor"] = "red"
-#
-#      if (value == 5)
-#       value = renderingoptions["RenderMode"] = 2
-#      else
-#       value = renderingoptions["RenderMode"] = 5
-#      end
-#    end
 
 
   end
