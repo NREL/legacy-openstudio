@@ -101,98 +101,72 @@ function msout(num) {
 
 
 
-<H2>Matching Surfaces</H2>
+<H2>Work With SketchUp Content Alongside  OpenStudio Content</H2>
 <br>
 
-<H3>Drawing the surfaces to be matched</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>OpenStudio requires that  vertices line up exactly. In more technical terms, OpenStudio requires second level space boundaries.</li>
-     <li>In some cases it may help to save your IDF and re-open it before using the surface matching tool as OpenStudio does some geometry clean-up when it opens a file.</li>
-     <li>You should always verify the results of the surface matching operation using the Surface Search Tool, Object Info Dialog, EnergyPlus output, or some other means.</li>
-     <li>Two methods for drawing surfaces follow:
-
-       <H3>Method 1</H3>
-     <ul>
-     <li>This method uses SketchUp's drawing tools and inference locks.</li>
-	 <li>Enter into the zone where you want to draw your new surface, but leave the other zones visible.</li>
-	 <li>Use the line tool to draw lines that snap to objects in another zone. SketchUp will indicate this with a pop-up note that reads "Endpoint Outside Activity".</li>
-	 <li>You may have to navigate around the model with the pan and orbit tools to draw all the edges of your surface.</li>
-	 <li>If geometries in other zones are in your way, you can temporarily hide them. Select them and then right-click->hide, or go to "hide" in the edit menu.</li>
-	 <br>
-     <img src="dialogs/tut_surface_matching_01.png" alt="" width="500">
-     <br>
-     <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
-	 <P2i>This drawing uses line tool and SketchUp's  inference locks to snap to geometry in other EnergyPlus zones. </P2i>
-	 <P2i></P2i>
-     <br>
-     <br>
-     <img src="dialogs/tut_surface_matching_01b.png" alt="" width="500"><br>
-	 <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
-	 <P2i>Click on second point in another EnergyPlus zone</P2i>
-	 <br>
-	 <br>
-     <img src="dialogs/tut_surface_matching_01c.png" alt="" width="500"><br>
-     <p2i> (Credit: David Goldwasser/NREL)</P2i>
-     <br>
-     <P2i>Click on the third point in another EnergyPlus zone. </P2i>
-     <br>
-     <br>
-     <img src="dialogs/tut_surface_matching_01d.png" alt="" width="500"><br>
-     <p2i> (Credit: David Goldwasser/NREL)</P2i><br>
-     <P2i>Final surface in EnergyPlus zone. </P2i>
-     <br>
-     <br>
-     </ul>
-
-     <H3>Method 2</H3>
-     <ul>
-     <li>This method uses &quot;copy&quot;  and then &quot;paste in place&quot; instead of manually drawing the second  surface.</li>
-     <li>Double click the surface  you want to duplicate in another zone.</li>
-     <li>Select the face and its bounding edges. </li>
-     <li>Shift-click on the face to unselect it (this prevents  the face-normal of the new copy from being reversed), but leave the edges  selected. &nbsp;</li>
-	 <li>Copy the selection, exit from the current zone,  and enter into the zone that needs the new surface. Choose Paste in Place  (edit/paste in place). There is no default shortcut set for &quot;paste in  place&quot;, but a separate tutorial shows you how to <a href="tut_shortcuts.html">create your own shortcuts.</a></li>
-	 <br><img src="dialogs/tut_surface_matching_02.png" alt="" width="500"><br>
-	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
-	 <br>
-	 <P2i>Select a face and its edges by double clicking.</P2i>
-	 <br>
-	 <br>
-	 <br><img src="dialogs/tut_surface_matching_02b.png" alt="" width="500"><br>
-	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
-	 <P2i><br>
-	   Shift-click to unselect the face. </P2i>
-	 <br><br>
-	 <br><img src="dialogs/tut_surface_matching_03.png" alt="" width="500"><br>
-	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
-	 <br>
-	 <P2i>Here you can see the resulting edges and surface in the second EnergyPlus Zone.</P2i>
-	 <br><br>
-     </ul>
-</li></ul>
-</div>
-
-<H3>Surface Matching Tool</H3>
-<div style="margin-left:10px">
-<ul>
-     <li>Once your surfaces are drawn, you can use the Surface Matching Tool to match them together.</li>
-     <li>You can  match surfaces and subsurfaces for selected objects or for all objects in the  model. This sets the boundary condition of each surface to point to each other  and reassigns the default interior construction for that type. </li>
-     <li>You can also  use this tool to unmatch surfaces. This resets their boundary conditions to be  outdoors or ground and reassigns the default exterior construction for that  type. </li>
-<li>You can obtain a report of the last match or unmatch  performed in comma separated value (CSV) format to verify the operations that  have been performed.</li>
-</ul>
-<ul>
-  <br><img src="dialogs/tut_surface_matching_04.png" alt=""><br></li>
+    <li>As mentioned elsewhere in the documentation, you don't want to save OpenStudio zones as part of a SketchUp file. But what do you do when you want to use SketchUp content alongside with OpenStudio content for more than your current session? Follow the workflow detailed below.</li>
+    <li>Below you see some non-OpenStudio SketchUp content. This example has a structural grid, and a diagram thermal zones. But it could contain  trees, a site plan, or anything else.</li>
+    <li>The SketchUp file also contains scenes and layers. </li>
+<br>
+  <img src="dialogs/tut_su_save_01.png" width="500" alt=""><br></li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+  <br><br>
 </ul>
 </div>
 
-<H3>Workflows for Surface Matching</H3>
 <div style="margin-left:10px">
 <ul>
-     <li>You can match surfaces together  as you make them or you can create all surfaces for your model and match them at the end.</li>
-     <li>After matching, you can verify correct results using the <a href="tut_searching.html">Surface Search Tool</a> to verify correct results. You can, for example,  check that no surfaces with outdoor boundary conditions are inside the building,  and vice versa. </li>
-     <li>As an alternative to the Surface Matching tool, you can manually match surfaces, using the Object Info Tool. Set the Outside Boundary Condition to &quot;Surface&quot; and then identify the Outside Boundary Object that you wan to match with. In most cases your matches are in pairs. So if you match surface &quot;A&quot; to surface &quot;B&quot;, then surface &quot;B&quot; should also refer to surface &quot;A&quot; as it's Outside Boundary Object.</li>
-     </ul>
+    <li>Next  OpenStudio tools were used to create EnergyPlus zones.</li>
+    <li>You can continue to draw SketchUp objects side by side with Open Studio objects, but neither type of object should be nested inside of the other.</li>
+    <li>When you are ready to quit SketchUp, you should follow these steps.</li>
+    <li>First, save your IDF file.</li>
+<br>
+  <img src="dialogs/tut_su_save_02.png" width="500" alt=""><br></li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</ul>
 </div>
+
+<div style="margin-left:10px">
+<ul>
+    <li>Next close your IDF file under &quot;plugins/OpenStudio/close&quot;.</li>
+    <li>After closing the IDF file all of the Openstudio content will be erased from the SketchUp file.</li>
+<br>
+  <img src="dialogs/tut_su_save_03.png" width="500" alt=""><br></li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</ul>
+</div>
+
+<div style="margin-left:10px">
+<ul>
+    <li>Save your SketchUp file as an skp file. There is no longer a link between this file and the IDF. Make sure you know where the files are saved so you can pair them together when needed.</li>
+    <li>At this point you can close your SketchUp file and quit SketchUp.</li>
+<br>
+  <img src="dialogs/tut_su_save_04.png" width="500" alt=""><br></li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</ul>
+</div>
+
+<div style="margin-left:10px">
+<ul>
+    <li>Below is what you see after you quit SketchUp, and open your SketchUp file. Looks like like it did before. You can work on it like this, if you are not using OpenStudio features.</li>
+    <li>When you are ready to use OpenStudio, choose &quot;open&quot; and open your IDF file.</li>
+    <li>Not only will the geometry be in sync, but your scenes will be kept, as will your layers. If however you had previously put some OpenStudio content onto specific layers, it wont' re-import that way. You will have to place it there again.</li>
+<br>
+  <img src="dialogs/tut_su_save_05.png" width="500" alt=""><br></li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Below are some uses for this workflow.</li>
+<ul>
+    <li>Work with contextual or architectural content alongside with the energy model.</li>
+    <li>Keep base plans or elevations in the file. As the design changes, you can update the architectural content and make adjustments as necessary in the energy model. Base plans can have links to external content.</li>
+    <li>You can attach labels to zones containing information for your reference, or to communicate with others who open your SketchUp file. When you re-import your IDF file the labels will still be in the correct position, but wont be glued to the object any more, so if the object moves, the label wont' automatically move with it.</li>
+</ul><br><br>
+  <img src="dialogs/tut_su_save_06.png" width="500" alt=""><br></li>
+  <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</ul>
+</div>
+
 
 
 					</td>
