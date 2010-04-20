@@ -104,11 +104,17 @@
 	<string>v</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/New Zone Tool</string>
-	<string>}</string>
+	<string>]</string>
 	<integer>524288</integer>
 	<string>/Plugins/OpenStudio/Rendering/By Surface Normal</string>
 	<string>]</string>
 	<integer>0</integer>
 	<string>/Plugins/OpenStudio/Rendering/By Layer</string>
+	<string>\</string>
+	<integer>0</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Surface Class</string>
+	<string>]\</string>
+	<integer>524288</integer>
+	<string>/Plugins/OpenStudio/Rendering/By Boundary</string>
 </array>
 </plist>

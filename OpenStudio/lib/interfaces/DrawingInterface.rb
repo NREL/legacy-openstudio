@@ -307,10 +307,21 @@ module OpenStudio
     def update_entity
     end
 
-
     # Called by draw_entity, but also can be called independently to repaint everything under different paint modes.
     def paint_entity
       # Probably should remove observers and re-add them after painting.
+    end
+
+    def paint_boundary
+      #
+    end
+
+    def paint_layer
+      #
+    end
+
+    def paint_normal
+
     end
 
 

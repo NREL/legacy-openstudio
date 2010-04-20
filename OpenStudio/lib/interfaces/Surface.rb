@@ -213,6 +213,10 @@ module OpenStudio
         paint_data
       elsif (Plugin.model_manager.rendering_mode == 2)
         paint_boundary
+      elsif (Plugin.model_manager.rendering_mode == 3)
+        paint_layer
+      elsif (Plugin.model_manager.rendering_mode == 4)
+        paint_normal
       end
     end
 
@@ -313,6 +317,23 @@ module OpenStudio
 
     # Override in subclasses.
     def paint_boundary
+    end
+
+    # Override in subclasses.
+    def paint_layer
+       model = Sketchup.active_model
+       renderingoptions = model.rendering_options
+       value = renderingoptions["DisplayColorByLayer"] = true
+    end
+
+    # Override in subclasses.
+    def paint_normal
+      model = Sketchup.active_model
+      renderingoptions = model.rendering_options
+      value = renderingoptions["RenderMode"] = 5
+
+      front = renderingoptions["FaceFrontColor"] = "white"
+      back = renderingoptions["FaceBackColor"] = "red"
     end
 
 

@@ -526,9 +526,15 @@ module OpenStudio
       for child in @model_interface.recurse_children
         next if (not child.respond_to?(:outside_variable_key))
 
-        # added the or statement for render by boundary
-        if (@rendering_mode == 0) or (@rendering_mode == 2)
+        # added the or statement for render by boundary, layer, normal
+        if (@rendering_mode == 0)
           child.paint_entity  # Non-surface drawing interfaces do not implement 'paint_entity'.
+        elsif (@rendering_mode == 2)
+          child.paint_boundary
+        elsif (@rendering_mode == 3)
+          child.paint_layer
+        elsif (@rendering_mode == 4)
+          child.paint_normal
         else
           # get data details
 
@@ -728,11 +734,19 @@ module OpenStudio
 
        model = Sketchup.active_model
        renderingoptions = model.rendering_options
-       #change RenderMode to 2 (so you can see material)
-       render_mode_value = renderingoptions["RenderMode"] = 2
-       #change DisplayColorByLayer to false (so you can see material)
-       color_by_layer_value = renderingoptions["DisplayColorByLayer"] = false
-    end
+       # add if statement (don't change if in  color by normal)
+       if (@rendering_mode == 4)
+       else
+          #change RenderMode to 2 (so you can see material)
+          render_mode_value = renderingoptions["RenderMode"] = 2  
+       end
+       # add if statement (don't chagne if in color by layer)
+       if (@rendering_mode == 3)
+       else
+        #change DisplayColorByLayer to false (so you can see material)
+          color_by_layer_value = renderingoptions["DisplayColorByLayer"] = false
+       end
+      end
 
     # this will make materials visible, but won't change the set_mode (mode)
     def set_mode_only
@@ -745,36 +759,37 @@ module OpenStudio
        color_by_layer_value = renderingoptions["DisplayColorByLayer"] = false
     end
 
-    def display_color_by_layer
-       model = Sketchup.active_model
-       renderingoptions = model.rendering_options
-       value = renderingoptions["DisplayColorByLayer"]
+# dfg - to be removed
+#    def display_color_by_layer
+#       model = Sketchup.active_model
+#       renderingoptions = model.rendering_options
+#       value = renderingoptions["DisplayColorByLayer"]
+#
+#       if (value)
+#         value = renderingoptions["DisplayColorByLayer"] = false
+#       else
+#        value = renderingoptions["DisplayColorByLayer"] = true
+#       end
+#
+#       if render mode is 5, change it to 2 (so you can see color by layer)
+#       render_mode_value = renderingoptions["RenderMode"] = 2
+#
+#    end
 
-       if (value)
-         value = renderingoptions["DisplayColorByLayer"] = false
-       else
-        value = renderingoptions["DisplayColorByLayer"] = true
-       end
-
-       #if render mode is 5, change it to 2 (so you can see color by layer)
-       render_mode_value = renderingoptions["RenderMode"] = 2
-
-    end
-
-    def render_mode_5
-      model = Sketchup.active_model
-      renderingoptions = model.rendering_options
-      value = renderingoptions["RenderMode"]
-
-      front = renderingoptions["FaceFrontColor"] = "white"
-      back = renderingoptions["FaceBackColor"] = "red"
-
-      if (value == 5)
-       value = renderingoptions["RenderMode"] = 2
-      else
-       value = renderingoptions["RenderMode"] = 5
-      end
-    end
+#    def render_mode_5
+#      model = Sketchup.active_model
+#      renderingoptions = model.rendering_options
+#      value = renderingoptions["RenderMode"]
+#
+#      front = renderingoptions["FaceFrontColor"] = "white"
+#      back = renderingoptions["FaceBackColor"] = "red"
+#
+#      if (value == 5)
+#       value = renderingoptions["RenderMode"] = 2
+#      else
+#       value = renderingoptions["RenderMode"] = 5
+#      end
+#    end
 
 
   end

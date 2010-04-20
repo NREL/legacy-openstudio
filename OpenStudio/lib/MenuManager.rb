@@ -342,24 +342,43 @@ module OpenStudio
         end
       }
 
-      # this commoand won't change how materials are assigned byt will
-      # just turn off display by normal and color by layer so materials are visible
-      @set_mode_only_cmd = UI::Command.new("By Material") { Plugin.model_manager.set_mode_only }
-      @set_mode_only_cmd.tooltip = "Render By Material"
-      @set_mode_only_cmd.status_bar_text = "Render SketchUp entities by SketchUp material"
+# dfg - remove this
+#      # this commoand won't change how materials are assigned byt will
+#      # just turn off display by normal and color by layer so materials are visible
+#      @set_mode_only_cmd = UI::Command.new("By Material") { Plugin.model_manager.set_mode_only }
+#      @set_mode_only_cmd.tooltip = "Render By Material"
+#      @set_mode_only_cmd.status_bar_text = "Render SketchUp entities by SketchUp material"
 
-      @display_color_by_layer_cmd = UI::Command.new("By Layer") { Plugin.model_manager.display_color_by_layer }
+      @display_color_by_layer_cmd = UI::Command.new("By Layer")  { Plugin.model_manager.set_mode(3) }
       #@display_color_by_layer_cmd.small_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-16x16.png"
       #@display_color_by_layer_cmd.large_icon = Plugin.dir + "/lib/resources/icons/DisplayColorByLayer-24x24.png"
       @display_color_by_layer_cmd.tooltip = "Render By Layer"
       @display_color_by_layer_cmd.status_bar_text = "Render SketchUp entities by layer"
+      @display_color_by_layer_cmd.set_validation_proc {
+        if (Plugin.model_manager)
+          if (Plugin.model_manager.rendering_mode == 3)
+            next(MF_CHECKED)
+          else
+            next(MF_UNCHECKED)
+          end
+        end
+      }
 
       # this doesn't relate to OpenStudio "rendering_mode". RenderMode is a SketchUp term.
-      @render_mode_5_cmd = UI::Command.new("By Surface Normal") { Plugin.model_manager.render_mode_5 }
+      @render_mode_5_cmd = UI::Command.new("By Surface Normal")  { Plugin.model_manager.set_mode(4) }
       #@render_mode_5_cmd.small_icon = Plugin.dir + "/lib/resources/icons/RenderMode5-16x16.png"
       #@render_mode_5_cmd.large_icon = Plugin.dir + "/lib/resources/icons/RenderMode5-24x24.png"
       @render_mode_5_cmd.tooltip = "Render By Face Normal"
       @render_mode_5_cmd.status_bar_text = "Render SketchUp entities by face normal"
+      @render_mode_5_cmd.set_validation_proc {
+        if (Plugin.model_manager)
+          if (Plugin.model_manager.rendering_mode == 4)
+            next(MF_CHECKED)
+          else
+            next(MF_UNCHECKED)
+          end
+        end
+      }
 
       @data_settings_cmd = UI::Command.new("Settings...") { Plugin.dialog_manager.show(RenderingSettingsInterface) }
       @data_settings_cmd.small_icon = Plugin.dir + "/lib/resources/icons/RenderSettings-16x16.png"

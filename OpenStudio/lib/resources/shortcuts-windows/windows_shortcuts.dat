@@ -1,5 +1,5 @@
 [Accelerator]
-Count=36
+Count=37
 0 0 0 Space selectSelectionTool:
 0 0 1 Z viewZoomExtents:
 0 0 0 Q selectDollyTool:
@@ -35,4 +35,5 @@ Count=36
 0 0 0 N Plugins/OpenStudio/New Daylighting Control Tool
 0 0 0 M Plugins/OpenStudio/New Illuminance Map Tool
 0 0 0 . Plugins/OpenStudio/Zone Loads
-0 0 0 \ Plugins/OpenStudio/Rendering/By Material
+0 0 0 \ Plugins/OpenStudio/Rendering/By Surface Class
+0 1 0 \ Plugins/OpenStudio/Rendering/By Boundary
