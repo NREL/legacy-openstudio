@@ -1,14 +1,14 @@
 OpenStudio 1.0.5
 
 
-Copyright (c) 2008-2010 Alliance for Sustainable Energy.  All rights reserved.
+Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
 See the file "License.txt" for additional terms and conditions.
 
 Developed by the National Renewable Energy Laboratory, Golden, Colorado for
 the United States Department of Energy.
 
 
-Release Date:  1 April 2010
+Release Date:  26 April 2010
 
 
 System Requirements

@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2009 Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
 require("OpenStudio/lib/dialogs/Dialogs")
@@ -12,7 +12,7 @@ module OpenStudio
 
     def initialize(container, interface, hash)
       super
-      @container = WindowContainer.new(Plugin.name, 320, 450, 150, 150, false, false)
+      @container = WindowContainer.new(Plugin.name, 360, 480, 150, 150, false, false)
       @container.center_on_parent
       @container.set_file(Plugin.dir + "/lib/dialogs/html/About.html")
 

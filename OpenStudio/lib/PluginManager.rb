@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2009 Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
 require("OpenStudio/lib/AnimationManager")
@@ -171,7 +171,7 @@ module OpenStudio
       elsif (platform == Platform_Mac)
         hash['Text Editor Path'] = "/Applications/TextEdit.app"
         hash['EnergyPlus Path'] = "/Applications/EnergyPlus-5-0-0/bin/energyplus"  # Default installation path
-		hash['Check For Update'] = false
+    hash['Check For Update'] = false
       end
 
       return(hash)

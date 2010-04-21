@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2009 Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 #
 # The Collection class is a variety of a "set"--an unordered collection of objects with uniqueness.
