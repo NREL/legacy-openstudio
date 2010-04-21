@@ -5046,7 +5046,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N2,  \field Thermal Conductivity 1
        \note for Temperature-Thermal Conductivity function corresponding to temperature 1
-       \units J/kg
+       \units W/m-K
        \default 0.0
   N3 , \field Temperature 2
        \note for Temperature-Thermal Conductivity function
@@ -5055,7 +5055,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N4,  \field Thermal Conductivity 2
        \note for Temperature-Thermal Conductivity function corresponding to temperature 2
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N5 , \field Temperature 3
@@ -5065,7 +5065,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N6,  \field Thermal Conductivity 3
        \note for Temperature-Thermal Conductivity function corresponding to temperature 3
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N7 , \field Temperature 4
@@ -5075,7 +5075,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N8,  \field Thermal Conductivity 4
        \note for Temperature-Thermal Conductivity function corresponding to temperature 4
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N9, \field Temperature 5
@@ -5085,7 +5085,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N10, \field Thermal Conductivity 5
        \note for Temperature-Thermal Conductivity function corresponding to temperature 5
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N11, \field Temperature 6
@@ -5095,7 +5095,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N12, \field Thermal Conductivity 6
        \note for Temperature-Thermal Conductivity function corresponding to temperature 6
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N13, \field Temperature 7
@@ -5105,7 +5105,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N14, \field Thermal Conductivity 7
        \note for Temperature-Thermal Conductivity function corresponding to temperature 7
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N15, \field Temperature 8
@@ -5115,7 +5115,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N16, \field Thermal Conductivity 8
        \note for Temperature-Thermal Conductivity function corresponding to temperature 8
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
   N17 , \field Temperature 9
@@ -5125,7 +5125,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N18,  \field Thermal Conductivity 9
        \note for Temperature-Thermal Conductivity function corresponding to temperature 9
-       \units J/kg
+       \units W/m-K
        \default 0.0
   N19 , \field Temperature 10
        \note for Temperature-Thermal Conductivity function
@@ -5134,7 +5134,7 @@ MaterialProperty:VariableThermalConductivity,
        \default 0.0
   N20;  \field Thermal Conductivity 10
        \note for Temperature-Thermal Conductivity function corresponding to temperature 10
-       \units J/kg
+       \units W/m-K
        \type real
        \default 0.0
 
@@ -11143,6 +11143,7 @@ GroundHeatTransfer:Basement:MatlProps,
          \default 2243
          \units kg/m3
      N4, \field density for Ceiling
+         \note This field is not currently used.
          \minimum> 0.0
          \default 311
          \units kg/m3
@@ -11155,6 +11156,7 @@ GroundHeatTransfer:Basement:MatlProps,
          \default 2000
          \units kg/m3
      N7, \field density for Wood
+         \note This field is not currently used.
          \minimum> 0.0
          \default 449
          \units kg/m3
@@ -11167,6 +11169,7 @@ GroundHeatTransfer:Basement:MatlProps,
           \default 880
           \units J/kg-K
      N10, \field Specific heat for ceiling
+          \note This field is not currently used.
           \minimum> 0.0
           \default 1530
           \units J/kg-K
@@ -11179,6 +11182,7 @@ GroundHeatTransfer:Basement:MatlProps,
           \default 720
           \units J/kg-K
      N13, \field Specific heat for wood
+          \note This field is not currently used.
           \minimum> 0.0
           \default 1530
           \units J/kg-K
@@ -11191,6 +11195,7 @@ GroundHeatTransfer:Basement:MatlProps,
           \default 1.4
           \units W/m-K
      N16, \field Thermal conductivity for ceiling
+          \note This field is not currently used.
           \minimum> 0.0
           \default 0.09
           \units W/m-K
@@ -11203,6 +11208,7 @@ GroundHeatTransfer:Basement:MatlProps,
           \default 1.9
           \units W/m-K
      N19; \field thermal conductivity for wood
+          \note This field is not currently used.
           \minimum> 0.0
           \default 0.12
           \units W/m-K
@@ -32529,6 +32535,7 @@ Pipe:Underground,
         \type real
         \minimum 0
         \default 0
+
 Duct,
        \memo Passes inlet node state variables to outlet node state variables
    A1,  \field Name
