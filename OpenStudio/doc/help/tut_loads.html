@@ -123,6 +123,9 @@ function msout(num) {
 	<div style="margin-left:10px">
 		<ul>
 		  <li>EnergyPlus  simulations may experience problems if internal gains are present but no system  is included to remove energy from zones with internal gains. </li>
+          <li>The Ideal Loads Air System is used to sum the zone   heating and cooling<br>
+loads without modeling a full HVAC system.&nbsp; It provides a quick and easy   way to<br>
+evaluate the load impacts of building envelope changes.</li>
           <li>For models that  are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the  quickest path for load calculations that use EnergyPlus. </li>
           <li>Adding  HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes these types of objects. </li>
           <li>HVACTemplate:Thermostat  is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating  and cooling set points. </li>

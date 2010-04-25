@@ -122,13 +122,15 @@ function msout(num) {
 	 <br>
      <img src="dialogs/tut_surface_matching_01.png" alt="" width="500">
      <br>
-     <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
+     <p2i>(Credit: David Goldwasser/NREL)</P2i>
+     <br>
 	 <P2i>This drawing uses line tool and SketchUp's  inference locks to snap to geometry in other EnergyPlus zones. </P2i>
 	 <P2i></P2i>
      <br>
      <br>
      <img src="dialogs/tut_surface_matching_01b.png" alt="" width="500"><br>
-	 <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
+	 <p2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <br>
 	 <P2i>Click on second point in another EnergyPlus zone</P2i>
 	 <br>
 	 <br>
@@ -139,11 +141,18 @@ function msout(num) {
      <br>
      <br>
      <img src="dialogs/tut_surface_matching_01d.png" alt="" width="500"><br>
-     <p2i> (Credit: David Goldwasser/NREL)</P2i><br>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i>
+     <br>
      <P2i>Final surface in EnergyPlus zone. </P2i>
      <br>
      <br>
-     </ul>
+  	 <li>The example above has a smaller zone sharing two edges with a larger Zone. If instead the smaller zone only shared one edge with the larger zone, if for example it was centered horizontally with the larger zone, then you have to do things a little differently.</li>
+  	 <li>You would have to first split the base surface into two base surfaces by adding an edge all  the way across the larger base surface (pictured below). Then you could draw the vertical edges to complete the surface to be matched. If you didn't do this, OpenStudio could interpret your new surface as a subsurface vs. a base surface.</li>
+  	 <li>If you use method two in this scenario, you would still have to draw the full length horizontal edge.</li>
+  	 <br>
+<img src="dialogs/tut_surface_matching_05.png" alt="" width="500"><br>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i>
+          </ul>
 
      <H3>Method 2</H3>
      <ul>
