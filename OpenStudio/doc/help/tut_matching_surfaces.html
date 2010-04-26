@@ -146,7 +146,7 @@ function msout(num) {
      <P2i>Final surface in EnergyPlus zone. </P2i>
      <br>
      <br>
-  	 <li>The example above has a smaller zone sharing two edges with a larger Zone. If instead the smaller zone only shared one edge with the larger zone, if for example it was centered horizontally with the larger zone, then you have to do things a little differently.</li>
+  	 <li>The example above has a smaller zone sharing two edges with a larger zone. If instead the smaller zone only shared one edge with the larger zone, if for example it was centered horizontally with the larger zone, then you have to do things a little differently.</li>
   	 <li>You would have to first split the base surface into two base surfaces by adding an edge all  the way across the larger base surface (pictured below). Then you could draw the vertical edges to complete the surface to be matched. If you don't create the horizontal edge first OpenStudio could interpret your new surface as a subsurface instead of a base surface; as if it was a door vs. a wall.</li>
   	 <li>If you use method two in this scenario, you would still have to draw the full length horizontal edge before pasting in the copy of the surface edges.</li>
   	 <br>
