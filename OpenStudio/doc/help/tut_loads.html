@@ -25,13 +25,13 @@ over[2] = "images/ln_release_notes_on.gif";
 
 
 function msover(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = over[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
 }
 
 function msout(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = normal[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
 }
 // -->
 </script>
@@ -59,25 +59,25 @@ function msout(num) {
 
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-	<tr>
-		<td colspan="3" width="100%">
+  <tr>
+    <td colspan="3" width="100%">
 
-			<table cellspacing="0" border="0" width="100%" cellpadding="0">
-				<tr>
-					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
-					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
-				</tr>
-			</table>
+      <table cellspacing="0" border="0" width="100%" cellpadding="0">
+        <tr>
+          <td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+          <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+        </tr>
+      </table>
 
-		</td>
+    </td>
 
-	</tr>
+  </tr>
 <!-- end of third column -->
 
 <!-- start of left navigation, first column -->
 
-	<tr valign="top">
-		<td valign="top" width="176"><!-- left navigation include -->
+  <tr valign="top">
+    <td valign="top" width="176"><!-- left navigation include -->
 <!--stopindex-->
 <img src="images/spacer.gif" alt="" width="1" height="3"><br>
 
@@ -89,14 +89,14 @@ function msout(num) {
 <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
 <img src="images/gray.gif" alt="" width="176" height="7"><br>
 <!--startindex-->
-	</td>
-	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+  </td>
+  <td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
 
 
 <!-- main content -->
-		<td valign="top" width="100%">
-			<table cellspacing="0" border="0" cellpadding="12" width="100%">
-				<tr>
+    <td valign="top" width="100%">
+      <table cellspacing="0" border="0" cellpadding="12" width="100%">
+        <tr>
           <td valign="top">
 
 
@@ -105,56 +105,56 @@ function msout(num) {
 <br>
 
     <H3>Internal Gains</H3>
-	<div style="margin-left:10px">
-		<ul>
-		  <li>Internal  gains include people, lights, equipment, ventilation, and infiltration. Unlike the Object  Info dialog, this dialog does not allow you to view gains in current zones, but  only to specify values that will be written to the file. </li>
-		<li>Internal gains are modeled using the input objects 'People', 'Lights', 'ElectricEquipment', 'GasEquipment', 'ZoneVentilation:DesignFlowRate', and 'ZoneInfiltration:DesignFlowRate'.  Most fields of these objects are defaulted.  Look at the InputOutputReference and Energy+.idd for a full list of all fields.
-		  <li>A set of internal gains and schedules for a typical office building have been added for reference only.  The schedules are present in the NewTemplate.idf file but will not be available in all existing IDF files.  You can reset the internal gains dialog to these values with the "Reset to Default Office" button.</li>
-		<li>No IDF objects will be added for internal gains with values less than or equal to zero.</li>
-		<li>Applying  internal gains to selected zones removes these types of objects. </li>
+  <div style="margin-left:10px">
+    <ul>
+      <li>Internal  gains include people, lights, equipment, ventilation, and infiltration. Unlike the Object  Info dialog, this dialog does not allow you to view gains in current zones, but  only to specify values that will be written to the file. </li>
+    <li>Internal gains are modeled using the input objects 'People', 'Lights', 'ElectricEquipment', 'GasEquipment', 'ZoneVentilation:DesignFlowRate', and 'ZoneInfiltration:DesignFlowRate'.  Most fields of these objects are defaulted.  Look at the InputOutputReference and Energy+.idd for a full list of all fields.
+      <li>A set of internal gains and schedules for a typical office building have been added for reference only.  The schedules are present in the NewTemplate.idf file but will not be available in all existing IDF files.  You can reset the internal gains dialog to these values with the "Reset to Default Office" button.</li>
+    <li>No IDF objects will be added for internal gains with values less than or equal to zero.</li>
+    <li>Applying  internal gains to selected zones removes these types of objects. </li>
         <li>Lights  objects are required to add Daylighting:Controls to a zone. </li>
-		<li>Remember to remove 'ZoneVentilation:DesignFlowRate' when moving your file to more advanced HVAC systems which provide outdoor air to the space through the system and not at the zone level.</li>
-		<li>Renaming zones after applying internal gains can cause problems.  However, you can always fix these by hand in the IDF.</li>
-		<li>You can obtain  the last Zone Loads Report in comma separated value (CSV) format to verify the  operations that have been performed. You can also save a copy of the IDF before  and after the operation and then use a file comparison tool to run a DIFF. </li>
-		</ul>
-	</div>
+    <li>Remember to remove 'ZoneVentilation:DesignFlowRate' when moving your file to more advanced HVAC systems which provide outdoor air to the space through the system and not at the zone level.</li>
+    <li>Renaming zones after applying internal gains can cause problems.  However, you can always fix these by hand in the IDF.</li>
+    <li>You can obtain  the last Zone Loads Report in comma separated value (CSV) format to verify the  operations that have been performed. You can also save a copy of the IDF before  and after the operation and then use a file comparison tool to run a DIFF. </li>
+    </ul>
+  </div>
 
-	<H3>Ideal Loads Air System</H3>
-	<div style="margin-left:10px">
-		<ul>
-		  <li>EnergyPlus  simulations may experience problems if internal gains are present but no system  is included to remove energy from zones with internal gains. </li>
-          <li>The Ideal Loads Air System is used to sum the zone   heating and cooling<br>
-loads without modeling a full HVAC system.&nbsp; It provides a quick and easy   way to<br>
-evaluate the load impacts of building envelope changes.</li>
-          <li>For models that  are starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the  quickest path for load calculations that use EnergyPlus. </li>
-          <li>Adding  HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes these types of objects. </li>
-          <li>HVACTemplate:Thermostat  is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating  and cooling set points. </li>
-          <li>You can obtain  the last Zone Loads Report in comma separated value (CSV) format to verify the  operations that have been performed. You can also save a copy of the IDF before  and after the operation and then use a file comparison tool to run a DIFF. </li>
-		</ul>
-	</div>
+  <H3>Ideal Loads Air System</H3>
+  <div style="margin-left:10px">
+    <ul>
+      <li>For models starting from scratch, HVACTemplate:Zone:IdealLoadsAirSystem gives the quickest path for load calculations using EnergyPlus. </li>
+      <li>The Ideal Loads Air System is used to sum the zone heating and cooling loads without modeling a full HVAC system. It provides a quick and easy way to evaluate the impacts of building envelope perturbations and changes in internal gains. </li>
+      <li>EnergyPlus includes several other HVACTemplate systems such as PTAC, PTHP, and many others which are only slightly more complicated that HVACTemplate:Zone:IdealLoadsAirSystem.  These systems must currently be added in the IDF text directly. </li>
+      <li>HVACTemplate systems are expanded to full EnergyPlus input by the ExpandObjects.exe preprocessor before a simulation is run.  The expanded IDF file is copied back to the original directory with an 'expidf' extension. </li>
+      <li>EnergyPlus simulations may experience problems if internal gains are present but no system is included to remove energy from zones with internal gains. </li>
+      <li>Adding HVACTemplate:Zone:IdealLoadsAirSystem to selected zones removes existing objects of type HVACTemplate:Zone:IdealLoadsAirSystem. </li>
+      <li>HVACTemplate:Thermostat is referenced by each HVACTemplate:Zone:IdealLoadsAirSystem to specify heating  and cooling set points. </li>
+      <li>You can obtain the last Zone Loads Report in comma separated value (CSV) format to verify the  operations that have been performed. You can also save a copy of the IDF before and after the operation and then use a file comparison tool to run a DIFF. </li>
+    </ul>
+  </div>
 
-	<H3>Saved Preferences</H3>
-	<div style="margin-left:10px">
-		<ul>
-		  <li>The initial  values for internal gains correspond to a general office building. The initial  schedules are those included in NewTemplate.idf when starting a new model from  scratch and correspond to a general office building. </li>
+  <H3>Saved Preferences</H3>
+  <div style="margin-left:10px">
+    <ul>
+      <li>The initial  values for internal gains correspond to a general office building. The initial  schedules are those included in NewTemplate.idf when starting a new model from  scratch and correspond to a general office building. </li>
           <li>You can save  settings for internal gains that correspond to other space types or variations.  You can then reload and apply these settings to model other space types or to  generate perturbations on the current model. </li>
-		</ul>
-	</div>
+    </ul>
+  </div>
 
-	<img src="dialogs/tut_zone_loads_01.png" alt=""><br>
+  <img src="dialogs/tut_zone_loads_01.png" alt=""><br>
         <p2i>(Credit: David Goldwasser/NREL)</P2i><br>
 
-					</td>
-				</tr>
-			</table>
+          </td>
+        </tr>
+      </table>
 <P2i><A href="#top">Back to Top</A></P2i>
 <!-- end of main content table -->
 
 
-		</td>
+    </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
-				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+        <div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
 
                <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
 
@@ -162,7 +162,7 @@ evaluate the load impacts of building envelope changes.</li>
 
                <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
         </td>
-	</tr>
+  </tr>
 </table>
 
 
@@ -174,13 +174,13 @@ evaluate the load impacts of building envelope changes.</li>
 <br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
 
 <table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
-	<tr>
-		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+  <tr>
+    <td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
 
 <p class="doe">U.S. Department of Energy</p>
 
 <a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
-		</tr>
+    </tr>
 </table>
 
 
