@@ -756,30 +756,37 @@ module OpenStudio
             
             polygon = Geom::Polygon.new(points)
             
-            #energyplus simple geometry axes
-            x_axis = Geom::Vector3d.new(-1, 0, 0)
-            y_axis = Geom::Vector3d.new(0, 0, -1)
-            z_axis = Geom::Vector3d.new(0, -1, 0)
-            
             # face axes
             new_z = polygon.normal
-            
+
+            if new_z.dot(Geom::Vector3d.new(0, 0, 1)) < 0
+              #energyplus simple geometry axes
+              x_axis = Geom::Vector3d.new(1, 0, 0)
+              y_axis = Geom::Vector3d.new(0, 0, -1)
+              z_axis = Geom::Vector3d.new(0, 1, 0)
+            else
+              #energyplus simple geometry axes
+              x_axis = Geom::Vector3d.new(-1, 0, 0)
+              y_axis = Geom::Vector3d.new(0, 0, -1)
+              z_axis = Geom::Vector3d.new(0, -1, 0)
+            end
+
             # subtract out components along new_z
             if x_axis.dot(new_z) != 0
-              tmp = new_z
+              tmp = new_z.clone
               tmp.length = x_axis.dot(new_z)
               new_x = x_axis - tmp
             else
-              new_x = x_axis
+              new_x = x_axis.clone
             end
             
             # subtract out component along new_z
             if y_axis.dot(new_z) != 0
-              tmp = new_z
+              tmp = new_z.clone
               tmp.length = y_axis.dot(new_z)
               new_y = y_axis - tmp
             else
-              new_y = y_axis
+              new_y = y_axis.clone
             end
             
             if new_x.length > new_y.length
