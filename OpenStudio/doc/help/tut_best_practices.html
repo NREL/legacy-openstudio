@@ -159,7 +159,8 @@ function msout(num) {
 <div style="margin-left:10px">
 <ul>
     <li>If you try  to draw a zone shading surface in line with the roof, it will be recognized as  a roof. If you want a zone-shading surface in line with the roof, you must draw  it lower, and then move it up into place. </li>
-    <li>Shading  surfaces also cannot be drawn while they touch the floor. Draw them smaller and  then stretch them down the floor. This could occur on vertical fins. </li>
+    <li>Shading  surfaces also cannot be drawn while they touch the floor. Draw them smaller and  then stretch them down the floor. This could occur on vertical fins.</li>
+    <li>By default, shading surfaces assign a floor surface from the zone as it's base surface. It is important that the base surface for a shading surface is an exterior surface. For first floor zones, the floor is ok, but for other floors you will have to manually change the base surface in the Object Information Window. Using a shading group instead of shading surfaces within a zone will avoid this issue.</li>
     <li>You can create shading surfaces as part of a shading  group instead of drawing them as surfaces inside a zone. </li>
 </ul>
 </div>
@@ -175,7 +176,7 @@ function msout(num) {
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
 
-               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></a></div>
 
                <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
 
