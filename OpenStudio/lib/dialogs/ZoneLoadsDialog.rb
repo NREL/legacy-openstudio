@@ -84,7 +84,8 @@ module OpenStudio
       @value_hash['OA_PER_AREA_SCHEDULE'] = "Always On"
       @value_hash['INFILTRATION_RATE'] = 0.5
       @value_hash['INFILTRATION_SCHEDULE'] = "Infiltration Half On Schedule"
-    end
+      @value_hash['THERMOSTAT_NAME'] = "Constant Setpoint Thermostat"
+   end
 
     # translate from value hash to hash
     def update_hash
@@ -257,7 +258,7 @@ module OpenStudio
         disable_element("ADD_THERMOSTATS")
         disable_element("EDIT_THERMOSTATS")
         disable_element("REFRESH_THERMOSTATS")
-        set_select_options("THERMOSTAT_NAME", []) 
+        set_select_options("THERMOSTAT_NAME", thermostat_names)
       end
       
       super
@@ -295,6 +296,7 @@ module OpenStudio
             end
             update_hash
             @hash['DEFAULT_SAVE_PATH'] = file_path
+            report
             update
 
           rescue Exception => e
