@@ -104,7 +104,7 @@
 
   Building,
     Building,                !- Name
-    30.,                     !- North Axis {deg}
+    0.,                     !- North Axis {deg}
     City,                    !- Terrain
     0.04,                    !- Loads Convergence Tolerance Value
     0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
