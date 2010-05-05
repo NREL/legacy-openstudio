@@ -20,10 +20,10 @@ module OpenStudio
 
       # Populate transmittance schedule list
       object_names = Plugin.model_manager.input_file.find_objects_by_class_name("SCHEDULE:YEAR", "SCHEDULE:COMPACT", "SCHEDULE:FILE").collect { |object| object.name }
-      if (not object_names.contains?(@hash['TRANSMITTANCE']))
+      if (not object_names.contains?(@hash['TRANSMITTANCE'])) and  @hash['TRANSMITTANCE'] != ""
         object_names.add(@hash['TRANSMITTANCE'])
       end
-      set_select_options("TRANSMITTANCE", object_names.sort)
+      set_select_options("TRANSMITTANCE", [""].concat(object_names.sort))
 
       #super
       

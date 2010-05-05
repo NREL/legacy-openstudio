@@ -156,6 +156,8 @@ function msout(num) {
    <li>Rendering Settings Dialog does not work on a Mac because       the JavaScript engine in Safari</li>
    <li>Can't move zone origin through OpenStudio.</li>
    <li>Surface Matching may not properly match some non rectangular relationships. If this happens you can manually match the surfaces using the Object Information Window.</li>
+   <li>As much as possible you should avoid using curves (arcs or circles) to create your geometry as it will create a lot of faced surfaces and increase the simulation time. If you do use curves set the segment count as low as possible. Before you extrude a curve in SketchUp you can select it and right click to view the &quot;Entity Information&quot; window. There you can change the number of segments. If you want to make changes to curves via the object info window you have to &quot;View Hidden Geometry&quot; to select individual facets. You can't globally change the whole curve at once.</li>
+   <li>When you are drawing in a zone and extrude your plan up OpenStudio runs through and classifies all of the newly created base surfaces. Normally this is very quick, but if you have a complex shape, and also if you have the Object Information window and/or Outliner window open it make take longer. If you interrupt the process by exiting out of the zone before it is done, the zone won't function properly. If that happens, you can manually update the unclassified surfaces, or delete and redraw them.</li>
 </ul>
 
 
