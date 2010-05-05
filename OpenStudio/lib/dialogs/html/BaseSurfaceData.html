@@ -3,14 +3,6 @@
 <meta http-equiv="Content-Type" content="text/html" />
 <link href="Dialogs.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="Dialogs.js"></script>
-<script language="javascript">
-<!--
-function onChangeBoundaryCondition(element) {
-  onChangeElement(element);
-  setTimeout("window.location='skp:on_change_boundary_condition';", 10);  // Timeout required to get this to trigger
-}
--->
-</script>
 </head>
 <body class="label">
 
@@ -76,7 +68,7 @@ function onChangeBoundaryCondition(element) {
 &nbsp;&nbsp;Outside Boundary Condition:
 </td>
 <td>
-<select name="OUTSIDE_BOUNDARY_CONDITION" class="text" width="100%" style="width:100%;" onchange="onChangeBoundaryCondition(this)">
+<select name="OUTSIDE_BOUNDARY_CONDITION" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
 <option value="SURFACE">Surface</option>
 <option value="ADIABATIC">Adiabatic</option>
 <option value="ZONE">Zone</option>

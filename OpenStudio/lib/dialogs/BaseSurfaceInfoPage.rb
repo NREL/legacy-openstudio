@@ -12,7 +12,6 @@ module OpenStudio
     def add_callbacks
       super
       @container.web_dialog.add_action_callback("on_change_element") { |d, p| on_change_element(d, p) }
-      @container.web_dialog.add_action_callback("on_change_boundary_condition") { on_change_boundary_condition }
     end
 
 
@@ -33,29 +32,36 @@ module OpenStudio
       end
       set_select_options("CONSTRUCTION", object_names.sort)
 
-      on_change_boundary_condition
+      on_change_boundary_condition(nil)
 
       #super
 
       # Don't set the background color because it causes the dialog to flash.
       #@container.execute_function("setBackgroundColor('" + default_dialog_color + "')")
       
-      #update_units
-      #update
+      update_units
+      update
     end
 
 
     def on_change_element(d, p)
+      last_boundary_condition = @hash['OUTSIDE_BOUNDARY_CONDITION']
       super
+      on_change_boundary_condition(last_boundary_condition)
       report
     end
 
 
-    def on_change_boundary_condition
-
+    def on_change_boundary_condition(last_boundary_condition)
+    
       case (@hash['OUTSIDE_BOUNDARY_CONDITION'])
 
       when "OUTDOORS"
+      
+        if not last_boundary_condition.nil? and not last_boundary_condition.empty? and not last_boundary_condition == "OUTDOORS"
+          @hash['SUN'] = true
+          @hash['WIND'] = true
+        end
         @hash['OUTSIDE_BOUNDARY_OBJECT'] = ""
 
         enable_element("SUN")
@@ -63,8 +69,6 @@ module OpenStudio
         enable_element("VIEW_FACTOR_TO_GROUND")
         disable_element("OUTSIDE_BOUNDARY_OBJECT")
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", [""])
-
-        update
 
        when "ADIABATIC"
         @hash['SUN'] = false
@@ -77,8 +81,6 @@ module OpenStudio
         disable_element("VIEW_FACTOR_TO_GROUND")
         disable_element("OUTSIDE_BOUNDARY_OBJECT")
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", [""])
-
-        update
 
       when "GROUND", "GROUNDFCFACTORMETHOD", "GROUNDSLABPREPROCESSORAVERAGE",
               "GROUNDSLABPREPROCESSORCORE", "GROUNDSLABPREPROCESSORPERIMETER",
@@ -94,23 +96,19 @@ module OpenStudio
         disable_element("VIEW_FACTOR_TO_GROUND")
         disable_element("OUTSIDE_BOUNDARY_OBJECT")
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", [""])
-
-        update
         
       when "SURFACE"
         @hash['SUN'] = false
         @hash['WIND'] = false
         @hash['VIEW_FACTOR_TO_GROUND'] = "0.0"
-
+        
         disable_element("SUN")
         disable_element("WIND")
         disable_element("VIEW_FACTOR_TO_GROUND")
         enable_element("OUTSIDE_BOUNDARY_OBJECT")
         object_names = Plugin.model_manager.input_file.find_objects_by_class_name("BUILDINGSURFACE:DETAILED").collect { |object| object.name }
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", object_names.sort)
-
-        update
-
+        
       when "ZONE"
         @hash['SUN'] = false
         @hash['WIND'] = false
@@ -122,8 +120,6 @@ module OpenStudio
         enable_element("OUTSIDE_BOUNDARY_OBJECT")
         object_names = Plugin.model_manager.input_file.find_objects_by_class_name("ZONE").collect { |object| object.name }
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", object_names.sort)
-
-        update
 
       when "OTHERSIDECOEFFICIENTS"
         @hash['SUN'] = false
@@ -137,8 +133,6 @@ module OpenStudio
         object_names = Plugin.model_manager.input_file.find_objects_by_class_name("SURFACEPROPERTY:OTHERSIDECOEFFICIENTS").collect { |object| object.name }
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", object_names.sort)
 
-        update
-
       when "OTHERSIDECONDITIONSMODEL"
         @hash['SUN'] = false
         @hash['WIND'] = false
@@ -150,8 +144,7 @@ module OpenStudio
         enable_element("OUTSIDE_BOUNDARY_OBJECT")
         object_names = Plugin.model_manager.input_file.find_objects_by_class_name("SURFACEPROPERTY:OTHERSIDECONDITIONSMODEL").collect { |object| object.name }
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", object_names.sort)
-
-        update
+        
       end
       
     end
