@@ -145,6 +145,15 @@ function msout(num) {
 <li>Run EnergyPlus through OpenStudio as a non-admin</li>
 <li>Back faces of EnergyPlus Shading Surfaces now have different colors than their front faces.</li>
 <li>Stability improvements to the Object Info Dialog</li>
+<li>Bugs fixed with patch to 1.0.5
+  <ul>
+    <li>Attached shading surfaces can now be manually  assigned a base surface. By default the base surface is a floor in the zone, however  you may need to change it to an exterior wall. EnergyPlus requires that shading  surfaces have an exterior base surface.</li>
+    <li>When you click &ldquo;Reset to Default Office&rdquo; in Zone  Loads &ldquo;Constant Setponit Thermostat&rdquo; is now set for HVACTemplase:Thermostat.  This is only visible if you also turn on &ldquo;Add HVAC  Template:Aone:IdealLoadsAirSystem.&rdquo;</li>
+    <li>When you save Zone Load Preferences, your  Thermostat is also saved along with Zone Loads.</li>
+    <li>When you change your Outside Boundary Condition  to something other than &ldquo;Outdoors&rdquo; sun and wind exposure are both properly  turned off in the Object Text Window and the IDF file. If you change back to &ldquo;Outdoors&rdquo;  then sun and wind exposure are both turned back on, they can be &nbsp;manually turned back on.</li>
+    <li>Fixed issues &nbsp;with conversion of Simple Objects to Detailed  Objects.</li>
+  </ul>
+</li>
 </ul>
 
 <A NAME="known_issues"></A>
@@ -155,7 +164,7 @@ function msout(num) {
    <li>If       you create a group out of multiple EnergyPlus Zones, and then hide a zone,       you will receive an error message.</li>
    <li>Rendering Settings Dialog does not work on a Mac because       the JavaScript engine in Safari</li>
    <li>Can't move zone origin through OpenStudio.</li>
-   <li>Surface Matching may not properly match some non rectangular relationships. If this happens you can manually match the surfaces using the Object Information Window.</li>
+   <li>Surface Matching may not properly match some non rectangular surfaces. If this happens you can manually match the surfaces using the Object Information Window. An alternative workflow would be to draw them as rectangular surfaces, match them, and then adjsut the geometry</li>
    <li>As much as possible you should avoid using curves (arcs or circles) to create your geometry as it will create a lot of faced surfaces and increase the simulation time. If you do use curves set the segment count as low as possible. Before you extrude a curve in SketchUp you can select it and right click to view the &quot;Entity Information&quot; window. There you can change the number of segments. If you want to make changes to curves via the object info window you have to &quot;View Hidden Geometry&quot; to select individual facets. You can't globally change the whole curve at once.</li>
    <li>When you are drawing in a zone and extrude your plan up OpenStudio runs through and classifies all of the newly created base surfaces. Normally this is very quick, but if you have a complex shape, and also if you have the Object Information window and/or Outliner window open it make take longer. If you interrupt the process by exiting out of the zone before it is done, the zone won't function properly. If that happens, you can manually update the unclassified surfaces, or delete and redraw them.</li>
 </ul>
@@ -210,11 +219,14 @@ function msout(num) {
 <P2i><A href="#top">Back to Top</A></P2i>
 				  </td>
 				</tr>
+				<tr>
+				  <td valign="top">&nbsp;</td>
+			  </tr>
 			</table>
 <!-- end of main content table -->
 
 
-		</td>
+	  </td>
         <td>
         <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
 				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
