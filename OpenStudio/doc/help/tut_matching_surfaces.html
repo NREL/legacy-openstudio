@@ -201,6 +201,8 @@ function msout(num) {
      <li>You can match surfaces together  as you make them or you can create all surfaces for your model and match them at the end.</li>
      <li>After matching, you can verify correct results using the <a href="tut_searching.html">Surface Search Tool</a> to verify correct results. You can, for example,  check that no surfaces with outdoor boundary conditions are inside the building,  and vice versa. </li>
      <li>As an alternative to the Surface Matching tool, you can manually match surfaces, using the Object Info Tool. Set the Outside Boundary Condition to &quot;Surface&quot; and then identify the Outside Boundary Object that you wan to match with. In most cases your matches are in pairs. So if you match surface &quot;A&quot; to surface &quot;B&quot;, then surface &quot;B&quot; should also refer to surface &quot;A&quot; as it's Outside Boundary Object.</li>
+     <li>Surface Matching may not properly match some non rectangular surfaces. If this happens you can manually match the surfaces (see above). An alternative workflow would be to draw them as rectangular surfaces, match them, and then adjust the geometry.</li>
+     <li>If your surface is a trapezoid (like perimeter zone in a 5-zone plan) then you can generally avoid the issue by drawing your zone origin at the 2nd of the two acute angles. (2nd when using the right hand rule to draw points clockwise). Then use the line tool to draw your shape staring with the second acute angle(same point as zone origin). Once you do this don't move your zones around. Copying them up to create multiple floors should be fine. The draw order of your vertices will be: acute vertex&gt;obtuse vertex&gt;obtuse vertex&gt;acute vertex.</li>
      </ul>
 </div>
 
