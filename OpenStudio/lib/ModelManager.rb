@@ -319,6 +319,7 @@ module OpenStudio
       hash['Weather File Path'] = ""
       hash['Report ABUPS'] = true
       hash['ABUPS Format'] = "HTML"
+      hash['ABUPS Units'] = "SI"
       hash['Report User Variables'] = true
       hash['Report Sql'] = false
       hash['Report Zone Temps'] = false

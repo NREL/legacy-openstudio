@@ -93,7 +93,14 @@ module OpenStudio
         new_input_file.objects.remove_if { |object| object.is_class_name?("Output:Table:SummaryReports") or object.is_class_name?("OutputControl:Table:Style") }
 
         format = Plugin.model_manager.get_attribute("ABUPS Format")
-        new_input_file.add_object(InputObject.new("OutputControl:Table:Style", ["OutputControl:Table:Style", format]))
+        units = Plugin.model_manager.get_attribute("ABUPS Units")
+        
+        if units == "IP"
+          new_input_file.add_object(InputObject.new("OutputControl:Table:Style", ["OutputControl:Table:Style", format, "InchPound"]))
+        else
+          new_input_file.add_object(InputObject.new("OutputControl:Table:Style", ["OutputControl:Table:Style", format]))
+        end
+        
         new_input_file.add_object(InputObject.new("Output:Table:SummaryReports", ["Output:Table:SummaryReports", "AnnualBuildingUtilityPerformanceSummary"]))
       end
       

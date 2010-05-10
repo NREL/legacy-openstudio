@@ -67,6 +67,7 @@ module OpenStudio
       
       @hash['REPORT_ABUPS'] = Plugin.model_manager.get_attribute("Report ABUPS")
       @hash['ABUPS_FORMAT'] = Plugin.model_manager.get_attribute("ABUPS Format")
+      @hash['ABUPS_UNITS'] = Plugin.model_manager.get_attribute("ABUPS Units")
       @hash['REPORT_DXF'] = Plugin.model_manager.get_attribute("Report DXF")
       @hash['REPORT_SQL'] = Plugin.model_manager.get_attribute("Report Sql")
       @hash['REPORT_ZONE_TEMPS'] = Plugin.model_manager.get_attribute("Report Zone Temps")
@@ -105,6 +106,7 @@ module OpenStudio
       Plugin.model_manager.set_attribute("Weather File Path", @hash['EPW_PATH'])
       Plugin.model_manager.set_attribute("Report ABUPS", @hash['REPORT_ABUPS'])
       Plugin.model_manager.set_attribute("ABUPS Format", @hash['ABUPS_FORMAT'])
+      Plugin.model_manager.set_attribute("ABUPS Units", @hash['ABUPS_UNITS'])
       Plugin.model_manager.set_attribute("Report DXF", @hash['REPORT_DXF'])
       Plugin.model_manager.set_attribute("Report Sql", @hash['REPORT_SQL'])
       Plugin.model_manager.set_attribute("Report Zone Temps", @hash['REPORT_ZONE_TEMPS'])

@@ -100,10 +100,12 @@ function setDateOptions() {
 function onClickReportABUPS() {
   if (document.getElementById('REPORT_ABUPS').checked) {
     enableElement('ABUPS_FORMAT');
+    enableElement('ABUPS_UNITS');
     enableElement('SHOW_ABUPS');
   }
   else {
     disableElement('ABUPS_FORMAT');
+    disableElement('ABUPS_UNITS');
     disableElement('SHOW_ABUPS');
     document.getElementById('SHOW_ABUPS').checked = false;
   }
@@ -294,7 +296,12 @@ Format:&nbsp;
   <option value="HTML">HTML</option>
   <option value="Comma">CSV</option>
   <option value="Tab" selected>Tab</option>
-  <option value="Fixed" selected>Fixed&nbsp;&nbsp;</option>
+  <option value="Fixed" selected>Fixed</option>
+</select>&nbsp;&nbsp;
+Units:&nbsp;
+<select name="ABUPS_UNITS" class="text" onchange="onChangeElement(this)">
+  <option value="SI">SI</option>
+  <option value="IP">IP</option>
 </select>
 </td>
 </tr>
