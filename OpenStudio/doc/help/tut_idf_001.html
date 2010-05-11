@@ -23,13 +23,13 @@ over[2] = "images/ln_release_notes_on.gif";
 
 
 function msover(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = over[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
 }
 
 function msout(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = normal[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
 }
 // -->
   </script>
@@ -95,16 +95,13 @@ function msout(num) {
             </h3>
             <div style="margin-left: 10px;">
             <ul>
-              <li>An IDF file is the standard file format for
-EnergyPlus
+              <li>IDF is the standard file format for EnergyPlus
 models. It is a text file but with an ".idf" vs. a ".txt" extension.</li>
-              <li>Many applications can edit IDF files.
-OpenStudio is one of them.</li>
+              <li>All text editors can edit IDF files.  Several applications
+are designed solely to edit IDF files, OpenStudio is one of these.</li>
               <li>There is a dedicated IDF editing application named
-"IDFEditor" included with
-EnergyPlus 5.0.<br>
-"EnergyPlusV5-0-0\PreProcess|IDFEditor". Below is a screenshot of this
-application with the "building" object highlighted. The "building"
+"IDFEditor" included with EnergyPlus. Below is a screenshot of this
+application with the "Building" object highlighted. The "Building"
 object is the top level object when you are in OpenStudio. It contains
 the zones and the shading groups.<br>
               </li>
@@ -123,9 +120,9 @@ raw text without a GUI.<br>
               <p2i>(Credit: David Goldwasser/NREL)<br>
               <br>
               </p2i>
-              <li>If you go back to the Object Information Window in
-OpenStudio, you will see the same information shown in the "Object
-Inputs" at the top, and in the "Object Text" below. The "Object Text"
+              <li>The "Object Information" window in
+OpenStudio shows this same information in the "Object
+Inputs" at the top and in the "Object Text" below. The "Object Text"
 is read only, but updates when you change the information in the
 "Object Inputs". This text is the same as what you see above in the
 text file.<br>
@@ -191,33 +188,25 @@ Warmup
 Days<br>
                 <br>
               </li>
-              <li>Anything after the "!-" characters on a line is a
-comment that EnergyPlus doesn't read. They are used in a number
-locations on most files. The first line identifies what class of
-objects
-follow. You can remove this and EnergyPlus will run just fine, but its
-a good idea to leave these alone to make it easier to navigate and
-search through the IDF file.<br>
-              </li>
-              <li>Comments are often used to identify other
-parts of the object such as "!- Name"</li>
-              <li>The first line after the initial comment is usually
-out-dented. Again this is to make it easier to read. This identifies
-the
-specific object type that will be described. This is always
+              <li>Anything after a "!" character on a line is a
+comment that EnergyPlus doesn't read. Comments are used only to provide context
+when editing the IDF file by hand, they may be user entered or added by a dedicated
+editor.<br></li>
+              <li>The first non-comment, non-whitespace line is the one with "Building,".
+This text begins a new EnergyPlus object. The first field in every object declares the type
+of object which follows.  This type is
 followed by a series of fields separated by commas. Comments and line
-breaks are optional, but again make the file easier to read. The last
+breaks are optional but make the file easier to read. The last
 field of an object is followed by a semi-colon instead of a comma. This
 lets EnergyPlus know that it has reached the end of the object.</li>
               <li>An IDF file is made up of a series of individual
-objects, along with comments. Within an object the order of fields is
-critical, however the placement of objects relative to each other can
+objects. Within an object the order of fields is
+critical, however the order of objects within the file can
 be changed.</li>
               <li>If you want to put all of your materials together and
 then all of your constructions, that is fine. If you want to place
 materials next to the constructions that use them, that is also fine.
-It won't affect how EnergyPlus runs the simulation. Many applications
-or follow a specific logic in how objects are organzied.<br>
+It won't affect how EnergyPlus runs the simulation.<br>
               </li>
             </ul>
             <br>
@@ -226,8 +215,7 @@ or follow a specific logic in how objects are organzied.<br>
             <div style="margin-left: 10px;">
             <ul>
               <li>EnergyPlus has extensive PDF documentation. This is
-on
-your computer under the "EnergyPlusV5-0-0\Documentation" folder. If you
+on your computer under the "EnergyPlusV5-0-0\Documentation" folder. If you
 open the "EPlusMainMenu.pdf" file you will see a clickable index to
 many of the documentation files. This is the blue text at the left.
 Mouse over the text to see a description of the file, and click on it
@@ -243,17 +231,17 @@ documentation files at once.<br>
             <ul>
               <li>"Getting Started" is a great place to start learning.
 It explains what EnergyPlus is, has some tutorials on creating thermal
-zones from a plan and running simulations. It also gives introductions
+zones from a plan, and running simulations. It also gives introductions
 to "EP-Launch", which can be used to run individual and batch
-simulations, and also the "IDFEditor" discussed earlier on. The
+simulations and also the "IDFEditor" discussed earlier on. The
 "Overall scheme/methodology for running EnergyPlus" is a great section
 to read.</li>
               <li>The "Input/Output Reference" file contains 2000 pages
 describing just about every kind of EnergyPlus object. When you see an
 object and
 you want to know how it is used or what fields are required, this is
-the place to look. You can also look in the "V5-0-0-Energy+.idd" file
-with a text editor.<br>
+the place to look. You can also look in the "Energy+.idd" file
+with a text editor for a more brief description of the fields for each object.<br>
               </li>
               <li>"Auxiliary Programs" introduces a number of
 applications that you can use along with EnergyPlus including pre and
@@ -262,11 +250,11 @@ post processors.<br>
               <li>EnergyPlus comes with many sample IDF files under the
 "ExampleFiles" and "DataSets" folders. Some of these contain complete
 energy models, while others contain objects that you can incorporate
-into your own IDF file. I'll use the "GeneratorswithPV.idf" in the "IDF
+into your own IDF file. The "GeneratorswithPV.idf" example file is used in the "IDF
 201" tutorial.</li>
-              <li>The V5-0-0-Energy+.idd file lists the min,max, and
+              <li>The "Energy+.idd" file lists the min, max, and
 default values for every object type. Shown below is the IDD entry for
-the "building Object"<br>
+the "Building" Object as viewed in a text editor.<br>
               </li>
               <br>
               <img style="width: 571px; height: 786px;"
@@ -293,8 +281,9 @@ of the IDD relevant to that object.<br>
             </ul>
             </div>
             <br>
-            <div style="margin-left: 10px;"><p2i><a href="#top">Back
-to Top</a></p2i> </div>
+            <div style="margin-left: 10px;"><p2i><a href="tut_idf_101.html">Next Tutorial</a></p2i> </div>
+            <br>
+            <div style="margin-left: 10px;"><p2i><a href="#top">Back to Top</a></p2i> </div>
             </div>
             </td>
           </tr>

@@ -23,13 +23,13 @@ over[2] = "images/ln_release_notes_on.gif";
 
 
 function msover(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = over[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
 }
 
 function msout(num) {
-	loadImage = "Image" + num;
-	document.images[loadImage].src = normal[num]
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
 }
 // -->
   </script>
@@ -97,12 +97,17 @@ function msout(num) {
             <div style="margin-left: 10px;">
             <ul>
               <li>There are hundreds of EnergyPlus output options. They
-all serve a purpose depending upon what you
-are looking for out of a simulation. OpenStudio makes a few of the most
-common
-report types directly accessible from within the"Run
+all serve a purpose depending upon what information you
+are looking for from your simulation. OpenStudio makes a few of the most
+common report types directly accessible from within the "Run
 Simulation" dialog, under the results tab shown below.<br>
-                <br>
+              </li>
+              <li>OpenStudio adds IDF objects to your building model right before it
+              runs depending on which boxes you have checked, it does not save these
+              objects to your working IDF file.  However, you can add these output requests
+              using a text or IDF editor in which case you do not need to use OpenStudio to
+              request output.  You can see the file which OpenStudio runs by looking at the "in.idf"
+              file in your run directory.<br><br>
               </li>
               <img style="width: 593px; height: 802px;"
  src="dialogs/RunSimulation.png" alt=""><br>
@@ -113,18 +118,18 @@ Simulation" dialog, under the results tab shown below.<br>
 predefined annual summary report. Another predefined annual summary
 report is the Input Verification and Results Summary. This provides a
 number of different results, including a breakdown of the window to
-wall
-ratio for all walls in the project, broken down by the direction the
-walls are facing.</li>
-              <li>The text below is all that has to be added to your
-IDF file to reqeust this report.</li>
+wall ratio for all walls in the project, broken down by the direction the
+walls are facing. The text below is all that has to be added to your
+IDF file to request this report.  </li>
+              <br>
               <ul>
                 <li>Output:Table:SummaryReports,<br>
 &nbsp;&nbsp;&nbsp; InputVerificationandResultsSummary,&nbsp; !-
 Report&nbsp; Name</li>
               </ul>
+              <br>
               <li>Below you can see some of the results from the Input
-Verifcation report.<br>
+Verification report which are contained in the EnergyPlus ".htm" file output.<br>
               </li>
               <ul>
                 <br>
@@ -134,16 +139,17 @@ Verifcation report.<br>
                 <br>
                 </p2i>
               </ul>
-              <li>Below are some additional reports you may want to add
-under the same "Output:Table:SummaryReports," heading. The Envelope
-Summary will list walls and detail their construction, reflectance,
-U-Factor along with a number of other data fields. Shading Summary
+              <li>You may add additional reports
+under the "Output:Table:SummaryReports" object. The Envelope
+Summary lists walls and details their construction, reflectance,
+U-Factor along with a number of other results. Shading Summary
 will detail for every window what fraction of the window is in shade at
-nine
-different times of the year (9am, noon, and 3pm on the solstices and
-equinoxes).<br>
+nine different times of the year (9am, noon, and 3pm on the solstices and
+equinoxes).  See the Energy+.idd listing for "Output:Table:SummaryReports"
+to see a complete list of predefined output tables.<br>
               </li>
               <ul>
+              <br>
                 <li>Output:Table:SummaryReports,<br>
 &nbsp;&nbsp;&nbsp; InputVerificationandResultsSummary,&nbsp; !- Report
 Name<br>
@@ -180,8 +186,7 @@ objects that have to work in conjunction with each other, and with
 objects you may already have in your model.</li>
               <li>Below is a screenshot of the model that will
 be used for this demonstration. SketchUp labels have been added to
-identify the
-surface and generator names where pv wil be added. This isn't saved
+identify the surface and generator names where PV will be added. This isn't saved
 with the IDF, but was just added for this demonstration.<br>
                 <br>
               </li>
@@ -191,20 +196,18 @@ with the IDF, but was just added for this demonstration.<br>
               <br>
               </p2i>
               <li>When you want to add a more complex object like this
-into your model; in addition
-to looking at the EnergyPlus documentation, there is often a relevant
+into your model there is often a relevant
 sample file that has all the parts you need. You can copy and alter the
 objects as needed. In this case the sample file you can refer to is in
-the EnergyPlus sample folder and named "GeneratorswithPV.idf". I have
-also placed a copy of the IDF used above under the OpenStudio install
+the EnergyPlus example files folder and named "GeneratorswithPV.idf". The further
+simplified IDF used in this tutorial is included in the OpenStudio install under
 "OpenStudio/examples/PV objects and sample
-model/Sample_PV_object_in_model.idf". This file is a stripped down
-version of the GeneratorswithPV.idf file; with new geometry added.<br>
+model/Sample_PV_object_in_model.idf". <br>
               </li>
-              <li>There are a number of objects I need to add in order
+              <li>There are a number of objects to add in order
 to make the photovoltaic system properly function. First are a series
-of
-"ElectricLoadCenter" objects.</li>
+of "ElectricLoadCenter" related objects.</li>
+              <br>
               <ul>
                 <li>ElectricLoadCenter:Distribution,<br>
 &nbsp;&nbsp;&nbsp; Simple Electric Load Center,&nbsp; !- Name<br>
@@ -356,8 +359,8 @@ Thermal to Electrical Power Ratio<br>
               <li>The "PhotovoltaicPerformance:Simple" object describes
 both the efficiency of our panels, as well as what percentage of our
 surface is covered with PV. For this demonstration
-all three generators use the same PhotovoltaicPerformance object; but
-each generator coudl also have its own PhotovoltaicPerformance object.<br>
+all three generators use the same "PhotovoltaicPerformance:Simple" object; but
+each generator could also have its own "PhotovoltaicPerformance:Simple" object.<br><br>
               </li>
               <ul>
                 <li>&nbsp; PhotovoltaicPerformance:Simple,<br>
@@ -386,12 +389,12 @@ Efficiency if Fixed<br>
                   <br>
                 </li>
               </ul>
-              <li>Next we have the Generator:Photovoltaic objects.
+              <li>Next we have the "Generator:Photovoltaic" objects.
 Notice how the names below match up with the names for the
-ElectricLoadCenter:Generators above. The Generators below also refer to
-the PhotovoltaicPerformance object by name, and lastly, they refer to
+"ElectricLoadCenter:Generators" above. The Generators below also refer to
+the "PhotovoltaicPerformance:Simple" object by name, and lastly, they refer to
 already existing surfaces in the model by name ("external shade",
-"spandral panel", and "roof").<br>
+"spandrel panel", and "roof").<br><br>
               </li>
               <ul>
                 <li>Generator:Photovoltaic,<br>
@@ -433,7 +436,7 @@ in Series {dimensionless}<br>
                   <br>
 &nbsp; Generator:Photovoltaic,<br>
 &nbsp;&nbsp;&nbsp; SIMPLE Integrated PV,&nbsp;&nbsp;&nbsp; !- Name<br>
-&nbsp;&nbsp;&nbsp; spandral
+&nbsp;&nbsp;&nbsp; spandrel
 panel,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !- Surface
 Name ** change to match your surface<br>
 &nbsp;&nbsp;&nbsp; PhotovoltaicPerformance:Simple,&nbsp; !-
@@ -489,17 +492,13 @@ in Series {dimensionless}<br>
                   <br>
                 </li>
               </ul>
-              <li>Special Constructions and Materials</li>
-              <ul>
-                <li>The shading surface PV is thermally decoupled from
+              <li>The shading surface PV is thermally decoupled from
 the building. As the surface heats up, it doesn't transfer heat into a
 thermal
 zone of the building. Since this object only
 provides shade and isn't part of a thermal zone, it doesn't have a
-construction. Below is the IDF text for the object, I removed most of
-the vertex values to keep the text shorter.<br>
-                  <br>
-                </li>
+construction. Below is the relevant IDF text for the object.<br><br>
+              </li>
                 <ul>
                   <li>&nbsp; Shading:Building:Detailed,<br>
 &nbsp;&nbsp;&nbsp; external shade,&nbsp; !- Name<br>
@@ -512,18 +511,17 @@ the vertex values to keep the text shorter.<br>
                     <br>
                   </li>
                 </ul>
-                <li>The spandral panel is attached to the building, and
-as the pv panel heats up, it transfer some of that heat into the
+                <li>The spandrel panel is attached to the building, and
+as the PV panel heats up, it transfer some of that heat into the
 thermal zone just like most other external surfaces. You can see above
 that generator for this has its heat transfer integration mode set
-to&nbsp; "IntegratedSurfaceOutsideFace". The material and construction
-for
-this is pretty typical to a normal exterior wall.<br>
+to "IntegratedSurfaceOutsideFace". The material and construction
+for this is pretty typical to a normal exterior wall.<br>
                   <br>
                 </li>
                 <ul>
                   <li>BuildingSurface:Detailed,<br>
-&nbsp;&nbsp;&nbsp; spandral panel,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; spandrel panel,&nbsp; !- Name<br>
 &nbsp;&nbsp;&nbsp; Wall,&nbsp; !- Surface Type<br>
 &nbsp;&nbsp;&nbsp; PVSpandrlPanel,&nbsp; !- Construction Name<br>
 &nbsp;&nbsp;&nbsp; PV Test Building,&nbsp; !- Zone Name<br>
@@ -588,12 +586,9 @@ Layer 2<br>
               <ul>
                 <li>The roof has the panel attached in a method that
 simulates an air cavity between the panel and the roof. Its heat
-transfer mode is set to
-"IntegratedExteriorVentedCavity". To accomplish this some objects have
-to
-be added that simulate the air cavity. These in turn are referenced in
-the
-surface object.<br>
+transfer mode is set to "IntegratedExteriorVentedCavity". To accomplish this some objects have
+to be added that simulate the air cavity. These in turn are referenced in
+the surface object.<br>
                   <br>
                 </li>
                 <ul>
@@ -730,6 +725,7 @@ Mode<br>
             </ul>
             <div style="margin-left: 10px;">
             <ul>
+            <br>
               <li>In the end you have a chain of connected objects
 referencing each other that looks something like this:<br>
 ElectricLoadCenter &gt; Generator &gt; PhotovoltaicPerformance &amp;
@@ -744,8 +740,9 @@ will be built.<br>
               </li>
               <li>Lastly to view simulation results for the
 photovoltaic system we need to request those results. You don't have
-to request all everytihng shown below. Just request what you want.<br>
+to request all everything shown below. Just request what you want.<br>
               </li>
+              <br>
               <ul>
                 <li>&nbsp; Output:Variable,*,PV Generator DC
 Power,hourly;<br>
@@ -781,8 +778,9 @@ generated.<br>
             <div style="margin-left: 10px;">
             <ul>
             </ul>
-            <p2i><a href="tut_idf_201.html#top">Back to Top</a></p2i>
-            <div style="margin-left: 10px;"> </div>
+            <div style="margin-left: 10px;"><p2i><a href="tut_idf_301.html">Next Tutorial</a></p2i> </div>
+            <br>
+            <div style="margin-left: 10px;"><p2i><a href="#top">Back to Top</a></p2i>
             <br>
             </div>
             </td>
