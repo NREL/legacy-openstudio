@@ -97,18 +97,23 @@ function msout(num) {
             <div style="margin-left: 10px;">
             <ul>
               <li>There are many objects within an IDF file
-that you will need alter or copy outside of OpenStudio. This tutorial will go over a few
-examples. It assumes you have read the <a href="tut_idf_001.html">IDF primer tutorial</a> and are
+that you will need alter or copy outside of OpenStudio. This tutorial
+will go over a few
+examples. It assumes you have read the <a href="tut_idf_001.html">IDF
+primer tutorial</a> and are
 familiar with the structure of an IDF file.<br>
               </li>
               <li>OpenStudio's template file has a number of built in
-schedules for lighting, people, etc. You can simply use these schedules for your building model.
-However, you will likely need to modify or add new schedules for your particular needs.
+schedules for lighting, people, etc. You can simply use these schedules
+for your building model.
+However, you will likely need to modify or add new schedules for your
+particular needs.
 The Zone Loads dialog allows you to create new schedule
 stubs. These are placeholders for schedules. You can assign the
 schedules to objects, but you need to create the content for the
 schedule outside of OpenStudio before you run a simulation. The Zone
-Loads dialog is pictured below, along with the alert you see after you create and name a new
+Loads dialog is pictured below, along with the alert you see after you
+create and name a new
 schedule stub.<br>
               </li>
               <br>
@@ -131,17 +136,21 @@ adjusted.<br>
               <li>"Schedule:compact," identifies the type of object
 being described.</li>
               <li>"Hours of operation schedule" is the name of the
-object.<br><br>
+object.<br>
+                <br>
               </li>
-              <li>Schedules have a "Schedule Type" which determines the type of
-values which can be entered in the schedule.  See
-the image below for some example "Schedule Type" values. The one above is just on or off.
+              <li>Schedules have a "Schedule Type" which determines the
+type of
+values which can be entered in the schedule. See
+the image below for some example "Schedule Type" values. The one above
+is just on or off.
 Some other types are "fraction" and "temperature". Fraction could
 be used to identify the fraction of max occupancy at any given time,
 and temperature can be used to control thermostat set points.</li>
               <li>The schedules above are the same through the entire
 year, hence the "Through: 12/31". If for example this was as school
-there would be three unique statements similar to what is shown below.<br><br>
+there would be three unique statements similar to what is shown below.<br>
+                <br>
               </li>
               <ul>
                 <li>Through: 05/31,</li>
@@ -166,8 +175,10 @@ make unique schedules for weekends, holidays, and other days. Winter
 and
 Summer Design days are special days used by EnergyPlus for design day
 simulations. Look through the EnergyPlus documentation for more
-information on design days. Below is a list from Energy+.idd of the different day types
-that you can use.<br><br>
+information on design days. Below is a list from Energy+.idd of the
+different day types
+that you can use.<br>
+                <br>
               </li>
               <ul>
                 <li>\field DataType List 1<br>
@@ -198,23 +209,12 @@ Alldays"<br>
               </ul>
               <br>
               <li>Below are some examples of schedule types that can be
-assigned to a schedule.<br><br></li>
+assigned to a schedule.<br>
+                <br>
+              </li>
               <img style="width: 600px; height: 430px;"
  src="dialogs/tut_idf_101_03.png" alt=""><br>
-              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
-              <br>
-              <li>Below is another example of a schedule from the
-template file (top) and a modified copy of the schedule (bottom). As
-with the earlier example the schedule was altered to represent a
-building operating from 7am to 7pm on Monday through Friday. This is
-for the heating setpoint. The limit type is temperature, and the values
-after the time of day are degrees in Celsius. There is a similar
-schedule for cooling setpoint, but with different values for the
-temperatures.</li>
-              <br>
-              <img style="width: 600px; height: 431px;"
- src="dialogs/tut_idf_101_04.png" alt=""><br>
-              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><p2i></p2i><br>
               <br>
               <li>Below is a screenshot showing the description for
 "Schedule:Compact" in the EnergyPlus InputOutputReference pdf file.<br>
@@ -237,7 +237,8 @@ temperatures.</li>
 are the constructions and underlying materials used for your building
 surfaces. <br>
               </li>
-              <li>There are several dataset files with EnergyPlus that define common construction materials and constructions.<br>
+              <li>There are several dataset files with EnergyPlus that
+define common construction materials and constructions.<br>
               </li>
               <li>Similar to the Zone Loads dialog, the Default
 Constructions dialog allows you to create new construction stubs. As
@@ -276,11 +277,14 @@ The brick is 0.1016 meters thick, which nominally is 100mm, so the name
 was a good indicator of this. There are also fields for the material
 roughness, conductivity density and specific heat. There are other
 optional fields that EnergyPlus assigns default values to if they are
-not described in the IDF.  Material color is an example of a field with a default value.</li>
+not described in the IDF. Material color is an example of a field with
+a default value.</li>
               <li>The fields shown below are all required, but if there
 were an optional field and you didn't want to manually assign a value,
-you can't just skip the field. You would have to have a comma there to indicate
-the field position; remember that EnergyPlus doesn't use the comments at
+you can't just skip the field. You would have to have a comma there to
+indicate
+the field position; remember that EnergyPlus doesn't use the comments
+at
 the right,
 so it can only use the order of fields to identify what field a value
 belongs to. If the optional field(s) that you want to skip are at the
@@ -298,9 +302,12 @@ simulation.<br>
  src="dialogs/tut_idf_101_07.png" alt=""></li>
               <p2i>(Credit: David Goldwasser/NREL)</p2i>
             </ul>
-            <div style="margin-left: 10px;"><p2i><a href="tut_idf_201.html">Next Tutorial</a></p2i> </div>
+            <div style="margin-left: 10px;"><p2i><a
+ href="tut_idf_201.html">Next Tutorial</a></p2i> </div>
             <br>
-            <div style="margin-left: 10px;"><p2i><a href="#top">Back to Top</a></p2i> </div>
+            <div style="margin-left: 10px;"><p2i><a href="#top">Back to
+Top</a></p2i> </div>
+            </div>
             </td>
           </tr>
         </tbody>

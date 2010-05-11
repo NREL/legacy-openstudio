@@ -34,7 +34,7 @@ function msout(num) {
 // -->
   </script>
 </head>
-<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
 <a name="top"></a><!-- rollovers -->
 <!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
  name="head">
@@ -98,16 +98,19 @@ function msout(num) {
             <ul>
               <li>There are hundreds of EnergyPlus output options. They
 all serve a purpose depending upon what information you
-are looking for from your simulation. OpenStudio makes a few of the most
+are looking for from your simulation. OpenStudio makes a few of the
+most
 common report types directly accessible from within the "Run
 Simulation" dialog, under the results tab shown below.<br>
               </li>
-              <li>OpenStudio adds IDF objects to your building model right before it
-              runs depending on which boxes you have checked, it does not save these
-              objects to your working IDF file.  However, you can add these output requests
-              using a text or IDF editor in which case you do not need to use OpenStudio to
-              request output.  You can see the file which OpenStudio runs by looking at the "in.idf"
-              file in your run directory.<br><br>
+              <li>OpenStudio adds IDF objects to your building model
+right before it runs depending on which boxes you have checked, it does
+not save these objects to your working IDF file. However, you can add
+these output requests using a text or IDF editor in which case you do
+not need to use OpenStudio to request output. You can see the file
+which OpenStudio runs by looking at the "in.idf" file in your run
+directory.<br>
+                <br>
               </li>
               <img style="width: 593px; height: 802px;"
  src="dialogs/RunSimulation.png" alt=""><br>
@@ -118,9 +121,10 @@ Simulation" dialog, under the results tab shown below.<br>
 predefined annual summary report. Another predefined annual summary
 report is the Input Verification and Results Summary. This provides a
 number of different results, including a breakdown of the window to
-wall ratio for all walls in the project, broken down by the direction the
+wall ratio for all walls in the project, broken down by the direction
+the
 walls are facing. The text below is all that has to be added to your
-IDF file to request this report.  </li>
+IDF file to request this report. </li>
               <br>
               <ul>
                 <li>Output:Table:SummaryReports,<br>
@@ -129,7 +133,8 @@ Report&nbsp; Name</li>
               </ul>
               <br>
               <li>Below you can see some of the results from the Input
-Verification report which are contained in the EnergyPlus ".htm" file output.<br>
+Verification report which are contained in the EnergyPlus ".html" file
+output that is created in the same directory as your IDF file.<br>
               </li>
               <ul>
                 <br>
@@ -144,34 +149,35 @@ under the "Output:Table:SummaryReports" object. The Envelope
 Summary lists walls and details their construction, reflectance,
 U-Factor along with a number of other results. Shading Summary
 will detail for every window what fraction of the window is in shade at
-nine different times of the year (9am, noon, and 3pm on the solstices and
-equinoxes).  See the Energy+.idd listing for "Output:Table:SummaryReports"
+nine different times of the year (9am, noon, and 3pm on the solstices
+and
+equinoxes). See the Energy+.idd listing for
+"Output:Table:SummaryReports"
 to see a complete list of predefined output tables.<br>
               </li>
               <ul>
-              <br>
+                <br>
                 <li>Output:Table:SummaryReports,<br>
 &nbsp;&nbsp;&nbsp; InputVerificationandResultsSummary,&nbsp; !- Report
 Name<br>
 &nbsp;&nbsp;&nbsp; EnvelopeSummary,&nbsp; !- Report Name<br>
-&nbsp;&nbsp;&nbsp; ShadingSummary;&nbsp; !- Report Name</li>
+&nbsp;&nbsp;&nbsp; ShadingSummary;&nbsp; !- Report Name<br>
+                  <br>
+                </li>
               </ul>
-            </ul>
-            </div>
-            <ul>
               <li>Below you can see some of the results from the
-Envelope Summary report.<br>
+Envelope Summary report, also in the "html" file contained in the same
+directory as your IDF file.<br>
               </li>
             </ul>
+            </div>
             <div style="margin-left: 10px;">
             <ul>
-              <ul>
-                <img style="width: 601px; height: 462px;"
+              <img style="width: 601px; height: 462px;"
  src="dialogs/tut_idf_201_02.png" alt=""><br>
-                <p2i>(Credit: David Goldwasser/NREL)<br>
-                <br>
-                </p2i>
-              </ul>
+              <p2i>(Credit: David Goldwasser/NREL)<br>
+              <br>
+              </p2i>
             </ul>
             <p2i><a href="#top">Back to Top</a><br>
             </p2i>
@@ -186,7 +192,8 @@ objects that have to work in conjunction with each other, and with
 objects you may already have in your model.</li>
               <li>Below is a screenshot of the model that will
 be used for this demonstration. SketchUp labels have been added to
-identify the surface and generator names where PV will be added. This isn't saved
+identify the surface and generator names where PV will be added. This
+isn't saved
 with the IDF, but was just added for this demonstration.<br>
                 <br>
               </li>
@@ -199,8 +206,10 @@ with the IDF, but was just added for this demonstration.<br>
 into your model there is often a relevant
 sample file that has all the parts you need. You can copy and alter the
 objects as needed. In this case the sample file you can refer to is in
-the EnergyPlus example files folder and named "GeneratorswithPV.idf". The further
-simplified IDF used in this tutorial is included in the OpenStudio install under
+the EnergyPlus example files folder and named "GeneratorswithPV.idf".
+The further
+simplified IDF used in this tutorial is included in the OpenStudio
+install under
 "OpenStudio/examples/PV objects and sample
 model/Sample_PV_object_in_model.idf". <br>
               </li>
@@ -230,21 +239,27 @@ Type<br>
 Demand
 Limit
 Scheme
-Purchased Electric Demand Limit {W}<br>
+Purchased
+Electric
+Demand
+Limit {W}<br>
 &nbsp;&nbsp;&nbsp;
 ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Track
 Schedule
 Name
-Scheme Schedule Name<br>
+Scheme
+Schedule
+Name<br>
 &nbsp;&nbsp;&nbsp;
 ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Track
 Meter
 Scheme
-Meter Name<br>
+Meter
+Name<br>
 &nbsp;&nbsp;&nbsp; DirectCurrentWithInverter,&nbsp; !- Electrical Buss
 Type<br>
 &nbsp;&nbsp;&nbsp; Simple Ideal Inverter;&nbsp;&nbsp; !- Inverter
@@ -288,21 +303,27 @@ Type<br>
 Generator
 1
 Rated
-Electric Power Output<br>
+Electric
+Power
+Output<br>
 &nbsp;&nbsp;&nbsp; always
 On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Generator
 1
 Availability
-Schedule Name<br>
+Schedule
+Name<br>
 &nbsp;&nbsp;&nbsp;
 ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Generator
 1
 Rated
-Thermal to Electrical Power Ratio<br>
+Thermal
+to
+Electrical
+Power Ratio<br>
 &nbsp;&nbsp;&nbsp; SIMPLE Integrated PV,&nbsp;&nbsp;&nbsp; !- Generator
 2 Name<br>
 &nbsp;&nbsp;&nbsp; Generator:Photovoltaic,&nbsp; !- Generator 2 Object
@@ -313,21 +334,27 @@ Type<br>
 Generator
 2
 Rated
-Electric Power Output<br>
+Electric
+Power
+Output<br>
 &nbsp;&nbsp;&nbsp; always
 On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Generator
 2
 Availability
-Schedule Name<br>
+Schedule
+Name<br>
 &nbsp;&nbsp;&nbsp;
 ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Generator
 2
 Rated
-Thermal to Electrical Power Ratio<br>
+Thermal
+to
+Electrical
+Power Ratio<br>
 &nbsp;&nbsp;&nbsp; SIMPLE Roof Paver PV,&nbsp;&nbsp;&nbsp; !- Generator
 3 Name<br>
 &nbsp;&nbsp;&nbsp; Generator:Photovoltaic,&nbsp; !- Generator 3 Object
@@ -338,29 +365,38 @@ Type<br>
 Generator
 3
 Rated
-Electric Power Output<br>
+Electric
+Power
+Output<br>
 &nbsp;&nbsp;&nbsp; always
 On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Generator
 3
 Availability
-Schedule Name<br>
+Schedule
+Name<br>
 &nbsp;&nbsp;&nbsp;
 ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Generator
 3
 Rated
-Thermal to Electrical Power Ratio<br>
+Thermal
+to
+Electrical
+Power Ratio<br>
                   <br>
                 </li>
               </ul>
               <li>The "PhotovoltaicPerformance:Simple" object describes
 both the efficiency of our panels, as well as what percentage of our
 surface is covered with PV. For this demonstration
-all three generators use the same "PhotovoltaicPerformance:Simple" object; but
-each generator could also have its own "PhotovoltaicPerformance:Simple" object.<br><br>
+all three generators use the same "PhotovoltaicPerformance:Simple"
+object; but
+each generator could also have its own "PhotovoltaicPerformance:Simple"
+object.<br>
+                <br>
               </li>
               <ul>
                 <li>&nbsp; PhotovoltaicPerformance:Simple,<br>
@@ -371,7 +407,10 @@ each generator could also have its own "PhotovoltaicPerformance:Simple" object.<
 Fraction
 of
 Surface
-Area with Active Solar Cells {dimensionless}<br>
+Area
+with
+Active
+Solar Cells {dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 Fixed,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
@@ -385,16 +424,21 @@ Mode<br>
 Value
 for
 Cell
-Efficiency if Fixed<br>
+Efficiency
+if
+Fixed<br>
                   <br>
                 </li>
               </ul>
               <li>Next we have the "Generator:Photovoltaic" objects.
 Notice how the names below match up with the names for the
-"ElectricLoadCenter:Generators" above. The Generators below also refer to
-the "PhotovoltaicPerformance:Simple" object by name, and lastly, they refer to
+"ElectricLoadCenter:Generators" above. The Generators below also refer
+to
+the "PhotovoltaicPerformance:Simple" object by name, and lastly, they
+refer to
 already existing surfaces in the model by name ("external shade",
-"spandrel panel", and "roof").<br><br>
+"spandrel panel", and "roof").<br>
+                <br>
               </li>
               <ul>
                 <li>Generator:Photovoltaic,<br>
@@ -407,7 +451,10 @@ shade,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Surface
 Name&nbsp;
 **
-change to match your surface<br>
+change
+to
+match
+your surface<br>
 &nbsp;&nbsp;&nbsp; PhotovoltaicPerformance:Simple,&nbsp; !-
 Photovoltaic Performance Object Type<br>
 &nbsp;&nbsp;&nbsp; 12percentEffPVhalfArea,&nbsp; !- Module Performance
@@ -425,14 +472,18 @@ Mode<br>
 Number
 of
 Modules
-in Parallel {dimensionless}<br>
+in
+Parallel
+{dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Number
 of
 Modules
-in Series {dimensionless}<br>
+in
+Series
+{dimensionless}<br>
                   <br>
 &nbsp; Generator:Photovoltaic,<br>
 &nbsp;&nbsp;&nbsp; SIMPLE Integrated PV,&nbsp;&nbsp;&nbsp; !- Name<br>
@@ -451,14 +502,18 @@ Integration Mode<br>
 Number
 of
 Modules
-in Parallel {dimensionless}<br>
+in
+Parallel
+{dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Number
 of
 Modules
-in Series {dimensionless}<br>
+in
+Series
+{dimensionless}<br>
                   <br>
 &nbsp; Generator:Photovoltaic,<br>
 &nbsp;&nbsp;&nbsp; SIMPLE Roof Paver PV,&nbsp;&nbsp;&nbsp; !- Name<br>
@@ -468,7 +523,10 @@ roof,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 Surface
 Name
 **
-change to match your surface<br>
+change
+to
+match
+your surface<br>
 &nbsp;&nbsp;&nbsp; PhotovoltaicPerformance:Simple,&nbsp; !-
 Photovoltaic Performance Object Type<br>
 &nbsp;&nbsp;&nbsp; 12percentEffPVhalfArea,&nbsp; !- Module Performance
@@ -481,14 +539,18 @@ Transfer Integration Mode<br>
 Number
 of
 Modules
-in Parallel {dimensionless}<br>
+in
+Parallel
+{dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Number
 of
 Modules
-in Series {dimensionless}<br>
+in
+Series
+{dimensionless}<br>
                   <br>
                 </li>
               </ul>
@@ -497,10 +559,11 @@ the building. As the surface heats up, it doesn't transfer heat into a
 thermal
 zone of the building. Since this object only
 provides shade and isn't part of a thermal zone, it doesn't have a
-construction. Below is the relevant IDF text for the object.<br><br>
+construction. Below is the relevant IDF text for the object.<br>
+                <br>
               </li>
-                <ul>
-                  <li>&nbsp; Shading:Building:Detailed,<br>
+              <ul>
+                <li>&nbsp; Shading:Building:Detailed,<br>
 &nbsp;&nbsp;&nbsp; external shade,&nbsp; !- Name<br>
 &nbsp;&nbsp;&nbsp; ,&nbsp; !- Transmittance Schedule Name<br>
 &nbsp;&nbsp;&nbsp; 4,&nbsp; !- Number of Vertices<br>
@@ -508,19 +571,19 @@ construction. Below is the relevant IDF text for the object.<br><br>
 &nbsp;&nbsp;&nbsp; -1.371600,&nbsp; !- Vertex 1 Y-coordinate {m}<br>
 &nbsp;&nbsp;&nbsp; 3.048000,&nbsp; !- Vertex 1 Z-coordinate {m}<br>
 &nbsp;&nbsp;&nbsp; &lt;cut short&gt;<br>
-                    <br>
-                  </li>
-                </ul>
-                <li>The spandrel panel is attached to the building, and
+                  <br>
+                </li>
+              </ul>
+              <li>The spandrel panel is attached to the building, and
 as the PV panel heats up, it transfer some of that heat into the
 thermal zone just like most other external surfaces. You can see above
 that generator for this has its heat transfer integration mode set
 to "IntegratedSurfaceOutsideFace". The material and construction
 for this is pretty typical to a normal exterior wall.<br>
-                  <br>
-                </li>
-                <ul>
-                  <li>BuildingSurface:Detailed,<br>
+                <br>
+              </li>
+              <ul>
+                <li>BuildingSurface:Detailed,<br>
 &nbsp;&nbsp;&nbsp; spandrel panel,&nbsp; !- Name<br>
 &nbsp;&nbsp;&nbsp; Wall,&nbsp; !- Surface Type<br>
 &nbsp;&nbsp;&nbsp; PVSpandrlPanel,&nbsp; !- Construction Name<br>
@@ -535,39 +598,12 @@ for this is pretty typical to a normal exterior wall.<br>
 &nbsp;&nbsp;&nbsp; 0.000000,&nbsp; !- Vertex 1 Y-coordinate {m}<br>
 &nbsp;&nbsp;&nbsp; 1.524000,&nbsp; !- Vertex 1 Z-coordinate {m}<br>
 &nbsp;&nbsp;&nbsp; &lt;cut short&gt;<br>
-                    <br>
-                  </li>
-                  <li>&nbsp; Construction:InternalSource,<br>
+                  <br>
+                </li>
+                <li>&nbsp; Construction,<br>
 &nbsp;&nbsp;&nbsp;
 PVSpandrlPanel,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !- Name<br>
-&nbsp;&nbsp;&nbsp;
-1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-!-
-Source
-Present
-After
-Layer Number<br>
-&nbsp;&nbsp;&nbsp;
-1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-!-
-Temperature
-Calculation
-Requested
-After Layer Number<br>
-&nbsp;&nbsp;&nbsp;
-1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-!-
-Dimensions
-for
-the
-CTF Calculation<br>
-&nbsp;&nbsp;&nbsp;
-0.0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-!-
-Tube
-Spacing
-{m}<br>
 &nbsp;&nbsp;&nbsp;
 PVModule(glass),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !-
 Outside Layer<br>
@@ -576,9 +612,8 @@ PVModule(glass),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !-
 Layer 2<br>
 &nbsp;&nbsp;&nbsp; B4 - 3 IN INSULATION,&nbsp;&nbsp;&nbsp; !- Layer 3<br>
 &nbsp;&nbsp;&nbsp; E6 - 1 / 2 IN GYP SHEATHING BOARD;&nbsp; !- Layer 4<br>
-                    <br>
-                  </li>
-                </ul>
+                  <br>
+                </li>
               </ul>
             </ul>
             </div>
@@ -586,8 +621,10 @@ Layer 2<br>
               <ul>
                 <li>The roof has the panel attached in a method that
 simulates an air cavity between the panel and the roof. Its heat
-transfer mode is set to "IntegratedExteriorVentedCavity". To accomplish this some objects have
-to be added that simulate the air cavity. These in turn are referenced in
+transfer mode is set to "IntegratedExteriorVentedCavity". To accomplish
+this some objects have
+to be added that simulate the air cavity. These in turn are referenced
+in
 the surface object.<br>
                   <br>
                 </li>
@@ -646,42 +683,55 @@ Boundary Conditions Model Name<br>
 Area
 Fraction
 of
-Openings {dimensionless}<br>
+Openings
+{dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 0.9,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Thermal
 Emissivity
 of
-Exterior Baffle Material {dimensionless}<br>
+Exterior
+Baffle
+Material
+{dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 0.92,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Solar
 Absorbtivity
 of
-Exterior Baffle {dimensionless}<br>
+Exterior
+Baffle
+{dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 0.05,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Height
 Scale
 for
-Buoyancy-Driven Ventilation<br>
+Buoyancy-Driven
+Ventilation<br>
 &nbsp;&nbsp;&nbsp;
 0.05,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Effective
 Thickness
 of
-Cavity Behind Exterior Baffle {m}<br>
+Cavity
+Behind
+Exterior
+Baffle {m}<br>
 &nbsp;&nbsp;&nbsp;
 0.97,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Ratio
 of
 Actual
-Surface Area to Projected Surface Area
+Surface
+Area
+to
+Projected Surface Area
 {dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 Smooth,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -696,14 +746,20 @@ Surface<br>
 Effectiveness
 for
 Perforations
-with Respect to Wind {dimensionless}<br>
+with
+Respect
+to
+Wind {dimensionless}<br>
 &nbsp;&nbsp;&nbsp;
 0.5,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 !-
 Discharge
 Coefficient
 for
-Openings with Respect to Buoyancy <br>
+Openings
+with
+Respect
+to Buoyancy <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Driven
 Flow
@@ -714,7 +770,10 @@ roof;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 **
 change
 surface
-name when using IntegratedExteriorVentedCavity
+name
+when
+using
+IntegratedExteriorVentedCavity
 Heat <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Transfer
@@ -725,7 +784,7 @@ Mode<br>
             </ul>
             <div style="margin-left: 10px;">
             <ul>
-            <br>
+              <br>
               <li>In the end you have a chain of connected objects
 referencing each other that looks something like this:<br>
 ElectricLoadCenter &gt; Generator &gt; PhotovoltaicPerformance &amp;
@@ -778,10 +837,12 @@ generated.<br>
             <div style="margin-left: 10px;">
             <ul>
             </ul>
-            <div style="margin-left: 10px;"><p2i><a href="tut_idf_301.html">Next Tutorial</a></p2i> </div>
+            <div style="margin-left: 10px;"><p2i><a
+ href="tut_idf_301.html">Next Tutorial</a></p2i> </div>
             <br>
-            <div style="margin-left: 10px;"><p2i><a href="#top">Back to Top</a></p2i>
-            <br>
+            <div style="margin-left: 10px;"><p2i><a href="#top">Back to
+Top</a></p2i> <br>
+            </div>
             </div>
             </td>
           </tr>
