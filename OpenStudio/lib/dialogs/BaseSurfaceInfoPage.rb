@@ -71,13 +71,11 @@ module OpenStudio
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", [""])
 
        when "ADIABATIC"
-        @hash['SUN'] = false
-        @hash['WIND'] = false
         @hash['VIEW_FACTOR_TO_GROUND'] = "0.0"
         @hash['OUTSIDE_BOUNDARY_OBJECT'] = ""
         
-        disable_element("SUN")
-        disable_element("WIND")
+        enable_element("SUN")
+        enable_element("WIND")
         disable_element("VIEW_FACTOR_TO_GROUND")
         disable_element("OUTSIDE_BOUNDARY_OBJECT")
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", [""])
@@ -122,24 +120,20 @@ module OpenStudio
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", object_names.sort)
 
       when "OTHERSIDECOEFFICIENTS"
-        @hash['SUN'] = false
-        @hash['WIND'] = false
         @hash['VIEW_FACTOR_TO_GROUND'] = "0.0"
 
-        disable_element("SUN")
-        disable_element("WIND")
+        enable_element("SUN")
+        enable_element("WIND")
         disable_element("VIEW_FACTOR_TO_GROUND")
         enable_element("OUTSIDE_BOUNDARY_OBJECT")
         object_names = Plugin.model_manager.input_file.find_objects_by_class_name("SURFACEPROPERTY:OTHERSIDECOEFFICIENTS").collect { |object| object.name }
         set_select_options("OUTSIDE_BOUNDARY_OBJECT", object_names.sort)
 
       when "OTHERSIDECONDITIONSMODEL"
-        @hash['SUN'] = false
-        @hash['WIND'] = false
         @hash['VIEW_FACTOR_TO_GROUND'] = "0.0"
 
-        disable_element("SUN")
-        disable_element("WIND")
+        enable_element("SUN")
+        enable_element("WIND")
         disable_element("VIEW_FACTOR_TO_GROUND")
         enable_element("OUTSIDE_BOUNDARY_OBJECT")
         object_names = Plugin.model_manager.input_file.find_objects_by_class_name("SURFACEPROPERTY:OTHERSIDECONDITIONSMODEL").collect { |object| object.name }

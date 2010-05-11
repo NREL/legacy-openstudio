@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>OpenStudio Documentation: Tutorials</title>
+  <link rel="stylesheet" type="text/css" href="includes/ep.css">
+  <script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+  </script>
+</head>
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<a name="top"></a><!-- rollovers -->
+<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
+ name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2"
+ href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58"
+ href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58"
+ href="http://www.eere.energy.gov/">
+</map>
+<div style="width: 100%; background-color: rgb(1, 65, 100);"><img
+ src="images/eere_header_liquid.jpg" alt="" usemap="#head" border="0"
+ width="1000" height="67"></div>
+<!--startindex-->
+<!-- End EERE header -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td colspan="3" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td class="subsitephoto" bgcolor="#000066" width="100%"><a
+ href="index.html"><img src="images/spacer.gif"
+ alt="OpenStudio Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!-- end of third column -->
+<!-- start of left navigation, first column --> <tr valign="top">
+      <td valign="top" width="176"><!-- left navigation include --><!--stopindex-->
+      <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+      <a href="ref_guide.html" onmouseover="msover('0')"
+ onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
+ alt="Reference Guide" name="Image0" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="tutorials.html"><img src="images/ln_tutorials_on.gif"
+ alt="Tutorials" name="Image1" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="release_notes.html" onmouseover="msover('2')"
+ onmouseout="msout('2')"><img src="images/ln_release_notes_off.gif"
+ alt="Release Notes" name="Image2" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex--> </td>
+      <td bgcolor="#cccccc" valign="top"><img src="images/spacer.gif"
+ alt="" width="1" height="1"></td>
+<!-- main content --> <td valign="top" width="100%">
+      <table border="0" cellpadding="12" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <h2>IDF Primer - Introduction to IDF file</h2>
+            <br>
+            <h3>IDF Editors<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>An IDF file is the standard file format for
+EnergyPlus
+models. It is a text file but with an ".idf" vs. a ".txt" extension.</li>
+              <li>Many applications can edit IDF files.
+OpenStudio is one of them.</li>
+              <li>There is a dedicated IDF editing application named
+"IDFEditor" included with
+EnergyPlus 5.0.<br>
+"EnergyPlusV5-0-0\PreProcess|IDFEditor". Below is a screenshot of this
+application with the "building" object highlighted. The "building"
+object is the top level object when you are in OpenStudio. It contains
+the zones and the shading groups.<br>
+              </li>
+              <br>
+              <img style="width: 538px; height: 529px;"
+ src="dialogs/tut_idf_001_01.png" alt="IDFEditor screenshot"><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>You can also open and edit an IDF file with any text
+editor. Below you can see the same information for the building as
+raw text without a GUI.<br>
+              </li>
+              <br>
+              <img style="width: 624px; height: 483px;"
+ src="dialogs/tut_idf_001_02.png" alt="IDFEditor screenshot"><br>
+              <p2i>(Credit: David Goldwasser/NREL)<br>
+              <br>
+              </p2i>
+              <li>If you go back to the Object Information Window in
+OpenStudio, you will see the same information shown in the "Object
+Inputs" at the top, and in the "Object Text" below. The "Object Text"
+is read only, but updates when you change the information in the
+"Object Inputs". This text is the same as what you see above in the
+text file.<br>
+              </li>
+              <br>
+              <img style="width: 436px; height: 547px;"
+ src="dialogs/tut_idf_001_03.png" alt="IDFEditor screenshot"><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i>
+            </ul>
+            <br>
+            </div>
+            <div style="margin-left: 10px;"> <p2i><a href="#top">Back
+to Top</a></p2i> </div>
+            <br>
+            <h3>Anatomy of an IDF file and IDF object<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>Below is sample text from an IDF file. The following
+bullet points will break down the elements of the object.<br>
+                <br>
+!-&nbsp;&nbsp; ===========&nbsp; ALL OBJECTS IN CLASS: BUILDING
+===========<br>
+&nbsp;<br>
+&nbsp; Building,<br>
+&nbsp;&nbsp;&nbsp; BA_MOB
+Prototype,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Name<br>
+&nbsp;&nbsp;&nbsp;
+0.0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+North
+Axis
+{deg}<br>
+&nbsp;&nbsp;&nbsp;
+City,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Terrain<br>
+&nbsp;&nbsp;&nbsp;
+0.04,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Loads
+Convergence
+Tolerance
+Value<br>
+&nbsp;&nbsp;&nbsp;
+0.4,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Temperature
+Convergence
+Tolerance
+Value
+{deltaC}<br>
+&nbsp;&nbsp;&nbsp; FullInteriorAndExterior, !- Solar Distribution<br>
+&nbsp;&nbsp;&nbsp;
+25;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Maximum
+Number
+of
+Warmup
+Days<br>
+                <br>
+              </li>
+              <li>Anything after the "!-" characters on a line is a
+comment that EnergyPlus doesn't read. They are used in a number
+locations on most files. The first line identifies what class of
+objects
+follow. You can remove this and EnergyPlus will run just fine, but its
+a good idea to leave these alone to make it easier to navigate and
+search through the IDF file.<br>
+              </li>
+              <li>Comments are often used to identify other
+parts of the object such as "!- Name"</li>
+              <li>The first line after the initial comment is usually
+out-dented. Again this is to make it easier to read. This identifies
+the
+specific object type that will be described. This is always
+followed by a series of fields separated by commas. Comments and line
+breaks are optional, but again make the file easier to read. The last
+field of an object is followed by a semi-colon instead of a comma. This
+lets EnergyPlus know that it has reached the end of the object.</li>
+              <li>An IDF file is made up of a series of individual
+objects, along with comments. Within an object the order of fields is
+critical, however the placement of objects relative to each other can
+be changed.</li>
+              <li>If you want to put all of your materials together and
+then all of your constructions, that is fine. If you want to place
+materials next to the constructions that use them, that is also fine.
+It won't affect how EnergyPlus runs the simulation. Many applications
+or follow a specific logic in how objects are organzied.<br>
+              </li>
+            </ul>
+            <br>
+            <h3>EnergyPlus documentation<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>EnergyPlus has extensive PDF documentation. This is
+on
+your computer under the "EnergyPlusV5-0-0\Documentation" folder. If you
+open the "EPlusMainMenu.pdf" file you will see a clickable index to
+many of the documentation files. This is the blue text at the left.
+Mouse over the text to see a description of the file, and click on it
+to open that file. The "Press to Search Documents" button will open up
+a search window that will allow you to search through all of the
+documentation files at once.<br>
+              </li>
+              <br>
+              <img style="width: 600px; height: 486px;"
+ src="dialogs/tut_idf_001_04.png" alt="IDFEditor screenshot"><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i>
+            </ul>
+            <ul>
+              <li>"Getting Started" is a great place to start learning.
+It explains what EnergyPlus is, has some tutorials on creating thermal
+zones from a plan and running simulations. It also gives introductions
+to "EP-Launch", which can be used to run individual and batch
+simulations, and also the "IDFEditor" discussed earlier on. The
+"Overall scheme/methodology for running EnergyPlus" is a great section
+to read.</li>
+              <li>The "Input/Output Reference" file contains 2000 pages
+describing just about every kind of EnergyPlus object. When you see an
+object and
+you want to know how it is used or what fields are required, this is
+the place to look. You can also look in the "V5-0-0-Energy+.idd" file
+with a text editor.<br>
+              </li>
+              <li>"Auxiliary Programs" introduces a number of
+applications that you can use along with EnergyPlus including pre and
+post processors.<br>
+              </li>
+              <li>EnergyPlus comes with many sample IDF files under the
+"ExampleFiles" and "DataSets" folders. Some of these contain complete
+energy models, while others contain objects that you can incorporate
+into your own IDF file. I'll use the "GeneratorswithPV.idf" in the "IDF
+201" tutorial.</li>
+              <li>The V5-0-0-Energy+.idd file lists the min,max, and
+default values for every object type. Shown below is the IDD entry for
+the "building Object"<br>
+              </li>
+              <br>
+              <img style="width: 571px; height: 786px;"
+ src="dialogs/tut_idf_001_06.png" alt="IDFEditor screenshot"><p2i><br>
+(Credit: David Goldwasser/NREL)</p2i>
+            </ul>
+            <ul>
+              <li>The Input Output PDF gives you more of a description
+of what each field requires and how it is used.<br>
+                <br>
+              </li>
+              <img style="width: 600px; height: 404px;"
+ src="dialogs/tut_idf_001_05.png" alt="IDFEditor screenshot"><p2i><br>
+(Credit: David Goldwasser/NREL)</p2i>
+            </ul>
+            <ul>
+              <li>The Input Output PDF also typically gives you a piece
+of the IDD relevant to that object.<br>
+              </li>
+              <br>
+              <img style="width: 600px; height: 404px;"
+ src="dialogs/tut_idf_001_07.png" alt="IDFEditor screenshot"><p2i><br>
+(Credit: David Goldwasser/NREL)</p2i>
+            </ul>
+            </div>
+            <br>
+            <div style="margin-left: 10px;"><p2i><a href="#top">Back
+to Top</a></p2i> </div>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- end of main content table --> </td>
+      <td>
+      <div class="leftgrey"><img src="images/rn_features_head.gif"
+ alt="Features" style="display: block;" border="0" width="249"
+ height="20">
+      <div style="padding-bottom: 2px;"><a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img
+ src="images/feat_openstudio_openstudio.gif"
+ alt="OpenStudio - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.energyplus.gov"><img
+ src="images/feat_openstudio_energyplus.gif"
+ alt="EnergyPlus - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.nrel.gov/buildings/"><img
+ src="images/feat_openstudio_nrel.gif"
+ alt="National Renewable Energy Lab - Learn More" border="0" width="249"
+ height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.buildings.energy.gov"><img
+ src="images/feat_openstudio_btp.gif"
+ alt="DOE's Building Technologies Program - Learn More" border="0"
+ width="249" height="73"></a></div>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- footer  -->
+<br>
+<a href="#end"><img src="images/spacer.gif"
+ alt="Skip footer navigation to end of page." border="0" width="1"
+ height="10"></a><br>
+<table align="center" border="0" cellpadding="0" cellspacing="0"
+ width="0">
+  <tbody>
+    <tr>
+      <td>
+      <p class="footer"><a
+ href="http://www.eere.energy.gov/site_administration/privacy.html">Security
+&amp;
+Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building
+Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE
+Home</a></p>
+      <p class="doe">U.S. Department of Energy</p>
+      <a name="end"><img src="images/spacer.gif" alt="" border="0"
+ width="1" height="1"></a> </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

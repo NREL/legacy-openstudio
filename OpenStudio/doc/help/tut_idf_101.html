@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>OpenStudio Documentation: Tutorials</title>
+  <link rel="stylesheet" type="text/css" href="includes/ep.css">
+  <script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+  </script>
+</head>
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<a name="top"></a><!-- rollovers -->
+<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
+ name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2"
+ href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58"
+ href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58"
+ href="http://www.eere.energy.gov/">
+</map>
+<div style="width: 100%; background-color: rgb(1, 65, 100);"><img
+ src="images/eere_header_liquid.jpg" alt="" usemap="#head" border="0"
+ width="1000" height="67"></div>
+<!--startindex-->
+<!-- End EERE header -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td colspan="3" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td class="subsitephoto" bgcolor="#000066" width="100%"><a
+ href="index.html"><img src="images/spacer.gif"
+ alt="OpenStudio Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!-- end of third column -->
+<!-- start of left navigation, first column --> <tr valign="top">
+      <td valign="top" width="176"><!-- left navigation include --><!--stopindex-->
+      <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+      <a href="ref_guide.html" onmouseover="msover('0')"
+ onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
+ alt="Reference Guide" name="Image0" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="tutorials.html"><img src="images/ln_tutorials_on.gif"
+ alt="Tutorials" name="Image1" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="release_notes.html" onmouseover="msover('2')"
+ onmouseout="msout('2')"><img src="images/ln_release_notes_off.gif"
+ alt="Release Notes" name="Image2" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex--> </td>
+      <td bgcolor="#cccccc" valign="top"><img src="images/spacer.gif"
+ alt="" width="1" height="1"></td>
+<!-- main content --> <td valign="top" width="100%">
+      <table border="0" cellpadding="12" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <h2>IDF 101 - Editing and copying IDF objects<br>
+            </h2>
+            <br>
+            <h3>Edit IDF Schedules<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>There are many objects within an OpenStudio IDF file
+that you may want to alter or copy. This tutorial will go over a few
+examples. It assumes you have read the IDF primer tutorial or are
+familar with the structure of an IDF file.<br>
+              </li>
+              <li>OpenStudio's template file has a number of built in
+schedules. The Zone Loads dialog allows you to create new schedule
+stubs. These are placeholders for schedules. You can assign the
+schedules to objects, but you need to create the content for the
+schedule outside of OpenStudio before you run a simulation. The Zone
+Loads dialog is pictured
+below, along with the alert you see after you create and name a new
+schedule stub.<br>
+              </li>
+              <br>
+              <img style="width: 600px; height: 645px;"
+ src="dialogs/tut_idf_101_01.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>Below is part of an IDF file showing two schedules.
+The top is one of the schedules in the OpenStudio template IDF file.
+The bottom one shows an altered and renamed copy of
+the schedule. Once the schedule is change you can select it and use it
+for simulations in OpenStudio. The sccheule's days and hours were
+adjsuted.<br>
+              </li>
+              <br>
+              <img style="width: 600px; height: 430px;"
+ src="dialogs/tut_idf_101_02.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>"Schedule:compact," identifies the type of object
+being described.</li>
+              <li>"Hours of operation schedule" is the name of the
+object.<br>
+              </li>
+              <li>Every schedule has a type limit that determines what
+and how values are changed in relation to the time of day or year. See
+the image
+below for some example Type Limits. The one above is just on or off.
+Some other type limits are "fraction" and "temperature". Fraction could
+be used to identify the fraction of max occupancy at any given time,
+and
+temperature can be used to control thermostat set points.</li>
+              <li>The schedules above are the same through the entire
+year, hence the "Through: 12/31". If for example this was as school
+there would be three unique statements similar to what is shown below.<br>
+              </li>
+              <ul>
+                <li>Through: 05/31,</li>
+                <li>!- followed by detail for 01/01 through 05/31,</li>
+                <li>Through: 08/31,</li>
+                <li>!- followed by detail for 06/01 through 08/31,</li>
+                <li>Through: 12/31,</li>
+                <li>!- followed by detail for 08/31 through 12/31;</li>
+              </ul>
+              <li>The first "Through" statement is always from 01/01 to
+that date. Your last "Through" statement should be "Through: 12/31".</li>
+              <li>The approach for the hours of the day is similar. The
+first "Until" statement is from midnight until the time shown (6am and
+7am in examples above).</li>
+              <li>Time is in 24 hour format. The number after the time
+is the value for the type limit. In this case "0.0" is off, and "1.0"
+is on.<br>
+              </li>
+              <li>You can have the same daily schedule for all days, or
+make unique schedules for weekends, holidays, and other days. Winter
+and
+Summer Design days are special days used by EnergyPlus for design day
+simulations. Look through the EnergyPlus documentation for more
+information on design days. Below is a list of the different day types
+that you can use.<br>
+              </li>
+              <ul>
+                <li>\field DataType List 1<br>
+\begin-extensible<br>
+\note "For" is an optional prefix/start of the For fields. Choices can
+be combined on single line<br>
+\note if separated by spaces. i.e. "Holiday Weekends"<br>
+\note Should have a space after For, if it is included. i.e. "For
+Alldays"<br>
+\required-field<br>
+\type choice<br>
+\key AllDays<br>
+\key Weekdays<br>
+\key Weekends<br>
+\key Sunday<br>
+\key Monday<br>
+\key Tuesday<br>
+\key Wednesday<br>
+\key Thursday<br>
+\key Friday<br>
+\key Saturday<br>
+\key Holiday<br>
+\key SummerDesignDay<br>
+\key WinterDesignDay<br>
+\key CustomDay1<br>
+\key CustomDay2<br>
+                </li>
+              </ul>
+              <br>
+              <img style="width: 600px; height: 430px;"
+ src="dialogs/tut_idf_101_03.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>Above are some examples of TypeLimts that can be
+assigned to a schedule.<br>
+              </li>
+              <br>
+              <img style="width: 600px; height: 431px;"
+ src="dialogs/tut_idf_101_04.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>Above is another example of a schedule from the
+template file (top) and a modified copy of the schedule (bottom). As
+with the earlier example the schedule was altered to represent a
+building operating from 7am to 7pm on Monday through Friday. This is
+for the heating setpoint. The limit type is temperature, and the values
+after the time of day are degrees in Celsius. There is a similar
+schedule for cooling setpoint, but with different values for the
+temperatures.</li>
+              <br>
+              <img style="width: 600px; height: 404px;"
+ src="dialogs/tut_idf_101_05.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)<br>
+              <br>
+              </p2i>
+              <li>Above is a screenshot showing the description for
+"Schedule:Compact" in the EnergyPlus InputOutputReference pdf file.<br>
+              </li>
+            </ul>
+            <p2i><a href="#top">Back to Top</a></p2i> </div>
+            <h3><br>
+            </h3>
+            <h3>Materials and Constructions<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>Another IDF object that you may want to change
+are the constructions and underlying materials used for your building
+surfaces. <br>
+              </li>
+              <li>Similar to the Zone Loads dialog, the Default
+Constructions dialog allows you to create new construction stubs. As
+with the schedule stubs, this allows you to start assigning that
+construction to surfaces, but you can't run a simulation with it until
+you edit the IDF to create the material layers for the construction
+object.<br>
+                <br>
+              </li>
+              <img style="width: 536px; height: 536px;"
+ src="dialogs/tut_idf_101_08.png" alt=""><p2i><br>
+              </p2i><p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <p2i><br>
+              </p2i>
+              <li>Below are some example constructions from the
+OpenStudio IDf template file. The objects are pretty self explanatory.
+They have a name, and then list the layers of materials used. As with
+all objects, remember to use a semi-colon instead of a comma after the
+last layer.</li>
+              <br>
+              <img style="width: 600px; height: 441px;"
+ src="dialogs/tut_idf_101_06.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>So what is "M01 100mm brick" anyway? This is just a
+name, but one would guess it represents a brick that is 100mm thick.
+Look below at sample materials, and you will see it isn't just a
+material being described, but also the thickness of that material as it
+will be used in a construction. If you had thin and thick bricks of
+made of the same exact material, you would still have two seperate
+material objects to describe them.<br>
+              </li>
+              <li>As with all objects, the first line indicates that we
+are describing a "Material" object. Next is a name, followed by fields.
+The brick is 0.1016 meters thick, which nominally is 100mm, so the name
+was a good indicator of this. There are also fields for the material
+roughness, conductivity density and specific heat. There are other
+optional fields that EnergyPlus assigns default values to if they are
+not described in the IDF. the material color is an example of this.</li>
+              <li>The fields shown below are all required, but if there
+were an optional field and you didn't want to manually assign a vlaue,
+you wouldn't
+just skip the field. You would have to have a comma there to indicate
+the
+field position; remember that EnergyPlus doesn't use the comments at
+the right,
+so it can only use the order of fields to identify what field a value
+belongs to. If the optional field(s) that you want to skip are at the
+end of the list of fields, you can leave them off.</li>
+              <li>There are many more advanced materiel settings and
+special material types such as "Material"RoofVegitation". You can
+learn about them in the InputOutputReference.pdf file.</li>
+              <li>As you modify your materials and constructions keep
+in mind that you have to keep the names in sync. If you change the
+material name, but don't change the name used in the construction,
+EnergyPlus won't find it and will report an error back when you run a
+simulation.<br>
+                <br>
+                <img style="width: 600px; height: 441px;"
+ src="dialogs/tut_idf_101_07.png" alt=""></li>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i>
+            </ul>
+            <p2i><a href="#top">Back to Top</a></p2i> </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- end of main content table --> </td>
+      <td>
+      <div class="leftgrey"><img src="images/rn_features_head.gif"
+ alt="Features" style="display: block;" border="0" width="249"
+ height="20">
+      <div style="padding-bottom: 2px;"><a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img
+ src="images/feat_openstudio_openstudio.gif"
+ alt="OpenStudio - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.energyplus.gov"><img
+ src="images/feat_openstudio_energyplus.gif"
+ alt="EnergyPlus - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.nrel.gov/buildings/"><img
+ src="images/feat_openstudio_nrel.gif"
+ alt="National Renewable Energy Lab - Learn More" border="0" width="249"
+ height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.buildings.energy.gov"><img
+ src="images/feat_openstudio_btp.gif"
+ alt="DOE's Building Technologies Program - Learn More" border="0"
+ width="249" height="73"></a></div>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- footer  -->
+<br>
+<a href="#end"><img src="images/spacer.gif"
+ alt="Skip footer navigation to end of page." border="0" width="1"
+ height="10"></a><br>
+<table align="center" border="0" cellpadding="0" cellspacing="0"
+ width="0">
+  <tbody>
+    <tr>
+      <td>
+      <p class="footer"><a
+ href="http://www.eere.energy.gov/site_administration/privacy.html">Security
+&amp;
+Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building
+Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE
+Home</a></p>
+      <p class="doe">U.S. Department of Energy</p>
+      <a name="end"><img src="images/spacer.gif" alt="" border="0"
+ width="1" height="1"></a> </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

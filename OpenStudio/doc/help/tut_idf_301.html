@@ -1,0 +1,804 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>OpenStudio Documentation: Tutorials</title>
+  <link rel="stylesheet" type="text/css" href="includes/ep.css">
+  <script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+  </script>
+</head>
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<a name="top"></a><!-- rollovers -->
+<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
+ name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2"
+ href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58"
+ href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58"
+ href="http://www.eere.energy.gov/">
+</map>
+<div style="width: 100%; background-color: rgb(1, 65, 100);"><img
+ src="images/eere_header_liquid.jpg" alt="" usemap="#head" border="0"
+ width="1000" height="67"></div>
+<!--startindex-->
+<!-- End EERE header -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td colspan="3" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td class="subsitephoto" bgcolor="#000066" width="100%"><a
+ href="index.html"><img src="images/spacer.gif"
+ alt="OpenStudio Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!-- end of third column -->
+<!-- start of left navigation, first column --> <tr valign="top">
+      <td valign="top" width="176"><!-- left navigation include --><!--stopindex-->
+      <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+      <a href="ref_guide.html" onmouseover="msover('0')"
+ onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
+ alt="Reference Guide" name="Image0" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="tutorials.html"><img src="images/ln_tutorials_on.gif"
+ alt="Tutorials" name="Image1" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="release_notes.html" onmouseover="msover('2')"
+ onmouseout="msout('2')"><img src="images/ln_release_notes_off.gif"
+ alt="Release Notes" name="Image2" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex--> </td>
+      <td bgcolor="#cccccc" valign="top"><img src="images/spacer.gif"
+ alt="" width="1" height="1"></td>
+<!-- main content --> <td valign="top" width="100%">
+      <table border="0" cellpadding="12" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <h2>IDF 301 - Batch running multiple simulations using
+EP-Launch<br>
+            </h2>
+            <br>
+            <h3>Prepare IDF files<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>Often it is nice to run simulations on a series of
+models that have one aspect changed slightly from model to model to
+look at energy sensitivity to the aspect being altered. Below are some
+examples of what you might vary from one model to the next.</li>
+              <ul>
+                <li>building orientation</li>
+                <li>wall R-value</li>
+                <li>percentage of glazing</li>
+                <li>geometry of shading devices</li>
+                <li>changes to occupancy schedule</li>
+                <li>aspect ratio of building</li>
+                <li>number of floors</li>
+                <li>building location</li>
+                <li>solar panel positioning<br>
+                </li>
+              </ul>
+              <li>The first step is to create a series of IDF files
+based on an original file. There maybe times that you don't need to
+create multiple IDF files; for example if you are just simulating a
+design in multiple cities, or if you are using a tool that will
+generate the design variations for you. For this demonstration the IDf
+creation will be manual, and the aspect of the design that will change
+is the building orientation.</li>
+              <li>The first step is to open your IDF file in OpenStudio
+and go to the plugins menu in
+SketchUp. Choose "Plugins/OpenStudio/Simulation Info". Change the
+Coordinate System to "Relative Coordinates".</li>
+              <ul>
+                <br>
+                <img style="width: 400px; height: 439px;"
+ src="dialogs/tut_idf_301_01.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>Once the coordinate
+system has bee set, save and close your idf file. Then create as many
+copies of the file as you want to run. Rename them to identify what is
+changing, for example, adding a prefix of "020" to identify a rotation
+angle of 20 degrees.</li>
+              <li>Below you can see an IDF fiel where the&nbsp; North
+rotation angle changed from "0" to "20" degrees.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 600px; height: 542px;"
+ src="dialogs/tut_idf_301_02.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+            </ul>
+            <p2i><a href="tut_idf_201.html#top">Back to Top</a><br>
+            </p2i>
+            <h3>Batch run simulations with EP-Launch<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>Once your files have been created go to the
+EnergyPlusV5-0-0 folder and open the "EP-Launch.exe". This application
+can be used to run single
+simulations, or to run multiple simulations. Press the "New Group"
+button to get started.</li>
+              <ul>
+                <br>
+                <img style="width: 586px; height: 441px;"
+ src="dialogs/tut_idf_301_09.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>The next step is to choose the IDF files you want to
+simulate. Once you define the path you can choose all of the files or
+manually pick them.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 600px; height: 295px;"
+ src="dialogs/tut_idf_301_03.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>Next you can pick one or a group of weather files. If
+you choose a group of weather files then the list of IDF files will be
+be simulated for both weather locations. So if you have 10 IDF files
+and 4
+weather files, you will have 40 simulations run.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 600px; height: 295px;"
+ src="dialogs/tut_idf_301_04.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>After you choose the IDf and weather files, you have
+an opportunity to add additional simulations, or remove specific
+ones from the list.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 600px; height: 295px;"
+ src="dialogs/tut_idf_301_05.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>Next you define where the simulation results will be
+saved. Choose "User Defined Location".<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 600px; height: 295px;"
+ src="dialogs/tut_idf_301_06.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>You will be prompted for a path to save the
+EnergyPlus Group file. This saves all of your preferences making it
+easy to re-run the batch simulation if you make changes to the IDF
+files. After that choose "Simulate Group" to start the simulations.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 563px; height: 416px;"
+ src="dialogs/tut_idf_301_07.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>When the simulation run is done you will have a sub
+folder for each weather location setup for the group. All of the
+simulation results are inside of the
+                <meta http-equiv="Content-Type"
+ content="text/html; charset=ISO-8859-1">
+                <meta name="ProgId" content="Word.Document">
+                <meta name="Generator" content="Microsoft Word 12">
+                <meta name="Originator" content="Microsoft Word 12">
+                <link rel="File-List"
+ href="file:///C:%5CDOCUME%7E1%5Cdgoldwas%5CLOCALS%7E1%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_filelist.xml">
+                <link rel="themeData"
+ href="file:///C:%5CDOCUME%7E1%5Cdgoldwas%5CLOCALS%7E1%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_themedata.thmx">
+                <link rel="colorSchemeMapping"
+ href="file:///C:%5CDOCUME%7E1%5Cdgoldwas%5CLOCALS%7E1%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+                <style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1107304683 0 0 159 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1073750139 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.EmailStyle15
+	{mso-style-type:personal;
+	mso-style-noshow:yes;
+	mso-style-unhide:no;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+                </style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]-->corresponding<o:p></o:p>
+weather folder.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 592px; height: 449px;"
+ src="dialogs/tut_idf_301_08.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)</p2i>
+              </ul>
+              <ul>
+              </ul>
+            </ul>
+            <p2i><a href="tut_idf_201.html#top">Back to Top</a><br>
+            </p2i> <br>
+            </div>
+            <h3>View batch simulation results<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>You can view the simulation results like you would
+for a single simulation. You can look at the html and error files, and
+can open the IDF in OpenStudio and load the ESO file. <br>
+              </li>
+              <li>There are
+also some nice tools that work well for viewing results of multiple
+simulations at once.</li>
+              <li>EP-Compare is made just for this. It is located under
+the EnergyPlus install under "PostProcess\EP-Compare\EP-Compare.exe".
+When you first open it choose "Manage Files" and then choose the
+directory with the simulations you want to compare.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 601px; height: 471px;"
+ src="dialogs/tut_idf_301_10.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>Once the files are loaded you can view the data in a
+variety of different ways. Each section of the graph is for one of
+the simulation runs. In this case North rotation of "0" is at the left,
+and "160" is at the right (20 degree steps). It was a symmetrical
+building so the simulation set didn't need to go through the entire 360
+degrees of rotation.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 601px; height: 471px;"
+ src="dialogs/tut_idf_301_11.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                </p2i>
+              </ul>
+              <li>ResultsViewer is another application for viewing
+simulation results. While it is very nice for viewing details from a
+single simulation, it can also open multiple SQL files at once. Then if
+you use the filter tool you can trim down your list of variables and
+choose one from each simulation file. ResultsViewer will show you a
+more detailed picture about specific times of year or times or times of
+day. "ctrl" click each value you want and then right click and choose
+"line plot". The graph below shows monthly results, which was requested
+along with hourly values in the IDF files.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 601px; height: 517px;"
+ src="dialogs/tut_idf_301_12.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>The graph above looks at the entire building, but you
+can also look at specific zones. The graph below shows the Sensible
+Cooling Rate for one of the first floor perimeter zones. You can
+see there is some cross over in the stacking order of teh lines
+depending upon the time of year. This
+could be a good tool to inform what shading devices might need to look
+like on different facades depending upon the building orientation.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 600px; height: 516px;"
+ src="dialogs/tut_idf_301_13.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>Once you have completed your batch simulation and
+reviewed the results hopefully you have gained information to inform
+your design process. There could be a number of things you could do
+next to follow up.</li>
+              <ul>
+                <li>You may want to change the building design and then
+go back and re-run the simulation group again.</li>
+                <li>If you are happy that you have addressed the
+building orientation for project, then maybe you create a new
+simulation group to study the percentage of glazing, shading devices,
+or on envelope constructions.</li>
+                <li>This is a powerful tool that leverages the work you
+have already done to create the energy model. It also helps to validate
+assumptions&nbsp; about the efficiency of different design variations.<br>
+                </li>
+              </ul>
+            </ul>
+            <p2i><a href="tut_idf_201.html#top">Back to Top</a><br>
+            </p2i> <br>
+            </div>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- end of main content table --> </td>
+      <td>
+      <div class="leftgrey"><img src="images/rn_features_head.gif"
+ alt="Features" style="display: block;" border="0" width="249"
+ height="20">
+      <div style="padding-bottom: 2px;"><a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img
+ src="images/feat_openstudio_openstudio.gif"
+ alt="OpenStudio - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.energyplus.gov"><img
+ src="images/feat_openstudio_energyplus.gif"
+ alt="EnergyPlus - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.nrel.gov/buildings/"><img
+ src="images/feat_openstudio_nrel.gif"
+ alt="National Renewable Energy Lab - Learn More" border="0" width="249"
+ height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.buildings.energy.gov"><img
+ src="images/feat_openstudio_btp.gif"
+ alt="DOE's Building Technologies Program - Learn More" border="0"
+ width="249" height="73"></a></div>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- footer  -->
+<br>
+<a href="#end"><img src="images/spacer.gif"
+ alt="Skip footer navigation to end of page." border="0" width="1"
+ height="10"></a><br>
+<table align="center" border="0" cellpadding="0" cellspacing="0"
+ width="0">
+  <tbody>
+    <tr>
+      <td>
+      <p class="footer"><a
+ href="http://www.eere.energy.gov/site_administration/privacy.html">Security
+&amp;
+Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building
+Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE
+Home</a></p>
+      <p class="doe">U.S. Department of Energy</p>
+      <a name="end"><img src="images/spacer.gif" alt="" border="0"
+ width="1" height="1"></a> </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
