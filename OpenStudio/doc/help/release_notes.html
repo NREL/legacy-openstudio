@@ -36,8 +36,8 @@ function msout(num) {
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 <a name="top"></a><!-- rollovers -->
-<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex-->
-<!-- EERE header for liquid sites in the old template--><map name="head">
+<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
+ name="head">
 <area alt="Skip Navigation to main content" coords="1,1,2,2"
  href="#content">
 <area alt="U.S. Department of Energy" coords="8,5,165,58"
@@ -68,7 +68,7 @@ function msout(num) {
     </tr>
 <!-- end of third column -->
 <!-- start of left navigation, first column --> <tr valign="top">
-      <td width="176" valign="top"><!-- left navigation include --><!--stopindex-->
+      <td valign="top" width="176"><!-- left navigation include --><!--stopindex-->
       <img src="images/spacer.gif" alt="" width="1" height="3"><br>
       <a href="ref_guide.html" onmouseover="msover('0')"
  onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
@@ -84,7 +84,7 @@ function msout(num) {
 <!--startindex--> </td>
       <td bgcolor="#cccccc" valign="top"><img src="images/spacer.gif"
  alt="" width="1" height="1"></td>
-<!-- main content --> <td width="100%" valign="top">
+<!-- main content --> <td valign="top" width="100%">
       <table border="0" cellpadding="12" cellspacing="0" width="100%">
         <tbody>
           <tr>
@@ -148,7 +148,8 @@ and HVACTemplate:Zone:IdealLoadsAirSystem to zones</a></li>
  src="../../lib/resources/icons/SurfaceMatchingSelected-16.png" alt=""></a>
                 <a href="ref_modeling_tools.html#surface_matching">Automatic
 surface
-matching and unmatching tool</a></li>
+matching
+and unmatching tool</a></li>
               <li><a href="ref_view_data.html#default_const_prefs"><img
  src="../../lib/resources/icons/SetDefaultConstPrefs-16.png" alt=""></a>
                 <a href="ref_view_data.html#default_const_prefs">Default
@@ -171,33 +172,37 @@ different colors than their front faces.</li>
               <li>Stability improvements to the Object Info Dialog</li>
             </ul>
             <a name="patch"></a>
-            <h2>Changes in Patch 1.0.5.354 </h2>
+            <h2>Changes in Patch 1.0.5.355 </h2>
             <ul>
-                   <li>Attached shading surfaces can now be manually
+              <li>Attached shading surfaces can now be manually
 assigned a base surface. By default the base surface is a floor in the
 zone, however you may need to change it to an exterior wall. EnergyPlus
 requires that shading surfaces have an exterior base surface.</li>
-                  <li>When you click &#8220;Reset to Default Office&#8221; in Zone
+              <li>When you click &#8220;Reset to Default Office&#8221; in Zone
 Loads &#8220;Constant Setponit Thermostat&#8221; is now set for
 HVACTemplase:Thermostat. This is only visible if you also turn on &#8220;Add
 HVAC Template:Aone:IdealLoadsAirSystem.&#8221;</li>
-                  <li>When you save Zone Load Preferences, your
+              <li>When you save Zone Load Preferences, your
 Thermostat is also saved along with Zone Loads.</li>
-                  <li>For Surface, Zone, and all Ground outside
+              <li>For Surface, Zone, and all Ground outside
 boundary conditions sun and wind exposure are now set to "NoSun" and
 "NoWind".</li>
-                  <li>For Outdoors, Adiabatic, Other Side Coefficients,
+              <li>For Outdoors, Adiabatic, Other Side Coefficients,
 and Other Side Conditions Model outside boundary conditions you can
 manually set the sun and wind exposure. When choosign "Outdoors"
 exposures are set to "SunExposed" and "WindExposed" by default, but you
 can manually change them.</li>
-                  <li>Fixed issues &nbsp;with conversion of Simple
+              <li>Fixed issues &nbsp;with conversion of Simple
 Objects to Detailed Objects.</li>
-                  <li>Units for summary reports can now be
+              <li>Units for summary reports can now be
 set under the "Run Simulation" dialog. This includes the Annual
 Building Utility Performance Summary.<br>
-                  </li>
-<li>Added four IDF specific tutorials showing how to add and edit some IDF objects outside of OpenStudio.<br></li>
+              </li>
+              <li>Added four IDF specific tutorials showing how to add
+and edit some IDF objects outside of OpenStudio. Batch simulation
+through EP-Launch, featured on tutorial 301, is currently not avalable
+for Mac OS.<br>
+              </li>
             </ul>
             <a name="known_issues"></a>
             <h2>Known Issues</h2>
