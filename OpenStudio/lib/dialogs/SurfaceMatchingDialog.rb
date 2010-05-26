@@ -112,6 +112,9 @@ Do you want to continue?", MB_OKCANCEL)
         
           # get the polygon, reverse it
           reverse_face_polygon = base_surfaces[i].face_polygon.reverse
+          
+          # get the normal
+          face_normal = base_surfaces[i].entity.normal
 
           # don't process empty polygons
           next if reverse_face_polygon.empty?
@@ -130,6 +133,9 @@ Do you want to continue?", MB_OKCANCEL)
                          
             # check for intersection of bounding boxes
             next if not bounds.contains?(base_surfaces[j].entity.bounds)
+            
+            # check normal dot product
+            next if not face_normal.dot(base_surfaces[j].entity.normal) < -0.98
 
             # check if the reverse of this polygon equals the other polygon
             if (reverse_face_polygon.circular_eql?(base_surfaces[j].face_polygon))
@@ -173,6 +179,9 @@ Do you want to continue?", MB_OKCANCEL)
           # get the polygon, reverse it
           reverse_face_polygon = sub_surfaces[i].face_polygon.reverse
           
+          # get the normal
+          face_normal = sub_surfaces[i].entity.normal
+          
           # don't process empty polygons
           next if reverse_face_polygon.empty?
 
@@ -190,6 +199,9 @@ Do you want to continue?", MB_OKCANCEL)
            
             # check for intersection of bounding boxes
             next if not bounds.contains?(sub_surfaces[j].entity.bounds)
+            
+            # check normal dot product
+            next if not face_normal.dot(sub_surfaces[j].entity.normal) < -0.98
             
             # check if this polygon equals the reverse of the other polygon
             if (reverse_face_polygon.circular_eql?(sub_surfaces[j].face_polygon))
