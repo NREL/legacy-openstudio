@@ -514,6 +514,34 @@ class Geom::Polygon
     return self.eql?(other)
   end
   
+  def circular_eql?(other)
+    result = false
+
+    points1 = self.reduce.points
+    points2 = other.reduce.points
+
+    if (points1.length == points2.length)
+      for i in 0..points1.length-1
+        if i > 0
+          temp = points2[i..-1].concat(points2[0..i-1])
+        else
+          temp = points2
+        end
+        if temp[0] == points1[0]
+          result = true
+          points1.each_index do |j|
+            if points1[j] != temp[j]
+              result = false
+              break
+            end
+          end
+        end
+      end
+    end
+      
+    return result
+  end
+  
   def intersect(other_polygon)
     return(Geom.intersect_polygon_polygon(self, other_polygon))  # array of polygons
   end

@@ -107,11 +107,14 @@ Do you want to continue?", MB_OKCANCEL)
         # loop over all base surfaces
         base_surfaces.each_index do |i|
         
-          # get the polygon
-          face_polygon = base_surfaces[i].face_polygon
+          # get the bounding box
+          bounds = base_surfaces[i].entity.bounds
+        
+          # get the polygon, reverse it
+          reverse_face_polygon = base_surfaces[i].face_polygon.reverse
 
           # don't process empty polygons
-          next if face_polygon.empty?
+          next if reverse_face_polygon.empty?
 
           # loop over remaining surfaces
           (i+1..base_surfaces.length-1).each do |j|
@@ -124,12 +127,15 @@ Do you want to continue?", MB_OKCANCEL)
             # selection must contain either surface
             next if not (selection.contains?(base_surfaces[i].entity) or selection.contains?(base_surfaces[i].parent.entity) or
                          selection.contains?(base_surfaces[j].entity) or selection.contains?(base_surfaces[j].parent.entity))
+                         
+            # check for intersection of bounding boxes
+            next if not bounds.contains?(base_surfaces[j].entity.bounds)
 
-            # check if this polygon equals the reverse of the other polygon
-            if (face_polygon == base_surfaces[j].face_polygon.reverse)
-            
+            # check if the reverse of this polygon equals the other polygon
+            if (reverse_face_polygon.circular_eql?(base_surfaces[j].face_polygon))
+
               @last_report << "Match, '#{base_surfaces[i].name}', '#{base_surfaces[i].input_object.fields[4]}', '#{base_surfaces[j].name}', '#{base_surfaces[j].input_object.fields[4]}' \n"
-              
+
               base_surfaces[i].set_other_side_surface(base_surfaces[j])
               base_surfaces[j].set_other_side_surface(base_surfaces[i])
 
@@ -160,12 +166,15 @@ Do you want to continue?", MB_OKCANCEL)
 
         # loop over all sub surfaces
         sub_surfaces.each_index do |i|
-
-          # get the polygon
-          face_polygon = sub_surfaces[i].face_polygon
-
+        
+          # get the bounding box
+          bounds = sub_surfaces[i].entity.bounds
+          
+          # get the polygon, reverse it
+          reverse_face_polygon = sub_surfaces[i].face_polygon.reverse
+          
           # don't process empty polygons
-          next if face_polygon.empty?
+          next if reverse_face_polygon.empty?
 
           # loop over remaining surfaces
           (i+1..sub_surfaces.length-1).each do |j|
@@ -178,9 +187,12 @@ Do you want to continue?", MB_OKCANCEL)
             # selection must contain either sub surface
             next if not (selection.contains?(sub_surfaces[i].entity) or selection.contains?(sub_surfaces[i].parent.entity) or selection.contains?(sub_surfaces[i].parent.parent.entity) or
                          selection.contains?(sub_surfaces[j].entity) or selection.contains?(sub_surfaces[j].parent.entity) or selection.contains?(sub_surfaces[j].parent.parent.entity))
-          
+           
+            # check for intersection of bounding boxes
+            next if not bounds.contains?(sub_surfaces[j].entity.bounds)
+            
             # check if this polygon equals the reverse of the other polygon
-            if (face_polygon == sub_surfaces[j].face_polygon.reverse)
+            if (reverse_face_polygon.circular_eql?(sub_surfaces[j].face_polygon))
 
               @last_report << "Match, '#{sub_surfaces[i].name}', '#{sub_surfaces[i].input_object.fields[4]}', '#{sub_surfaces[j].name}', '#{sub_surfaces[j].input_object.fields[4]}'\n"
               
