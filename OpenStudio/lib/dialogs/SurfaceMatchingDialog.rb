@@ -107,6 +107,9 @@ Do you want to continue?", MB_OKCANCEL)
         # loop over all base surfaces
         base_surfaces.each_index do |i|
         
+          next if not (base_surfaces[i].is_a?(BaseSurface) and
+                       base_surfaces[i].parent.is_a?(Zone))
+                      
           # get the bounding box
           bounds = base_surfaces[i].entity.bounds
         
@@ -121,15 +124,20 @@ Do you want to continue?", MB_OKCANCEL)
 
           # loop over remaining surfaces
           (i+1..base_surfaces.length-1).each do |j|
-         
+          
             # update number of comparisons
             processed_num += 1
             percent_complete = 100*processed_num/total_num
             progress_dialog.update_progress(percent_complete, "Matching Base Surfaces")
             
+            next if not (base_surfaces[j].is_a?(BaseSurface) and 
+                         base_surfaces[j].parent.is_a?(Zone))
+                        
             # selection must contain either surface
-            next if not (selection.contains?(base_surfaces[i].entity) or selection.contains?(base_surfaces[i].parent.entity) or
-                         selection.contains?(base_surfaces[j].entity) or selection.contains?(base_surfaces[j].parent.entity))
+            next if not (selection.contains?(base_surfaces[i].entity) or 
+                         selection.contains?(base_surfaces[i].parent.entity) or
+                         selection.contains?(base_surfaces[j].entity) or 
+                         selection.contains?(base_surfaces[j].parent.entity))
                          
             # check for intersection of bounding boxes
             next if not bounds.contains?(base_surfaces[j].entity.bounds)
@@ -173,6 +181,10 @@ Do you want to continue?", MB_OKCANCEL)
         # loop over all sub surfaces
         sub_surfaces.each_index do |i|
         
+          next if not (sub_surfaces[i].is_a?(SubSurface) and
+                       sub_surfaces[i].parent.is_a?(BaseSurface) and
+                       sub_surfaces[i].parent.parent.is_a?(Zone))
+        
           # get the bounding box
           bounds = sub_surfaces[i].entity.bounds
           
@@ -192,10 +204,18 @@ Do you want to continue?", MB_OKCANCEL)
             processed_num += 1
             percent_complete = 100*processed_num/total_num
             progress_dialog.update_progress(percent_complete, "Matching Sub-Surfaces")
+            
+            next if not (sub_surfaces[j].is_a?(SubSurface) and
+                         sub_surfaces[j].parent.is_a?(BaseSurface) and
+                         sub_surfaces[j].parent.parent.is_a?(Zone))
           
             # selection must contain either sub surface
-            next if not (selection.contains?(sub_surfaces[i].entity) or selection.contains?(sub_surfaces[i].parent.entity) or selection.contains?(sub_surfaces[i].parent.parent.entity) or
-                         selection.contains?(sub_surfaces[j].entity) or selection.contains?(sub_surfaces[j].parent.entity) or selection.contains?(sub_surfaces[j].parent.parent.entity))
+            next if not (selection.contains?(sub_surfaces[i].entity) or 
+                         selection.contains?(sub_surfaces[i].parent.entity) or 
+                         selection.contains?(sub_surfaces[i].parent.parent.entity) or
+                         selection.contains?(sub_surfaces[j].entity) or 
+                         selection.contains?(sub_surfaces[j].parent.entity) or 
+                         selection.contains?(sub_surfaces[j].parent.parent.entity))
            
             # check for intersection of bounding boxes
             next if not bounds.contains?(sub_surfaces[j].entity.bounds)
