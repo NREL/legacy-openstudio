@@ -14,7 +14,10 @@ module OpenStudio
       $z = self
     end
 
-
+    def name
+      return @input_object.fields[1]
+    end
+    
 ##### Begin override methods for the input object #####
 
 

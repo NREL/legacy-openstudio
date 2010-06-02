@@ -269,15 +269,15 @@ module OpenStudio
     # Sets the vertices of the InputObject as they should literally appear in the input fields.
     def input_object_polygon=(polygon)
       decimal_places = Plugin.model_manager.length_precision
-      if (decimal_places < 6)
-        decimal_places = 6  # = 4
+      #if (decimal_places < 6)
+        decimal_places = 12  # = 4
         # Always keep at least 4 places for now, until I figure out how to keep the actual saved in the idf from being reduced upon loading
         # There's nothing in the API that prevents from drawing at finer precision than the option settings.
         # Just have to figure out how to keep this routine from messing it up...
         
         # UPDATE:  Looks like more than 4 is necesssary to get the solar shading right in EnergyPlus, otherwise surfaces can be positioned
         # incorrectly, e.g., one wall could overlap another because of the less accurate coordinates.
-      end
+      #end
       format_string = "%0." + decimal_places.to_s + "f"  # This could be stored in a more central place
 
       # Truncate old vertex fields in case the number of vertices is less than before

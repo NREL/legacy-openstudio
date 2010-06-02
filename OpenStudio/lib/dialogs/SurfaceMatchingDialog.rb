@@ -68,7 +68,7 @@ module OpenStudio
     
       @last_report = "Surface Matching Report:\n"
       @last_report << "Action, BuildingSurface:Detailed #1, Zone #1, BuildingSurface:Detailed #2, Zone #2\n"
-    
+
       if selection.empty?
         UI.messagebox("Selection is empty, please select objects for matching routine or choose 'Match in Entire Model'.")
         return 
@@ -83,6 +83,9 @@ Do you want to continue?", MB_OKCANCEL)
       if result == 2 # cancel
         return false
       end
+
+      # get all zones
+      zones = Plugin.model_manager.zones
   
       # get all base surfaces
       base_surfaces = Plugin.model_manager.base_surfaces
@@ -104,15 +107,67 @@ Do you want to continue?", MB_OKCANCEL)
         # num matches found
         num_matches = 0
 
+        # precompute which zones intersect with each other zone
+        zone_names = []
+        zone_intersections = []
+        zones.each_index do |i|
+          zone_names[i] = zones[i].name
+          zone_intersections[i]=[]
+        end
+        zones.each_index do |i|
+          zone_intersections[i][i] = false
+          # loop over remaining zones
+          (i+1..zones.length-1).each do |j|
+            #intersect api may have bugs, isn't fully functional here
+            bbox = zones[i].entity.bounds.intersect zones[j].entity.bounds
+            test = bbox.valid?
+
+             zone_intersections[i][j] = test
+             zone_intersections[j][i] = test
+          end
+        end
+
+        # loop over all base surfaces
+        base_surface_bounds = []
+        base_surface_zone_indices = []
+        base_surfaces.each_index do |i|
+          next if not (base_surfaces[i].is_a?(BaseSurface) and
+                       base_surfaces[i].parent.is_a?(Zone))
+
+          base_surface_zone_index = zone_names.index(base_surfaces[i].parent.name)
+          base_surface_zone_indices[i] = base_surface_zone_index
+
+          # get the local bounding box
+          bounds = base_surfaces[i].entity.bounds
+
+          # get the parents transformation
+          transform = base_surfaces[i].parent.entity.transformation
+
+          # make a new bounding box in global coordinates
+          bbox = Geom::BoundingBox.new
+          (0..7).each do |j|
+            bbox.add(transform*bounds.corner(j))
+          end
+
+          # put the global bounding box into the array
+          base_surface_bounds[i] = bbox
+
+        end
+
+        # array for matching base surfaces
+        base_surface_intersections = []
+        base_surface_names = []
+        base_surfaces.each_index do |i|
+          base_surface_intersections[i] = Array.new(base_surfaces.length, false)
+          base_surface_names[i] = base_surfaces[i].name
+        end
+
         # loop over all base surfaces
         base_surfaces.each_index do |i|
         
           next if not (base_surfaces[i].is_a?(BaseSurface) and
                        base_surfaces[i].parent.is_a?(Zone))
                       
-          # get the bounding box
-          bounds = base_surfaces[i].entity.bounds
-        
           # get the polygon, reverse it
           reverse_face_polygon = base_surfaces[i].face_polygon.reverse
           
@@ -133,15 +188,24 @@ Do you want to continue?", MB_OKCANCEL)
             next if not (base_surfaces[j].is_a?(BaseSurface) and 
                          base_surfaces[j].parent.is_a?(Zone))
                         
+            # check for intersection of zones
+            zone_i = base_surface_zone_indices[i]
+            zone_j = base_surface_zone_indices[j]
+            next if not zone_intersections[zone_i][zone_j]
+                         
+            # check for intersection of bounding boxes
+            next if not base_surface_bounds[i].contains?(base_surface_bounds[j])
+            
+            # add to base surface intersections
+            base_surface_intersections[i][j] = true
+            base_surface_intersections[j][i] = true
+
             # selection must contain either surface
             next if not (selection.contains?(base_surfaces[i].entity) or 
                          selection.contains?(base_surfaces[i].parent.entity) or
                          selection.contains?(base_surfaces[j].entity) or 
                          selection.contains?(base_surfaces[j].parent.entity))
-                         
-            # check for intersection of bounding boxes
-            next if not bounds.contains?(base_surfaces[j].entity.bounds)
-            
+
             # check normal dot product
             next if not face_normal.dot(base_surfaces[j].entity.normal) < -0.98
 
@@ -165,11 +229,11 @@ Do you want to continue?", MB_OKCANCEL)
       
       @last_report << "\nSubSurface Matching Report:\n"
       @last_report << "Action, FenestrationSurface:Detailed #1, BuildingSurface:Detailed #1, FenestrationSurface:Detailed #2, BuildingSurface:Detailed #2\n"
-      
+
       # get all sub surfaces
       sub_surfaces = Plugin.model_manager.sub_surfaces
       begin
-      
+
         # create a progress dialog
         progress_dialog = ProgressDialog.new
         progress_dialog.update_progress(0, "Matching Sub-Surfaces")
@@ -178,15 +242,22 @@ Do you want to continue?", MB_OKCANCEL)
         processed_num = 0
         total_num = (sub_surfaces.length * (sub_surfaces.length-1)) / 2
 
+        base_surface_indices = []
+        sub_surfaces.each_index do |i|
+          next if not (sub_surfaces[i].is_a?(SubSurface) and
+                       sub_surfaces[i].parent.is_a?(BaseSurface) and
+                       sub_surfaces[i].parent.parent.is_a?(Zone))
+
+          base_surface_index = base_surface_names.index(sub_surfaces[i].parent.name)
+          base_surface_indices[i] = base_surface_index
+        end
+
         # loop over all sub surfaces
         sub_surfaces.each_index do |i|
         
           next if not (sub_surfaces[i].is_a?(SubSurface) and
                        sub_surfaces[i].parent.is_a?(BaseSurface) and
                        sub_surfaces[i].parent.parent.is_a?(Zone))
-        
-          # get the bounding box
-          bounds = sub_surfaces[i].entity.bounds
           
           # get the polygon, reverse it
           reverse_face_polygon = sub_surfaces[i].face_polygon.reverse
@@ -217,8 +288,10 @@ Do you want to continue?", MB_OKCANCEL)
                          selection.contains?(sub_surfaces[j].parent.entity) or 
                          selection.contains?(sub_surfaces[j].parent.parent.entity))
            
-            # check for intersection of bounding boxes
-            next if not bounds.contains?(sub_surfaces[j].entity.bounds)
+            # check for intersection of base surfaces
+            base_surface_i = base_surface_indices[i]
+            base_surface_j = base_surface_indices[j]
+            next if not base_surface_intersections[base_surface_i][base_surface_j]
             
             # check normal dot product
             next if not face_normal.dot(sub_surfaces[j].entity.normal) < -0.98
