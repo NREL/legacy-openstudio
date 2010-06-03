@@ -526,6 +526,8 @@ module OpenStudio
       # until all the recursive threads are finished.
       for child in @model_interface.recurse_children
         next if (not child.respond_to?(:outside_variable_key))
+        
+        had_observers = child.remove_observers
 
         # added the or statement for render by boundary, layer, normal
         if (@rendering_mode == 0)
@@ -660,6 +662,9 @@ module OpenStudio
 
           child.paint_data
         end
+        
+        child.add_observers if had_observers
+        
       end
     
     end
