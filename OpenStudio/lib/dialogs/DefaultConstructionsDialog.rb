@@ -212,8 +212,24 @@ Do you want to continue?", MB_OKCANCEL)
       model = Sketchup.active_model
       model.start_operation("Reset to Default Constructions", true)
       
+      reset_names = []
+      other_names = []
       Plugin.model_manager.base_surfaces.each do |base_surface|
         if base_surface.in_selection?(selection)
+          default_construction = base_surface.default_construction
+          @last_report << "'#{base_surface.name}, #{base_surface.input_object.fields[4]}, #{base_surface.input_object.fields[3]}, #{default_construction}\n"
+          base_surface.input_object.fields[3] = default_construction
+          
+          reset_names << base_surface.name
+          if base_surface.input_object.fields[5].to_s == 'Surface' and not base_surface.input_object.fields[6].nil? and not base_surface.input_object.fields[6].to_s.empty?
+            other_names << base_surface.input_object.fields[6].to_s
+          end
+        end
+      end
+      
+      # now set any matching surfaces not in selection
+      Plugin.model_manager.base_surfaces.each do |base_surface|
+        if not reset_names.include?(base_surface.name) and other_names.include?(base_surface.name)
           default_construction = base_surface.default_construction
           @last_report << "'#{base_surface.name}, #{base_surface.input_object.fields[4]}, #{base_surface.input_object.fields[3]}, #{default_construction}\n"
           base_surface.input_object.fields[3] = default_construction
@@ -222,13 +238,29 @@ Do you want to continue?", MB_OKCANCEL)
       
       @last_report << "\nFenestrationSurface:Detailed, BuildingSurface:Detailed, Previous Construction, New Construction\n"
       
+      reset_names = []
+      other_names = []
       Plugin.model_manager.sub_surfaces.each do |sub_surface|
         if sub_surface.in_selection?(selection)
           default_construction = sub_surface.default_construction
           @last_report << "'#{sub_surface.name}, #{sub_surface.input_object.fields[4]}, #{sub_surface.input_object.fields[3]}, #{default_construction}\n"
           sub_surface.input_object.fields[3] = default_construction
+          
+          reset_names << sub_surface.name
+          if not sub_surface.input_object.fields[5].nil? and not sub_surface.input_object.fields[5].to_s.empty?
+            other_names << sub_surface.input_object.fields[5].to_s
+          end
         end
       end     
+      
+      # now set any matching subsurfaces not in selection
+      Plugin.model_manager.sub_surfaces.each do |sub_surface|
+        if not reset_names.include?(sub_surface.name) and other_names.include?(sub_surface.name)
+          default_construction = sub_surface.default_construction
+          @last_report << "'#{sub_surface.name}, #{sub_surface.input_object.fields[4]}, #{sub_surface.input_object.fields[3]}, #{default_construction}\n"
+          sub_surface.input_object.fields[3] = default_construction
+        end
+      end
       
       Plugin.model_manager.input_file.modified = true
       
