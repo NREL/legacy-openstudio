@@ -46,18 +46,18 @@ function msout(num) {
  href="http://www.eere.energy.gov/">
 </map>
 <div style="width: 100%; background-color: rgb(1, 65, 100);"><img
- src="images/eere_header_liquid.jpg" alt="" usemap="#head" border="0"
- width="1000" height="67"></div>
+ src="images/eere_header_liquid.jpg" alt="" usemap="#head" width="1000"
+ border="0" height="67"></div>
 <!--startindex-->
 <!-- End EERE header -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tbody>
     <tr>
       <td colspan="3" width="100%">
-      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tbody>
           <tr>
-            <td class="subsitephoto" bgcolor="#000066" width="100%"><a
+            <td class="subsitephoto" width="100%" bgcolor="#000066"><a
  href="index.html"><img src="images/spacer.gif"
  alt="OpenStudio Documentation" width="333" height="52"></a></td>
             <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
@@ -72,20 +72,20 @@ function msout(num) {
       <img src="images/spacer.gif" alt="" width="1" height="3"><br>
       <a href="ref_guide.html" onmouseover="msover('0')"
  onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
- alt="Reference Guide" name="Image0" border="0" width="176" height="19"></a><br>
+ alt="Reference Guide" name="Image0" width="176" border="0" height="19"></a><br>
       <img src="images/gray.gif" alt="" width="176" height="7"><br>
       <a href="tutorials.html" onmouseover="msover('1')"
  onmouseout="msout('1')"><img src="images/ln_tutorials_off.gif"
- alt="Tutorials" name="Image1" border="0" width="176" height="19"></a><br>
+ alt="Tutorials" name="Image1" width="176" border="0" height="19"></a><br>
       <img src="images/gray.gif" alt="" width="176" height="7"><br>
       <img src="images/ln_release_notes_on.gif" alt="Release Notes"
- name="Image2" border="0" width="176" height="19"><br>
+ name="Image2" width="176" border="0" height="19"><br>
       <img src="images/gray.gif" alt="" width="176" height="7"><br>
 <!--startindex--> </td>
-      <td bgcolor="#cccccc" valign="top"><img src="images/spacer.gif"
+      <td valign="top" bgcolor="#cccccc"><img src="images/spacer.gif"
  alt="" width="1" height="1"></td>
 <!-- main content --> <td valign="top" width="100%">
-      <table border="0" cellpadding="12" cellspacing="0" width="100%">
+      <table width="100%" border="0" cellpadding="12" cellspacing="0">
         <tbody>
           <tr>
             <td valign="top">
@@ -149,7 +149,9 @@ and HVACTemplate:Zone:IdealLoadsAirSystem to zones</a></li>
                 <a href="ref_modeling_tools.html#surface_matching">Automatic
 surface
 matching
-and unmatching tool</a></li>
+and
+unmatching
+tool</a></li>
               <li><a href="ref_view_data.html#default_const_prefs"><img
  src="../../lib/resources/icons/SetDefaultConstPrefs-16.png" alt=""></a>
                 <a href="ref_view_data.html#default_const_prefs">Default
@@ -171,7 +173,23 @@ with plugin</li>
 different colors than their front faces.</li>
               <li>Stability improvements to the Object Info Dialog</li>
             </ul>
-            <a name="patch"></a>
+            <a name="patch_1.0.5.362"></a>
+            <h2>Changes in Patch 1.0.5.362 </h2>
+            <ul>
+              <li>Fix a bug that caused some sub-surfaces on angled
+base surfaces to become detached from their base surface.</li>
+              <li>Fixed a bug where some non rectangular surfaces
+wouldn&#8217;t properly match using the Surface Matching tool.</li>
+              <li>Drastically increased the speed of the Surface
+Matching tool.</li>
+              <li>When applying default constructions to a selection,
+the adjacent surfaces in other zones are now also changed to keep the
+constructions in sync.</li>
+              <li>Fix a problem with flickering of the Objet Info
+window after changing rendering modes.<br>
+              </li>
+            </ul>
+            <a name="patch_1.0.5.355"></a>
             <h2>Changes in Patch 1.0.5.355 </h2>
             <ul>
               <li>Attached shading surfaces can now be manually
@@ -338,26 +356,26 @@ for multiple simulations.</li>
 <!-- end of main content table --> </td>
       <td>
       <div class="leftgrey"><img src="images/rn_features_head.gif"
- alt="Features" style="display: block;" border="0" width="249"
+ alt="Features" style="display: block;" width="249" border="0"
  height="20">
       <div style="padding-bottom: 2px;"><a
  href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img
  src="images/feat_openstudio_openstudio.gif"
- alt="OpenStudio - Learn More" border="0" width="249" height="73"></a></div>
+ alt="OpenStudio - Learn More" width="249" border="0" height="73"></a></div>
       <div style="padding-bottom: 2px;"><a
  href="http://www.energyplus.gov"><img
  src="images/feat_openstudio_energyplus.gif"
- alt="EnergyPlus - Learn More" border="0" width="249" height="73"></a></div>
+ alt="EnergyPlus - Learn More" width="249" border="0" height="73"></a></div>
       <div style="padding-bottom: 2px;"><a
  href="http://www.nrel.gov/buildings/"><img
  src="images/feat_openstudio_nrel.gif"
- alt="National Renewable Energy Lab - Learn More" border="0" width="249"
+ alt="National Renewable Energy Lab - Learn More" width="249" border="0"
  height="73"></a></div>
       <div style="padding-bottom: 2px;"><a
  href="http://www.buildings.energy.gov"><img
  src="images/feat_openstudio_btp.gif"
- alt="DOE's Building Technologies Program - Learn More" border="0"
- width="249" height="73"></a></div>
+ alt="DOE's Building Technologies Program - Learn More" width="249"
+ border="0" height="73"></a></div>
       </div>
       </td>
     </tr>
@@ -366,10 +384,10 @@ for multiple simulations.</li>
 <!-- footer  -->
 <br>
 <a href="#end"><img src="images/spacer.gif"
- alt="Skip footer navigation to end of page." border="0" width="1"
+ alt="Skip footer navigation to end of page." width="1" border="0"
  height="10"></a><br>
-<table align="center" border="0" cellpadding="0" cellspacing="0"
- width="0">
+<table width="0" align="center" border="0" cellpadding="0"
+ cellspacing="0">
   <tbody>
     <tr>
       <td>
@@ -380,10 +398,8 @@ Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building
 Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE
 Home</a></p>
       <p class="doe">U.S. Department of Energy</p>
-      <a name="end"><img src="images/spacer.gif" alt="" border="0"
- width="1" height="1"></a>
-      <p></p>
-      </td>
+      <a name="end"><img src="images/spacer.gif" alt="" width="1"
+ border="0" height="1"></a> </td>
     </tr>
   </tbody>
 </table>
