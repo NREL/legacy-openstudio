@@ -26,14 +26,14 @@ module OpenStudio
 
       @outside_variable_key = nil
       @outside_value = nil
-      @outside_color = Sketchup::Color.new(255, 255, 255, 1)
+      @outside_color = Sketchup::Color.new(255, 255, 255, 1.0)
       @outside_material = nil  # not accessible
       @outside_texture = nil
       @outside_variable_def = nil
 
       @inside_variable_key = nil
       @inside_value = nil
-      @inside_color = Sketchup::Color.new(255, 255, 255, 1)
+      @inside_color = Sketchup::Color.new(255, 255, 255, 1.0)
       @inside_material = nil  # not accessible
       @inside_texture = nil
       @inside_variable_def = nil

@@ -563,11 +563,11 @@ module OpenStudio
           #puts "val=" + outside_value.to_s
 
           if (outside_value.nil?)
-            color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
+            color = Sketchup::Color.new(255, 255, 255, 1.0)  # No data--paint white
             texture = nil
 
           elsif (range_max == range_min)
-            color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
+            color = Sketchup::Color.new(255, 255, 255, 1.0)  # No data--paint white
             texture = nil
 
           elsif (outside_value < range_min)
@@ -621,11 +621,11 @@ module OpenStudio
           #puts "val=" + outside_value.to_s
 
           if (inside_value.nil?)
-            color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
+            color = Sketchup::Color.new(255, 255, 255, 1.0)  # No data--paint white
             texture = nil
             
           elsif (range_max == range_min)
-            color = Sketchup::Color.new(255, 255, 255, 1)  # No data--paint white
+            color = Sketchup::Color.new(255, 255, 255, 1.0)  # No data--paint white
             texture = nil
 
           elsif (inside_value < range_min)
