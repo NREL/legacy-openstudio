@@ -49,6 +49,7 @@ module OpenStudio
     end
 
 
+# not used anymore. Used to allow closing of some dialogs with esc key. Got in the way of using enter as mouse click
     def on_key(d, p)
       if (p == "27")  # Escape key
         on_cancel

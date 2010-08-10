@@ -20,7 +20,6 @@ function onLoad() {
 function onOK() { window.location='skp:on_ok'; }
 function onCancel() { window.location='skp:on_cancel'; }
 function onApply() { window.location='skp:on_apply'; }
-function onKey(event) { window.location='skp:on_key@' + event.keyCode; }
 
 function onBrowse() { window.location='skp:on_browse'; }
 
@@ -73,7 +72,7 @@ function onChangeAppearance(element) {
 -->
 </script>
 </head>
-<body link="#0000FF" alink="#0000FF" vlink="#0000FF" onload="onLoad()" onkeydown="onKey(event)">
+<body link="#0000FF" alink="#0000FF" vlink="#0000FF" onload="onLoad()">
 
 <fieldset class="label" style="margin-top:0px;">
 <legend>Data Source <a href="../../../doc/help/tut_view_results.html" target="_blank">(help)</a></legend>

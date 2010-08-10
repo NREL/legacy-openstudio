@@ -15,7 +15,6 @@ function onLoad() {
 function onOK() { window.location='skp:on_ok'; }
 function onCancel() { window.location='skp:on_cancel'; }
 function onApply() { window.location='skp:on_apply'; }
-function onKey(event) { window.location='skp:on_key@' + event.keyCode; }
 
 function onClickMatchTimePeriod() {
   if (document.getElementById('MATCH_TIME_PERIOD').checked) {
@@ -69,7 +68,7 @@ function setDateOptions() {
 -->
 </script>
 </head>
-<body onload="onLoad()" onkeydown="onKey(event)">
+<body onload="onLoad()">
 
 <fieldset class="label" style="margin-top:0px;">
 <legend>Markers</legend>

@@ -11,13 +11,12 @@ function onLoad() {
   document.getElementById('ok').focus();
 }
 function onOK() { window.location='skp:on_ok'; }
-function onKey(event) { window.location='skp:on_key@' + event.keyCode; }
 
 function onViewIDF() { window.location='skp:on_view_idf'; }
 -->
 </script>
 </head>
-<body onload="onLoad()" onkeydown="onKey(event)">
+<body onload="onLoad()">
 
 <fieldset class="label" style="margin-top:0px;">
 <legend>EnergyPlus Input File</legend>

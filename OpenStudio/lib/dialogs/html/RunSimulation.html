@@ -13,7 +13,6 @@ function onLoad() {
 function onRun() { window.location='skp:on_run'; }
 function onCancel() { window.location='skp:on_cancel'; }
 function onApply() { window.location='skp:on_apply'; }
-function onKey(event) { window.location='skp:on_key@' + event.keyCode; }
 
 function onBrowse() { window.location='skp:on_browse'; }
 
@@ -129,7 +128,7 @@ function onClickCloseShell() { window.location='skp:on_click_close_shell'; }
 -->
 </script>
 </head>
-<body link="#0000FF" alink="#0000FF" vlink="#0000FF" onload="onLoad()" onkeydown="onKey(event)">
+<body link="#0000FF" alink="#0000FF" vlink="#0000FF" onload="onLoad()">
 
 <fieldset class="label" style="margin-top:0px;">
 <legend>Run Control <a href="../../../doc/help/tut_run_simulation.html" target="_blank">(help)</a></legend>

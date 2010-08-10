@@ -18,14 +18,13 @@ function onLoad() {
 function onOK() { window.location='skp:on_ok'; }
 function onCancel() { window.location='skp:on_cancel'; }
 function onApply() { window.location='skp:on_apply'; }
-function onKey(event) { window.location='skp:on_key@' + event.keyCode; }
 
 function onBrowseTXT() { window.location='skp:on_browse_text_editor'; }
 function onBrowseEXE() { window.location='skp:on_browse_exe'; }
 -->
 </script>
 </head>
-<body onload="onLoad()" onkeydown="onKey(event)">
+<body onload="onLoad()">
 
 <fieldset class="label" style="margin-top:0px;">
 <legend>Plugin Preferences</legend>
