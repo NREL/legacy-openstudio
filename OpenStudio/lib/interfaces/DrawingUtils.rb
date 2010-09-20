@@ -126,6 +126,12 @@ module DrawingUtils
 # breaks rule of only looking at entities..but it has to.
   # Checks only the case of swapping a sub_face with a base_face.
   def DrawingUtils.swapped_face_on_divide?(entity)
+
+    # first check if either entity have been deleted
+    if entity.drawing_interface.entity.deleted?
+      return(false)  # no swap
+    end
+    
     new_face_points = entity.polygon.reduce.points
     original_face_points = entity.drawing_interface.entity.polygon.reduce.points
 

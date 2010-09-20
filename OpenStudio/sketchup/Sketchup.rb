@@ -305,7 +305,12 @@ class Sketchup::Loop
 
   def polygon_loop
     points = []
-    self.vertices.each { |vertex| points << vertex.position }
+    self.vertices.each do |vertex| 
+      # DLM@20100920: weird bug in SU 8 that vertices can also return attribute dictionary for a loop's vertices
+      if vertex.class == Sketchup::Vertex
+        points << vertex.position 
+      end
+    end
     return(Geom::PolygonLoop.new(points))
   end
 

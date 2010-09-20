@@ -22,6 +22,8 @@ New Features for 1.0.6
 
 * Updated for EnergyPlus 6.0.
 
+* Updated for SketchUp 8.0.
+
 
 Bug Fixes for 1.0.5
 ----------------------
