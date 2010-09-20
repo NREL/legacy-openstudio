@@ -1,4 +1,4 @@
-OpenStudio 1.0.5
+OpenStudio 1.0.6
 
 
 Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
@@ -8,14 +8,29 @@ Developed by the National Renewable Energy Laboratory, Golden, Colorado for
 the United States Department of Energy.
 
 
-Release Date:  26 April 2010
+Release Date:  10 October 2010
 
 
 System Requirements
 -------------------
 Windows XP/2000/Vista/7 or Mac OS X 10.4+
 Google SketchUp 7.0 or later (Free or Pro)
-EnergyPlus 5.0
+EnergyPlus 6.0
+
+New Features for 1.0.6
+----------------------
+
+* Updated for EnergyPlus 6.0.
+
+
+Bug Fixes for 1.0.5
+----------------------
+
+* Improved support for simple geometry.
+
+* Removed dependency on Windows system dlls not shipped with plugin.
+
+* Run EnergyPlus through OpenStudio as a non-admin
 
 
 New Features for 1.0.5

@@ -500,15 +500,16 @@ Do you want to continue?", MB_OKCANCEL)
           input_object.fields[8] = "0.3"  # Fraction Radiant
           input_object.fields[9] = ""  # Sensible Heat Fraction
           input_object.fields[10] = get_schedule(@hash['ACTIVITY_SCHEDULE'] )  # Activity Level Schedule Name
-          input_object.fields[11] = ""  # Enable ASHRAE 55 Comfort Warnings
-          input_object.fields[12] = ""  # Mean Radiant Temperature Calculation Type
-          input_object.fields[13] = ""  # Surface Name/Angle Factor List Name
-          input_object.fields[14] = ""  # Work Efficiency Schedule Name
-          input_object.fields[15] = ""  # Clothing Insulation Schedule Name
-          input_object.fields[16] = ""  # Air Velocity Schedule Name
-          input_object.fields[17] = ""  # Thermal Comfort Model 1 Type
-          input_object.fields[18] = ""  # Thermal Comfort Model 2 Type
-          input_object.fields[19] = ""  # Thermal Comfort Model 3 Type
+          input_object.fields[11] = ""  # Carbon Dioxide Generation Rate
+          input_object.fields[12] = ""  # Enable ASHRAE 55 Comfort Warnings
+          input_object.fields[13] = ""  # Mean Radiant Temperature Calculation Type
+          input_object.fields[14] = ""  # Surface Name/Angle Factor List Name
+          input_object.fields[15] = ""  # Work Efficiency Schedule Name
+          input_object.fields[16] = ""  # Clothing Insulation Schedule Name
+          input_object.fields[17] = ""  # Air Velocity Schedule Name
+          input_object.fields[18] = ""  # Thermal Comfort Model 1 Type
+          input_object.fields[19] = ""  # Thermal Comfort Model 2 Type
+          input_object.fields[20] = ""  # Thermal Comfort Model 3 Type
           add_object_to_zone(input_object, zone_name)
         end
         
@@ -563,7 +564,8 @@ Do you want to continue?", MB_OKCANCEL)
           input_object.fields[8] = "" # Fraction Latent
           input_object.fields[9] = "" # Fraction Radiant
           input_object.fields[10] = "" # Fraction Lost
-          input_object.fields[11] = "GasEquipment" # End-Use Subcategory
+          input_object.fields[11] = "" # Carbon Dioxide Generation Rate
+          input_object.fields[12] = "GasEquipment" # End-Use Subcategory
           add_object_to_zone(input_object, zone_name)
         end
 

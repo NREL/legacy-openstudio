@@ -1,5 +1,8 @@
  !-   ===========  IMPORTED PV OBJECTS ===========
 
+!  Version,
+!    3.2;                    !- Version Identifier
+
   Material,
     B4 - 3 IN INSULATION,    !- Name
     VeryRough,               !- Roughness
@@ -107,12 +110,12 @@
     Smooth,                  !- Roughness of Exterior Surface
     0.1,                     !- Effectiveness for Perforations with Respect to Wind {dimensionless}
     0.5,                     !- Discharge Coefficient for Openings with Respect to Buoyancy Driven Flow {dimensionless}
-    roof;                    !- ** change surface name when using IntegratedExteriorVentedCavity Heat Transfer Mode
+    roof;                    !- Surface 1 Name
 
   !- ScheduleTypeLimts named "Fraction" should already be in the default template If not then add it here
   !- Schedule:Compact named "Always On" should already be in the default template If not then add it here
 
-    ElectricLoadCenter:Distribution,
+  ElectricLoadCenter:Distribution,
     Simple Electric Load Center,  !- Name
     PV list,                 !- Generator List Name
     Baseload,                !- Generator Operation Scheme Type
@@ -122,7 +125,7 @@
     DirectCurrentWithInverter,  !- Electrical Buss Type
     Simple Ideal Inverter;   !- Inverter Object Name
 
-   ElectricLoadCenter:Inverter:Simple,
+  ElectricLoadCenter:Inverter:Simple,
     Simple Ideal Inverter,   !- Name
     always On,               !- Availability Schedule Name
     ,                        !- Zone Name
@@ -154,8 +157,8 @@
     0.12;                    !- Value for Cell Efficiency if Fixed
 
   Generator:Photovoltaic,
-    SIMPLE PV ShadingSurface,          !- Name
-    external shade,             !- Surface Name  ** change to match your surface
+    SIMPLE PV ShadingSurface,!- Name
+    external shade,          !- Surface Name
     PhotovoltaicPerformance:Simple,  !- Photovoltaic Performance Object Type
     12percentEffPVhalfArea,  !- Module Performance Name
     Decoupled,               !- Heat Transfer Integration Mode
@@ -164,7 +167,7 @@
 
   Generator:Photovoltaic,
     SIMPLE Integrated PV,    !- Name
-    spandral panel,          !- Surface Name ** change to match your surface
+    spandral panel,          !- Surface Name
     PhotovoltaicPerformance:Simple,  !- Photovoltaic Performance Object Type
     12percentEffPVhalfArea,  !- Module Performance Name
     IntegratedSurfaceOutsideFace,  !- Heat Transfer Integration Mode
@@ -173,7 +176,7 @@
 
   Generator:Photovoltaic,
     SIMPLE Roof Paver PV,    !- Name
-    roof,                    !- Surface Name ** change to match your surface
+    roof,                    !- Surface Name
     PhotovoltaicPerformance:Simple,  !- Photovoltaic Performance Object Type
     12percentEffPVhalfArea,  !- Module Performance Name
     IntegratedExteriorVentedCavity,  !- Heat Transfer Integration Mode
@@ -195,3 +198,4 @@
   Output:Meter,Photovoltaic:ElectricityProduced,runperiod;
 
   Output:Meter:MeterFileOnly,Photovoltaic:ElectricityProduced,monthly;
+

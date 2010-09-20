@@ -85,11 +85,11 @@
 ! HTML Report:                    None
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
- 
-  Version,5.0;
- 
+
+  Version,6.0;
+
   Timestep,4;
- 
+
   Building,
     FICTITIOUS BUILDING,     !- Name
     0,                       !- North Axis {deg}
@@ -98,18 +98,18 @@
     0.4000000,               !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
     25;                      !- Maximum Number of Warmup Days
- 
-  SurfaceConvectionAlgorithm:Inside,Detailed;
- 
+
+  SurfaceConvectionAlgorithm:Inside,TARP;
+
   SurfaceConvectionAlgorithm:Outside,DOE-2;
- 
+
   SimulationControl,
     No,                      !- Do Zone Sizing Calculation
     No,                      !- Do System Sizing Calculation
     No,                      !- Do Plant Sizing Calculation
     Yes,                     !- Run Simulation for Sizing Periods
     Yes;                     !- Run Simulation for Weather File Run Periods
- 
+
   RunPeriod,
     ,                        !- Name
     1,                       !- Begin Month
@@ -122,14 +122,14 @@
     No,                      !- Apply Weekend Holiday Rule
     Yes,                     !- Use Weather File Rain Indicators
     Yes;                     !- Use Weather File Snow Indicators
- 
+
   Site:Location,
     PHOENIX_AZ_USA_WMO_722780,  !- Name
     33.42,                   !- Latitude {deg}
     -112.02,                 !- Longitude {deg}
     -7.0,                    !- Time Zone {hr}
     339.00;                  !- Elevation {m}
- 
+
  !  WMO=722780 Time Zone=NAZ        (GMT-07:00) Arizona
  !  Data Source=ASHRAE 2005 Annual Design Conditions
  ! Using Design Conditions from "Climate Design Data 2005 ASHRAE Handbook"
@@ -138,12 +138,12 @@
  ! PHOENIX_AZ_USA Annual Heating Design Conditions Wind Speed=2m/s Wind Dir=120
  ! Coldest Month=December
  ! PHOENIX_AZ_USA Annual Heating 99.6%, MaxDB=2.9°C
- 
+
   SizingPeriod:DesignDay,
     PHOENIX Ann Htg 99.6% Condns DB,  !- Name
     2.9,                     !- Maximum Dry-Bulb Temperature {C}
     0.0,                     !- Daily Temperature Range {deltaC}
-    2.9,                     !- Humidity Indicating Conditions at Maximum Dry-Bulb {A3}
+    2.9,                     !- Humidity Indicating Conditions at Maximum Dry-Bulb
     97318.,                  !- Barometric Pressure {Pa}
     2,                       !- Wind Speed {m/s}
     120,                     !- Wind Direction {deg}
@@ -155,16 +155,16 @@
     WinterDesignDay,         !- Day Type
     0,                       !- Daylight Saving Time Indicator
     WetBulb;                 !- Humidity Indicating Type
- 
+
  ! PHOENIX Annual Cooling Design Conditions Wind Speed=4.1m/s Wind Dir=270
  ! Hottest Month=July
  ! PHOENIX_AZ_USA Annual Cooling (DB=>MWB) .4%, MaxDB=43.4°C MWB=21.1°C
- 
+
   SizingPeriod:DesignDay,
     PHOENIX Ann Clg .4% Condns DB=>MWB,  !- Name
     43.4,                    !- Maximum Dry-Bulb Temperature {C}
     12.3,                    !- Daily Temperature Range {deltaC}
-    21.1,                    !- Humidity Indicating Conditions at Maximum Dry-Bulb {A3}
+    21.1,                    !- Humidity Indicating Conditions at Maximum Dry-Bulb
     97318.,                  !- Barometric Pressure {Pa}
     4.1,                     !- Wind Speed {m/s}
     270,                     !- Wind Direction {deg}
@@ -176,11 +176,11 @@
     SummerDesignDay,         !- Day Type
     0,                       !- Daylight Saving Time Indicator
     WetBulb;                 !- Humidity Indicating Type
- 
+
   Material:AirGap,
     B1 - AIRSPACE RESISTANCE,!- Name
     0.1603675;               !- Thermal Resistance {m2-K/W}
- 
+
   Material,
     A2 - 4 IN DENSE FACE BRICK,  !- Name
     Rough,                   !- Roughness
@@ -191,7 +191,7 @@
     0.9000000,               !- Thermal Absorptance
     0.9300000,               !- Solar Absorptance
     0.9300000;               !- Visible Absorptance
- 
+
   Material,
     B3 - 2 IN INSULATION,    !- Name
     VeryRough,               !- Roughness
@@ -202,7 +202,7 @@
     0.9000000,               !- Thermal Absorptance
     0.5000000,               !- Solar Absorptance
     0.5000000;               !- Visible Absorptance
- 
+
   Material,
     C2 - 4 IN LW CONCRETE BLOCK,  !- Name
     MediumRough,             !- Roughness
@@ -213,7 +213,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Material,
     E1 - 3 / 4 IN PLASTER OR GYP BOARD,  !- Name
     Smooth,                  !- Roughness
@@ -224,7 +224,7 @@
     0.9000000,               !- Thermal Absorptance
     0.9200000,               !- Solar Absorptance
     0.9200000;               !- Visible Absorptance
- 
+
   WindowMaterial:Glazing,
     GLASS - CLEAR PLATE 1 / 4 IN,  !- Name
     SpectralAverage,         !- Optical Data Type
@@ -240,7 +240,7 @@
     0.8400000,               !- Front Side Infrared Hemispherical Emissivity
     0.8400000,               !- Back Side Infrared Hemispherical Emissivity
     0.9000000;               !- Conductivity {W/m-K}
- 
+
   Material,
     C7 - 8 IN LW CONCRETE BLOCK,  !- Name
     Rough,                   !- Roughness
@@ -251,7 +251,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Material,
     PLASTER - GYPSUM LWA 5 / 8 IN,  !- Name
     Smooth,                  !- Roughness
@@ -262,7 +262,7 @@
     0.9000000,               !- Thermal Absorptance
     0.7800000,               !- Solar Absorptance
     0.7800000;               !- Visible Absorptance
- 
+
   Material,
     C5 - 4 IN HW CONCRETE,   !- Name
     MediumRough,             !- Roughness
@@ -273,7 +273,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Material,
     CONCRETE - SAND AND GRAVEL 4 IN,  !- Name
     MediumRough,             !- Roughness
@@ -284,7 +284,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6000000,               !- Solar Absorptance
     0.6000000;               !- Visible Absorptance
- 
+
   Material,
     E2 - 1 / 2 IN SLAG OR STONE,  !- Name
     Rough,                   !- Roughness
@@ -295,7 +295,7 @@
     0.9000000,               !- Thermal Absorptance
     0.5500000,               !- Solar Absorptance
     0.5500000;               !- Visible Absorptance
- 
+
   Material,
     E3 - 3 / 8 IN FELT AND MEMBRANE,  !- Name
     Rough,                   !- Roughness
@@ -306,7 +306,7 @@
     0.9000000,               !- Thermal Absorptance
     0.7500000,               !- Solar Absorptance
     0.7500000;               !- Visible Absorptance
- 
+
   Material,
     B6 - 2 IN DENSE INSULATION,  !- Name
     VeryRough,               !- Roughness
@@ -317,7 +317,7 @@
     0.9000000,               !- Thermal Absorptance
     0.5000000,               !- Solar Absorptance
     0.5000000;               !- Visible Absorptance
- 
+
   Material,
     C12 - 2 IN HW CONCRETE,  !- Name
     MediumRough,             !- Roughness
@@ -328,7 +328,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Material,
     A3 - STEEL SIDING,       !- Name
     Smooth,                  !- Roughness
@@ -339,86 +339,86 @@
     0.9000000,               !- Thermal Absorptance
     0.2000000,               !- Solar Absorptance
     0.2000000;               !- Visible Absorptance
- 
+
   Construction,
     EXTERIOR,                !- Name
     A2 - 4 IN DENSE FACE BRICK,  !- Outside Layer
     B3 - 2 IN INSULATION,    !- Layer 2
     C2 - 4 IN LW CONCRETE BLOCK,  !- Layer 3
     E1 - 3 / 4 IN PLASTER OR GYP BOARD;  !- Layer 4
- 
+
   Construction,
     SINGLE PANE HW WINDOW,   !- Name
     GLASS - CLEAR PLATE 1 / 4 IN;  !- Outside Layer
- 
+
   Construction,
     INTERIOR,                !- Name
     C7 - 8 IN LW CONCRETE BLOCK;  !- Outside Layer
- 
+
   Construction,
     CUSTPARTITION,           !- Name
     PLASTER - GYPSUM LWA 5 / 8 IN,  !- Outside Layer
     B3 - 2 IN INSULATION,    !- Layer 2
     PLASTER - GYPSUM LWA 5 / 8 IN;  !- Layer 3
- 
+
   Construction,
     FLOOR32,                 !- Name
     C5 - 4 IN HW CONCRETE;   !- Outside Layer
- 
+
   Construction,
     SLAB FLOOR,              !- Name
     CONCRETE - SAND AND GRAVEL 4 IN;  !- Outside Layer
- 
+
   Construction,
     ROOF31,                  !- Name
     E2 - 1 / 2 IN SLAG OR STONE,  !- Outside Layer
     E3 - 3 / 8 IN FELT AND MEMBRANE,  !- Layer 2
     B6 - 2 IN DENSE INSULATION,  !- Layer 3
     C12 - 2 IN HW CONCRETE;  !- Layer 4
- 
+
   Construction,
     ALUMINUM DOOR,           !- Name
     A3 - STEEL SIDING,       !- Outside Layer
     B1 - AIRSPACE RESISTANCE,!- Layer 2
     A3 - STEEL SIDING;       !- Layer 3
- 
+
   ScheduleTypeLimits,
     Any Number;              !- Name
- 
+
   ScheduleTypeLimits,
     Fraction,                !- Name
-    0.0,                     !- Lower Limit Value {A3}
-    1.0,                     !- Upper Limit Value {A3}
+    0.0,                     !- Lower Limit Value
+    1.0,                     !- Upper Limit Value
     CONTINUOUS;              !- Numeric Type
- 
+
   Schedule:Compact,
     Activity Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,130.0;      !- Field 3
- 
+
   Schedule:Compact,
     Work Eff Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.0;        !- Field 3
- 
+
   Schedule:Compact,
     Clothing Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,1.0;        !- Field 3
- 
+
   Schedule:Compact,
     Air Velo Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.137;      !- Field 3
- 
+
   Schedule:Compact,
     OFFICE OCCUPANCY,        !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -435,7 +435,7 @@
     Until: 24:00,0.0,        !- Field 19
     For: AllOtherDays,       !- Field 21
     Until: 24:00,0.0;        !- Field 22
- 
+
   Schedule:Compact,
     OFFICE LIGHTING,         !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -448,16 +448,16 @@
     Until: 24:00,0.05,       !- Field 11
     For: AllOtherDays,       !- Field 13
     Until: 24:00,0.05;       !- Field 14
- 
+
   Schedule:Compact,
     CONSTANT,                !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,1.0;        !- Field 3
- 
+
   Site:GroundTemperature:BuildingSurface,19.97,19.99,20.03,20.03,19.88,19.70,19.61,20.05,19.99,19.98,20.08,20.05;
- 
+
   Zone,
     HEARTLAND AREA,          !- Name
     0,                       !- Direction of Relative North {deg}
@@ -468,7 +468,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     OREGON WING,             !- Name
     0,                       !- Direction of Relative North {deg}
@@ -479,7 +479,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     GEORGIA WING,            !- Name
     0,                       !- Direction of Relative North {deg}
@@ -490,7 +490,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     ARIZONA WING,            !- Name
     0,                       !- Direction of Relative North {deg}
@@ -501,7 +501,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     MAINE WING,              !- Name
     0,                       !- Direction of Relative North {deg}
@@ -512,10 +512,10 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   People,
     HEARTLAND AREA,          !- Name
-    HEARTLAND AREA,          !- Zone Name
+    HEARTLAND AREA,          !- Zone or ZoneList Name
     OFFICE OCCUPANCY,        !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     48.00000,                !- Number of People
@@ -524,6 +524,7 @@
     0.6000000,               !- Fraction Radiant
     ,                        !- Sensible Heat Fraction
     Activity Sch,            !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     ,                        !- Enable ASHRAE 55 Comfort Warnings
     zoneaveraged,            !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
@@ -531,10 +532,10 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     HEARTLAND AREA Lights 1, !- Name
-    HEARTLAND AREA,          !- Zone Name
+    HEARTLAND AREA,          !- Zone or ZoneList Name
     OFFICE LIGHTING,         !- Schedule Name
     LightingLevel,           !- Design Level Calculation Method
     23190.00,                !- Lighting Level {W}
@@ -545,10 +546,10 @@
     0.2000000,               !- Fraction Visible
     0.0000000E+00,           !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     HEARTLAND AREA ElecEq 1, !- Name
-    HEARTLAND AREA,          !- Zone Name
+    HEARTLAND AREA,          !- Zone or ZoneList Name
     CONSTANT,                !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     11600.00,                !- Design Level {W}
@@ -557,10 +558,10 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   People,
     OREGON WING,             !- Name
-    OREGON WING,             !- Zone Name
+    OREGON WING,             !- Zone or ZoneList Name
     OFFICE OCCUPANCY,        !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     16.00000,                !- Number of People
@@ -569,6 +570,7 @@
     0.6000000,               !- Fraction Radiant
     ,                        !- Sensible Heat Fraction
     Activity Sch,            !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     ,                        !- Enable ASHRAE 55 Comfort Warnings
     zoneaveraged,            !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
@@ -576,10 +578,10 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     OREGON WING Lights 1,    !- Name
-    OREGON WING,             !- Zone Name
+    OREGON WING,             !- Zone or ZoneList Name
     OFFICE LIGHTING,         !- Schedule Name
     LightingLevel,           !- Design Level Calculation Method
     7750.000,                !- Lighting Level {W}
@@ -590,10 +592,10 @@
     0.2000000,               !- Fraction Visible
     0.0000000E+00,           !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     OREGON WING ElecEq 1,    !- Name
-    OREGON WING,             !- Zone Name
+    OREGON WING,             !- Zone or ZoneList Name
     CONSTANT,                !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     3880.000,                !- Design Level {W}
@@ -602,10 +604,10 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   People,
     GEORGIA WING,            !- Name
-    GEORGIA WING,            !- Zone Name
+    GEORGIA WING,            !- Zone or ZoneList Name
     OFFICE OCCUPANCY,        !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     16.00000,                !- Number of People
@@ -614,6 +616,7 @@
     0.6000000,               !- Fraction Radiant
     ,                        !- Sensible Heat Fraction
     Activity Sch,            !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     ,                        !- Enable ASHRAE 55 Comfort Warnings
     zoneaveraged,            !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
@@ -621,10 +624,10 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     GEORGIA WING Lights 1,   !- Name
-    GEORGIA WING,            !- Zone Name
+    GEORGIA WING,            !- Zone or ZoneList Name
     OFFICE LIGHTING,         !- Schedule Name
     LightingLevel,           !- Design Level Calculation Method
     7750.000,                !- Lighting Level {W}
@@ -635,10 +638,10 @@
     0.2000000,               !- Fraction Visible
     0.0000000E+00,           !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     GEORGIA WING ElecEq 1,   !- Name
-    GEORGIA WING,            !- Zone Name
+    GEORGIA WING,            !- Zone or ZoneList Name
     CONSTANT,                !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     3880.000,                !- Design Level {W}
@@ -647,10 +650,10 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   People,
     ARIZONA WING,            !- Name
-    ARIZONA WING,            !- Zone Name
+    ARIZONA WING,            !- Zone or ZoneList Name
     OFFICE OCCUPANCY,        !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     16.00000,                !- Number of People
@@ -659,6 +662,7 @@
     0.6000000,               !- Fraction Radiant
     ,                        !- Sensible Heat Fraction
     Activity Sch,            !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     ,                        !- Enable ASHRAE 55 Comfort Warnings
     zoneaveraged,            !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
@@ -666,10 +670,10 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     ARIZONA WING Lights 1,   !- Name
-    ARIZONA WING,            !- Zone Name
+    ARIZONA WING,            !- Zone or ZoneList Name
     OFFICE LIGHTING,         !- Schedule Name
     LightingLevel,           !- Design Level Calculation Method
     7750.000,                !- Lighting Level {W}
@@ -680,10 +684,10 @@
     0.2000000,               !- Fraction Visible
     0.0000000E+00,           !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     ARIZONA WING ElecEq 1,   !- Name
-    ARIZONA WING,            !- Zone Name
+    ARIZONA WING,            !- Zone or ZoneList Name
     CONSTANT,                !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     3870.000,                !- Design Level {W}
@@ -692,10 +696,10 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   People,
     MAINE WING,              !- Name
-    MAINE WING,              !- Zone Name
+    MAINE WING,              !- Zone or ZoneList Name
     OFFICE OCCUPANCY,        !- Number of People Schedule Name
     people,                  !- Number of People Calculation Method
     16.00000,                !- Number of People
@@ -704,6 +708,7 @@
     0.6000000,               !- Fraction Radiant
     ,                        !- Sensible Heat Fraction
     Activity Sch,            !- Activity Level Schedule Name
+    ,                        !- Carbon Dioxide Generation Rate {m3/s-W}
     ,                        !- Enable ASHRAE 55 Comfort Warnings
     zoneaveraged,            !- Mean Radiant Temperature Calculation Type
     ,                        !- Surface Name/Angle Factor List Name
@@ -711,10 +716,10 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     MAINE WING Lights 1,     !- Name
-    MAINE WING,              !- Zone Name
+    MAINE WING,              !- Zone or ZoneList Name
     OFFICE LIGHTING,         !- Schedule Name
     LightingLevel,           !- Design Level Calculation Method
     7750.000,                !- Lighting Level {W}
@@ -725,10 +730,10 @@
     0.2000000,               !- Fraction Visible
     0.0000000E+00,           !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     MAINE WING ElecEq 1,     !- Name
-    MAINE WING,              !- Zone Name
+    MAINE WING,              !- Zone or ZoneList Name
     CONSTANT,                !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     3880.000,                !- Design Level {W}
@@ -737,12 +742,12 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   GlobalGeometryRules,
     UpperLeftCorner,         !- Starting Vertex Position
     Counterclockwise,        !- Vertex Entry Direction
     Relative;                !- Coordinate System
- 
+
   Shading:Building:Detailed,
     WEST SIDE BUSHES,        !- Name
     ShadingTransmittance:0002,  !- Transmittance Schedule Name
@@ -759,7 +764,7 @@
     -5.000000,               !- Vertex 4 X-coordinate {m}
     60.000000,               !- Vertex 4 Y-coordinate {m}
     3.000000;                !- Vertex 4 Z-coordinate {m}
- 
+
   Shading:Building:Detailed,
     EAST SIDE TREE1,         !- Name
     ShadingTransmittance:0003,  !- Transmittance Schedule Name
@@ -773,7 +778,7 @@
     70.000000,               !- Vertex 3 X-coordinate {m}
     20.000000,               !- Vertex 3 Y-coordinate {m}
     0.000000;                !- Vertex 3 Z-coordinate {m}
- 
+
   Shading:Building:Detailed,
     EAST SIDE TREE2,         !- Name
     ShadingTransmittance:0003,  !- Transmittance Schedule Name
@@ -787,7 +792,7 @@
     60.000000,               !- Vertex 3 X-coordinate {m}
     30.000000,               !- Vertex 3 Y-coordinate {m}
     0.000000;                !- Vertex 3 Z-coordinate {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -803,7 +808,7 @@
     20.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,10.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall001:Win001,    !- Name
     Window,                  !- Surface Type
@@ -819,7 +824,7 @@
     26.000000,10.000000,0.100000,  !- X,Y,Z ==> Vertex 2 {m}
     34.000000,10.000000,0.100000,  !- X,Y,Z ==> Vertex 3 {m}
     34.000000,10.000000,8.100000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn001:Wall001:Shade001,  !- Name
     Zn001:Wall004,           !- Base Surface Name
@@ -829,7 +834,7 @@
     35.000000,7.000000,8.500000,  !- X,Y,Z ==> Vertex 2 {m}
     25.000000,7.000000,8.500000,  !- X,Y,Z ==> Vertex 3 {m}
     25.000000,10.000000,8.500000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -845,7 +850,7 @@
     50.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -861,7 +866,7 @@
     50.000000,22.200000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,25.200000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,25.200000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall002:Win002,    !- Name
     Window,                  !- Surface Type
@@ -877,7 +882,7 @@
     50.000000,28.500000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,31.500000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,31.500000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall002:Win003,    !- Name
     Window,                  !- Surface Type
@@ -893,7 +898,7 @@
     50.000000,35.300000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,38.300000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,38.300000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -909,7 +914,7 @@
     40.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,50.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall003:Win001,    !- Name
     Window,                  !- Surface Type
@@ -925,7 +930,7 @@
     38.100000,50.000000,2.400000,  !- X,Y,Z ==> Vertex 2 {m}
     35.100000,50.000000,2.400000,  !- X,Y,Z ==> Vertex 3 {m}
     35.100000,50.000000,7.400000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall003:Win002,    !- Name
     Window,                  !- Surface Type
@@ -941,7 +946,7 @@
     31.200000,50.000000,2.500000,  !- X,Y,Z ==> Vertex 2 {m}
     28.200000,50.000000,2.500000,  !- X,Y,Z ==> Vertex 3 {m}
     28.200000,50.000000,7.500000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall003:Win003,    !- Name
     Window,                  !- Surface Type
@@ -957,7 +962,7 @@
     24.700000,50.000000,2.700000,  !- X,Y,Z ==> Vertex 2 {m}
     21.700000,50.000000,2.700000,  !- X,Y,Z ==> Vertex 3 {m}
     21.700000,50.000000,7.700000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -973,7 +978,7 @@
     10.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall004:Win001,    !- Name
     Window,                  !- Surface Type
@@ -989,7 +994,7 @@
     10.000000,37.500000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,34.500000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,34.500000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall004:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1005,7 +1010,7 @@
     10.000000,31.200000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,28.200000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,28.200000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Wall004:Win003,    !- Name
     Window,                  !- Surface Type
@@ -1021,7 +1026,7 @@
     10.000000,25.100000,2.400000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,22.100000,2.400000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,22.100000,7.400000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall005,           !- Name
     Wall,                    !- Surface Type
@@ -1037,7 +1042,7 @@
     10.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall006,           !- Name
     Wall,                    !- Surface Type
@@ -1053,7 +1058,7 @@
     20.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,10.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall007,           !- Name
     Wall,                    !- Surface Type
@@ -1069,7 +1074,7 @@
     40.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall008,           !- Name
     Wall,                    !- Surface Type
@@ -1085,7 +1090,7 @@
     40.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall009,           !- Name
     Wall,                    !- Surface Type
@@ -1101,7 +1106,7 @@
     50.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall010,           !- Name
     Wall,                    !- Surface Type
@@ -1117,7 +1122,7 @@
     40.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,50.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall011,           !- Name
     Wall,                    !- Surface Type
@@ -1133,7 +1138,7 @@
     20.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall012,           !- Name
     Wall,                    !- Surface Type
@@ -1149,19 +1154,19 @@
     20.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   InternalMass,
     Zn001:IntM001,           !- Name
     CUSTPARTITION,           !- Construction Name
     HEARTLAND AREA,          !- Zone Name
     130.0000;                !- Surface Area {m2}
- 
+
   InternalMass,
     Zn001:IntM002,           !- Name
     CUSTPARTITION,           !- Construction Name
     HEARTLAND AREA,          !- Zone Name
     920.0000;                !- Surface Area {m2}
- 
+
 ! Floor subdivided:
 !  Surface:HeatTransfer,
 !    Zn001:Flr001,            !- User Supplied Surface Name
@@ -1242,7 +1247,7 @@
 !    10.00000,40.00000,0.0000000E+00,  !- X,Y,Z ==> Vertex 2
 !    20.00000,40.00000,0.0000000E+00,  !- X,Y,Z ==> Vertex 3
 !    20.00000,20.00000,0.0000000E+00;  !- X,Y,Z ==> Vertex 4
- 
+
   BuildingSurface:Detailed,
     Zn001:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1266,7 +1271,7 @@
     10.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 10 {m}
     20.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 11 {m}
     20.000000,50.000000,0.000000;  !- X,Y,Z ==> Vertex 12 {m}
- 
+
 ! Roof subdivided:
 !  Surface:HeatTransfer,
 !    Zn001:Roof001,           !- User Supplied Surface Name
@@ -1347,7 +1352,7 @@
 !    10.00000,20.00000,10.00000,  !- X,Y,Z ==> Vertex 2
 !    20.00000,20.00000,10.00000,  !- X,Y,Z ==> Vertex 3
 !    20.00000,40.00000,10.00000;  !- X,Y,Z ==> Vertex 4
- 
+
   BuildingSurface:Detailed,
     Zn001:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -1371,13 +1376,13 @@
     50.000000,40.000000,10.000000,  !- X,Y,Z ==> Vertex 10 {m}
     40.000000,40.000000,10.000000,  !- X,Y,Z ==> Vertex 11 {m}
     40.000000,50.000000,10.000000;  !- X,Y,Z ==> Vertex 12 {m}
- 
+
   InternalMass,
     Zn001:IntM003,           !- Name
     CUSTPARTITION,           !- Construction Name
     HEARTLAND AREA,          !- Zone Name
     2380.000;                !- Surface Area {m2}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1393,7 +1398,7 @@
     0.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1409,7 +1414,7 @@
     20.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,60.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1425,7 +1430,7 @@
     20.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,60.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall003:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1441,7 +1446,7 @@
     16.000000,60.000000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     13.000000,60.000000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     13.000000,60.000000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall003:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1457,7 +1462,7 @@
     6.700000,60.000000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     3.700000,60.000000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     3.700000,60.000000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -1473,7 +1478,7 @@
     0.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall004:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1489,7 +1494,7 @@
     0.000000,55.000000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,52.000000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,52.000000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall004:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1505,7 +1510,7 @@
     0.000000,47.500000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,44.500000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,44.500000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall005,           !- Name
     Wall,                    !- Surface Type
@@ -1521,7 +1526,7 @@
     10.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall006,           !- Name
     Wall,                    !- Surface Type
@@ -1537,7 +1542,7 @@
     20.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,50.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1553,7 +1558,7 @@
     20.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,60.000000,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -1569,7 +1574,7 @@
     0.000000,40.000000,10.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,40.000000,10.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,60.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1585,7 +1590,7 @@
     40.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall001:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1601,7 +1606,7 @@
     44.600000,0.000000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     47.600000,0.000000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     47.600000,0.000000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall001:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1617,7 +1622,7 @@
     52.400000,0.000000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     55.400000,0.000000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     55.400000,0.000000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn003:Wall001:Shade001,  !- Name
     Zn003:Wall002,           !- Base Surface Name
@@ -1627,7 +1632,7 @@
     40.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,-2.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,-2.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn003:Wall001:Shade002,  !- Name
     Zn003:Wall002,           !- Base Surface Name
@@ -1637,7 +1642,7 @@
     60.000000,-2.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1653,7 +1658,7 @@
     60.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1669,7 +1674,7 @@
     60.000000,4.200000,2.400000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,7.200000,2.400000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,7.200000,7.400000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall002:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1685,7 +1690,7 @@
     60.000000,13.200000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,16.200000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,16.200000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn003:Wall002:Shade001,  !- Name
     Zn003:Wall002,           !- Base Surface Name
@@ -1695,7 +1700,7 @@
     60.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     62.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     62.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1711,7 +1716,7 @@
     60.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -1727,7 +1732,7 @@
     40.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall005,           !- Name
     Wall,                    !- Surface Type
@@ -1743,7 +1748,7 @@
     50.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall006,           !- Name
     Wall,                    !- Surface Type
@@ -1759,7 +1764,7 @@
     40.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,10.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1775,7 +1780,7 @@
     60.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,20.000000,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -1791,7 +1796,7 @@
     40.000000,0.000000,10.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,0.000000,10.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1807,7 +1812,7 @@
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn004:Wall001:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1823,7 +1828,7 @@
     3.500000,0.000000,2.300000,  !- X,Y,Z ==> Vertex 2 {m}
     6.500000,0.000000,2.300000,  !- X,Y,Z ==> Vertex 3 {m}
     6.500000,0.000000,7.300000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn004:Wall001:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1839,7 +1844,7 @@
     13.400000,0.000000,2.200000,  !- X,Y,Z ==> Vertex 2 {m}
     16.400000,0.000000,2.200000,  !- X,Y,Z ==> Vertex 3 {m}
     16.400000,0.000000,7.200000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn004:Wall001:Shade001,  !- Name
     Zn004:Roof001,           !- Base Surface Name
@@ -1849,7 +1854,7 @@
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,-2.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,-2.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn004:Wall001:Shade002,  !- Name
     Zn004:Roof001,           !- Base Surface Name
@@ -1859,7 +1864,7 @@
     20.000000,-2.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1875,7 +1880,7 @@
     20.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,10.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1891,7 +1896,7 @@
     10.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -1907,7 +1912,7 @@
     0.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn004:Wall004:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1923,7 +1928,7 @@
     0.000000,15.600000,2.800000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,12.600000,2.800000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,12.600000,7.800000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn004:Wall004:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1939,7 +1944,7 @@
     0.000000,7.100000,2.700000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,4.100000,2.700000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,4.100000,7.700000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   Shading:Zone:Detailed,
     Zn004:Wall004:Shade001,  !- Name
     Zn004:Roof001,           !- Base Surface Name
@@ -1949,7 +1954,7 @@
     -2.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,0.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall005,           !- Name
     Wall,                    !- Surface Type
@@ -1965,7 +1970,7 @@
     20.000000,10.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall006,           !- Name
     Wall,                    !- Surface Type
@@ -1981,7 +1986,7 @@
     20.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     10.000000,20.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     10.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1997,7 +2002,7 @@
     20.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,20.000000,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -2013,7 +2018,7 @@
     0.000000,0.000000,10.000000,  !- X,Y,Z ==> Vertex 2 {m}
     20.000000,0.000000,10.000000,  !- X,Y,Z ==> Vertex 3 {m}
     20.000000,20.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -2029,7 +2034,7 @@
     50.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -2045,7 +2050,7 @@
     60.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,60.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -2061,7 +2066,7 @@
     60.000000,44.300000,2.500000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,47.300000,2.500000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,47.300000,7.500000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall002:Win002,    !- Name
     Window,                  !- Surface Type
@@ -2077,7 +2082,7 @@
     60.000000,52.300000,2.600000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,55.300000,2.600000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,55.300000,7.600000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -2093,7 +2098,7 @@
     60.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,60.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall003:Door001,   !- Name
     Door,                    !- Surface Type
@@ -2109,7 +2114,7 @@
     55.200000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     52.200000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     52.200000,60.000000,7.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall003:Door002,   !- Name
     Door,                    !- Surface Type
@@ -2125,7 +2130,7 @@
     47.100000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     44.100000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     44.100000,60.000000,7.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -2141,7 +2146,7 @@
     40.000000,60.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,50.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall005,           !- Name
     Wall,                    !- Surface Type
@@ -2157,7 +2162,7 @@
     40.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     50.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     50.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall006,           !- Name
     Wall,                    !- Surface Type
@@ -2173,7 +2178,7 @@
     40.000000,50.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,40.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -2189,7 +2194,7 @@
     60.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     40.000000,40.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     40.000000,60.000000,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -2205,7 +2210,7 @@
     40.000000,40.000000,10.000000,  !- X,Y,Z ==> Vertex 2 {m}
     60.000000,40.000000,10.000000,  !- X,Y,Z ==> Vertex 3 {m}
     60.000000,60.000000,10.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   SurfaceProperty:OtherSideCoefficients,
     OSCCoef:Zn005:Wall003,   !- Name
     0.0000000E+00,           !- Combined Convective/Radiative Film Coefficient {W/m2-K}
@@ -2215,7 +2220,7 @@
     0.000000,                !- Ground Temperature Coefficient
     0.000000,                !- Wind Speed Coefficient
     0.000000;                !- Zone Air Temperature Coefficient
- 
+
   SurfaceProperty:OtherSideCoefficients,
     OSCCoef:Zn005:Wall004,   !- Name
     1.230000,                !- Combined Convective/Radiative Film Coefficient {W/m2-K}
@@ -2225,77 +2230,77 @@
     0.000000,                !- Ground Temperature Coefficient
     0.000000,                !- Wind Speed Coefficient
     0.000000;                !- Zone Air Temperature Coefficient
- 
+
   Schedule:Compact,
     ShadingTransmittance:0001,  !- Name
     Fraction,                !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.0;        !- Field 3
- 
+
   Schedule:Compact,
     ShadingTransmittance:0002,  !- Name
     Fraction,                !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.2;        !- Field 3
- 
+
   Schedule:Compact,
     ShadingTransmittance:0003,  !- Name
     Fraction,                !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.1;        !- Field 3
- 
+
   Output:Variable,*,outdoor dry bulb,hourly;
- 
+
   Output:Variable,*,Zone Mean Air Temperature,hourly;
- 
+
   Output:Variable,*,Zone Total Internal Latent Gain,hourly;
- 
+
   Output:Variable,*,Zone Lights Electric Consumption,hourly;
- 
+
   Output:Meter,Electricity:Building,hourly;
- 
+
   Output:Variable,*,Zone Mean Radiant Temperature,hourly;
- 
+
   Output:Variable,*,Zone Mean Radiant Temperature,hourly;
- 
+
   Output:Variable,*,Surface Inside Temperature,daily;
- 
+
   Output:Variable,*,Surface Outside Temperature,daily;
- 
+
   Output:Variable,*,Surface Int Convection Coeff,daily;
- 
+
   Output:Variable,*,Surface Ext Convection Coeff,daily;
- 
+
   Output:Variable,*,surface ext sunlit area,daily;
- 
+
   Output:Variable,*,surface ext sunlit fraction,daily;
- 
+
   Output:VariableDictionary,Regular;
- 
+
   Output:Surfaces:Drawing,dxf,Triangulate3DFace;
- 
+
   Output:Surfaces:List,detailswithvertices;
- 
+
   Output:Constructions,Constructions;
- 
+
   Output:Meter:MeterFileOnly,Electricity:Facility,monthly;
- 
+
   Output:Meter:MeterFileOnly,Electricity:Building,monthly;
- 
+
   Output:Meter:MeterFileOnly,InteriorLights:Electricity,monthly;
- 
+
   Output:Meter:MeterFileOnly,Electricity:Facility,runperiod;
- 
+
   Output:Meter:MeterFileOnly,Electricity:Building,runperiod;
- 
+
   Output:Meter:MeterFileOnly,InteriorLights:Electricity,runperiod;
- 
+
   OutputControl:Table:Style,
     HTML;                    !- Column Separator
- 
+
   Output:Table:SummaryReports,
     AllSummary;              !- Report 1 Name
- 
+

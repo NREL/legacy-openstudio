@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Windows, VERSION 5.0.0.024,IDD_Version 5.0.0.024
+Program Version,EnergyPlus, Windows, VERSION 6.0.0.015,IDD_Version 6.0.0.015
    ** Warning ** World Coordinate System selected.  Any non-zero Building/Zone North Axes or non-zero Zone Origins are ignored.
    **   ~~~   ** These may be used in daylighting reference point coordinate calculations  but not in normal geometry inputs.
    ************* Testing Individual Branch Integrity
@@ -9,10 +9,6 @@ Program Version,EnergyPlus, Windows, VERSION 5.0.0.024,IDD_Version 5.0.0.024
    ************* All Return Air Paths passed integrity testing
    ************* No node connection errors were found.
    ************* Beginning Simulation
-   ** Warning ** The following Report Variables were requested but not generated
-   **   ~~~   ** because IDF did not contain these elements or misspelled variable name -- check .rdd file
-   ************* Key=*, VarName=DAYLIGHT ILLUM AT REF POINT 2, Frequency=Hourly
-   ************* Key=*, VarName=GLARE INDEX AT REF POINT 2, Frequency=Hourly
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 2 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 48.50sec
+   ************* EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 06min 39.45sec

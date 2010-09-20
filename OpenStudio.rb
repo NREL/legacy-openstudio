@@ -5,7 +5,7 @@
 require 'extensions.rb'   # defines the SketchupExtension class
 
 OPENSTUDIO_PLUGIN_NAME = "OpenStudio"
-OPENSTUDIO_PLUGIN_VERSION = "1.0.5.<%=svn_revision%>"
+OPENSTUDIO_PLUGIN_VERSION = "1.0.6.<%=svn_revision%>"
 
 ext = SketchupExtension.new(OPENSTUDIO_PLUGIN_NAME, "OpenStudio/lib/Startup.rb")
 ext.name = OPENSTUDIO_PLUGIN_NAME

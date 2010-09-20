@@ -417,9 +417,9 @@ module OpenStudio
           idf_version_string = object.fields[1].to_s
           if not idf_version_string.match(/\d+\.\d+\.\d+/)
             if idf_version_string.match(/\d+\.\d+/)
-              idf_version_string += ".0"   # if version string = 5.0
+              idf_version_string += ".0"   # if version string = 6.0
             else
-              idf_version_string += ".0.0" # if version string = 5
+              idf_version_string += ".0.0" # if version string = 6
             end
           end
 
