@@ -25,14 +25,14 @@ New Features for 1.0.6
 * Updated for SketchUp 8.0.
 
 
-Bug Fixes for 1.0.5
+Bug Fixes for 1.0.6
 ----------------------
 
-* Improved support for simple geometry.
+* Fixed problem causing flickering dialogs
 
-* Removed dependency on Windows system dlls not shipped with plugin.
+* Fixed problem with push/pull of face in SU 8.
 
-* Run EnergyPlus through OpenStudio as a non-admin
+* Fixed problem with push/pull of divided face.
 
 
 New Features for 1.0.5
