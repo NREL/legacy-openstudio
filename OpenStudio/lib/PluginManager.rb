@@ -32,8 +32,8 @@ module OpenStudio
     attr_accessor :energyplus_path, :update_manager, :load_components
 
     def initialize
-      @name = OPENSTUDIO_PLUGIN_NAME   
-      @version = OPENSTUDIO_PLUGIN_VERSION
+      @name = $OPENSTUDIO_PLUGIN_NAME   
+      @version = $OPENSTUDIO_PLUGIN_VERSION
 
       # Determine plugin directory
       path = Sketchup.find_support_file("OpenStudio.rb", "Plugins")
