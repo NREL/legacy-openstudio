@@ -35,10 +35,8 @@ module OpenStudio
       @name = OPENSTUDIO_PLUGIN_NAME   
       @version = OPENSTUDIO_PLUGIN_VERSION
 
-      # Determine plugin directory
-      path = Sketchup.find_support_file("OpenStudio.rb", "Plugins")
       # need safety check here if can't find path!!
-      @dir = File.dirname(path) + "/OpenStudio"
+      @dir = File.dirname(__FILE__) + "/.."
     end
 
 
