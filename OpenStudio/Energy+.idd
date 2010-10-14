@@ -1,4 +1,4 @@
-!IDD_Version 6.0.0.015
+!IDD_Version 6.0.0.022
 ! **************************************************************************
 ! This file is the Input Data Dictionary (IDD) for EnergyPlus.
 ! The IDD defines the syntax and data model for each type of input "Object."
@@ -292,6 +292,11 @@
 !     Availability           =>   Availability        1
 !     rev/min                =>   rev/min             1
 !     W/(m3/s)               =>   W/(ft3/min)         0.0004719475
+!     VA                     =>   VA                  1
+!     N-m                    =>   lbf-in              8.85074900525547
+!     m3/s-W                 =>   ft3-h/min-Btu       621.099127332943
+!     cm2                    =>   inch2               0.15500031000062
+!     kg/m                   =>   lb/ft               0.67196893069637
 !
 ! Other conversions supported (needs the \ip-units code)
 !
@@ -561,7 +566,7 @@ Timestep,
        \note Normal 6 is mimimum as lower values may cause inaccuracies
        \note A minimum value of 20 is suggested for both ConductionFiniteDifference
        \note and CombinedHeatAndMoistureFiniteElement surface heat balance alogorithms
-       \note
+       \note A minimum of 12 is suggested for simulations involving a Vegetated Roof (Material:RoofVegetation).
        \default 6
        \type integer
        \minimum 1
@@ -1047,11 +1052,11 @@ RunPeriodControl:DaylightSavingTime,
 WeatherProperty:SkyTemperature,
        \memo This object is used to override internal sky temperature calculations.
   A1,  \field Name
-!       \required-field
+       \note blank in this field will apply to all run periods (that is, all objects=
+       \note SizingPeriod:WeatherFileDays, SizingPeriod:WeatherFileConditionType or RunPeriod
+       \note otherwise, this name must match one of the environment object names.
        \type object-list
        \object-list RunPeriodsAndDesignDays
-       \note This field references the applicable sizingperiod:* or runperiod.
-       \note If left blank, it will apply to all sizingperiod:* and runperiods.
   A2,  \field Calculation Type
        \required-field
        \type choice
@@ -1059,12 +1064,12 @@ WeatherProperty:SkyTemperature,
        \key DifferenceScheduleDryBulbValue
        \key DifferenceScheduleDewPointValue
   A3;  \field Schedule Name
+       \required-field
        \note if name matches a SizingPeriod:DesignDay, put in a day schedule of this name
        \note if name is for a SizingPeriod:WeatherFileDays, SizingPeriod:WeatherFileConditionType or
        \note RunPeriod, put in a full year schedule that covers the appropriate days.
        \type object-list
-       \object-list DayScheduleNames
-       \object-list ScheduleNames
+       \object-list ScheduleAndDayScheduleNames
 
 Site:WeatherStation,
        \unique-object
@@ -1589,6 +1594,7 @@ Schedule:Day:Hourly,
        \required-field
        \type alpha
        \reference DayScheduleNames
+       \reference ScheduleAndDayScheduleNames
   A2 , \field Schedule Type Limits Name
        \type object-list
        \object-list ScheduleTypeLimitsNames
@@ -1674,6 +1680,7 @@ Schedule:Day:Interval,
        \required-field
        \type alpha
        \reference DayScheduleNames
+       \reference ScheduleAndDayScheduleNames
   A2 , \field Schedule Type Limits Name
        \type object-list
        \object-list ScheduleTypeLimitsNames
@@ -2271,6 +2278,7 @@ Schedule:Day:List,
        \required-field
        \type alpha
        \reference DayScheduleNames
+       \reference ScheduleAndDayScheduleNames
   A2 , \field Schedule Type Limits Name
        \type object-list
        \object-list ScheduleTypeLimitsNames
@@ -3716,8 +3724,9 @@ Material:RoofVegetation,
   \memo EcoRoof model, plant layer plus soil layer
   \memo Implemented by Portland State University
   \memo (Sailor et al., January, 2007)
-  \memo only one material must be used per simulation though the same EcoRoof material could be
-  \memo used in multiple constructoins.
+  \memo only one material must be referenced per simulation though the same EcoRoof material could be
+  \memo used in multiple constructions. New moisture redistribution scheme (2010) requires higher
+  \memo number of timesteps per hour (minimum 12 recommended).
   \min-fields 18
   A1 ,\field Name
       \required-field
@@ -3763,7 +3772,6 @@ Material:RoofVegetation,
       \type alpha
       \default Ecoroof Soil
   A3 ,\field Roughness
-      \note multiple choices
       \required-field
       \type choice
       \key VeryRough
@@ -3838,11 +3846,17 @@ Material:RoofVegetation,
       \minimum  0.01
       \maximum  0.1
       \default 0.01
-  N15;\field Initial Volumetric Moisture Content of the Soil Layer
+  N15,\field Initial Volumetric Moisture Content of the Soil Layer
       \type real
       \minimum> 0.1
       \maximum  1.0
       \default 0.15
+  A4; \field Moisture Diffusion Calculation Method
+      \note Advanced calculation requires increased number of timesteps (recommended 12).
+      \type choice
+      \key Simple
+      \key Advanced
+      \default Advanced
 
 WindowMaterial:SimpleGlazingSystem,
        \min-fields 3
@@ -3857,6 +3871,7 @@ WindowMaterial:SimpleGlazingSystem,
   N1 , \field U-Factor
        \required-field
        \note Enter U-Factor including film coefficients
+       \note Note that the effective upper limit for U-factor is 5.8 W/m2-K
        \units W/m2-K
        \minimum> 0
        \maximum  7
@@ -6559,6 +6574,7 @@ Zone,
        \reference ZoneNames
        \reference OutFaceEnvNames
        \reference ZoneAndZoneListNames
+       \reference AirflowNetworkNodeAndZoneNames
   N1 , \field Direction of Relative North
        \units deg
        \type real
@@ -13678,290 +13694,8 @@ SurfaceProperty:OtherSideConditionsModel,
       \note on the other side of the surface that are modeled sperately.
       \default GapConvectionRadiation
 
-SurfaceProperty:ConvectionCoefficients,
-      \memo Allow user settable interior and/or exterior convection coefficients.
-      \memo Note that some other factors may limit the lower bounds for these values, such as
-      \memo for windows, the interior convection coefficient must be >.28,
-      \memo for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1
-      \memo for TARP interior convection, the lower limit is also .1
-  A1, \field Surface Name
-      \required-field
-      \type object-list
-      \object-list SurfaceNames
-  A2, \field Convection Coefficient 1 Location
-      \required-field
-      \type choice
-      \key Outside
-      \key Inside
-  A3, \field Convection Coefficient 1 Type
-      \required-field
-      \type choice
-      \key Value
-      \key Schedule
-      \key UserCurve
-      \key Simple
-      \key SimpleCombined
-      \key TARP
-      \key DOE-2
-      \key MoWitt
-      \key AdaptiveConvectionAlgorithm
-      \key ASHRAEVerticalWall
-      \key WaltonUnstableHorizontalOrTilt
-      \key WaltonStableHorizontalOrTilt
-      \key FisherPedersenCeilingDiffuserWalls
-      \key FisherPedersenCeilingDiffuserCeiling
-      \key FisherPedersenCeilingDiffuserFloor
-      \key AlamdariHammondStableHorizontal
-      \key AlamdariHammondUnstableHorizontal
-      \key AlamdariHammondVerticalWall
-      \key KhalifaEq3WallAwayFromHeat
-      \key KhalifaEq4CeilingAwayFromHeat
-      \key KhalifaEq5WallNearHeat
-      \key KhalifaEq6NonHeatedWalls
-      \key KhalifaEq7Ceiling
-      \key AwbiHattonHeatedFloor
-      \key AwbiHattonHeatedWall
-      \key BeausoleilMorrisonMixedAssistedWall
-      \key BeausoleilMorrisonMixedOpposingWall
-      \key BeausoleilMorrisonMixedStableFloor
-      \key BeausoleilMorrisonMixedUnstableFloor
-      \key BeausoleilMorrisonMixedStableCeiling
-      \key BeausoleilMorrisonMixedUnstableCeiling
-      \key FohannoPolidoriVerticalWall
-      \key KaradagChilledCeiling
-      \key ISO15099Windows
-      \key GoldsteinNovoselacCeilingDiffuserWindow
-      \key GoldsteinNovoselacCeilingDiffuserWalls
-      \key GoldsteinNovoselacCeilingDiffuserFloor
-      \key NusseltJurges
-      \key McAdams
-      \key Mitchell
-      \key EmmelVertical
-      \key EmmelRoof
-      \key ClearRoof
-  N1, \field Convection Coefficient 1
-      \note used if Convection Type=Value, then minimum must be > 0.0, Maximum <= 20000.
-      \units W/m2-K
-  A4, \field Convection Coefficient 1 Schedule Name
-      \note used if Convection Type=Schedule
-      \type object-list
-      \object-list ScheduleNames
-  A5, \field Convection Coefficient 1 User Curve Name
-      \note used if Convection Type = UserCurve
-      \type object-list
-      \object-list UserConvectionModels
-  A6, \field Convection Coefficient 2 Location
-      \type choice
-      \key Outside
-      \key Inside
-  A7, \field Convection Coefficient 2 Type
-      \type choice
-      \key Value
-      \key Schedule
-      \key UserCurve
-      \key Simple
-      \key SimpleCombined
-      \key TARP
-      \key DOE-2
-      \key MoWitt
-      \key AdaptiveConvectionAlgorithm
-      \key ASHRAEVerticalWall
-      \key WaltonUnstableHorizontalOrTilt
-      \key WaltonStableHorizontalOrTilt
-      \key FisherPedersenCeilingDiffuserWalls
-      \key FisherPedersenCeilingDiffuserCeiling
-      \key FisherPedersenCeilingDiffuserFloor
-      \key AlamdariHammondStableHorizontal
-      \key AlamdariHammondUnstableHorizontal
-      \key AlamdariHammondVerticalWall
-      \key KhalifaEq3WallAwayFromHeat
-      \key KhalifaEq4CeilingAwayFromHeat
-      \key KhalifaEq5WallNearHeat
-      \key KhalifaEq6NonHeatedWalls
-      \key KhalifaEq7Ceiling
-      \key AwbiHattonHeatedFloor
-      \key AwbiHattonHeatedWall
-      \key BeausoleilMorrisonMixedAssistedWall
-      \key BeausoleilMorrisonMixedOpposingWall
-      \key BeausoleilMorrisonMixedStableFloor
-      \key BeausoleilMorrisonMixedUnstableFloor
-      \key BeausoleilMorrisonMixedStableCeiling
-      \key BeausoleilMorrisonMixedUnstableCeiling
-      \key FohannoPolidoriVerticalWall
-      \key KaradagChilledCeiling
-      \key ISO15099Windows
-      \key GoldsteinNovoselacCeilingDiffuserWindow
-      \key GoldsteinNovoselacCeilingDiffuserWalls
-      \key GoldsteinNovoselacCeilingDiffuserFloor
-      \key NusseltJurges
-      \key McAdams
-      \key Mitchell
-      \key EmmelVertical
-      \key EmmelRoof
-      \key ClearRoof
-  N2, \field Convection Coefficient 2
-      \note used if Convection Type=Value, then minimum must be > 0.0, Maximum <= 20000.
-      \default .1
-      \units W/m2-K
-  A8, \field Convection Coefficient 2 Schedule Name
-      \note used if Convection Type=Schedule
-      \type object-list
-      \object-list ScheduleNames
-  A9; \field Convection Coefficient 2 User Curve Name
-      \note used if Convection Type = UserCurve
-      \type object-list
-      \object-list UserConvectionModels
 
-SurfaceProperty:ConvectionCoefficients:MultipleSurface,
-      \memo Allow user settable interior and/or exterior convection coefficients.
-      \memo Note that some other factors may limit the lower bounds for these values, such as
-      \memo for windows, the interior convection coefficient must be >.28,
-      \memo for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1
-      \memo for TARP interior convection, the lower limit is also .1
-  A1, \field Surface Type
-      \required-field
-      \type choice
-      \key AllExteriorSurfaces
-      \key AllExteriorWindows
-      \key AllExteriorWalls
-      \key AllExteriorRoofs
-      \key AllExteriorFloors
-      \key AllInteriorSurfaces
-      \key AllInteriorWalls
-      \key AllInteriorWindows
-      \key AllInteriorCeilings
-      \key AllInteriorFloors
-  A2, \field Convection Coefficient 1 Location
-      \required-field
-      \type choice
-      \key Outside
-      \key Inside
-  A3, \field Convection Coefficient 1 Type
-      \required-field
-      \type choice
-      \key Value
-      \key Schedule
-      \key Simple
-      \key SimpleCombined
-      \key TARP
-      \key DOE-2
-      \key MoWitt
-      \key AdaptiveConvectionAlgorithm
-      \key ASHRAEVerticalWall
-      \key WaltonUnstableHorizontalOrTilt
-      \key WaltonStableHorizontalOrTilt
-      \key FisherPedersenCeilingDiffuserWalls
-      \key FisherPedersenCeilingDiffuserCeiling
-      \key FisherPedersenCeilingDiffuserFloor
-      \key AlamdariHammondStableHorizontal
-      \key AlamdariHammondUnstableHorizontal
-      \key AlamdariHammondVerticalWall
-      \key KhalifaEq3WallAwayFromHeat
-      \key KhalifaEq4CeilingAwayFromHeat
-      \key KhalifaEq5WallNearHeat
-      \key KhalifaEq6NonHeatedWalls
-      \key KhalifaEq7Ceiling
-      \key AwbiHattonHeatedFloor
-      \key AwbiHattonHeatedWall
-      \key BeausoleilMorrisonMixedAssistedWall
-      \key BeausoleilMorrisonMixedOpposingWall
-      \key BeausoleilMorrisonMixedStableFloor
-      \key BeausoleilMorrisonMixedUnstableFloor
-      \key BeausoleilMorrisonMixedStableCeiling
-      \key BeausoleilMorrisonMixedUnstableCeiling
-      \key FohannoPolidoriVerticalWall
-      \key KaradagChilledCeiling
-      \key ISO15099Windows
-      \key GoldsteinNovoselacCeilingDiffuserWindow
-      \key GoldsteinNovoselacCeilingDiffuserWalls
-      \key GoldsteinNovoselacCeilingDiffuserFloor
-      \key SimpleCombined
-      \key NusseltJurges
-      \key McAdams
-      \key Mitchell
-      \key BlockenWindard
-      \key EmmelVertical
-      \key EmmelRoof
-      \key ClearRoof
-      \key UserCurve
-  N1, \field Convection Coefficient 1
-      \note used if Convection Value Type=value, then minimum must be > 0.0, Maximum <= 20000.
-      \units W/m2-K
-  A4, \field Convection Coefficient 1 Schedule Name
-      \note used if Convection Coefficient Type=Schedule
-      \type object-list
-      \object-list ScheduleNames
-  A5, \field Convection Coefficient 1 User Curve Name
-      \note used if Convection Type = UserCurve
-      \type object-list
-      \object-list UserConvectionModels
-  A6, \field Convection Coefficient 2 Location
-      \type choice
-      \key Outside
-      \key Inside
-  A7, \field Convection Coefficient 2 Type
-      \type choice
-      \type choice
-      \key Value
-      \key Schedule
-      \key Simple
-      \key SimpleCombined
-      \key TARP
-      \key DOE-2
-      \key MoWitt
-      \key AdaptiveConvectionAlgorithm
-      \key ASHRAEVerticalWall
-      \key WaltonUnstableHorizontalOrTilt
-      \key WaltonStableHorizontalOrTilt
-      \key FisherPedersenCeilingDiffuserWalls
-      \key FisherPedersenCeilingDiffuserCeiling
-      \key FisherPedersenCeilingDiffuserFloor
-      \key AlamdariHammondStableHorizontal
-      \key AlamdariHammondUnstableHorizontal
-      \key AlamdariHammondVerticalWall
-      \key KhalifaEq3WallAwayFromHeat
-      \key KhalifaEq4CeilingAwayFromHeat
-      \key KhalifaEq5WallNearHeat
-      \key KhalifaEq6NonHeatedWalls
-      \key KhalifaEq7Ceiling
-      \key AwbiHattonHeatedFloor
-      \key AwbiHattonHeatedWall
-      \key BeausoleilMorrisonMixedAssistedWall
-      \key BeausoleilMorrisonMixedOpposingWall
-      \key BeausoleilMorrisonMixedStableFloor
-      \key BeausoleilMorrisonMixedUnstableFloor
-      \key BeausoleilMorrisonMixedStableCeiling
-      \key BeausoleilMorrisonMixedUnstableCeiling
-      \key FohannoPolidoriVerticalWall
-      \key KaradagChilledCeiling
-      \key ISO15099Windows
-      \key GoldsteinNovoselacCeilingDiffuserWindow
-      \key GoldsteinNovoselacCeilingDiffuserWalls
-      \key GoldsteinNovoselacCeilingDiffuserFloor
-      \key SimpleCombined
-      \key NusseltJurges
-      \key McAdams
-      \key Mitchell
-      \key BlockenWindard
-      \key EmmelVertical
-      \key EmmelRoof
-      \key ClearRoof
-      \key UserCurve
-  N2, \field Convection Coefficient 2
-      \note used if Convection Value Type=value, then minimum must be > 0.0, maximum <= 20000.
-      \default .1
-      \units W/m2-K
-  A8, \field Convection Coefficient 2 Schedule Name
-       \note used if Convection Coefficient Type=Schedule
-       \type object-list
-       \object-list ScheduleNames
-  A9; \field Convection Coefficient 2 User Curve Name
-      \note used if Convection Type = UserCurve
-      \type object-list
-      \object-list UserConvectionModels
-
-
-SurfaceConvectionAlgorithm:Inside:AdapativeModelSelections,
+SurfaceConvectionAlgorithm:Inside:AdaptiveModelSelections,
        \unique-object
        \memo Options to change the individual convection model equations for dynamic selection when using AdaptiveConvectiongAlgorithm
        \memo This object is only needed to make changes to the default model selections for any or all of the surface categories.
@@ -14161,7 +13895,6 @@ SurfaceConvectionAlgorithm:Inside:AdapativeModelSelections,
        \key AlamdariHammondVerticalWall
        \key KhalifaEq6NonHeatedWalls
        \key FohannoPolidoriVerticalWall
-       \key AlamdariHammondVerticalWall
        \key ISO15099Windows
        \key UserCurve
   A31, \field Wall Panel Heating Vertical Wall Equation User Curve Name
@@ -14178,7 +13911,6 @@ SurfaceConvectionAlgorithm:Inside:AdapativeModelSelections,
        \key KhalifaEq5WallNearHeat
        \key AwbiHattonHeatedWall
        \key FohannoPolidoriVerticalWall
-       \key AlamdariHammondVerticalWall
        \key ISO15099Windows
        \key UserCurve
   A33, \field Wall Panel Heating Heated Wall Equation User Curve Name
@@ -14708,6 +14440,288 @@ SurfaceConvectionAlgorithm:Outside:UserCurve,
        \note Curve's "x" is absolute value of delta-T/Height (Surface temp minus Air temp)/(vertical length scale), (C/m)
        \note when used for an outside face the vertical length scale is the exterior facade's overall height
 
+SurfaceProperty:ConvectionCoefficients,
+      \memo Allow user settable interior and/or exterior convection coefficients.
+      \memo Note that some other factors may limit the lower bounds for these values, such as
+      \memo for windows, the interior convection coefficient must be >.28,
+      \memo for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1
+      \memo for TARP interior convection, the lower limit is also .1
+  A1, \field Surface Name
+      \required-field
+      \type object-list
+      \object-list SurfaceNames
+  A2, \field Convection Coefficient 1 Location
+      \required-field
+      \type choice
+      \key Outside
+      \key Inside
+  A3, \field Convection Coefficient 1 Type
+      \required-field
+      \type choice
+      \key Value
+      \key Schedule
+      \key UserCurve
+      \key Simple
+      \key SimpleCombined
+      \key TARP
+      \key DOE-2
+      \key MoWitt
+      \key AdaptiveConvectionAlgorithm
+      \key ASHRAEVerticalWall
+      \key WaltonUnstableHorizontalOrTilt
+      \key WaltonStableHorizontalOrTilt
+      \key FisherPedersenCeilingDiffuserWalls
+      \key FisherPedersenCeilingDiffuserCeiling
+      \key FisherPedersenCeilingDiffuserFloor
+      \key AlamdariHammondStableHorizontal
+      \key AlamdariHammondUnstableHorizontal
+      \key AlamdariHammondVerticalWall
+      \key KhalifaEq3WallAwayFromHeat
+      \key KhalifaEq4CeilingAwayFromHeat
+      \key KhalifaEq5WallNearHeat
+      \key KhalifaEq6NonHeatedWalls
+      \key KhalifaEq7Ceiling
+      \key AwbiHattonHeatedFloor
+      \key AwbiHattonHeatedWall
+      \key BeausoleilMorrisonMixedAssistedWall
+      \key BeausoleilMorrisonMixedOpposingWall
+      \key BeausoleilMorrisonMixedStableFloor
+      \key BeausoleilMorrisonMixedUnstableFloor
+      \key BeausoleilMorrisonMixedStableCeiling
+      \key BeausoleilMorrisonMixedUnstableCeiling
+      \key FohannoPolidoriVerticalWall
+      \key KaradagChilledCeiling
+      \key ISO15099Windows
+      \key GoldsteinNovoselacCeilingDiffuserWindow
+      \key GoldsteinNovoselacCeilingDiffuserWalls
+      \key GoldsteinNovoselacCeilingDiffuserFloor
+      \key NusseltJurges
+      \key McAdams
+      \key Mitchell
+      \key EmmelVertical
+      \key EmmelRoof
+      \key ClearRoof
+  N1, \field Convection Coefficient 1
+      \note used if Convection Type=Value, then minimum must be > 0.0, Maximum <= 20000.
+      \units W/m2-K
+  A4, \field Convection Coefficient 1 Schedule Name
+      \note used if Convection Type=Schedule
+      \type object-list
+      \object-list ScheduleNames
+  A5, \field Convection Coefficient 1 User Curve Name
+      \note used if Convection Type = UserCurve
+      \type object-list
+      \object-list UserConvectionModels
+  A6, \field Convection Coefficient 2 Location
+      \type choice
+      \key Outside
+      \key Inside
+  A7, \field Convection Coefficient 2 Type
+      \type choice
+      \key Value
+      \key Schedule
+      \key UserCurve
+      \key Simple
+      \key SimpleCombined
+      \key TARP
+      \key DOE-2
+      \key MoWitt
+      \key AdaptiveConvectionAlgorithm
+      \key ASHRAEVerticalWall
+      \key WaltonUnstableHorizontalOrTilt
+      \key WaltonStableHorizontalOrTilt
+      \key FisherPedersenCeilingDiffuserWalls
+      \key FisherPedersenCeilingDiffuserCeiling
+      \key FisherPedersenCeilingDiffuserFloor
+      \key AlamdariHammondStableHorizontal
+      \key AlamdariHammondUnstableHorizontal
+      \key AlamdariHammondVerticalWall
+      \key KhalifaEq3WallAwayFromHeat
+      \key KhalifaEq4CeilingAwayFromHeat
+      \key KhalifaEq5WallNearHeat
+      \key KhalifaEq6NonHeatedWalls
+      \key KhalifaEq7Ceiling
+      \key AwbiHattonHeatedFloor
+      \key AwbiHattonHeatedWall
+      \key BeausoleilMorrisonMixedAssistedWall
+      \key BeausoleilMorrisonMixedOpposingWall
+      \key BeausoleilMorrisonMixedStableFloor
+      \key BeausoleilMorrisonMixedUnstableFloor
+      \key BeausoleilMorrisonMixedStableCeiling
+      \key BeausoleilMorrisonMixedUnstableCeiling
+      \key FohannoPolidoriVerticalWall
+      \key KaradagChilledCeiling
+      \key ISO15099Windows
+      \key GoldsteinNovoselacCeilingDiffuserWindow
+      \key GoldsteinNovoselacCeilingDiffuserWalls
+      \key GoldsteinNovoselacCeilingDiffuserFloor
+      \key NusseltJurges
+      \key McAdams
+      \key Mitchell
+      \key EmmelVertical
+      \key EmmelRoof
+      \key ClearRoof
+  N2, \field Convection Coefficient 2
+      \note used if Convection Type=Value, then minimum must be > 0.0, Maximum <= 20000.
+      \default .1
+      \units W/m2-K
+  A8, \field Convection Coefficient 2 Schedule Name
+      \note used if Convection Type=Schedule
+      \type object-list
+      \object-list ScheduleNames
+  A9; \field Convection Coefficient 2 User Curve Name
+      \note used if Convection Type = UserCurve
+      \type object-list
+      \object-list UserConvectionModels
+
+SurfaceProperty:ConvectionCoefficients:MultipleSurface,
+      \memo Allow user settable interior and/or exterior convection coefficients.
+      \memo Note that some other factors may limit the lower bounds for these values, such as
+      \memo for windows, the interior convection coefficient must be >.28,
+      \memo for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1
+      \memo for TARP interior convection, the lower limit is also .1
+  A1, \field Surface Type
+      \required-field
+      \type choice
+      \key AllExteriorSurfaces
+      \key AllExteriorWindows
+      \key AllExteriorWalls
+      \key AllExteriorRoofs
+      \key AllExteriorFloors
+      \key AllInteriorSurfaces
+      \key AllInteriorWalls
+      \key AllInteriorWindows
+      \key AllInteriorCeilings
+      \key AllInteriorFloors
+  A2, \field Convection Coefficient 1 Location
+      \required-field
+      \type choice
+      \key Outside
+      \key Inside
+  A3, \field Convection Coefficient 1 Type
+      \required-field
+      \type choice
+      \key Value
+      \key Schedule
+      \key Simple
+      \key SimpleCombined
+      \key TARP
+      \key DOE-2
+      \key MoWitt
+      \key AdaptiveConvectionAlgorithm
+      \key ASHRAEVerticalWall
+      \key WaltonUnstableHorizontalOrTilt
+      \key WaltonStableHorizontalOrTilt
+      \key FisherPedersenCeilingDiffuserWalls
+      \key FisherPedersenCeilingDiffuserCeiling
+      \key FisherPedersenCeilingDiffuserFloor
+      \key AlamdariHammondStableHorizontal
+      \key AlamdariHammondUnstableHorizontal
+      \key AlamdariHammondVerticalWall
+      \key KhalifaEq3WallAwayFromHeat
+      \key KhalifaEq4CeilingAwayFromHeat
+      \key KhalifaEq5WallNearHeat
+      \key KhalifaEq6NonHeatedWalls
+      \key KhalifaEq7Ceiling
+      \key AwbiHattonHeatedFloor
+      \key AwbiHattonHeatedWall
+      \key BeausoleilMorrisonMixedAssistedWall
+      \key BeausoleilMorrisonMixedOpposingWall
+      \key BeausoleilMorrisonMixedStableFloor
+      \key BeausoleilMorrisonMixedUnstableFloor
+      \key BeausoleilMorrisonMixedStableCeiling
+      \key BeausoleilMorrisonMixedUnstableCeiling
+      \key FohannoPolidoriVerticalWall
+      \key KaradagChilledCeiling
+      \key ISO15099Windows
+      \key GoldsteinNovoselacCeilingDiffuserWindow
+      \key GoldsteinNovoselacCeilingDiffuserWalls
+      \key GoldsteinNovoselacCeilingDiffuserFloor
+      \key SimpleCombined
+      \key NusseltJurges
+      \key McAdams
+      \key Mitchell
+      \key BlockenWindard
+      \key EmmelVertical
+      \key EmmelRoof
+      \key ClearRoof
+      \key UserCurve
+  N1, \field Convection Coefficient 1
+      \note used if Convection Value Type=value, then minimum must be > 0.0, Maximum <= 20000.
+      \units W/m2-K
+  A4, \field Convection Coefficient 1 Schedule Name
+      \note used if Convection Coefficient Type=Schedule
+      \type object-list
+      \object-list ScheduleNames
+  A5, \field Convection Coefficient 1 User Curve Name
+      \note used if Convection Type = UserCurve
+      \type object-list
+      \object-list UserConvectionModels
+  A6, \field Convection Coefficient 2 Location
+      \type choice
+      \key Outside
+      \key Inside
+  A7, \field Convection Coefficient 2 Type
+      \type choice
+      \type choice
+      \key Value
+      \key Schedule
+      \key Simple
+      \key SimpleCombined
+      \key TARP
+      \key DOE-2
+      \key MoWitt
+      \key AdaptiveConvectionAlgorithm
+      \key ASHRAEVerticalWall
+      \key WaltonUnstableHorizontalOrTilt
+      \key WaltonStableHorizontalOrTilt
+      \key FisherPedersenCeilingDiffuserWalls
+      \key FisherPedersenCeilingDiffuserCeiling
+      \key FisherPedersenCeilingDiffuserFloor
+      \key AlamdariHammondStableHorizontal
+      \key AlamdariHammondUnstableHorizontal
+      \key AlamdariHammondVerticalWall
+      \key KhalifaEq3WallAwayFromHeat
+      \key KhalifaEq4CeilingAwayFromHeat
+      \key KhalifaEq5WallNearHeat
+      \key KhalifaEq6NonHeatedWalls
+      \key KhalifaEq7Ceiling
+      \key AwbiHattonHeatedFloor
+      \key AwbiHattonHeatedWall
+      \key BeausoleilMorrisonMixedAssistedWall
+      \key BeausoleilMorrisonMixedOpposingWall
+      \key BeausoleilMorrisonMixedStableFloor
+      \key BeausoleilMorrisonMixedUnstableFloor
+      \key BeausoleilMorrisonMixedStableCeiling
+      \key BeausoleilMorrisonMixedUnstableCeiling
+      \key FohannoPolidoriVerticalWall
+      \key KaradagChilledCeiling
+      \key ISO15099Windows
+      \key GoldsteinNovoselacCeilingDiffuserWindow
+      \key GoldsteinNovoselacCeilingDiffuserWalls
+      \key GoldsteinNovoselacCeilingDiffuserFloor
+      \key SimpleCombined
+      \key NusseltJurges
+      \key McAdams
+      \key Mitchell
+      \key BlockenWindard
+      \key EmmelVertical
+      \key EmmelRoof
+      \key ClearRoof
+      \key UserCurve
+  N2, \field Convection Coefficient 2
+      \note used if Convection Value Type=value, then minimum must be > 0.0, maximum <= 20000.
+      \default .1
+      \units W/m2-K
+  A8, \field Convection Coefficient 2 Schedule Name
+       \note used if Convection Coefficient Type=Schedule
+       \type object-list
+       \object-list ScheduleNames
+  A9; \field Convection Coefficient 2 User Curve Name
+      \note used if Convection Type = UserCurve
+      \type object-list
+      \object-list UserConvectionModels
+
 SurfaceProperties:VaporCoefficients,
       \memo The interior and external vapor transfer coefficients.
       \memo Normally these value are calculated using the heat convection coefficient values.
@@ -14835,6 +14849,10 @@ SurfaceProperty:ExteriorNaturalVentedCavity,
        \object-list AllShadingAndHTSurfNames
 
 ZoneProperty:UserViewFactors,
+       \memo The numbers listed in here (fields i,j) are surface numbers AFTER
+       \memo EnergyPlus has read them in and massaged them. If you add a surface
+       \memo into the zone, you will need to redo the surface numbers. Surface**2
+       \memo values must be entered.
        \extensible:3 - copy last three fields, remembering to remove ;
        \format ViewFactor
   A1,  \field Zone Name
@@ -15201,11 +15219,328 @@ ZoneProperty:UserViewFactors,
   N352,N353,N354, \note fields as indicated
   N355,N356,N357, \note fields as indicated
   N358,N359,N360, \note fields as indicated
-  N361,N362,N363, \note fields as indicated
-  N364,N365,N366, \note fields as indicated
-  N367,N368,N369, \note fields as indicated
-  N370,N371,N372; \note fields as indicated
+  N361,N362,N363; \note fields as indicated
 
+ZoneProperty:UserViewFactors:bySurfaceName,
+       \memo View factors for Surface to Surface in a zone.
+       \memo (Number of Surfaces)**2 must be entered.
+       \extensible:3 - copy last three fields, remembering to remove ;
+       \format ViewFactor
+  A1,  \field Zone Name
+       \type object-list
+       \object-list ZoneNames
+  A2,  \field From Surface 1
+       \begin-extensible
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A3,  \field To Surface 1
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N1,  \field View Factor 1
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A4,  \field From Surface 2
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A5,  \field To Surface 2
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N2,  \field View Factor 2
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A6,  \field From Surface 3
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A7,  \field To Surface 3
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N3,  \field View Factor 3
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A6,  \field From Surface 3
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A7,  \field To Surface 3
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N3,  \field View Factor 3
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A8,  \field From Surface 4
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A9,  \field To Surface 4
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N4,  \field View Factor 4
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A10, \field From Surface 5
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A11, \field To Surface 5
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N5,  \field View Factor 5
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A12, \field From Surface 6
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A13, \field To Surface 6
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N6,  \field View Factor 6
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A14, \field From Surface 7
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A15, \field To Surface 7
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N7,  \field View Factor 7
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A16, \field From Surface 8
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A17, \field To Surface 8
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N8,  \field View Factor 8
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A18, \field From Surface 9
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A19, \field To Surface 9
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N9,  \field View Factor 9
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A20, \field From Surface 10
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A21, \field To Surface 10
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N10, \field View Factor 10
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A22, \field From Surface 11
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A23, \field To Surface 11
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N11, \field View Factor 11
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A24, \field From Surface 12
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A25, \field To Surface 12
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N12, \field View Factor 12
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A26, \field From Surface 13
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A27, \field To Surface 13
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N13, \field View Factor 13
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A28, \field From Surface 14
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A29, \field To Surface 14
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N14, \field View Factor 14
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A30, \field From Surface 15
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A31, \field To Surface 15
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N15, \field View Factor 15
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A32, \field From Surface 16
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A33, \field To Surface 16
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N16, \field View Factor 16
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A34, \field From Surface 17
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A35, \field To Surface 17
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N17, \field View Factor 17
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A36, \field From Surface 18
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A37, \field To Surface 18
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N18, \field View Factor 18
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A38, \field From Surface 19
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A39, \field To Surface 19
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N19, \field View Factor 19
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A40, \field From Surface 20
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  A41, \field To Surface 20
+       \type object-list
+       \object-list AllHeatTranSurfNames
+  N20, \field View Factor 20
+       \note This value is the view factor value From Surface => To Surface
+       \type real
+       \maximum 1.0
+  A42,A43,N21, \note fields as indicated
+  A44,A45,N22, \note fields as indicated
+  A46,A47,N23, \note fields as indicated
+  A48,A49,N24, \note fields as indicated
+  A50,A51,N25, \note fields as indicated
+  A52,A53,N26, \note fields as indicated
+  A54,A55,N27, \note fields as indicated
+  A56,A57,N28, \note fields as indicated
+  A58,A59,N29, \note fields as indicated
+  A60,A61,N30, \note fields as indicated
+  A62,A63,N31, \note fields as indicated
+  A64,A65,N32, \note fields as indicated
+  A66,A67,N33, \note fields as indicated
+  A68,A69,N34, \note fields as indicated
+  A70,A71,N35, \note fields as indicated
+  A72,A73,N36, \note fields as indicated
+  A74,A75,N37, \note fields as indicated
+  A76,A77,N38, \note fields as indicated
+  A78,A79,N39, \note fields as indicated
+  A80,A81,N40, \note fields as indicated
+  A82,A83,N41, \note fields as indicated
+  A84,A85,N42, \note fields as indicated
+  A86,A87,N43, \note fields as indicated
+  A88,A89,N44, \note fields as indicated
+  A90,A91,N45, \note fields as indicated
+  A92,A93,N46, \note fields as indicated
+  A94,A95,N47, \note fields as indicated
+  A96,A97,N48, \note fields as indicated
+  A98,A99,N49, \note fields as indicated
+  A100,A101,N50, \note fields as indicated
+  A102,A103,N51, \note fields as indicated
+  A104,A105,N52, \note fields as indicated
+  A106,A107,N53, \note fields as indicated
+  A108,A109,N54, \note fields as indicated
+  A110,A111,N55, \note fields as indicated
+  A112,A113,N56, \note fields as indicated
+  A114,A115,N57, \note fields as indicated
+  A116,A117,N58, \note fields as indicated
+  A118,A119,N59, \note fields as indicated
+  A120,A121,N60, \note fields as indicated
+  A122,A123,N61, \note fields as indicated
+  A124,A125,N62, \note fields as indicated
+  A126,A127,N63, \note fields as indicated
+  A128,A129,N64, \note fields as indicated
+  A130,A131,N65, \note fields as indicated
+  A132,A133,N66, \note fields as indicated
+  A134,A135,N67, \note fields as indicated
+  A136,A137,N68, \note fields as indicated
+  A138,A139,N69, \note fields as indicated
+  A140,A141,N70, \note fields as indicated
+  A142,A143,N71, \note fields as indicated
+  A144,A145,N72, \note fields as indicated
+  A146,A147,N73, \note fields as indicated
+  A148,A149,N74, \note fields as indicated
+  A150,A151,N75, \note fields as indicated
+  A152,A153,N76, \note fields as indicated
+  A154,A155,N77, \note fields as indicated
+  A156,A157,N78, \note fields as indicated
+  A158,A159,N79, \note fields as indicated
+  A160,A161,N80, \note fields as indicated
+  A162,A163,N81, \note fields as indicated
+  A164,A165,N82, \note fields as indicated
+  A166,A167,N83, \note fields as indicated
+  A168,A169,N84, \note fields as indicated
+  A170,A171,N85, \note fields as indicated
+  A172,A173,N86, \note fields as indicated
+  A174,A175,N87, \note fields as indicated
+  A176,A177,N88, \note fields as indicated
+  A178,A179,N89, \note fields as indicated
+  A180,A181,N90, \note fields as indicated
+  A182,A183,N91, \note fields as indicated
+  A184,A185,N92, \note fields as indicated
+  A186,A187,N93, \note fields as indicated
+  A188,A189,N94, \note fields as indicated
+  A190,A191,N95, \note fields as indicated
+  A192,A193,N96, \note fields as indicated
+  A194,A195,N97, \note fields as indicated
+  A196,A197,N98, \note fields as indicated
+  A198,A199,N99, \note fields as indicated
+  A200,A201,N100, \note fields as indicated
+  A202,A203,N101, \note fields as indicated
+  A204,A205,N102, \note fields as indicated
+  A206,A207,N103, \note fields as indicated
+  A208,A209,N104, \note fields as indicated
+  A210,A211,N105, \note fields as indicated
+  A212,A213,N106, \note fields as indicated
+  A214,A215,N107, \note fields as indicated
+  A216,A217,N108, \note fields as indicated
+  A218,A219,N109, \note fields as indicated
+  A220,A221,N110, \note fields as indicated
+  A222,A223,N111, \note fields as indicated
+  A224,A225,N112, \note fields as indicated
+  A226,A227,N113, \note fields as indicated
+  A228,A229,N114, \note fields as indicated
+  A230,A231,N115, \note fields as indicated
+  A232,A233,N116, \note fields as indicated
+  A234,A235,N117, \note fields as indicated
+  A236,A237,N118, \note fields as indicated
+  A238,A239,N119, \note fields as indicated
+  A240,A241,N120, \note fields as indicated
+  A242,A243,N121; \note fields as indicated
 
 \group Detailed Ground Heat Transfer
 
@@ -16967,10 +17302,10 @@ GasEquipment,
        \required-field
        \type alpha
        \reference GasEquipmentNames
-  A2 , \field Zone Name
+  A2 , \field Zone or ZoneList Name
        \required-field
        \type object-list
-       \object-list ZoneNames
+       \object-list ZoneAndZoneListNames
   A3 , \field Schedule Name
        \required-field
        \type object-list
@@ -17027,8 +17362,8 @@ GasEquipment,
        \minimum 0.0
        \maximum 4.0E-7
        \note The default value assumes the equipment is fully vented.
-       \note The recommended value of 3.96E-8 assumes the equipment is not vented. The value is
-       \note converted from PG&E natural gas CO2 emission rate at 13.446 lbs CO2 per therm.
+       \note For unvented equipment, a suggested value is 3.45E-8 m3/s-W. This value is
+       \note converted from a natural gas CO2 emission rate of 117 lbs CO2 per million Btu.
        \note The maximum value assumes to be 10 times of the recommended value.
   A5 ; \field End-Use Subcategory
        \type alpha
@@ -17037,14 +17372,15 @@ GasEquipment,
 
 HotWaterEquipment,
    \memo Sets internal gains for hot water equipment in the zone.
+   \memo If you use a ZoneList in the Zone name field then this definition applies to all those zones.
   A1 , \field Name
        \required-field
        \type alpha
        \reference HotWaterEquipmentNames
-  A2 , \field Zone Name
+  A2 , \field Zone or ZoneList Name
        \required-field
        \type object-list
-       \object-list ZoneNames
+       \object-list ZoneAndZoneListNames
   A3 , \field Schedule Name
        \required-field
        \type object-list
@@ -17055,7 +17391,7 @@ HotWaterEquipment,
        \note for this set of attributes
        \note Choices: Equipment Level -- simply enter watts of equipment
        \note Watts/Area - Watts per Zone Floor Area -- enter the number to apply.  Value * Floor Area = Equipment Level
-       \note Watts/Person - Watts per Persona -- enter the number to apply.  Value * Occupants = Equipment Level
+       \note Watts/Person - Watts per Person -- enter the number to apply.  Value * Occupants = Equipment Level
        \required-field
        \type choice
        \key EquipmentLevel
@@ -17118,7 +17454,7 @@ SteamEquipment,
        \note for this set of attributes
        \note Choices: Equipment Level -- simply enter watts of equipment
        \note Watts/Area - Watts per Zone Floor Area -- enter the number to apply.  Value * Floor Area = Equipment Level
-       \note Watts/Person - Watts per Persona -- enter the number to apply.  Value * Occupants = Equipment Level
+       \note Watts/Person - Watts per Person -- enter the number to apply.  Value * Occupants = Equipment Level
        \required-field
        \type choice
        \key EquipmentLevel
@@ -17182,7 +17518,7 @@ OtherEquipment,
        \note for this set of attributes
        \note Choices: Equipment Level -- simply enter watts of equipment
        \note Watts/Area - Watts per Zone Floor Area -- enter the number to apply.  Value * Floor Area = Equipment Level
-       \note Watts/Person - Watts per Persona -- enter the number to apply.  Value * Occupants = Equipment Level
+       \note Watts/Person - Watts per Person -- enter the number to apply.  Value * Occupants = Equipment Level
        \required-field
        \type choice
        \key EquipmentLevel
@@ -17775,6 +18111,7 @@ ZoneInfiltration:EffectiveLeakageArea,
        \type object-list
        \object-list ScheduleNames
   N1 , \field Effective Air Leakage Area
+       \units cm2
        \note "AL" in Equation
        \note units are cm2 (square centimeters)
        \minimum> 0
@@ -19852,7 +20189,7 @@ AirflowNetwork:MultiZone:WindPressureCoefficientValues,
       \memo inputs in the AirflowNetwork:Multizone:WindPressureCoefficientArray object.
  A1 , \field Name
       \required-field
-      \type object-list
+      \type alpha
       \reference WPCValueNames
       \note Enter a unique name for this object.
  A2 , \field AirflowNetwork:MultiZone:WindPressureCoefficientArray Name
@@ -20013,7 +20350,7 @@ AirflowNetwork:Distribution:Node,
  A1 , \field Name
       \required-field
       \type alpha
-      \reference AirflowNetwork NodeNames
+      \reference AirflowNetworkNodeAndZoneNames
       \note Enter a unique name for this object.
  A2 , \field Component Name or Node Name
       \type alpha
@@ -20300,14 +20637,12 @@ AirflowNetwork:Distribution:Linkage,
  A2 , \field Node 1 Name
       \required-field
       \type alpha
-      \object-list AirflowNetwork NodeNames
-      \object-list ZoneNames
+      \object-list AirflowNetworkNodeAndZoneNames
       \note Enter the name of zone or AirflowNetwork Node.
  A3 , \field Node 2 Name
       \required-field
       \type alpha
-      \object-list AirflowNetwork NodeNames
-      \object-list ZoneNames
+      \object-list AirflowNetworkNodeAndZoneNames
       \note Enter the name of zone or AirflowNetwork Node.
  A4 , \field Component Name
       \required-field
@@ -20454,6 +20789,7 @@ HVACTemplate:Thermostat,
       \memo may have two thermostat objects, one for "Office" and one
       \memo for "Storage".
   A1, \field Name
+      \required-field
       \note This name is referenced by HVACTemplate:Zone:* objects
       \reference CompactHVACThermostats
   A2, \field Heating Setpoint Schedule Name
@@ -20475,6 +20811,7 @@ HVACTemplate:Zone:IdealLoadsAirSystem,
       \min-fields 2
       \memo Zone with ideal air system that meets heating or cooling loads
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
@@ -20489,6 +20826,7 @@ HVACTemplate:Zone:FanCoil,
       \min-fields 20
       \memo 4 pipe fan coil unit with optional outdoor air.
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
@@ -20584,6 +20922,7 @@ HVACTemplate:Zone:PTAC,
       \min-fields 27
       \memo Packaged Terminal Air Conditioner
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
@@ -20743,6 +21082,7 @@ HVACTemplate:Zone:PTHP,
       \min-fields 37
       \memo Packaged Terminal Heat Pump
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
@@ -20959,10 +21299,12 @@ HVACTemplate:Zone:Unitary,
       \min-fields 15
       \memo Zone terminal unit, constant volume, no controls.
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
   A2, \field Template Unitary System Name
+      \required-field
       \note Enter the name of a HVACTemplate:System:Unitary object serving this zone
       \type object-list
       \object-list CompactHVACSystemUnitary
@@ -21037,10 +21379,12 @@ HVACTemplate:Zone:VAV,
       \memo Zone terminal unit, variable volume, reheat optional.
       \memo Referenced schedules must be defined elsewhere in the idf.
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
   A2, \field Template VAV System Name
+      \required-field
       \note Name of a HVACTemplate:System:VAV object serving this zone
       \type object-list
       \object-list CompactHVACSystemVAV
@@ -21065,6 +21409,7 @@ HVACTemplate:Zone:VAV,
       \key Constant
       \key FixedFlowRate
       \key Scheduled
+      \default Constant
       \note Constant = Constant Minimum Air Flow Fraction (a fraction of Maximum Air Flow Rate)
       \note FixedFlowRate = Fixed Minimum Air Flow Rate (a fixed minimum air volume flow rate)
       \note Scheduled = Scheduled Minimum Air Flow Fraction (a fraction of Maximum Air Flow
@@ -21152,10 +21497,11 @@ HVACTemplate:Zone:VAV,
       \note At no time will the maximum flow rate calculated here exceed the value of
       \note Maximum Air Flow Rate.
  N11, \field Maximum Reheat Air Temperature
+      \note Specifies the maximum allowable supply air temperature leaving the reheat coil.
+      \note If left blank, there is no limit and no default. If unknown, 35C (95F) is recommended.
       \type real
       \units C
       \minimum> 0.0
-      \note This is the maximum supply air temperature leaving the reheat coil
  A10, \field Design Specification Outdoor Air Object Name
       \type object-list
       \object-list DesignSpecificationOutdoorAirNames
@@ -21195,10 +21541,12 @@ HVACTemplate:Zone:VAV:FanPowered,
       \memo Zone terminal unit, fan powered variable volume, reheat optional.
       \memo Referenced schedules must be defined elsewhere in the idf.
   A1, \field Zone Name
+      \required-field
       \note Zone Name must match a building zone name
       \type object-list
       \object-list ZoneNames
   A2, \field Template VAV System Name
+      \required-field
       \note Enter then name of a HVACTemplate:System:VAV object serving this zone.
       \type object-list
       \object-list CompactHVACSystemVAV
@@ -21315,6 +21663,7 @@ HVACTemplate:Zone:WaterToAirHeatPump,
       \min-fields 30
       \memo Wate to Air Heat Pump to be used with HVACTemplate:Plant:MixedWaterLoop
   A1, \field Zone Name
+      \required-field
       \note Zone name must match a building zone name
       \type object-list
       \object-list ZoneNames
@@ -21500,6 +21849,7 @@ HVACTemplate:System:Unitary,
       \memo Unitary furnace with air conditioner
       \memo Referenced schedules must be defined elsewhere in the idf.
   A1, \field Name
+      \required-field
       \reference CompactHVACSystemUnitary
   A2, \field System Availability Schedule Name
       \note If blank, always on; Unitary System always on.  Schedule is used in availability manager
@@ -21508,6 +21858,7 @@ HVACTemplate:System:Unitary,
       \type object-list
       \object-list ScheduleNames
   A3, \field Control Zone or Thermostat Location Name
+      \required-field
       \type object-list
       \object-list ZoneNames
   N1, \field Supply Fan Maximum Flow Rate
@@ -21568,6 +21919,7 @@ HVACTemplate:System:Unitary,
       \minimum> 0.0
       \default 3.0
   A7, \field Heating Coil Type
+      \required-field
       \type choice
       \key  Electric
       \key  Gas
@@ -21690,7 +22042,7 @@ HVACTemplate:System:Unitary,
       \key CoolReheatDesuperheater
       \default None
  A19, \field Dehumidification Control Zone Name
-      \note Zone name where humidistat is located
+      \note This field is not currently used - the thermostat control zone is also the dehumidification control zone
       \type object-list
       \object-list ZoneNames
  N19, \field Dehumidification Setpoint
@@ -21745,6 +22097,7 @@ HVACTemplate:System:UnitaryHeatPump:AirToAir,
       \memo Unitary furnace with electric air-to-air heat pump
       \memo Referenced schedules must be defined elsewhere in the idf.
   A1, \field Name
+      \required-field
       \reference CompactHVACSystemUnitary
   A2, \field System Availability Schedule Name
       \note If blank, always on; Unitary System always on.  Schedule is used in availability manager
@@ -21753,6 +22106,7 @@ HVACTemplate:System:UnitaryHeatPump:AirToAir,
       \type object-list
       \object-list ScheduleNames
   A3, \field Control Zone or Thermostat Location Name
+      \required-field
       \type object-list
       \object-list ZoneNames
   N1, \field Cooling Supply Air Flow Rate
@@ -22067,6 +22421,7 @@ HVACTemplate:System:VAV,
       \memo and optional preheat.
       \memo Referenced Schedules must be defined elsewhere in the idf.
   A1, \field Name
+      \required-field
       \reference CompactHVACSystemVAV
   A2, \field System Availability Schedule Name
       \note If blank, always on; VAV System always on.  Schedule is used in availability manager
@@ -22361,6 +22716,7 @@ HVACTemplate:System:PackagedVAV,
       \memo and optional preheat.
       \memo Referenced Schedules must be defined elsewhere in the idf.
   A1, \field Name
+      \required-field
       \reference CompactHVACSystemVAV
   A2, \field System Availability Schedule Name
       \note If blank, always on; PVAV System always on.  Schedule is used in availability manager
@@ -22658,6 +23014,7 @@ HVACTemplate:Plant:ChilledWaterLoop,
       \memo chilled water coils, chillers, and towers.
       \unique-object
   A1, \field Name
+      \required-field
   A2, \field Pump Schedule Name
       \note If blank, always available
       \note Applies to both chilled water and condenser loop pumps
@@ -22776,7 +23133,9 @@ HVACTemplate:Plant:ChilledWaterLoop,
 HVACTemplate:Plant:Chiller,
       \min-fields 7
   A1, \field Name
+      \required-field
   A2, \field Chiller Type
+      \required-field
       \type choice
       \key DistrictChilledWater
       \key ElectricCentrifugalChiller
@@ -22787,6 +23146,7 @@ HVACTemplate:Plant:Chiller,
       \units W
       \minimum> 0.0
   N2, \field Nominal COP
+      \required-field
       \note Not applicable if Chiller Type is DistrictChilledWater
       \note Electric Reciprocating Chiller
       \units W/W
@@ -22811,7 +23171,9 @@ HVACTemplate:Plant:Chiller,
 HVACTemplate:Plant:Tower,
       \min-fields 9
   A1, \field Name
+      \required-field
   A2, \field Tower Type
+      \required-field
       \type choice
       \key SingleSpeed
       \key TwoSpeed
@@ -22881,6 +23243,7 @@ HVACTemplate:Plant:HotWaterLoop,
       \memo Plant loop to serve all HVACTemplate
       \memo hot water coils and boilers.
   A1, \field Name
+      \required-field
   A2, \field Pump Schedule Name
       \note If blank, always available
       \type object-list
@@ -22950,7 +23313,9 @@ HVACTemplate:Plant:HotWaterLoop,
 HVACTemplate:Plant:Boiler,
       \min-fields 7
   A1, \field Name
+      \required-field
   A2, \field Boiler Type
+      \required-field
       \type choice
       \key DistrictHotWater
       \key HotWaterBoiler
@@ -22990,6 +23355,7 @@ HVACTemplate:Plant:MixedWaterLoop,
       \memo Central plant loop portion of a water source heat pump system.
       \unique-object
   A1, \field Name
+      \required-field
   A2, \field Pump Schedule Name
       \note If blank, always available
       \note Applies to both chilled water and condenser loop pumps
@@ -26593,7 +26959,8 @@ AirTerminal:SingleDuct:VAV:Reheat,
        \type real
        \units C
        \minimum> 0.0
-       \note This is the maximum supply air temperature leaving the reheat coil
+       \note Specifies the maximum allowable supply air temperature leaving the reheat coil.
+       \note If left blank, there is no limit and no default. If unknown, 35C (95F) is recommended.
   A11; \field Design Specification Outdoor Air Object Name
        \type object-list
        \object-list DesignSpecificationOutdoorAirNames
@@ -27924,6 +28291,7 @@ Fan:ConstantVolume,
        \reference FansCV
        \reference FansCVandOnOff
        \reference FansCVandVAV
+       \reference FansCVandOnOffandVAV
   A2 , \field Availability Schedule Name
        \required-field
        \type object-list
@@ -27966,6 +28334,7 @@ Fan:VariableVolume,
        \reference Fans
        \reference FansVAV
        \reference FansCVandVAV
+       \reference FansCVandOnOffandVAV
   A2 , \field Availability Schedule Name
        \required-field
        \type object-list
@@ -28030,6 +28399,7 @@ Fan:OnOff,
        \reference Fans
        \reference FansCVandOnOff
        \reference FansOnOff
+       \reference FansCVandOnOffandVAV
   A2 , \field Availability Schedule Name
        \type object-list
        \object-list ScheduleNames
@@ -28119,7 +28489,7 @@ FanPerformance:NightVentilation,
   N4 , \field Motor Efficiency
        \type real
        \required-field
-       \minimum >0
+       \minimum> 0
        \maximum 1.0
   N5 ; \field Motor in Airstream Fraction
        \type real
@@ -28158,83 +28528,76 @@ Fan:ComponentModel,
        \required-field
        \type real
        \units m
-       \minimum > 0.0
+       \minimum> 0.0
        \note Diameter of wheel outer circumference
   N5 , \field Fan Outlet Area
        \required-field
        \type real
        \units m2
-       \minimum > 0.0
+       \minimum> 0.0
        \note Area at fan outlet plane for determining discharge velocity pressure
   N6 , \field Maximum Fan Static Efficiency
        \required-field
        \type real
-       \minimum > 0.0
+       \minimum> 0.0
        \maximum 1.0
        \note Maximum ratio between power delivered to air and fan shaft input power
        \note Determined from fan performance data
   N7 , \field Euler Number at Maximum Fan Static Efficiency
        \required-field
        \type real
-       \minimum > 0.0
+       \minimum> 0.0
        \note Euler number (Eu) determined from fan performance data
   N8 , \field Maximum Dimensionless Fan Airflow
        \required-field
        \type real
-       \minimum > 0.0
+       \minimum> 0.0
        \note Corresponds to maximum ratio between fan airflow and
        \note fan shaft rotational speed for specified fan wheel diameter
        \note Determined from fan performance data
-  N9 , \field Maximum Fan Shaft Input Power
-       \required-field
+  N9 , \field Motor Fan Pulley Ratio
        \type real
-       \units W
-       \minimum > 0.0
+       \minimum> 0.0
+       \default 1.0
        \autosizable
-       \note Maximum power input to fan shaft by drive belt
-  N10 , \field Motor Fan Pulley Ratio
-        \type real
-        \minimum > 0.0
-        \default 1.0
-        \autosizable
-        \note Ratio of motor pulley diameter to fan pulley diameter
-  N11 , \field Belt Maximum Torque
+       \note Ratio of motor pulley diameter to fan pulley diameter
+  N10 , \field Belt Maximum Torque
         \required-field
         \type real
-        \units N m
-        \minimum > 0.0
+        \units N-m
+        \minimum> 0.0
         \autosizable
         \note Maximum torque transmitted by belt
-  N12 , \field Belt Sizing Factor
+  N11 , \field Belt Sizing Factor
         \type real
         \minimum 1.0
         \default 1.0
         \note Applied to specified or autosized max torque transmitted by belt
-  N13 , \field Belt Fractional Torque Transition
+  N12 , \field Belt Fractional Torque Transition
         \type real
         \minimum 0.0
         \maximum 1.0
         \default 0.167
         \note Region 1 to 2 curve transition for belt normalized efficiency
-  N14 , \field Motor Maximum Speed
+  N13 , \field Motor Maximum Speed
         \required-field
         \type real
-        \units rpm
-        \minimum > 0.0
+        \units rev/min
+        \minimum> 0.0
         \note Maximum rotational speed of fan motor shaft
-  N15 , \field Maximum Motor Output Power
+  N14 , \field Maximum Motor Output Power
         \required-field
         \type real
         \units W
-        \minimum > 0.0
+        \minimum> 0.0
         \autosizable
         \note Maximum power input to drive belt by motor
-  N16 , \field Motor Sizing Factor
+  N15 , \field Motor Sizing Factor
         \type real
         \minimum 1.0
         \default 1.0
         \note Applied to specified or autosized motor output power
-  N17 , \field Motor In Airstream Fraction
+  N16 , \field Motor In Airstream Fraction
         \type real
         \minimum 0.0
         \maximum 1.0
@@ -28248,14 +28611,14 @@ Fan:ComponentModel,
        \note Efficiency depends on fraction of full-load motor speed
        \note Efficiency depends on  fraction of full-load motor input power
        \note If field blank, then assumes constant VFD efficiency (0.97)
-  N18 , \field Maximum VFD Output Power
+  N17 , \field Maximum VFD Output Power
         \required-field
         \type real
         \units W
-        \minimum > 0.0
+        \minimum> 0.0
         \autosizable
         \note Maximum power input to motor by VFD
-  N19 , \field VFD Sizing Factor
+  N18 , \field VFD Sizing Factor
         \type real
         \minimum 1.0
         \default 1.0
@@ -28347,6 +28710,7 @@ Fan:ComponentModel,
 
 !*****************COILS*********************
 Coil:Cooling:Water,
+   \min-fields 15
   A1 , \field Name
        \required-field
        \reference CoolingCoilName
@@ -28358,26 +28722,33 @@ Coil:Cooling:Water,
   N1 , \field Design Water Flow Rate
        \units m3/s
        \autosizable
+       \default autosize
        \ip-units gal/min
   N2 , \field Design Air Flow Rate
        \units m3/s
        \autosizable
+       \default autosize
        \ip-units gal/min
   N3 , \field Design Inlet Water Temperature
        \units C
        \autosizable
+       \default autosize
   N4 , \field Design Inlet Air Temperature
        \units C
        \autosizable
+       \default autosize
   N5 , \field Design Outlet Air Temperature
        \units C
        \autosizable
+       \default autosize
   N6 , \field Design Inlet Air Humidity Ratio
        \units kg-H2O/kg-air
        \autosizable
+       \default autosize
   N7 , \field Design Outlet Air Humidity Ratio
        \units kg-H2O/kg-air
        \autosizable
+       \default autosize
   A3 , \field Water Inlet Node Name
        \required-field
   A4 , \field Water Outlet Node Name
@@ -28412,31 +28783,38 @@ Coil:Cooling:Water:DetailedGeometry,
   N1 , \field Maximum Water Flow Rate
        \units m3/s
        \autosizable
+       \default autosize
        \ip-units gal/min
   N2 , \field Tube Outside Surface Area
        \units m2
        \autosizable
+       \default autosize
        \note Tube Primary Surface Area
   N3 , \field Total Tube Inside Area
        \units m2
        \autosizable
+       \default autosize
        \note Total tube inside surface area
        \minimum> 0.0
   N4 , \field Fin Surface Area
        \units m2
        \autosizable
+       \default autosize
   N5 , \field Minimum Airflow Area
        \units m2
        \autosizable
+       \default autosize
        \minimum> 0.0
   N6 , \field Coil Depth
        \autosizable
+       \default autosize
        \units m
        \ip-units in
        \minimum> 0.0
   N7 , \field Fin Diameter
        \units m
        \autosizable
+       \default autosize
        \note Fin diameter or the coil height
        \ip-units in
        \minimum> 0.0
@@ -28484,6 +28862,7 @@ Coil:Cooling:Water:DetailedGeometry,
        \minimum> 0.0
   N16, \field Number of Tubes per Row
        \autosizable
+       \default autosize
        \minimum> 0.0
   A3 , \field Water Inlet Node Name
        \required-field
@@ -29835,7 +30214,7 @@ Coil:Heating:Water,
       \default 32.2
   N8; \field Rated Ratio for Air and Water Convection
       \type real
-      \default 1.0
+      \default 0.5
       \minimum> 0
 
 Coil:Heating:Steam,
@@ -33234,7 +33613,8 @@ AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass,
         \note For all dehumidification controls, the max humidity setpoint
         \note on this unitary system's air outlet node is used.
         \note This must be set using ZoneControl:Humidistat and
-        \note SetpointManager:SingleZone:Humidity:Maximum or
+        \note SetpointManager:SingleZone:Humidity:Maximum,
+        \note SetpointManager:MultiZone:Humidity:Maximum or
         \note SetpointManager:MultiZone:MaximumHumidity:Average objects.
 
 AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed,
@@ -33483,8 +33863,8 @@ AirLoopHVAC:UnitaryCoolOnly,
         \note Valid for all coil types.
         \note For all dehumidification controls, the max
         \note humidity setpoint on the Sensor Node is used.
-        \note This must be set using ZoneControl:Humidistat along with
-        \note SetpointManager:SingleZone:Humidity:Maximum, or
+        \note SetpointManager:SingleZone:Humidity:Maximum,
+        \note SetpointManager:MultiZone:Humidity:Maximum, or
         \note SetpointManager:MultiZone:MaximumHumidity:Average, and
         \note SetpointManager:OutdoorAirPretreat (optional) objects.
    A9,  \field Run on Sensible Load
@@ -33532,9 +33912,11 @@ Controller:WaterCoil,
        \key Temperature
        \key HumidityRatio
        \key TemperatureAndHumidityRatio
-       \note HumidityRatio or TemperatureAndHumidityRatio requires a ZoneControl:Humidistat
-       \note object along with a SetpointManager:SingleZone:Humidity:Maximum or
-       \note SetpointManager:MultiZone:MaximumHumidity:Average object.
+       \note keys HumidityRatio or TemperatureAndHumidityRatio
+       \note requires a ZoneControl:Humidistat object along
+       \note with SetpointManager:SingleZone:Humidity:Maximum,
+       \note SetpointManager:MultiZone:MaximumHumidity:Average, or
+       \note SetpointManager:Multizone:Humidity:Maximum object
   A3 , \field Action
        \type choice
        \key Normal
@@ -33717,7 +34099,7 @@ Controller:OutdoorAir,
        \note (within limits) but the outdoor air flow rate is at the minimum.
 
 Controller:MechanicalVentilation,
-        \memo This object is used in conjuction with Controller:OutdoorAir to specify outdoor
+        \memo This object is used in conjunction with Controller:OutdoorAir to specify outdoor
         \memo ventilation air based on flow rate per unit floor area and flow rate per person,
         \memo or calculate the outdoor ventilation air based on Indoor Air Quality Procedure.
         \memo The Controller:OutdoorAir object is associated with a specific air loop, so the
@@ -47503,7 +47885,7 @@ Refrigeration:Case,
         \maximum 40.0
         \note Default is 5 C less than case operating temperature
   N21;  \field Average Refrigerant Charge Inventory
-        \note Units are kg/m
+        \units kg/m
         \type real
         \default 0.0
 
@@ -47968,12 +48350,12 @@ Refrigeration:Condenser:WaterCooled,
         \note Be sure the rating corresponds to the correct refrigerant
         \type real
         \units W
-        \minimum >0.0
+        \minimum> 0.0
         \note not used in calculations, only for identification and output
   N2 ,  \field Rated Condensing Temperature
         \required-field
         \type real
-        \minimum >0.0
+        \minimum> 0.0
         \units C
         \note must correspond to rating given for total heat rejection effect
   N3 ,  \field Rated Subcooling Temperature Difference
@@ -47984,7 +48366,7 @@ Refrigeration:Condenser:WaterCooled,
         \note must correspond to rating given for total heat rejection effect
   N4,   \field Rated Water Inlet Temperature
         \required-field
-        \minimum >0.0
+        \minimum> 0.0
         \type real
         \units C
         \note must correspond to rating given for total heat rejection effect
@@ -48057,13 +48439,13 @@ Refrigeration:Condenser:Cascade,
         \note This is the difference between the condensing and evaporating temperatures
         \default 3.0
         \type real
-        \minimum >0.0
+        \minimum> 0.0
         \units DeltaC
   N3 ,  \field Rated Effective Total Heat Rejection Rate
         \required-field
         \note used for identification and rough system size error checking
         \type real
-        \minimum >0.0
+        \minimum> 0.0
         \units W
   A2 ,  \field Condensing Temperature Control Type
         \type choice
@@ -48538,7 +48920,7 @@ Refrigeration:SecondarySystem,
         \note Do not include defrost heater power
   A3 ,  \field Heating Power Schedule Name
         \type object-list
-        \object-list ScheduleName
+        \object-list ScheduleNames
         \note Values will be used to multiply the total heating power
         \note Values in the schedule should be between 0.0 and 1.0
         \note For example, this could be used if display door antisweat heaters
@@ -49236,7 +49618,7 @@ DemandManagerAssignmentList,
   A2 , \field Meter Name
        \required-field
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
   A3 , \field Demand Limit Schedule Name
        \type object-list
        \object-list ScheduleNames
@@ -51706,52 +52088,52 @@ ElectricLoadCenter:Transformer,
   A8,  \field Meter 1 Name
        \begin-extensible
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A9,  \field Meter 2 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A10, \field Meter 3 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A11, \field Meter 4 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A12, \field Meter 5 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A13, \field Meter 6 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A14, \field Meter 7 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A15, \field Meter 8 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A16, \field Meter 9 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
   A17; \field Meter 10 Name
        \type object-list
-       \object-list CustomMeterNames
+       \object-list autoRDDmeter
        \note Must be an electric meter (with electricity as the resource type)
        \note Only required when transformer is used for power in from the utility grid
 
@@ -52803,15 +53185,21 @@ Curve:FanPressureRise,
        \required-field
        \type real
        \units Pa
-  N8 , \field Maximum Value of Po
+       \ip-units Pa
+  N8 , \field Maximum Value of Psm
        \required-field
        \type real
        \units Pa
+       \ip-units Pa
   N9 , \field Minimum Curve Output
        \type real
+       \units Pa
+       \ip-units Pa
        \note Specify the minimum value calculated by this curve object
   N10 ; \field Maximum Curve Output
         \type real
+        \units Pa
+        \ip-units Pa
         \note Specify the maximum value calculated by this curve object
 
 Curve:ExponentialSkewNormal,
@@ -52836,15 +53224,27 @@ Curve:ExponentialSkewNormal,
   N5 , \field Minimum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N6 , \field Maximum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N7 , \field Minimum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the minimum value calculated by this curve object
-  N8 ; \field Maximum Curve Output
+  N8 , \field Maximum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the maximum value calculated by this curve object
+  A2,  \field Input Unit Type for x
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
+  A3;  \field Output Unit Type
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
 
 Curve:Sigmoid,
   A1 , \field Name
@@ -52871,15 +53271,27 @@ Curve:Sigmoid,
   N6 , \field Minimum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N7 , \field Maximum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N8 , \field Minimum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the minimum value calculated by this curve object
-  N9 ; \field Maximum Curve Output
+  N9 , \field Maximum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the maximum value calculated by this curve object
+  A2,  \field Input Unit Type for x
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
+  A3;  \field Output Unit Type
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
 
 Curve:RectangularHyperbola1,
   A1 , \field Name
@@ -52887,7 +53299,7 @@ Curve:RectangularHyperbola1,
        \type alpha
        \reference RectangularHyperbola1Curves
        \reference AllCurves
-       \note curve = ((C1*x)/(C2*x))+C3
+       \note curve = ((C1*x)/(C2+x))+C3
   N1 , \field Coefficient1 C1
        \required-field
        \type real
@@ -52900,15 +53312,27 @@ Curve:RectangularHyperbola1,
   N4 , \field Minimum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N5 , \field Maximum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N6 , \field Minimum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the minimum value calculated by this curve object
-  N7 ; \field Maximum Curve Output
+  N7 , \field Maximum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the maximum value calculated by this curve object
+  A2,  \field Input Unit Type for x
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
+  A3;  \field Output Unit Type
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
 
 Curve:RectangularHyperbola2,
   A1 , \field Name
@@ -52916,7 +53340,7 @@ Curve:RectangularHyperbola2,
        \type alpha
        \reference RectangularHyperbola2Curves
        \reference AllCurves
-       \note curve = ((C1*x)/(C2*x))+(C3*x)
+       \note curve = ((C1*x)/(C2+x))+(C3*x)
   N1 , \field Coefficient1 C1
        \required-field
        \type real
@@ -52929,15 +53353,27 @@ Curve:RectangularHyperbola2,
   N4 , \field Minimum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N5 , \field Maximum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N6 , \field Minimum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the minimum value calculated by this curve object
-  N7 ; \field Maximum Curve Output
+  N7 , \field Maximum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the maximum value calculated by this curve object
+  A2,  \field Input Unit Type for x
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
+  A3;  \field Output Unit Type
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
 
 Curve:ExponentialDecay,
   A1 , \field Name
@@ -52958,15 +53394,27 @@ Curve:ExponentialDecay,
   N4 , \field Minimum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N5 , \field Maximum Value of x
        \required-field
        \type real
+       \unitsBasedOnField A2
   N6 , \field Minimum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the minimum value calculated by this curve object
-  N7 ; \field Maximum Curve Output
+  N7 , \field Maximum Curve Output
        \type real
+       \unitsBasedOnField A3
        \note Specify the maximum value calculated by this curve object
+  A2,  \field Input Unit Type for x
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
+  A3;  \field Output Unit Type
+       \type choice
+       \key Dimensionless
+       \default Dimensionless
 
 \group Performance Tables
 
@@ -53003,12 +53451,12 @@ Table:OneIndependentVariable,
        \key LinearInterpolationOfTable
        \key EvaluateCurveToLimits
        \key LagrangeInterpolationLinearExtrapolation
-  N1 , \field Minimum Value of x
+  N1 , \field Minimum Value of X
        \type real
        \unitsBasedOnField A4
        \note used only when Interpolation Type is Evaluate Curve
        \note to Limits
-  N2 , \field Maximum Value of x
+  N2 , \field Maximum Value of X
        \type real
        \unitsBasedOnField A4
        \note used only when Interpolation Type is Evaluate Curve
@@ -53027,7 +53475,7 @@ Table:OneIndependentVariable,
        \unitsBasedOnField A5
        \note used only when Interpolation Type is Evaluate Curve
        \note to Limits
-  A4,  \field Input Unit Type for X1
+  A4,  \field Input Unit Type for X
        \type choice
        \key Dimensionless
        \key Temperature
@@ -53114,16 +53562,16 @@ Table:TwoIndependentVariables,
        \key EvaluateCurveToLimits
        \key LagrangeInterpolationLinearExtrapolation
        \default LagrangeInterpolationLinearExtrapolation
-  N1 , \field Minimum Value of x
+  N1 , \field Minimum Value of X
        \type real
        \unitsBasedOnField A4
-  N2 , \field Maximum Value of x
+  N2 , \field Maximum Value of X
        \type real
        \unitsBasedOnField A4
-  N3 , \field Minimum Value of y
+  N3 , \field Minimum Value of Y
        \type real
        \unitsBasedOnField A5
-  N4 , \field Maximum Value of y
+  N4 , \field Maximum Value of Y
        \type real
        \unitsBasedOnField A5
   N5 , \field Minimum Table Output
@@ -53134,7 +53582,7 @@ Table:TwoIndependentVariables,
        \type real
        \note Specify the maximum value calculated by this table lookup object
        \unitsBasedOnField A6
-  A4,  \field Input Unit Type for x
+  A4,  \field Input Unit Type for X
        \type choice
        \key Dimensionless
        \key Temperature
@@ -53143,7 +53591,7 @@ Table:TwoIndependentVariables,
        \key Power
        \key Distance
        \default Dimensionless
-  A5,  \field Input Unit Type for y
+  A5,  \field Input Unit Type for Y
        \type choice
        \key Dimensionless
        \key Temperature
@@ -53237,7 +53685,7 @@ Table:MultiVariableLookup,
        \key EvaluateCurveToLimits
        \key LagrangeInterpolationLinearExtrapolation
        \default LagrangeInterpolationLinearExtrapolation
-  N1 , \field NumberOfInterpolationPoints
+  N1 , \field Number of Interpolation Points
        \type integer
        \minimum> 1
        \maximum 4
@@ -53256,18 +53704,19 @@ Table:MultiVariableLookup,
        \key Other
        \note The curve types BiCubic and TriQuadratic may not
        \note be used with Interpolation Method = EvaluateCurveToLimits
-  A4 , \field TableDataFormat
-       \field choice
+  A4 , \field Table Data Format
+       \type choice
        \key SingleLineIndependentVariableWithMatrix
        \default SingleLineIndependentVariableWithMatrix
-  A5 , \field ExternalFileName
+  A5 , \field External File Name
        \type alpha
-  A6 , \field X1SortOrder
+       \retaincase
+  A6 , \field X1 Sort Order
        \type choice
        \key Ascending
        \key Descending
        \default Ascending
-  A7 , \field X2SortOrder
+  A7 , \field X2 Sort Order
        \type choice
        \key Ascending
        \key Descending
@@ -53308,11 +53757,11 @@ Table:MultiVariableLookup,
   N12, \field Maximum Value of X5
        \type real
        \unitsBasedOnField A11
-  N13, \field Minimum Curve Output
+  N13, \field Minimum Table Output
        \type real
        \note Specify the minimum value calculated by this curve object
        \unitsBasedOnField A12
-  N14, \field Maximum Curve Output
+  N14, \field Maximum Table Output
        \type real
        \note Specify the maximum value calculated by this curve object
        \unitsBasedOnField A12
@@ -53367,17 +53816,17 @@ Table:MultiVariableLookup,
        \key Capacity
        \key Power
        \default Dimensionless
-  N15, \field NumberOfIndependentVariables
+  N15, \field Number of Independent Variables
        \type integer
        \minimum> 0
        \maximum 5
-  N16, \field NumberOfValuesForIndependentVariable1
+  N16, \field Number of Values for Independent Variable X1
        \type real
-  N17, \field Field1DeterminedByPreviousTwoFields
+  N17, \field Field 1 Determined By Previous Two Fields
        \type real
-  N18, \field Field2
+  N18, \field Field 2
        \type real
-  N19, \field Field3
+  N19, \field Field 3
        \type real
        \begin-extensible
   N20,N21,N22,N23,N24,N25,N26,N27,N28,N29,N30,N31,N32,N33,N34,N35,N36,N37,N38,N39, \note fields as indicated
@@ -57670,6 +58119,7 @@ LifeCycleCost:Parameters,
         \note capital expenditures.
 
 LifeCycleCost:RecurringCosts,
+        \min-fields 7
    A1,  \field Name
         \required-field
         \type alpha
@@ -57716,6 +58166,7 @@ LifeCycleCost:RecurringCosts,
         \type integer
         \minimum 0
         \maximum 100
+        \default 1
         \note This field and the Repeat Period Months field indicate how much time elapses between
         \note reoccurrences of the cost. For costs that occur every year such the Repeat Period Years
         \note should be 1 and Repeat Period Months should be 0. Only integers should be entered
@@ -57724,6 +58175,7 @@ LifeCycleCost:RecurringCosts,
         \type integer
         \minimum 0
         \maximum 1200
+        \default 0
         \note This field and the Repeat Period Years field indicate how much time elapses between
         \note reoccurrences of the cost. Only integers should be entered representing whole years.
         \note The Repeat Period Years (times 12) and Repeat Period Months are added together.
@@ -58061,132 +58513,1138 @@ LifeCycleCost:UseAdjustment,
 
 Parametric:SetValueForRun,
        \min-fields 2
+       \extensible:1
   A1,  \field Parameter Name
        \note Must begin with the dollar sign character. The second character must be a letter.
        \note Remaining characters may only be letters or numbers. No spaces allowed.
        \required-field
        \type  alpha
   A2,  \field Value for run 1
+       \begin-extensible
+       \type  alpha
   A3,  \field Value for run 2
+       \type  alpha
   A4,  \field Value for run 3
+       \type  alpha
   A5,  \field Value for run 4
+       \type  alpha
   A6,  \field Value for run 5
+       \type  alpha
   A7,  \field Value for run 6
+       \type  alpha
   A8,  \field Value for run 7
+       \type  alpha
   A9,  \field Value for run 8
+       \type  alpha
   A10, \field Value for run 9
-  A11; \field Value for run 10
+       \type  alpha
+  A11, \field Value for run 10
+       \type  alpha
+  A12, \field Value for run 11
+       \type  alpha
+  A13, \field Value for run 12
+       \type  alpha
+  A14, \field Value for run 13
+       \type  alpha
+  A15, \field Value for run 14
+       \type  alpha
+  A16, \field Value for run 15
+       \type  alpha
+  A17, \field Value for run 16
+       \type  alpha
+  A18, \field Value for run 17
+       \type  alpha
+  A19, \field Value for run 18
+       \type  alpha
+  A20, \field Value for run 19
+       \type  alpha
+  A21, \field Value for run 20
+       \type  alpha
+  A22, \field Value for run 21
+       \type  alpha
+  A23, \field Value for run 22
+       \type  alpha
+  A24, \field Value for run 23
+       \type  alpha
+  A25, \field Value for run 24
+       \type  alpha
+  A26, \field Value for run 25
+       \type  alpha
+  A27, \field Value for run 26
+       \type  alpha
+  A28, \field Value for run 27
+       \type  alpha
+  A29, \field Value for run 28
+       \type  alpha
+  A30, \field Value for run 29
+       \type  alpha
+  A31, \field Value for run 30
+       \type  alpha
+  A32, \field Value for run 31
+       \type  alpha
+  A33, \field Value for run 32
+       \type  alpha
+  A34, \field Value for run 33
+       \type  alpha
+  A35, \field Value for run 34
+       \type  alpha
+  A36, \field Value for run 35
+       \type  alpha
+  A37, \field Value for run 36
+       \type  alpha
+  A38, \field Value for run 37
+       \type  alpha
+  A39, \field Value for run 38
+       \type  alpha
+  A40, \field Value for run 39
+       \type  alpha
+  A41, \field Value for run 40
+       \type  alpha
+  A42, \field Value for run 41
+       \type  alpha
+  A43, \field Value for run 42
+       \type  alpha
+  A44, \field Value for run 43
+       \type  alpha
+  A45, \field Value for run 44
+       \type  alpha
+  A46, \field Value for run 45
+       \type  alpha
+  A47, \field Value for run 46
+       \type  alpha
+  A48, \field Value for run 47
+       \type  alpha
+  A49, \field Value for run 48
+       \type  alpha
+  A50, \field Value for run 49
+       \type  alpha
+  A51, \field Value for run 50
+       \type  alpha
+  A52, \field Value for run 51
+       \type  alpha
+  A53, \field Value for run 52
+       \type  alpha
+  A54, \field Value for run 53
+       \type  alpha
+  A55, \field Value for run 54
+       \type  alpha
+  A56, \field Value for run 55
+       \type  alpha
+  A57, \field Value for run 56
+       \type  alpha
+  A58, \field Value for run 57
+       \type  alpha
+  A59, \field Value for run 58
+       \type  alpha
+  A60, \field Value for run 59
+       \type  alpha
+  A61, \field Value for run 60
+       \type  alpha
+  A62, \field Value for run 61
+       \type  alpha
+  A63, \field Value for run 62
+       \type  alpha
+  A64, \field Value for run 63
+       \type  alpha
+  A65, \field Value for run 64
+       \type  alpha
+  A66, \field Value for run 65
+       \type  alpha
+  A67, \field Value for run 66
+       \type  alpha
+  A68, \field Value for run 67
+       \type  alpha
+  A69, \field Value for run 68
+       \type  alpha
+  A70, \field Value for run 69
+       \type  alpha
+  A71, \field Value for run 70
+       \type  alpha
+  A72, \field Value for run 71
+       \type  alpha
+  A73, \field Value for run 72
+       \type  alpha
+  A74, \field Value for run 73
+       \type  alpha
+  A75, \field Value for run 74
+       \type  alpha
+  A76, \field Value for run 75
+       \type  alpha
+  A77, \field Value for run 76
+       \type  alpha
+  A78, \field Value for run 77
+       \type  alpha
+  A79, \field Value for run 78
+       \type  alpha
+  A80, \field Value for run 79
+       \type  alpha
+  A81, \field Value for run 80
+       \type  alpha
+  A82, \field Value for run 81
+       \type  alpha
+  A83, \field Value for run 82
+       \type  alpha
+  A84, \field Value for run 83
+       \type  alpha
+  A85, \field Value for run 84
+       \type  alpha
+  A86, \field Value for run 85
+       \type  alpha
+  A87, \field Value for run 86
+       \type  alpha
+  A88, \field Value for run 87
+       \type  alpha
+  A89, \field Value for run 88
+       \type  alpha
+  A90, \field Value for run 89
+       \type  alpha
+  A91, \field Value for run 90
+       \type  alpha
+  A92, \field Value for run 91
+       \type  alpha
+  A93, \field Value for run 92
+       \type  alpha
+  A94, \field Value for run 93
+       \type  alpha
+  A95, \field Value for run 94
+       \type  alpha
+  A96, \field Value for run 95
+       \type  alpha
+  A97, \field Value for run 96
+       \type  alpha
+  A98, \field Value for run 97
+       \type  alpha
+  A99, \field Value for run 98
+       \type  alpha
+  A100, \field Value for run 99
+        \type  alpha
+  A101; \field Value for run 100
+        \type  alpha
+
 
 Parametric:Logic,
        \unique-object
        \min-fields 2
+       \extensible:1
   A1,  \field name
        \required-field
        \type  alpha
   A2,  \field parametric logic line 1
+       \begin-extensible
+       \type  alpha
   A3,  \field parametric logic line 2
+       \type  alpha
   A4,  \field parametric logic line 3
+       \type  alpha
   A5,  \field parametric logic line 4
+       \type  alpha
   A6,  \field parametric logic line 5
+       \type  alpha
   A7,  \field parametric logic line 6
+       \type  alpha
   A8,  \field parametric logic line 7
+       \type  alpha
   A9,  \field parametric logic line 8
+       \type  alpha
   A10, \field parametric logic line 9
+       \type  alpha
   A11, \field parametric logic line 10
+       \type  alpha
   A12, \field parametric logic line 11
+       \type  alpha
   A13, \field parametric logic line 12
+       \type  alpha
   A14, \field parametric logic line 13
+       \type  alpha
   A15, \field parametric logic line 14
+       \type  alpha
   A16, \field parametric logic line 15
+       \type  alpha
   A17, \field parametric logic line 16
+       \type  alpha
   A18, \field parametric logic line 17
+       \type  alpha
   A19, \field parametric logic line 18
+       \type  alpha
   A20, \field parametric logic line 19
+       \type  alpha
   A21, \field parametric logic line 20
+       \type  alpha
   A22, \field parametric logic line 21
+       \type  alpha
   A23, \field parametric logic line 22
+       \type  alpha
   A24, \field parametric logic line 23
+       \type  alpha
   A25, \field parametric logic line 24
+       \type  alpha
   A26, \field parametric logic line 25
+       \type  alpha
   A27, \field parametric logic line 26
+       \type  alpha
   A28, \field parametric logic line 27
+       \type  alpha
   A29, \field parametric logic line 28
+       \type  alpha
   A30, \field parametric logic line 29
+       \type  alpha
   A31, \field parametric logic line 30
+       \type  alpha
   A32, \field parametric logic line 31
+       \type  alpha
   A33, \field parametric logic line 32
+       \type  alpha
   A34, \field parametric logic line 33
+       \type  alpha
   A35, \field parametric logic line 34
+       \type  alpha
   A36, \field parametric logic line 35
+       \type  alpha
   A37, \field parametric logic line 36
+       \type  alpha
   A38, \field parametric logic line 37
+       \type  alpha
   A39, \field parametric logic line 38
+       \type  alpha
   A40, \field parametric logic line 39
-  A41; \field parametric logic line 40
-
+       \type  alpha
+  A41, \field parametric logic line 40
+       \type  alpha
+  A42, \field parametric logic line 41
+       \type  alpha
+  A43, \field parametric logic line 42
+       \type  alpha
+  A44, \field parametric logic line 43
+       \type  alpha
+  A45, \field parametric logic line 44
+       \type  alpha
+  A46, \field parametric logic line 45
+       \type  alpha
+  A47, \field parametric logic line 46
+       \type  alpha
+  A48, \field parametric logic line 47
+       \type  alpha
+  A49, \field parametric logic line 48
+       \type  alpha
+  A50, \field parametric logic line 49
+       \type  alpha
+  A51, \field parametric logic line 50
+       \type  alpha
+  A52, \field parametric logic line 51
+       \type  alpha
+  A53, \field parametric logic line 52
+       \type  alpha
+  A54, \field parametric logic line 53
+       \type  alpha
+  A55, \field parametric logic line 54
+       \type  alpha
+  A56, \field parametric logic line 55
+       \type  alpha
+  A57, \field parametric logic line 56
+       \type  alpha
+  A58, \field parametric logic line 57
+       \type  alpha
+  A59, \field parametric logic line 58
+       \type  alpha
+  A60, \field parametric logic line 59
+       \type  alpha
+  A61, \field parametric logic line 60
+       \type  alpha
+  A62, \field parametric logic line 61
+       \type  alpha
+  A63, \field parametric logic line 62
+       \type  alpha
+  A64, \field parametric logic line 63
+       \type  alpha
+  A65, \field parametric logic line 64
+       \type  alpha
+  A66, \field parametric logic line 65
+       \type  alpha
+  A67, \field parametric logic line 66
+       \type  alpha
+  A68, \field parametric logic line 67
+       \type  alpha
+  A69, \field parametric logic line 68
+       \type  alpha
+  A70, \field parametric logic line 69
+       \type  alpha
+  A71, \field parametric logic line 70
+       \type  alpha
+  A72, \field parametric logic line 71
+       \type  alpha
+  A73, \field parametric logic line 72
+       \type  alpha
+  A74, \field parametric logic line 73
+       \type  alpha
+  A75, \field parametric logic line 74
+       \type  alpha
+  A76, \field parametric logic line 75
+       \type  alpha
+  A77, \field parametric logic line 76
+       \type  alpha
+  A78, \field parametric logic line 77
+       \type  alpha
+  A79, \field parametric logic line 78
+       \type  alpha
+  A80, \field parametric logic line 79
+       \type  alpha
+  A81, \field parametric logic line 80
+       \type  alpha
+  A82, \field parametric logic line 81
+       \type  alpha
+  A83, \field parametric logic line 82
+       \type  alpha
+  A84, \field parametric logic line 83
+       \type  alpha
+  A85, \field parametric logic line 84
+       \type  alpha
+  A86, \field parametric logic line 85
+       \type  alpha
+  A87, \field parametric logic line 86
+       \type  alpha
+  A88, \field parametric logic line 87
+       \type  alpha
+  A89, \field parametric logic line 88
+       \type  alpha
+  A90, \field parametric logic line 89
+       \type  alpha
+  A91, \field parametric logic line 90
+       \type  alpha
+  A92, \field parametric logic line 91
+       \type  alpha
+  A93, \field parametric logic line 92
+       \type  alpha
+  A94, \field parametric logic line 93
+       \type  alpha
+  A95, \field parametric logic line 94
+       \type  alpha
+  A96, \field parametric logic line 95
+       \type  alpha
+  A97, \field parametric logic line 96
+       \type  alpha
+  A98, \field parametric logic line 97
+       \type  alpha
+  A99, \field parametric logic line 98
+       \type  alpha
+  A100, \field parametric logic line 99
+        \type  alpha
+  A101; \field parametric logic line 100
+        \type  alpha
 
 Parametric:RunControl,
        \unique-object
        \min-fields 2
+       \extensible:1
   A1,  \field Name
        \type  alpha
   A2,  \field Perform run 1
        \type choice
        \key Yes
        \key No
+       \default Yes
+       \begin-extensible
   A3,  \field Perform run 2
        \type choice
        \key Yes
        \key No
+       \default Yes
   A4,  \field Perform run 3
        \type choice
        \key Yes
        \key No
+       \default Yes
   A5,  \field Perform run 4
        \type choice
        \key Yes
        \key No
+       \default Yes
   A6,  \field Perform run 5
        \type choice
        \key Yes
        \key No
+       \default Yes
   A7,  \field Perform run 6
        \type choice
        \key Yes
        \key No
+       \default Yes
   A8,  \field Perform run 7
        \type choice
        \key Yes
        \key No
+       \default Yes
   A9,  \field Perform run 8
        \type choice
        \key Yes
        \key No
+       \default Yes
   A10, \field Perform run 9
        \type choice
        \key Yes
        \key No
-  A11; \field Perform run 10
+       \default Yes
+  A11, \field Perform run 10
        \type choice
        \key Yes
        \key No
+       \default Yes
+  A12, \field Perform run 11
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A13, \field Perform run 12
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A14, \field Perform run 13
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A15, \field Perform run 14
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A16, \field Perform run 15
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A17, \field Perform run 16
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A18, \field Perform run 17
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A19, \field Perform run 18
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A20, \field Perform run 19
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A21, \field Perform run 20
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A22, \field Perform run 21
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A23, \field Perform run 22
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A24, \field Perform run 23
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A25, \field Perform run 24
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A26, \field Perform run 25
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A27, \field Perform run 26
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A28, \field Perform run 27
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A29, \field Perform run 28
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A30, \field Perform run 29
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A31, \field Perform run 30
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A32, \field Perform run 31
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A33, \field Perform run 32
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A34, \field Perform run 33
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A35, \field Perform run 34
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A36, \field Perform run 35
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A37, \field Perform run 36
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A38, \field Perform run 37
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A39, \field Perform run 38
+       \type choice
+       \key Yes
+       \key No
+  A40, \field Perform run 39
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A41, \field Perform run 40
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A42, \field Perform run 41
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A43, \field Perform run 42
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A44, \field Perform run 43
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A45, \field Perform run 44
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A46, \field Perform run 45
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A47, \field Perform run 46
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A48, \field Perform run 47
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A49, \field Perform run 48
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A50, \field Perform run 49
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A51, \field Perform run 50
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A52, \field Perform run 51
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A53, \field Perform run 52
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A54, \field Perform run 53
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A55, \field Perform run 54
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A56, \field Perform run 55
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A57, \field Perform run 56
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A58, \field Perform run 57
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A59, \field Perform run 58
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A60, \field Perform run 59
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A61, \field Perform run 60
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A62, \field Perform run 61
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A63, \field Perform run 62
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A64, \field Perform run 63
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A65, \field Perform run 64
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A66, \field Perform run 65
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A67, \field Perform run 66
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A68, \field Perform run 67
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A69, \field Perform run 68
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A70, \field Perform run 69
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A71, \field Perform run 70
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A72, \field Perform run 71
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A73, \field Perform run 72
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A74, \field Perform run 73
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A75, \field Perform run 74
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A76, \field Perform run 75
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A77, \field Perform run 76
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A78, \field Perform run 77
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A79, \field Perform run 78
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A80, \field Perform run 79
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A81, \field Perform run 80
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A82, \field Perform run 81
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A83, \field Perform run 82
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A84, \field Perform run 83
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A85, \field Perform run 84
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A86, \field Perform run 85
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A87, \field Perform run 86
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A88, \field Perform run 87
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A89, \field Perform run 88
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A90, \field Perform run 89
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A91, \field Perform run 90
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A92, \field Perform run 91
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A93, \field Perform run 92
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A94, \field Perform run 93
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A95, \field Perform run 94
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A96, \field Perform run 95
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A97, \field Perform run 96
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A98, \field Perform run 97
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A99, \field Perform run 98
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A100, \field Perform run 99
+        \type choice
+        \key Yes
+        \key No
+        \default Yes
+  A101; \field Perform run 100
+        \type choice
+        \key Yes
+        \key No
+        \default Yes
 
 Parametric:FileNameSuffix,
        \unique-object
        \min-fields 2
+       \extensible:1
   A1,  \field name
        \type  alpha
   A2,  \field Suffix for file name in run 1
+       \type  alpha
+       \begin-extensible
   A3,  \field Suffix for file name in run 2
+       \type  alpha
   A4,  \field Suffix for file name in run 3
+       \type  alpha
   A5,  \field Suffix for file name in run 4
+       \type  alpha
   A6,  \field Suffix for file name in run 5
+       \type  alpha
   A7,  \field Suffix for file name in run 6
+       \type  alpha
   A8,  \field Suffix for file name in run 7
+       \type  alpha
   A9,  \field Suffix for file name in run 8
+       \type  alpha
   A10, \field Suffix for file name in run 9
-  A11; \field Suffix for file name in run 10
-
+       \type  alpha
+  A11, \field Suffix for file name in run 10
+       \type  alpha
+  A12, \field Suffix for file name in run 11
+       \type  alpha
+  A13, \field Suffix for file name in run 12
+       \type  alpha
+  A14, \field Suffix for file name in run 13
+       \type  alpha
+  A15, \field Suffix for file name in run 14
+       \type  alpha
+  A16, \field Suffix for file name in run 15
+       \type  alpha
+  A17, \field Suffix for file name in run 16
+       \type  alpha
+  A18, \field Suffix for file name in run 17
+       \type  alpha
+  A19, \field Suffix for file name in run 18
+       \type  alpha
+  A20, \field Suffix for file name in run 19
+       \type  alpha
+  A21, \field Suffix for file name in run 20
+       \type  alpha
+  A22, \field Suffix for file name in run 21
+       \type  alpha
+  A23, \field Suffix for file name in run 22
+       \type  alpha
+  A24, \field Suffix for file name in run 23
+       \type  alpha
+  A25, \field Suffix for file name in run 24
+       \type  alpha
+  A26, \field Suffix for file name in run 25
+       \type  alpha
+  A27, \field Suffix for file name in run 26
+       \type  alpha
+  A28, \field Suffix for file name in run 27
+       \type  alpha
+  A29, \field Suffix for file name in run 28
+       \type  alpha
+  A30, \field Suffix for file name in run 29
+       \type  alpha
+  A31, \field Suffix for file name in run 30
+       \type  alpha
+  A32, \field Suffix for file name in run 31
+       \type  alpha
+  A33, \field Suffix for file name in run 32
+       \type  alpha
+  A34, \field Suffix for file name in run 33
+       \type  alpha
+  A35, \field Suffix for file name in run 34
+       \type  alpha
+  A36, \field Suffix for file name in run 35
+       \type  alpha
+  A37, \field Suffix for file name in run 36
+       \type  alpha
+  A38, \field Suffix for file name in run 37
+       \type  alpha
+  A39, \field Suffix for file name in run 38
+       \type  alpha
+  A40, \field Suffix for file name in run 39
+       \type  alpha
+  A41, \field Suffix for file name in run 40
+       \type  alpha
+  A42, \field Suffix for file name in run 41
+       \type  alpha
+  A43, \field Suffix for file name in run 42
+       \type  alpha
+  A44, \field Suffix for file name in run 43
+       \type  alpha
+  A45, \field Suffix for file name in run 44
+       \type  alpha
+  A46, \field Suffix for file name in run 45
+       \type  alpha
+  A47, \field Suffix for file name in run 46
+       \type  alpha
+  A48, \field Suffix for file name in run 47
+       \type  alpha
+  A49, \field Suffix for file name in run 48
+       \type  alpha
+  A50, \field Suffix for file name in run 49
+       \type  alpha
+  A51, \field Suffix for file name in run 50
+       \type  alpha
+  A52, \field Suffix for file name in run 51
+       \type  alpha
+  A53, \field Suffix for file name in run 52
+       \type  alpha
+  A54, \field Suffix for file name in run 53
+       \type  alpha
+  A55, \field Suffix for file name in run 54
+       \type  alpha
+  A56, \field Suffix for file name in run 55
+       \type  alpha
+  A57, \field Suffix for file name in run 56
+       \type  alpha
+  A58, \field Suffix for file name in run 57
+       \type  alpha
+  A59, \field Suffix for file name in run 58
+       \type  alpha
+  A60, \field Suffix for file name in run 59
+       \type  alpha
+  A61, \field Suffix for file name in run 60
+       \type  alpha
+  A62, \field Suffix for file name in run 61
+       \type  alpha
+  A63, \field Suffix for file name in run 62
+       \type  alpha
+  A64, \field Suffix for file name in run 63
+       \type  alpha
+  A65, \field Suffix for file name in run 64
+       \type  alpha
+  A66, \field Suffix for file name in run 65
+       \type  alpha
+  A67, \field Suffix for file name in run 66
+       \type  alpha
+  A68, \field Suffix for file name in run 67
+       \type  alpha
+  A69, \field Suffix for file name in run 68
+       \type  alpha
+  A70, \field Suffix for file name in run 69
+       \type  alpha
+  A71, \field Suffix for file name in run 70
+       \type  alpha
+  A72, \field Suffix for file name in run 71
+       \type  alpha
+  A73, \field Suffix for file name in run 72
+       \type  alpha
+  A74, \field Suffix for file name in run 73
+       \type  alpha
+  A75, \field Suffix for file name in run 74
+       \type  alpha
+  A76, \field Suffix for file name in run 75
+       \type  alpha
+  A77, \field Suffix for file name in run 76
+       \type  alpha
+  A78, \field Suffix for file name in run 77
+       \type  alpha
+  A79, \field Suffix for file name in run 78
+       \type  alpha
+  A80, \field Suffix for file name in run 79
+       \type  alpha
+  A81, \field Suffix for file name in run 80
+       \type  alpha
+  A82, \field Suffix for file name in run 81
+       \type  alpha
+  A83, \field Suffix for file name in run 82
+       \type  alpha
+  A84, \field Suffix for file name in run 83
+       \type  alpha
+  A85, \field Suffix for file name in run 84
+       \type  alpha
+  A86, \field Suffix for file name in run 85
+       \type  alpha
+  A87, \field Suffix for file name in run 86
+       \type  alpha
+  A88, \field Suffix for file name in run 87
+       \type  alpha
+  A89, \field Suffix for file name in run 88
+       \type  alpha
+  A90, \field Suffix for file name in run 89
+       \type  alpha
+  A91, \field Suffix for file name in run 90
+       \type  alpha
+  A92, \field Suffix for file name in run 91
+       \type  alpha
+  A93, \field Suffix for file name in run 92
+       \type  alpha
+  A94, \field Suffix for file name in run 93
+       \type  alpha
+  A95, \field Suffix for file name in run 94
+       \type  alpha
+  A96, \field Suffix for file name in run 95
+       \type  alpha
+  A97, \field Suffix for file name in run 96
+       \type  alpha
+  A98, \field Suffix for file name in run 97
+       \type  alpha
+  A99, \field Suffix for file name in run 98
+       \type  alpha
+  A100, \field Suffix for file name in run 99
+        \type  alpha
+  A101; \field Suffix for file name in run 100
+        \type  alpha
 
 \Group Output Reporting
 
@@ -58232,9 +59690,9 @@ Output:Surfaces:Drawing,
    \key Triangulate3DFace
    \key ThickPolyline
    \key RegularPolyline
-   \key Lines
-   \key Polylines
    \default Triangulate3DFace
+   \note Triangulate3DFace (default), ThickPolyline, RegularPolyline apply to DXF
+   \note This field is ignored for DXF:WireFrame and VRML
    A3 ; \field Report Specifications 2
    \note Use ColorScheme Name for DXF reports
    \type object-list
@@ -60579,10 +62037,10 @@ Output:Meter:Cumulative:MeterFileOnly,
 Meter:Custom,
    \extensible:2 - repeat last two fields, remembering to remove ; from "inner" fields.
    \memo Used to allow users to combine specific variables and/or meters into
-   \memo "custom" meter configurations.
+   \memo "custom" meter configurations. To access these meters by name, one must
+   \memo first run a simulation to generate the RDD/MDD files and names.
    A1,  \field Name
         \required-field
-        \reference CustomMeterNames
    A2,  \field Fuel Type
         \type choice
         \key Electricity
@@ -60644,10 +62102,10 @@ Meter:Custom,
 Meter:CustomDecrement,
    \extensible:2 - repeat last two fields, remembering to remove ; from "inner" fields.
    \memo Used to allow users to combine specific variables and/or meters into
-   \memo "custom" meter configurations.
+   \memo "custom" meter configurations. To access these meters by name, one must
+   \memo first run a simulation to generate the RDD/MDD files and names.
    A1,  \field Name
         \required-field
-        \reference CustomMeterNames
    A2,  \field Fuel Type
         \type choice
         \key Electricity
