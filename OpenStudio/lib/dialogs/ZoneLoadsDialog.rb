@@ -580,6 +580,13 @@ Do you want to continue?", MB_OKCANCEL)
           input_object.fields[6] = "" # Flow Rate per Zone Floor Area
           input_object.fields[7] = @value_hash['OA_PER_PERSON'].round_to(6).to_s # Flow Rate per Person
           input_object.fields[8] = ""  # Air Changes per Hour
+          input_object.fields[9] = ""  # Ventilation Type
+          input_object.fields[10] = ""  # Fan Pressure Rise
+          input_object.fields[11] = ""  # Fan Total Efficiency
+          input_object.fields[12] = ""  # Constant Term Coefficient
+          input_object.fields[13] = ""  # Temperature Term Coefficient
+          input_object.fields[14] = ""  # Velocity Term Coefficient
+          input_object.fields[15] = ""  # Velocity Squared Term Coefficient
           add_object_to_zone(input_object, zone_name)
         end
         
@@ -594,6 +601,13 @@ Do you want to continue?", MB_OKCANCEL)
           input_object.fields[6] = @value_hash['OA_PER_AREA'].round_to(6).to_s # Flow per Zone Floor Area
           input_object.fields[7] = "" # Flow Rate per Person
           input_object.fields[8] = ""  # Air Changes per Hour
+          input_object.fields[9] = ""  # Ventilation Type
+          input_object.fields[10] = ""  # Fan Pressure Rise
+          input_object.fields[11] = ""  # Fan Total Efficiency
+          input_object.fields[12] = ""  # Constant Term Coefficient
+          input_object.fields[13] = ""  # Temperature Term Coefficient
+          input_object.fields[14] = ""  # Velocity Term Coefficient
+          input_object.fields[15] = ""  # Velocity Squared Term Coefficient
           add_object_to_zone(input_object, zone_name)
         end
 
@@ -608,6 +622,10 @@ Do you want to continue?", MB_OKCANCEL)
           input_object.fields[6] = "" # Flow per Zone Floor Area
           input_object.fields[7] = "" # Flow per Exterior Surface Area
           input_object.fields[8] = @value_hash['INFILTRATION_RATE'].round_to(4).to_s  # Air Changes per Hour
+          input_object.fields[9] = "" # Constant Term Coefficient
+          input_object.fields[10] = "" # Temperature Term Coefficient
+          input_object.fields[11] = "" # Velocity Term Coefficient
+          input_object.fields[12] = "" # Velocity Squared Term Coefficient
           add_object_to_zone(input_object, zone_name)
         end
 

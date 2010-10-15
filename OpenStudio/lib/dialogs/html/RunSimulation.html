@@ -111,7 +111,8 @@ function onClickReportABUPS() {
 }
 
 function onClickReportVariable() {
-  if (document.getElementById('REPORT_USER_VARS').checked || document.getElementById('REPORT_ZONE_TEMPS').checked || document.getElementById('REPORT_SURF_TEMPS').checked) {
+  if (document.getElementById('REPORT_USER_VARS').checked || document.getElementById('REPORT_ZONE_TEMPS').checked || document.getElementById('REPORT_SURF_TEMPS').checked || document.getElementById('REPORT_DAYLIGHTING').checked ||
+  document.getElementById('REPORT_ZONE_LOADS').checked) {
     enableElement('REPORT_SQL');
     enableElement('SHOW_CSV');
   }
