@@ -82,16 +82,19 @@ module OpenStudio
       # Defaults to "@show_origin = false" when opening an input file.
       # Set to true when drawing a new zone with the new zone tool.
       if (@show_origin)
-        if (self.origin == Geom::Point3d.new(0,0,0))
-          # SketchUp apparently doesn't like it if you put a ConstructionPoint at the real origin.
-          # It does add the point, but it just never can be made visible, even if it is inside of a Group.
-          # This workaround shifts the origin to draw the Group initially, then shifts it back.
-          origin_point = self.origin + Geom::Vector3d.new(1, 1, 1)
-          translation = Geom::Transformation.translation(Geom::Vector3d.new(-1, -1, -1))
-        else
+      
+# There was warning here that construction point cannot be drawn at 0, 0, 0 but 
+# I have not experienced problems with that in either SU 7 or 8
+#        if (self.origin == Geom::Point3d.new(0,0,0))
+#          # SketchUp apparently doesn't like it if you put a ConstructionPoint at the real origin.
+#          # It does add the point, but it just never can be made visible, even if it is inside of a Group.
+#          # This workaround shifts the origin to draw the Group initially, then shifts it back.
+#          origin_point = self.origin + Geom::Vector3d.new(1, 1, 1)
+#          translation = Geom::Transformation.translation(Geom::Vector3d.new(-1, -1, -1))
+#        else
           origin_point = self.origin
-          translation = Geom::Transformation.new  # Identity transformation
-        end
+#          translation = Geom::Transformation.new  # Identity transformation
+#        end
 
         # WARNING:  From the Edit menu, the Delete Guides option will delete all construction points.
         # If a zone is still empty at that time, the zone will be deleted as well!
@@ -100,7 +103,7 @@ module OpenStudio
         cpoint2 = @entity.entities.add_cpoint(origin_point + Geom::Vector3d.new(5.m, 5.m, 3.m))
         cpoint2.hidden = true
 
-        @entity.transform!(translation)
+#        @entity.transform!(translation)
       end
 
 
