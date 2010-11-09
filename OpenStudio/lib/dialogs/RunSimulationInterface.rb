@@ -157,8 +157,10 @@ module OpenStudio
       run_period.fields[5] = @hash['END_DATE']
       run_period.fields[6] = @hash['START_DAY']
       
+      # DLM@20101109: this fix removes a warning in the E+ error file but introduces a fatal error
+      # when the last field of the run period object is blank
       # fill in fields to required length
-      (7..11).each {|i| run_period.fields[i] = "" if not run_period.fields[i]}
+      #(7..11).each {|i| run_period.fields[i] = "" if not run_period.fields[i]}
       
       return(true)
     end
