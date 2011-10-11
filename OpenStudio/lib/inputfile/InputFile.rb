@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2011, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
 require("OpenStudio/lib/Collection")
@@ -417,9 +417,9 @@ module OpenStudio
           idf_version_string = object.fields[1].to_s
           if not idf_version_string.match(/\d+\.\d+\.\d+/)
             if idf_version_string.match(/\d+\.\d+/)
-              idf_version_string += ".0"   # if version string = 6.0
+              idf_version_string += ".0"   # if version string = 7.0
             else
-              idf_version_string += ".0.0" # if version string = 6
+              idf_version_string += ".0.0" # if version string = 7
             end
           end
 

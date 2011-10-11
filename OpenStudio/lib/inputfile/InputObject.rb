@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2010, Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2011, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
 require("OpenStudio/lib/inputfile/DataDictionary")
