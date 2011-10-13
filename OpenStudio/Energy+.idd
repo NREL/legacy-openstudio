@@ -1,4 +1,4 @@
-!IDD_Version 7.0.0.023
+!IDD_Version 7.0.0.024
 ! **************************************************************************
 ! This file is the Input Data Dictionary (IDD) for EnergyPlus.
 ! The IDD defines the syntax and data model for each type of input "Object."
@@ -3828,7 +3828,7 @@ Material:RoofVegetation,
   N1 ,\field Height of Plants
       \type real
       \note The ecoroof module is designed for short plants and shrubs.
-      \minimum> 0.01
+      \minimum> 0.005
       \maximum  1.0
       \units m
       \default .2
@@ -3845,8 +3845,8 @@ Material:RoofVegetation,
       \type real
       \units dimensionless
       \note Leaf reflectivity (albedo) is typically 0.18-0.25
-      \maximum 0.4
-      \minimum 0.1
+      \maximum 0.5
+      \minimum 0.05
       \default 0.22
   N4 ,\field Leaf Emissivity
       \required-field
@@ -3863,7 +3863,7 @@ Material:RoofVegetation,
       \type real
   A2 ,\field Soil Layer Name
       \type alpha
-      \default Ecoroof Soil
+      \default Green Roof Soil
   A3 ,\field Roughness
       \required-field
       \type choice
@@ -3880,7 +3880,7 @@ Material:RoofVegetation,
       \units m
       \type real
       \note Soil depths of 0.15m (6in) and 0.30m (12in) are common.
-      \default 0.15
+      \default 0.1
       \minimum> 0.05
       \maximum 0.7
       \ip-units in
@@ -3890,7 +3890,7 @@ Material:RoofVegetation,
       \type real
       \note Thermal conductivity of dry soil.
       \note Typical ecoroof soils range from 0.3 to 0.5
-      \default 0.4
+      \default 0.35
       \minimum  0.2
       \maximum 1.5
   N8 ,\field Density of Dry Soil
@@ -3901,7 +3901,7 @@ Material:RoofVegetation,
       \type real
       \minimum 300
       \maximum 2000
-      \default 500
+      \default 1100
   N9 ,\field Specific Heat of Dry Soil
       \required-field
       \units J/kg-K
@@ -3909,7 +3909,7 @@ Material:RoofVegetation,
       \note Specific heat of dry soil
       \minimum> 500
       \maximum 2000
-      \default 1000
+      \default 1200
   N10,\field Thermal Absorptance
       \type real
       \note Soil emissivity is typically in range of 0.90 to 0.98
@@ -3932,8 +3932,8 @@ Material:RoofVegetation,
       \type real
       \note Maximum moisture content is typically less than 0.5
       \minimum> 0.1
-      \maximum 1.0
-      \default 0.5
+      \maximum 0.5
+      \default 0.3
   N14,\field Residual Volumetric Moisture Content of the Soil Layer
       \type real
       \minimum  0.01
@@ -3941,11 +3941,11 @@ Material:RoofVegetation,
       \default 0.01
   N15,\field Initial Volumetric Moisture Content of the Soil Layer
       \type real
-      \minimum> 0.1
-      \maximum  1.0
-      \default 0.15
+      \minimum> 0.05
+      \maximum  0.5
+      \default 0.1
   A4; \field Moisture Diffusion Calculation Method
-      \note Advanced calculation requires increased number of timesteps (recommended 12).
+      \note Advanced calculation requires increased number of timesteps (recommended >20).
       \type choice
       \key Simple
       \key Advanced
@@ -25970,6 +25970,7 @@ ZoneHVAC:UnitHeater,
 
 
 ZoneHVAC:OutdoorAirUnit,
+      \min-fields 18
    A1, \field Name
        \required-field
    A2, \field Availability Schedule Name
@@ -26009,6 +26010,7 @@ ZoneHVAC:OutdoorAirUnit,
        \object-list FansCVandVAV
    N2, \field Exhaust Air Flow Rate
        \units m3/s
+       \autosizable
    A8, \field Exhaust Air Schedule Name
        \type object-list
        \object-list ScheduleNames
@@ -26039,7 +26041,6 @@ ZoneHVAC:OutdoorAirUnit,
        \required-field
        \type node
   A14, \field AirInlet Node Name
-       \required-field
        \type node
        \note air leaves zone
   A15, \field Supply FanOutlet Node Name
@@ -26252,23 +26253,23 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
         \note If this field is blank, and outside air mixer is not used.
   A11,  \field Cooling Coil Object Type
         \type choice
-        \key COIL:Cooling:DX:VariableRefrigerantFlow
-        \note Cooling Coil Type must be COIL:CoolingDX:VariableRefrigerantFlow
+        \key Coil:Cooling:DX:VariableRefrigerantFlow
+        \note Cooling Coil Type must be Coil:CoolingDX:VariableRefrigerantFlow
         \note This field may be left blank if heating-only mode is used
   A12,  \field Cooling Coil Object Name
         \type object-list
         \object-list CoolingCoilsDXVarRefrigFlow
-        \note Cooling Coil Type must be COIL:CoolingDX:VariableRefrigerantFlow
+        \note Cooling Coil Type must be Coil:CoolingDX:VariableRefrigerantFlow
         \note This field may be left blank if heating-only mode is used
   A13,  \field Heating Coil Object Type
         \type choice
-        \key COIL:Heating:DX:VariableRefrigerantFlow
-        \note Heating Coil Type must be COIL:Heating:DX:VariableRefrigerantFlow
+        \key Coil:Heating:DX:VariableRefrigerantFlow
+        \note Heating Coil Type must be Coil:Heating:DX:VariableRefrigerantFlow
         \note This field may be left blank if cooling-only mode is used
   A14,  \field Heating Coil Object Name
         \type object-list
         \object-list HeatingCoilsDXVarRefrigFlow
-        \note Heating Coil Type must be COIL:Heating:DX:VariableRefrigerantFlow
+        \note Heating Coil Type must be Coil:Heating:DX:VariableRefrigerantFlow
         \note This field may be left blank if cooling-only mode is used
   N8 ,  \field Zone Terminal Unit On Parasitic Electric Energy Use
         \type real
@@ -45025,8 +45026,10 @@ Chiller:Absorption:Indirect,
        \key HotWater
        \key Steam
        \default Steam
-       \note This field should be specified as steam or left blank if generator inlet/outlet nodes
-       \note are not used.
+       \note The Generator side of the chiller can be connected to a hot water or steam plant where the
+       \note generator inlet and outlet nodes are connected to a plant loop. If the generator is not
+       \note connected to a plant loop, and the generator inlet/outlet nodes are not used, this field should be
+       \note specified as steam or left blank. When a plant is not used, the model assumes steam as the heat source.
   N11, \field Design Generator Fluid Flow Rate
        \type real
        \units m3/s
@@ -45114,9 +45117,9 @@ Chiller:Absorption,
        \autosizable
        \minimum> 0.0
        \ip-units gal/min
-  N9 , \field Coefficient 1 of the Steam Use Part Load Ratio Curve
-  N10, \field Coefficient 2 of the Steam Use Part Load Ratio Curve
-  N11, \field Coefficient 3 of the Steam Use Part Load Ratio Curve
+  N9 , \field Coefficient 1 of the Hot Water or Steam Use Part Load Ratio Curve
+  N10, \field Coefficient 2 of the Hot Water or Steam Use Part Load Ratio Curve
+  N11, \field Coefficient 3 of the Hot Water or Steam Use Part Load Ratio Curve
   N12, \field Coefficient 1 of the Pump Electric Use Part Load Ratio Curve
        \note  The pump electric use coefficients specify the
        \note  pumping power as a Fraction of Nominal pumping power
@@ -45134,12 +45137,15 @@ Chiller:Absorption,
        \key ConstantFlow
        \key VariableFlow
        \default VariableFlow
-  A9 , \field Generator Fluid Type
+  A9 , \field Generator Heat Source Type
        \type choice
        \key Steam
        \key HotWater
        \default Steam
-       \note This field should be specified as Steam or left blank if generator inlet/outlet nodes are not used.
+       \note The Generator side of the chiller can be connected to a hot water or steam plant where the
+       \note generator inlet and outlet nodes are connected to a plant loop. If the generator is not
+       \note connected to a plant loop, and the generator inlet/outlet nodes are not used, this field should be
+       \note specified as steam or left blank. When a plant is not used, the model assumes steam as the heat source.
   N16, \field Design Generator Fluid Flow Rate
        \type real
        \autosizable
@@ -65683,6 +65689,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -65764,6 +65771,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -65845,6 +65853,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -65926,6 +65935,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66007,6 +66017,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66088,6 +66099,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66169,6 +66181,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66250,6 +66263,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66331,6 +66345,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66412,6 +66427,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66493,6 +66509,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66574,6 +66591,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66655,6 +66673,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66736,6 +66755,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary
@@ -66817,6 +66837,7 @@ Output:Table:SummaryReports,
        \key AnnualBuildingUtilityPerformanceSummary
        \key InputVerificationandResultsSummary
        \key DemandEndUseComponentsSummary
+       \key SourceEnergyEndUseComponentsSummary
        \key ClimaticDataSummary
        \key EquipmentSummary
        \key EnvelopeSummary

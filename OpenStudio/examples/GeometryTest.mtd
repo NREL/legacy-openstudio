@@ -181,52 +181,52 @@
   OnMeter=Cooling:EnergyTransfer [J]
   OnMeter=Cooling:EnergyTransfer:Zone:RIGHT FORK [J]
 
- Meters for 1572,PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+ Meters for 1572,PSI FOYER PURCHASED AIR:Ideal Loads Total Heating Energy [J]
   OnMeter=DistrictHeating:Facility [J]
   OnMeter=DistrictHeating:HVAC [J]
   OnMeter=Heating:DistrictHeating [J]
 
- Meters for 1603,PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+ Meters for 1603,PSI FOYER PURCHASED AIR:Ideal Loads Total Cooling Energy [J]
   OnMeter=DistrictCooling:Facility [J]
   OnMeter=DistrictCooling:HVAC [J]
   OnMeter=Cooling:DistrictCooling [J]
 
- Meters for 1634,DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+ Meters for 1634,DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Heating Energy [J]
   OnMeter=DistrictHeating:Facility [J]
   OnMeter=DistrictHeating:HVAC [J]
   OnMeter=Heating:DistrictHeating [J]
 
- Meters for 1635,DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+ Meters for 1635,DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Cooling Energy [J]
   OnMeter=DistrictCooling:Facility [J]
   OnMeter=DistrictCooling:HVAC [J]
   OnMeter=Cooling:DistrictCooling [J]
 
- Meters for 1636,LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+ Meters for 1636,LEFT FORK PURCHASED AIR:Ideal Loads Total Heating Energy [J]
   OnMeter=DistrictHeating:Facility [J]
   OnMeter=DistrictHeating:HVAC [J]
   OnMeter=Heating:DistrictHeating [J]
 
- Meters for 1637,LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+ Meters for 1637,LEFT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy [J]
   OnMeter=DistrictCooling:Facility [J]
   OnMeter=DistrictCooling:HVAC [J]
   OnMeter=Cooling:DistrictCooling [J]
 
- Meters for 1638,MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+ Meters for 1638,MIDDLE FORK PURCHASED AIR:Ideal Loads Total Heating Energy [J]
   OnMeter=DistrictHeating:Facility [J]
   OnMeter=DistrictHeating:HVAC [J]
   OnMeter=Heating:DistrictHeating [J]
 
- Meters for 1639,MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+ Meters for 1639,MIDDLE FORK PURCHASED AIR:Ideal Loads Total Cooling Energy [J]
   OnMeter=DistrictCooling:Facility [J]
   OnMeter=DistrictCooling:HVAC [J]
   OnMeter=Cooling:DistrictCooling [J]
 
- Meters for 1640,RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy [J]
+ Meters for 1640,RIGHT FORK PURCHASED AIR:Ideal Loads Total Heating Energy [J]
   OnMeter=DistrictHeating:Facility [J]
   OnMeter=DistrictHeating:HVAC [J]
   OnMeter=Heating:DistrictHeating [J]
 
- Meters for 1641,RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy [J]
+ Meters for 1641,RIGHT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy [J]
   OnMeter=DistrictCooling:Facility [J]
   OnMeter=DistrictCooling:HVAC [J]
   OnMeter=Cooling:DistrictCooling [J]
@@ -499,46 +499,46 @@
   RIGHT FORK:Zone/Sys Sensible Cooling Energy
 
  For Meter=DistrictHeating:Facility [J], ResourceType=DistrictHeating, contents are:
-  PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy
-  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy
-  LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
-  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy
-  RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  PSI FOYER PURCHASED AIR:Ideal Loads Total Heating Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Heating Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Total Heating Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Total Heating Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Total Heating Energy
 
  For Meter=DistrictHeating:HVAC [J], ResourceType=DistrictHeating, Group=HVAC, contents are:
-  PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy
-  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy
-  LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
-  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy
-  RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  PSI FOYER PURCHASED AIR:Ideal Loads Total Heating Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Heating Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Total Heating Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Total Heating Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Total Heating Energy
 
  For Meter=Heating:DistrictHeating [J], ResourceType=DistrictHeating, EndUse=Heating, contents are:
-  PSI FOYER PURCHASED AIR:Ideal Loads Air Heating Energy
-  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Heating Energy
-  LEFT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
-  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Heating Energy
-  RIGHT FORK PURCHASED AIR:Ideal Loads Air Heating Energy
+  PSI FOYER PURCHASED AIR:Ideal Loads Total Heating Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Heating Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Total Heating Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Total Heating Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Total Heating Energy
 
  For Meter=DistrictCooling:Facility [J], ResourceType=DistrictCooling, contents are:
-  PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  PSI FOYER PURCHASED AIR:Ideal Loads Total Cooling Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Cooling Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
 
  For Meter=DistrictCooling:HVAC [J], ResourceType=DistrictCooling, Group=HVAC, contents are:
-  PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  PSI FOYER PURCHASED AIR:Ideal Loads Total Cooling Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Cooling Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
 
  For Meter=Cooling:DistrictCooling [J], ResourceType=DistrictCooling, EndUse=Cooling, contents are:
-  PSI FOYER PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  LEFT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  MIDDLE FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
-  RIGHT FORK PURCHASED AIR:Ideal Loads Air Total Cooling Energy
+  PSI FOYER PURCHASED AIR:Ideal Loads Total Cooling Energy
+  DORM ROOMS AND COMMON AREAS PURCHASED AIR:Ideal Loads Total Cooling Energy
+  LEFT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
+  MIDDLE FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
+  RIGHT FORK PURCHASED AIR:Ideal Loads Total Cooling Energy
 
  For Meter=ElectricityPurchased:Facility [J], ResourceType=ElectricityPurchased, contents are:
   Whole Building:Total Electric Energy Purchased

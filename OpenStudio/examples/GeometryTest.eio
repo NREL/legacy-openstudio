@@ -1,6 +1,6 @@
-Program Version,EnergyPlus, Windows, VERSION 6.0.0.015
+Program Version,EnergyPlus, Windows, VERSION 7.0.0.---, YMD=2011.10.13 14:45
 ! <Version>, Version ID
- Version, 6.0
+ Version, 7.0
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
  Timesteps per Hour,  4, 15
 ! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations
@@ -14,7 +14,7 @@ Program Version,EnergyPlus, Windows, VERSION 6.0.0.015
 ! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
  Site:GroundTemperature:FCfactorMethod,  -1.00,  -1.97,  -0.24,   2.47,   9.55,  15.02,  18.71,  19.83,  17.92,  13.68,   8.00,   2.74
 ! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
- Site:GroundTemperature:Shallow,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
 ! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
  Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
 ! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
@@ -29,34 +29,6 @@ Program Version,EnergyPlus, Windows, VERSION 6.0.0.015
 Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
 ! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
 Site:Location,COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,38.82,-104.72,-7.00,1881.00,80677,0.9589
-! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days
- Building Information, PSI HOUSE DORM AND OFFICES,  36.870,Suburbs,   0.04000,   0.40000,FullInteriorAndExterior,25
-! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
-Inside Convection Algorithm,TARP
-! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
-Outside Convection Algorithm,DOE-2
-! <Solution Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CONDFD - ConductionFiniteDifference | CONDFDSimple - Conduction Finite Difference Simplified | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}
-Solution Algorithm, CTF - Conduction Transfer Function,200
-! <Sky Radiance Distribution>, Value {Anisotropic}
-Sky Radiance Distribution,Anisotropic
-! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
- Zone Air Solution Algorithm, ThirdOrderBackwardDifference
-! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
- Zone Air Contaminant Balance Simulation, No,N/A
-! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
-Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
-! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
- Surface Geometry,UpperLeftCorner,Counterclockwise,WorldCoordinateSystem,WorldCoordinateSystem,RelativeToZoneOrigin
-! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
- Shading Summary,0,0,0
-! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
- Zone Summary,5,80,44
-! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
- Zone Information, PSI FOYER,0.0,0.00,0.00,0.00,8.56,-1.80,2.27,1,1,1,0.00,16.34,-9.51,4.88,0.00,6.10,3.81,368.12,TARP,DOE-2,96.62,70.61,70.61,106.84,6,1,0,Yes
- Zone Information, DORM ROOMS AND COMMON AREAS,0.0,0.00,6.10,0.00,18.35,11.26,3.05,1,1,1,3.57,31.70,-4.75,25.36,0.00,6.10,6.10,2723.33,TARP,DOE-2,445.93,312.15,267.56,52.59,10,22,0,Yes
- Zone Information, LEFT FORK,-36.9,0.00,31.70,0.00,22.07,31.46,3.05,1,1,1,19.02,25.12,25.36,37.55,0.00,6.10,6.10,453.07,TARP,DOE-2,74.32,185.81,135.64,50.17,6,10,0,Yes
- Zone Information, MIDDLE FORK,0.0,4.88,35.36,0.00,31.21,28.41,3.05,1,1,1,25.12,37.31,21.70,35.11,0.00,6.10,6.10,453.07,TARP,DOE-2,74.32,185.81,155.71,30.10,6,1,0,Yes
- Zone Information, RIGHT FORK,36.9,10.97,35.36,0.00,36.70,20.48,3.05,1,1,1,29.99,43.40,15.85,25.12,0.00,6.10,6.10,453.07,TARP,DOE-2,74.32,185.81,135.64,50.17,6,10,0,Yes
 ! Schedule Details Report=Hourly =====================
 ! <ScheduleType>,Name,Limited? {Yes/No},Minimum,Maximum,Continuous? {Yes/No - Discrete}
 ! <DaySchedule>,Name,ScheduleType,Interpolated {Yes/No},Time (HH:MM) =>,01:00,02:00,03:00,04:00,05:00,06:00,07:00,08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00,23:00,24:00
@@ -66,36 +38,36 @@ ScheduleTypeLimits,ANY NUMBER,No,N/A,N/A,N/A
 ScheduleTypeLimits,FRACTION,Yes,0.00,1.00,Yes
 ScheduleTypeLimits,TEMPERATURE,Yes,-100.00,200.00,Yes
 ScheduleTypeLimits,CONTROLTYPE,Yes,0,4,No
-DaySchedule,ACTIVITY SCH_dy_1,ANY NUMBER,No,Values:,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,
-DaySchedule,WORK EFF SCH_dy_1,ANY NUMBER,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-DaySchedule,CLOTHING SCH_dy_1,ANY NUMBER,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,
-DaySchedule,AIR VELO SCH_dy_1,ANY NUMBER,No,Values:,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,
-DaySchedule,RESIDENCE LIGHTING_dy_1,FRACTION,No,Values:,0.10,0.10,0.10,0.10,0.10,0.10,0.20,0.20,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.20,0.50,0.50,1.00,1.00,1.00,0.50,0.30,
-DaySchedule,RESIDENCE LIGHTING_dy_2,FRACTION,No,Values:,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.50,0.50,1.00,1.00,1.00,1.00,0.50,0.30,
-DaySchedule,GAS EQ SCH_dy_1,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,
-DaySchedule,GAS EQ SCH_dy_2,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-DaySchedule,GAS EQ SCH_dy_3,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,
-DaySchedule,INFILTRATION SCH_dy_1,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-DaySchedule,INFILTRATION SCH_dy_2,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,
-DaySchedule,INFILTRATION SCH_dy_3,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-DaySchedule,RESIDENCE OCCUPANCY_dy_1,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.50,0.30,0.30,0.30,0.30,0.30,0.30,0.30,0.40,0.70,1.00,1.00,1.00,1.00,1.00,1.00,1.00,
-DaySchedule,RESIDENCE OCCUPANCY_dy_2,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.30,0.30,0.30,0.30,0.30,0.30,0.30,0.70,0.70,0.70,0.30,0.30,0.30,0.70,1.00,
-DaySchedule,RESIDENCE EQUIPMENT_dy_1,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,1.00,0.90,0.80,0.30,0.30,0.30,0.30,0.30,0.30,0.70,0.70,0.70,0.50,0.50,0.50,0.00,0.00,
-DaySchedule,OFFICE LIGHTING_dy_1,FRACTION,No,Values:,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,0.20,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.50,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,
-DaySchedule,OFFICE LIGHTING_dy_2,FRACTION,No,Values:,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,
-DaySchedule,OFFICE OCCUPANCY_dy_1,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.10,0.50,1.00,1.00,1.00,1.00,0.50,1.00,1.00,1.00,0.50,0.10,0.00,0.00,0.00,0.00,0.00,0.00,
-DaySchedule,OFFICE OCCUPANCY_dy_2,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-DaySchedule,ZONE CONTROL TYPE SCHEDULE_dy_1,CONTROLTYPE,No,Values:,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,
-DaySchedule,PSI FOYER HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,
-DaySchedule,PSI FOYER COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,
-DaySchedule,DORM ROOMS AND COMMON AREAS HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,
-DaySchedule,DORM ROOMS AND COMMON AREAS COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,
-DaySchedule,LEFT FORK HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,
-DaySchedule,LEFT FORK COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,
-DaySchedule,MIDDLE FORK HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,
-DaySchedule,MIDDLE FORK COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,
-DaySchedule,RIGHT FORK HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,
-DaySchedule,RIGHT FORK COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,
+DaySchedule,ACTIVITY SCH_dy_1,ANY NUMBER,No,Values:,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79,131.79
+DaySchedule,WORK EFF SCH_dy_1,ANY NUMBER,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+DaySchedule,CLOTHING SCH_dy_1,ANY NUMBER,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DaySchedule,AIR VELO SCH_dy_1,ANY NUMBER,No,Values:,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14,0.14
+DaySchedule,RESIDENCE LIGHTING_dy_1,FRACTION,No,Values:,0.10,0.10,0.10,0.10,0.10,0.10,0.20,0.20,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.20,0.50,0.50,1.00,1.00,1.00,0.50,0.30
+DaySchedule,RESIDENCE LIGHTING_dy_2,FRACTION,No,Values:,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.10,0.50,0.50,1.00,1.00,1.00,1.00,0.50,0.30
+DaySchedule,GAS EQ SCH_dy_1,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DaySchedule,GAS EQ SCH_dy_2,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+DaySchedule,GAS EQ SCH_dy_3,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DaySchedule,INFILTRATION SCH_dy_1,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+DaySchedule,INFILTRATION SCH_dy_2,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DaySchedule,INFILTRATION SCH_dy_3,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+DaySchedule,RESIDENCE OCCUPANCY_dy_1,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.50,0.30,0.30,0.30,0.30,0.30,0.30,0.30,0.40,0.70,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+DaySchedule,RESIDENCE OCCUPANCY_dy_2,FRACTION,No,Values:,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.30,0.30,0.30,0.30,0.30,0.30,0.30,0.70,0.70,0.70,0.30,0.30,0.30,0.70,1.00
+DaySchedule,RESIDENCE EQUIPMENT_dy_1,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,1.00,0.90,0.80,0.30,0.30,0.30,0.30,0.30,0.30,0.70,0.70,0.70,0.50,0.50,0.50,0.00,0.00
+DaySchedule,OFFICE LIGHTING_dy_1,FRACTION,No,Values:,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,0.20,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.50,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002
+DaySchedule,OFFICE LIGHTING_dy_2,FRACTION,No,Values:,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002,5.00E-002
+DaySchedule,OFFICE OCCUPANCY_dy_1,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.10,0.50,1.00,1.00,1.00,1.00,0.50,1.00,1.00,1.00,0.50,0.10,0.00,0.00,0.00,0.00,0.00,0.00
+DaySchedule,OFFICE OCCUPANCY_dy_2,FRACTION,No,Values:,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+DaySchedule,ZONE CONTROL TYPE SCHEDULE_dy_1,CONTROLTYPE,No,Values:,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00,4.00
+DaySchedule,PSI FOYER HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00
+DaySchedule,PSI FOYER COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60
+DaySchedule,DORM ROOMS AND COMMON AREAS HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00
+DaySchedule,DORM ROOMS AND COMMON AREAS COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60
+DaySchedule,LEFT FORK HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00
+DaySchedule,LEFT FORK COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60
+DaySchedule,MIDDLE FORK HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00
+DaySchedule,MIDDLE FORK COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60
+DaySchedule,RIGHT FORK HEATING SETPOINTS_dy_1,TEMPERATURE,No,Values:,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00,20.00
+DaySchedule,RIGHT FORK COOLING SETPOINTS_dy_1,TEMPERATURE,No,Values:,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60,25.60
 Schedule:Week:Daily,ACTIVITY SCH_wk_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1,ACTIVITY SCH_dy_1
 Schedule:Week:Daily,WORK EFF SCH_wk_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1,WORK EFF SCH_dy_1
 Schedule:Week:Daily,CLOTHING SCH_wk_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1,CLOTHING SCH_dy_1
@@ -144,6 +116,34 @@ Schedule,MIDDLE FORK HEATING SETPOINTS,TEMPERATURE,Through Dec 31,MIDDLE FORK HE
 Schedule,MIDDLE FORK COOLING SETPOINTS,TEMPERATURE,Through Dec 31,MIDDLE FORK COOLING SETPOINTS_wk_1
 Schedule,RIGHT FORK HEATING SETPOINTS,TEMPERATURE,Through Dec 31,RIGHT FORK HEATING SETPOINTS_wk_1
 Schedule,RIGHT FORK COOLING SETPOINTS,TEMPERATURE,Through Dec 31,RIGHT FORK COOLING SETPOINTS_wk_1
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information, PSI HOUSE DORM AND OFFICES,  36.870,Suburbs,   0.04000,   0.40000,FullInteriorAndExterior,   25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Solution Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CONDFD - ConductionFiniteDifference | CONDFDSimple - Conduction Finite Difference Simplified | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}
+Solution Algorithm, CTF - Conduction Transfer Function,200
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,WorldCoordinateSystem,WorldCoordinateSystem,RelativeToZoneOrigin
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,5,80,44
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, PSI FOYER,0.0,0.00,0.00,0.00,8.56,-1.80,2.27,1,1,1,0.00,16.34,-9.51,4.88,0.00,6.10,3.81,368.12,TARP,DOE-2,96.62,70.61,70.61,106.84,6,1,0,Yes
+ Zone Information, DORM ROOMS AND COMMON AREAS,0.0,0.00,6.10,0.00,18.35,11.26,3.05,1,1,1,3.57,31.70,-4.75,25.36,0.00,6.10,6.10,2723.33,TARP,DOE-2,445.93,312.15,267.56,52.59,10,22,0,Yes
+ Zone Information, LEFT FORK,-36.9,0.00,31.70,0.00,22.07,31.46,3.05,1,1,1,19.02,25.12,25.36,37.55,0.00,6.10,6.10,453.07,TARP,DOE-2,74.32,185.81,135.64,50.17,6,10,0,Yes
+ Zone Information, MIDDLE FORK,0.0,4.88,35.36,0.00,31.21,28.41,3.05,1,1,1,25.12,37.31,21.70,35.11,0.00,6.10,6.10,453.07,TARP,DOE-2,74.32,185.81,155.71,30.10,6,1,0,Yes
+ Zone Information, RIGHT FORK,36.9,10.97,35.36,0.00,36.70,20.48,3.05,1,1,1,29.99,43.40,15.85,25.12,0.00,6.10,6.10,453.07,TARP,DOE-2,74.32,185.81,135.64,50.17,6,10,0,Yes
 ! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
  Zone Internal Gains, PSI FOYER,96.62,0.0,N/A,0.000,5.365,0.000,60.625,0.000,0.000,0.000,65.990,No
  Zone Internal Gains, DORM ROOMS AND COMMON AREAS,445.93,31.0,14.385,6.952E-002,2.798,20.655,65.677,0.000,0.000,0.000,89.130,No
@@ -181,17 +181,17 @@ Schedule,RIGHT FORK COOLING SETPOINTS,TEMPERATURE,Through Dec 31,RIGHT FORK COOL
  Material:Air,B1 - AIRSPACE RESISTANCE,  0.1604    
  Material,C3 - 4 IN HW CONCRETE BLOCK,  0.1015,         0.813,    977.126,      836.800,  0.1249    
  Material,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
- CTF,  10,      0.13773677E-11,      0.31195561E-13,      0.62439799E-10,     -0.37482416E-14
- CTF,   9,     -0.32803341E-08,      0.29957949E-10,     -0.60855599E-07,      0.10196194E-10
- CTF,   8,      0.23798944E-05,      0.21201409E-07,      0.21649372E-04,     -0.88463064E-08
- CTF,   7,     -0.58681840E-03,      0.38118136E-05,     -0.26539194E-02,      0.25879182E-05
- CTF,   6,      0.46201320E-01,      0.18871233E-03,      0.12095718    ,     -0.26290428E-03
- CTF,   5,      -1.2828327    ,      0.27337519E-02,      -2.1646101    ,      0.91268486E-02
- CTF,   4,       13.603722    ,      0.11919933E-01,       17.065323    ,     -0.12663352    
- CTF,   3,      -62.546625    ,      0.15113688E-01,      -64.276821    ,      0.73877382    
- CTF,   2,       133.27917    ,      0.47388400E-02,       120.00639    ,      -1.9706500    
- CTF,   1,      -130.02411    ,      0.22681116E-03,      -106.88261    ,       2.3359192    
- CTF,   0,       46.959986    ,     -0.66454731E-06,       36.168920    
+ CTF,  10,      0.13798293E-11,      0.37791605E-13,      0.62430365E-10,     -0.37641895E-14
+ CTF,   9,     -0.32803272E-08,      0.29957965E-10,     -0.60855585E-07,      0.10196130E-10
+ CTF,   8,      0.23798937E-05,      0.21201386E-07,      0.21649368E-04,     -0.88463039E-08
+ CTF,   7,     -0.58681830E-03,      0.38118076E-05,     -0.26539191E-02,      0.25879177E-05
+ CTF,   6,      0.46201315E-01,      0.18871248E-03,      0.12095718    ,     -0.26290426E-03
+ CTF,   5,      -1.2828326    ,      0.27337422E-02,      -2.1646101    ,      0.91268483E-02
+ CTF,   4,       13.603722    ,      0.11920058E-01,       17.065323    ,     -0.12663352    
+ CTF,   3,      -62.546623    ,      0.15112973E-01,      -64.276822    ,      0.73877384    
+ CTF,   2,       133.27916    ,      0.47407165E-02,       120.00639    ,      -1.9706501    
+ CTF,   1,      -130.02410    ,      0.22467087E-03,      -106.88261    ,       2.3359192    
+ CTF,   0,       46.959982    ,      0.19329083E-06,       36.168919    
  Construction,INTERIOR,   1,   5,   0.250,      2.807    ,   0.900,   0.900,   0.650,   0.650,Rough
  Material,C7 - 8 IN LW CONCRETE BLOCK,  0.2033,         0.571,    608.702,      836.800,  0.3562    
  CTF,   5,     -0.12331028E-01,      0.86662734E-05,     -0.12331028E-01,      0.49409614E-03
@@ -233,15 +233,15 @@ Schedule,RIGHT FORK COOLING SETPOINTS,TEMPERATURE,Through Dec 31,RIGHT FORK COOL
  CTF,   2,       27.419176    ,      0.44162037    ,       27.419176    ,     -0.21502148    
  CTF,   1,      -56.177701    ,      0.18449270    ,      -56.177701    ,      0.94911355    
  CTF,   0,       33.448926    ,      0.38435925E-02,       33.448926    
-! <WindowConstruction>,Construction Name,#Layers,Roughness,Conductance {W/m2-K},SHGC,SolarTransmittanceNormalIncid,VisibleTransmittanceNormalIncid
+! <WindowConstruction>,Construction Name,#Layers,Roughness,Conductance {W/m2-K},SHGC,Solar Transmittance at Normal Incidence,Visible Transmittance at Normal Incidence
 ! <WindowMaterial:Glazing>, Material Name, Optical Data Type, Spectral Data Set Name, Thickness {m}, Solar Transmittance,Front Solar Reflectance, Back Solar Reflectance, Visible Transmittance, Front Visible Reflectance,Back Visible Reflectance,Infrared Transmittance, Front Thermal Emissivity, Back Thermal Emissivity,Conductivity {W/m-K},Dirt Factor,Solar Diffusing
 ! <WindowMaterial:Gas>,Material Name,GasType,Thickness {m}
  WindowConstruction,DOUBLE PANE HW WINDOW,   3,VerySmooth,   2.673,   0.712,   0.647,   0.647
  WindowMaterial:Glazing,GLASS - CLEAR PLATE 1 / 4 IN,SpectralAverage,,  0.00600,  0.80000,  0.10000,  0.10000,  0.80000,  0.10000,  0.10000,  0.00000,  0.84000,  0.84000,  0.90000,  1.00000,No 
  WindowMaterial:Gas,AIRGAP,Air,  1.250E-02,
  WindowMaterial:Glazing,GLASS - CLEAR PLATE 1 / 4 IN,SpectralAverage,,  0.00600,  0.80000,  0.10000,  0.10000,  0.80000,  0.10000,  0.10000,  0.00000,  0.84000,  0.84000,  0.90000,  1.00000,No 
-! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}
-Shadowing/Sun Position Calculations,20,15000
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
 ! <Daylighting:Illuminance Maps>,#Maps,Style
 Daylighting:Illuminance Maps,1,Comma
 ! <Daylighting:Illuminance Maps:Detail>,Name,Zone,XMin {m},XMax {m},Xinc {m},#X Points,YMin {m},YMax {m},Yinc {m},#Y Points,Z {m}
@@ -259,182 +259,182 @@ Zone/Window Adjacency Daylighting Matrix, LEFT FORK,0,
 Zone/Window Adjacency Daylighting Matrix, MIDDLE FORK,0,
 Zone/Window Adjacency Daylighting Matrix, RIGHT FORK,0,
 ! <Sky Daylight Factors>, MonthAndDay, Zone Name, Window Name, Daylight Fac: Ref Pt #1, Daylight Fac: Ref Pt #2
- Clear Sky Daylight Factors,01/21, PSI FOYER, ZN001:ROOF001:WIN001,  0.5356    ,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, PSI FOYER, ZN001:ROOF001:WIN001,  0.5646    ,   0.000    
- Intermediate Sky Daylight Factors,01/21, PSI FOYER, ZN001:ROOF001:WIN001,  0.5464    ,   0.000    
- Overcast Sky Daylight Factors,01/21, PSI FOYER, ZN001:ROOF001:WIN001,  0.4845    ,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN001,  0.2052E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN001,  0.2344E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN001,  0.1122E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN001,  0.4270E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN002,  0.1236E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN002,  0.1341E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN002,  0.6814E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN002,  0.3035E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN003,  0.4333E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN003,  0.5044E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN003,  0.2423E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN003,  0.8201E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN004,  0.2127E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN004,  0.2269E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN004,  0.1146E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN004,  0.4507E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN005,  0.4882E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN005,  0.5324E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN005,  0.4166E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN005,  0.1747E-02,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN006,  0.2095E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN006,  0.2057E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN006,  0.1394E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN006,  0.6183E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN007,  0.2829E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN007,  0.2728E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN007,  0.3303E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN007,  0.2006E-02,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN008,  0.1208E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN008,  0.1133E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN008,  0.8820E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN008,  0.4924E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN009,  0.1277E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN009,  0.1177E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN009,  0.1328E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN009,  0.1005E-02,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN010,  0.6976E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN010,  0.6838E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN010,  0.5044E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL001:WIN010,  0.3075E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN001,  0.3100E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN001,  0.2585E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN001,  0.2374E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN001,  0.2498E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN002,  0.7748E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN002,  0.6574E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN002,  0.7882E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN002,  0.6687E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN003,  0.4891E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN003,  0.4009E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN003,  0.3406E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN003,  0.3246E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN004,  0.1400E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN004,  0.1141E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN004,  0.1461E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN004,  0.1622E-02,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN005,  0.9360E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN005,  0.7265E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN005,  0.4778E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN005,  0.5073E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN006,  0.5200E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN006,  0.4025E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN006,  0.3013E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN006,  0.4160E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN007,  0.4389E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN007,  0.3403E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN007,  0.2342E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN007,  0.2890E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN008,  0.1007E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN008,  0.7678E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN008,  0.6011E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN008,  0.9314E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN009,  0.7714E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN009,  0.5837E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN009,  0.3359E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN009,  0.4131E-03,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN010,  0.1564E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN010,  0.1216E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN010,  0.1238E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:WALL002:WIN010,  0.1847E-02,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT001,  0.1038E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT001,  0.1082E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT001,  0.1324E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT001,  0.1074E-01,   0.000    
- Clear Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT002,  0.4759E-03,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT002,  0.4769E-03,   0.000    
- Intermediate Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT002,  0.5136E-03,   0.000    
- Overcast Sky Daylight Factors,01/21, DORM ROOMS AND COMMON AREAS, ZN002:ROOF001:SKYLT002,  0.5417E-03,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL002:WIN001,  0.3127E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL002:WIN001,  0.2378E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL002:WIN001,  0.1918E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL002:WIN001,  0.3248E-01,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN001,  0.1587E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN001,  0.1331E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN001,  0.1421E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN001,  0.1953E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN002,  0.2437E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN002,  0.2028E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN002,  0.2597E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN002,  0.4098E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN003,  0.3849E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN003,  0.3265E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN003,  0.5063E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN003,  0.7924E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN004,  0.5411E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN004,  0.4850E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN004,  0.7944E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN004,  0.9731E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN005,  0.1551E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN005,  0.1283E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN005,  0.1023E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN005,  0.1032E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN006,  0.2892E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN006,  0.2302E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN006,  0.1782E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN006,  0.1992E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN007,  0.6039E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN007,  0.4849E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN007,  0.4698E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN007,  0.4984E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN008,  0.8907E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN008,  0.7591E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN008,  0.9111E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN008,  0.7117E-02,   0.000    
- Clear Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN009,  0.9087E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN009,  0.8734E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN009,  0.1144E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, LEFT FORK, ZN003:WALL003:WIN009,  0.7521E-02,   0.000    
- Clear Sky Daylight Factors,01/21, MIDDLE FORK, ZN004:WALL002:WIN001,  0.2975E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, MIDDLE FORK, ZN004:WALL002:WIN001,  0.2323E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, MIDDLE FORK, ZN004:WALL002:WIN001,  0.2230E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, MIDDLE FORK, ZN004:WALL002:WIN001,  0.3216E-01,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN001,  0.2961E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN001,  0.3000E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN001,  0.3050E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN001,  0.2064E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN002,  0.4699E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN002,  0.4736E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN002,  0.5546E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN002,  0.3938E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN003,  0.9003E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN003,  0.9453E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN003,  0.1063E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN003,  0.7252E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN004,  0.1661E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN004,  0.1864E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN004,  0.1659E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN004,  0.9777E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN005,  0.2866E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN005,  0.2931E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN005,  0.2156E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN005,  0.1113E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN006,  0.4787E-02,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN006,  0.4727E-02,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN006,  0.3934E-02,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN006,  0.2007E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN007,  0.1280E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN007,  0.1303E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN007,  0.1062E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN007,  0.4720E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN008,  0.4023E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN008,  0.4584E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN008,  0.2430E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN008,  0.8115E-02,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN009,  0.4263E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN009,  0.5063E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN009,  0.2826E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL001:WIN009,  0.1020E-01,   0.000    
- Clear Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL002:WIN001,  0.3147E-01,   0.000    
- Clear Turbid Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL002:WIN001,  0.2644E-01,   0.000    
- Intermediate Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL002:WIN001,  0.3218E-01,   0.000    
- Overcast Sky Daylight Factors,01/21, RIGHT FORK, ZN005:WALL002:WIN001,  0.3245E-01,   0.000    
+ Clear Sky Daylight Factors,01/21,PSI FOYER,ZN001:ROOF001:WIN001,0.5356,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,PSI FOYER,ZN001:ROOF001:WIN001,0.5646,0.0000
+ Intermediate Sky Daylight Factors,01/21,PSI FOYER,ZN001:ROOF001:WIN001,0.5464,0.0000
+ Overcast Sky Daylight Factors,01/21,PSI FOYER,ZN001:ROOF001:WIN001,0.4845,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN001,2.0524E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN001,2.3442E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN001,1.1222E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN001,4.2697E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN002,1.2362E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN002,1.3406E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN002,6.8142E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN002,3.0351E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN003,4.3331E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN003,5.0437E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN003,2.4234E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN003,8.2015E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN004,2.1271E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN004,2.2687E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN004,1.1459E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN004,4.5073E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN005,4.8817E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN005,5.3237E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN005,4.1664E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN005,1.7466E-003,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN006,2.0952E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN006,2.0574E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN006,1.3939E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN006,6.1828E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN007,2.8293E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN007,2.7277E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN007,3.3032E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN007,2.0058E-003,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN008,1.2079E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN008,1.1333E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN008,8.8203E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN008,4.9243E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN009,1.2766E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN009,1.1774E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN009,1.3279E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN009,1.0048E-003,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN010,6.9764E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN010,6.8376E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN010,5.0443E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL001:WIN010,3.0746E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN001,3.1003E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN001,2.5846E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN001,2.3738E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN001,2.4983E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN002,7.7485E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN002,6.5740E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN002,7.8819E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN002,6.6870E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN003,4.8912E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN003,4.0094E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN003,3.4063E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN003,3.2464E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN004,1.4003E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN004,1.1410E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN004,1.4613E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN004,1.6217E-003,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN005,9.3602E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN005,7.2647E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN005,4.7784E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN005,5.0726E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN006,5.1997E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN006,4.0246E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN006,3.0127E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN006,4.1597E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN007,4.3889E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN007,3.4031E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN007,2.3419E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN007,2.8904E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN008,1.0075E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN008,7.6779E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN008,6.0114E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN008,9.3144E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN009,7.7141E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN009,5.8372E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN009,3.3587E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN009,4.1309E-004,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN010,1.5636E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN010,1.2160E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN010,1.2382E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:WALL002:WIN010,1.8465E-003,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT001,1.0379E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT001,1.0821E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT001,1.3243E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT001,1.0744E-002,0.0000
+ Clear Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT002,4.7586E-004,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT002,4.7691E-004,0.0000
+ Intermediate Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT002,5.1359E-004,0.0000
+ Overcast Sky Daylight Factors,01/21,DORM ROOMS AND COMMON AREAS,ZN002:ROOF001:SKYLT002,5.4171E-004,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL002:WIN001,3.1274E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL002:WIN001,2.3776E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL002:WIN001,1.9178E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL002:WIN001,3.2482E-002,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN001,1.5872E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN001,1.3314E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN001,1.4211E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN001,1.9531E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN002,2.4374E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN002,2.0279E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN002,2.5968E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN002,4.0979E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN003,3.8493E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN003,3.2654E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN003,5.0627E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN003,7.9240E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN004,5.4114E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN004,4.8502E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN004,7.9439E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN004,9.7311E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN005,1.5514E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN005,1.2826E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN005,1.0230E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN005,1.0318E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN006,2.8915E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN006,2.3022E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN006,1.7816E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN006,1.9918E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN007,6.0394E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN007,4.8485E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN007,4.6985E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN007,4.9840E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN008,8.9074E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN008,7.5911E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN008,9.1108E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN008,7.1175E-003,0.0000
+ Clear Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN009,9.0872E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN009,8.7342E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN009,1.1441E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,LEFT FORK,ZN003:WALL003:WIN009,7.5206E-003,0.0000
+ Clear Sky Daylight Factors,01/21,MIDDLE FORK,ZN004:WALL002:WIN001,2.9746E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,MIDDLE FORK,ZN004:WALL002:WIN001,2.3226E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,MIDDLE FORK,ZN004:WALL002:WIN001,2.2304E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,MIDDLE FORK,ZN004:WALL002:WIN001,3.2159E-002,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN001,2.9612E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN001,2.9996E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN001,3.0501E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN001,2.0638E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN002,4.6992E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN002,4.7361E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN002,5.5465E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN002,3.9384E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN003,9.0034E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN003,9.4528E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN003,1.0629E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN003,7.2517E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN004,1.6606E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN004,1.8637E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN004,1.6594E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN004,9.7767E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN005,2.8656E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN005,2.9312E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN005,2.1564E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN005,1.1134E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN006,4.7866E-003,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN006,4.7270E-003,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN006,3.9338E-003,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN006,2.0072E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN007,1.2801E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN007,1.3034E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN007,1.0618E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN007,4.7197E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN008,4.0227E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN008,4.5840E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN008,2.4300E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN008,8.1148E-003,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN009,4.2629E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN009,5.0633E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN009,2.8262E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL001:WIN009,1.0196E-002,0.0000
+ Clear Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL002:WIN001,3.1466E-002,0.0000
+ Clear Turbid Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL002:WIN001,2.6435E-002,0.0000
+ Intermediate Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL002:WIN001,3.2184E-002,0.0000
+ Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL002:WIN001,3.2450E-002,0.0000
 ! <Infiltration Airflow Stats - Nominal>,Name,Schedule Name,Zone Name, Zone Floor Area {m2}, # Zone Occupants,Design Volume Flow Rate {m3/s},Volume Flow Rate/Floor Area {m3/s/m2},Volume Flow Rate/Exterior Surface Area {m3/s/m2},ACH - Air Changes per Hour,Equation A - Constant Term Coefficient {},Equation B - Temperature Term Coefficient {1/C},Equation C - Velocity Term Coefficient {s/m}, Equation D - Velocity Squared Term Coefficient {s2/m2}
  ZoneInfiltration Airflow Stats, PSI FOYER INFIL 1,INFILTRATION SCH,PSI FOYER,96.62,0.0,2.832,2.931E-002,1.480E-002,27.692,0.606,3.636E-002,0.118,0.000
  ZoneInfiltration Airflow Stats, DORM ROOMS AND COMMON AREAS INFIL 1,INFILTRATION SCH,DORM ROOMS AND COMMON AREAS,445.93,31.0,2.832,6.350E-003,3.735E-003,3.743,0.606,3.636E-002,0.118,0.000
@@ -451,9 +451,7 @@ RoomAir Model,MIDDLE FORK,Mixing/Well-Stirred
 RoomAir Model,RIGHT FORK,Mixing/Well-Stirred
 ! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
 AirflowNetwork Model:Control,NoMultizoneOrDistribution
-! <Zone Volume Capacitance Multiplier> , Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, 
-
-Carbon Dioxide Capacity Multiplier 
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier 
 Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000
 ! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
 ! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
@@ -465,13 +463,29 @@ Environment:Daylight Saving,No,SizingPeriod:DesignDay
 ! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
 Environment:Design Day Data,-18.40,0.00,DefaultMultipliers,80677,20,2.8,0.00,No ,No 
 Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
-Environment:WarmupDays,  5
+Environment:WarmupDays,  6
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,7.4014868308E-015,2.9647366676E-014,Pass,Pass,1.3270151701E-003,3.9735184779E-003,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,4.8561768414E-002,0.1017045042,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9413090309E-004,2.0139784448E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,2.4794980883E-015,2.4117378850E-015,Pass,Pass,1.3386642170E-002,7.3152106470E-003,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9615897580E-004,2.0297874786E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 Environment,COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,  1,N/A,N/A,N/A,N/A,N/A,N/A
 Environment:Daylight Saving,No,SizingPeriod:DesignDay
 Environment:Design Day Data,32.10,14.10,DefaultMultipliers,80677,180,5.3,1.00,No ,No 
 Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAEClearSky
-Environment:WarmupDays,  3
+Environment:WarmupDays,  6
+ Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666667,0.1980428327,Pass,Pass,0.1189679225,0.2163385527,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1044022582,0.1487626340,Pass,Pass,0.1219770242,0.4574197783,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1075892940,0.1374251934,Pass,Pass,7.4533385398E-002,0.1889567335,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1097233120,0.1302994131,Pass,Pass,1.8095652200,16.9759520932,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1154745591,0.1498542646,Pass,Pass,8.3787866725E-002,0.2535495489,Pass,Pass
 Environment,COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,WeatherFileRunPeriod,01/01,12/31,Sunday,365,UseWeatherFile,Yes,Yes,No ,Yes,Yes
 Environment:Daylight Saving,No,
-Environment:WarmupDays,  3
+Environment:WarmupDays,  6
+ Warmup Convergence Information,PSI FOYER,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,1.0320165341E-002,3.3324690570E-002,Pass,Pass,6.7783078741E-002,0.1737106490,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.0223515340E-002,9.7491852038E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,2.5276077527E-014,2.9952688763E-014,Pass,Pass,8.1746005138E-002,6.2585051098E-002,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,3.3047638700E-014,3.3461740508E-014,Pass,Pass,2.8551456684E-002,1.7941897356E-002,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,3.5749181393E-014,4.4090440237E-014,Pass,Pass,5.7074197880E-002,5.1509718531E-002,Pass,Pass
 End of Data
