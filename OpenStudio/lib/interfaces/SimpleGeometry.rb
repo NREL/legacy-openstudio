@@ -542,24 +542,75 @@ module OpenStudio
         hash['z1'] = input_object.fields[9].to_f
         hash['length'] = input_object.fields[10].to_f
         hash['height'] = input_object.fields[11].to_f
+        
+      when "FenestrationSurface:Detailed"
+        base_surface = input_object.fields[4]
+        surface_transform = SimpleGeometry.base_surface_transform(base_surface)
 
+        vertices = input_object.fields[11..-1]
+        number_of_vertices = (vertices.size / 3)
+        
+        points = []
+        for i in 0..number_of_vertices-1
+          x = vertices[i*3].to_f
+          y = vertices[i*3 + 1].to_f
+          z = vertices[i*3 + 2].to_f
+          points[i] = Geom::Point3d.new(x, y, z)
+        end
+
+        polygon = Geom::Polygon.new(points)
+        puts "before #{polygon.points}"
+        polygon.transform!(surface_transform.inverse)
+        puts "after #{polygon.points}"
+        
+        xmin = nil
+        xmax = nil
+        ymin = nil
+        ymax = nil
+        polygon.points.each do |point|
+          if xmin.nil?
+            xmin = -point.x
+            xmax = -point.x
+            ymin = -point.y
+            ymax = -point.y
+          else
+            xmin = [xmin, -point.x].min
+            xmax = [xmax, -point.x].max
+            ymin = [ymin, -point.y].min
+            ymax = [ymax, -point.y].max
+          end
+        end
+        
+        xoff = surface_transform.to_a[12]
+        yoff = surface_transform.to_a[13]
+        zoff = surface_transform.to_a[14]
+
+        hash['x1'] = xmin
+        hash['z1'] = ymin
+        hash['length'] = xmax-xmin
+        hash['height'] = ymax-ymin
+        hash['base_surface'] = base_surface
+        
       when "Window", "GlazedDoor"
         hash['x1'] = input_object.fields[7].to_f
         hash['z1'] = input_object.fields[8].to_f
         hash['length'] = input_object.fields[9].to_f
         hash['height'] = input_object.fields[10].to_f
+        hash['base_surface'] = input_object.fields[3]
 
       when "Door"
         hash['x1'] = input_object.fields[5].to_f
         hash['z1'] = input_object.fields[6].to_f
         hash['length'] = input_object.fields[7].to_f
         hash['height'] = input_object.fields[8].to_f
+        hash['base_surface'] = input_object.fields[3]
 
       when "Window:Interzone", "Door:Interzone", "GlazedDoor:Interzone"
         hash['x1'] = input_object.fields[6].to_f
         hash['z1'] = input_object.fields[7].to_f
         hash['length'] = input_object.fields[8].to_f
         hash['height'] = input_object.fields[9].to_f
+        hash['base_surface'] = input_object.fields[3]
 
       when "Shading:Site", "Shading:Building"
         hash['azimuth'] = -input_object.fields[2].to_f.degrees
@@ -583,7 +634,8 @@ module OpenStudio
         hash['below'] = input_object.fields[5].to_f
         hash['tilt'] = input_object.fields[6].to_f.degrees
         hash['depth'] = input_object.fields[7].to_f
-
+      else
+        raise("Unknown class name #{input_object.class_definition.name}")
       end
       return(hash)
     end
@@ -662,7 +714,7 @@ module OpenStudio
           overhang_tilt = Geom::Transformation.rotation(Geom::Point3d.new(0, 0, 0), Geom::Vector3d.new(1, 0, 0), hash['tilt'])
           local_transform = offset_translation * overhang_tilt
 
-          base_surface = sub_surface.fields[3]
+          base_surface = sub_hash['base_surface']
           surface_transform = SimpleGeometry.base_surface_transform(base_surface)
 
           if (base_surface.class == InputObject)
@@ -697,7 +749,7 @@ module OpenStudio
           fin_tilt = Geom::Transformation.rotation(Geom::Point3d.new(0, 0, 0), Geom::Vector3d.new(0, 1, 0), hash['tilt'])
           local_transform = offset_translation * fin_tilt
 
-          base_surface = sub_surface.fields[3]
+          base_surface = sub_hash['base_surface']
           surface_transform = SimpleGeometry.base_surface_transform(base_surface)
 
           if (base_surface.class == InputObject)
@@ -746,6 +798,10 @@ module OpenStudio
               vertices = input_object.fields[10..-1]
             end
             
+            if number_of_vertices == 0 # autocalculate
+              number_of_vertices = (vertices.size / 3)
+            end
+            
             points = []
             for i in 0..number_of_vertices-1
               x = vertices[i*3].to_f
@@ -755,7 +811,7 @@ module OpenStudio
             end
             
             polygon = Geom::Polygon.new(points)
-            
+
             # face axes
             new_z = polygon.normal
 
