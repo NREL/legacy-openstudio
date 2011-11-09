@@ -60,7 +60,6 @@ module OpenStudio
             if (this_bounding_box.intersects?(other_bounding_box))
               #puts "found intersection!"
 
-              #if (Sketchup.read_default("OpenStudio", "Play Sounds") == 'true')
               if (Plugin.read_pref("Play Sounds"))
                 UI.play_sound(Plugin.dir + "lib/resources/pop.wav")
               end

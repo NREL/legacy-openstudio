@@ -562,7 +562,7 @@ module OpenStudio
 
       # Add the EnergyPlus command toolbar
 
-      @command_toolbar = UI::Toolbar.new("OpenStudio")  # Commands")
+      @command_toolbar = UI::Toolbar.new(Plugin.name)  # + " Commands")
       @command_toolbar.add_item(@new_cmd)
       @command_toolbar.add_item(@open_cmd)
       @command_toolbar.add_item(@save_cmd)
@@ -592,7 +592,7 @@ module OpenStudio
 
       # Add the EnergyPlus Rendering toolbar
       
-      @rendering_toolbar = UI::Toolbar.new("OpenStudio Rendering")
+      @rendering_toolbar = UI::Toolbar.new(Plugin.name + " Rendering")
       @rendering_toolbar.add_item(@hide_rest_cmd)
       @rendering_toolbar.add_item(@hidden_geom_cmd)
       @rendering_toolbar.add_item(@xray_cmd)
@@ -609,7 +609,7 @@ module OpenStudio
 
       # Add the EnergyPlus Animation toolbar
 
-      #@animation_toolbar = UI::Toolbar.new("OpenStudio Animation")
+      #@animation_toolbar = UI::Toolbar.new(Plugin.name + " Animation")
       @rendering_toolbar.add_separator
       @rendering_toolbar.add_item(@anim_settings_cmd)
       @rendering_toolbar.add_item(@rwd_to_start_cmd)
