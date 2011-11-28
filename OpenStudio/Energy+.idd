@@ -1,4 +1,4 @@
-!IDD_Version 7.0.0.024
+!IDD_Version 7.0.0.036
 ! **************************************************************************
 ! This file is the Input Data Dictionary (IDD) for EnergyPlus.
 ! The IDD defines the syntax and data model for each type of input "Object."
@@ -342,7 +342,7 @@ Version,
       \format singleLine
   A1 ; \field Version Identifier
       \required-field
-      \default 5.0
+      \default 7.0
 
 SimulationControl,
       \unique-object
@@ -540,7 +540,7 @@ HeatBalanceAlgorithm,
   N2 , \field Minimum Surface Convection Heat Transfer Coefficient Value
        \units W/m2-K
        \default 0.1
-       \minimum 1.0E-8
+       \minimum> 0.0
   N3 ; \field Maximum Surface Convection Heat Transfer Coefficient Value
        \units W/m2-K
        \default 1000
@@ -644,10 +644,23 @@ ConvergenceLimits,
        \note setting greater than zone timestep (in minutes) will effectively set to zone timestep
        \minimum 0
        \maximum 60
-  N2 ; \field Maximum HVAC Iterations
+  N2 , \field Maximum HVAC Iterations
        \type integer
        \default 20
        \minimum 1
+  N3 , \field Minimum Plant Iterations
+       \note Controls the minimum number of plant system solver iterations within a single HVAC iteration
+       \note Larger values will increase runtime but might improve solution accuracy for complicated plant systems
+       \note Complex plants include: several interconnected loops, heat recovery, thermal load following generators, etc.
+       \type integer
+       \default 2
+       \minimum 1
+  N4 ; \field Maximum Plant Iterations
+       \note Controls the maximum number of plant system solver iterations within a single HVAC iteration
+       \note Smaller values might decrease runtime but could decrease solution accuracy for complicated plant systems
+       \type integer
+       \default 8
+       \minimum 2
 
 \group Compliance Objects
 
@@ -14576,6 +14589,8 @@ SurfaceProperty:ConvectionCoefficients,
       \memo for windows, the interior convection coefficient must be >.28,
       \memo for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1
       \memo for TARP interior convection, the lower limit is also .1
+      \memo Minimum and maximum limits are set in HeatBalanceAlgorithm object.
+      \memo Defaults in HeatBalanceAlgorithm object are [.1,1000].
   A1, \field Surface Name
       \required-field
       \type object-list
@@ -14632,10 +14647,12 @@ SurfaceProperty:ConvectionCoefficients,
       \key EmmelRoof
       \key ClearRoof
   N1, \field Convection Coefficient 1
-      \note used if Convection Type=Value, then minimum must be > 0.0, Maximum <= 20000.
+      \note used if Convection Type=Value, min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \units W/m2-K
   A4, \field Convection Coefficient 1 Schedule Name
-      \note used if Convection Type=Schedule
+      \note used if Convection Type=Schedule,  min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \type object-list
       \object-list ScheduleNames
   A5, \field Convection Coefficient 1 User Curve Name
@@ -14692,11 +14709,13 @@ SurfaceProperty:ConvectionCoefficients,
       \key EmmelRoof
       \key ClearRoof
   N2, \field Convection Coefficient 2
-      \note used if Convection Type=Value, then minimum must be > 0.0, Maximum <= 20000.
+      \note used if Convection Type=Value, min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \default .1
       \units W/m2-K
   A8, \field Convection Coefficient 2 Schedule Name
-      \note used if Convection Type=Schedule
+      \note used if Convection Type=Schedule,  min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \type object-list
       \object-list ScheduleNames
   A9; \field Convection Coefficient 2 User Curve Name
@@ -14710,6 +14729,8 @@ SurfaceProperty:ConvectionCoefficients:MultipleSurface,
       \memo for windows, the interior convection coefficient must be >.28,
       \memo for trombe wall algorithm selection (zone), the interior convection coefficient must be >.1
       \memo for TARP interior convection, the lower limit is also .1
+      \memo Minimum and maximum limits are set in HeatBalanceAlgorithm object.
+      \memo Defaults in HeatBalanceAlgorithm object are [.1,1000].
   A1, \field Surface Type
       \required-field
       \type choice
@@ -14776,10 +14797,12 @@ SurfaceProperty:ConvectionCoefficients:MultipleSurface,
       \key ClearRoof
       \key UserCurve
   N1, \field Convection Coefficient 1
-      \note used if Convection Value Type=value, then minimum must be > 0.0, Maximum <= 20000.
+      \note used if Convection Type=Value, min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \units W/m2-K
   A4, \field Convection Coefficient 1 Schedule Name
-      \note used if Convection Coefficient Type=Schedule
+      \note used if Convection Type=Schedule,  min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \type object-list
       \object-list ScheduleNames
   A5, \field Convection Coefficient 1 User Curve Name
@@ -14838,13 +14861,15 @@ SurfaceProperty:ConvectionCoefficients:MultipleSurface,
       \key ClearRoof
       \key UserCurve
   N2, \field Convection Coefficient 2
-      \note used if Convection Value Type=value, then minimum must be > 0.0, maximum <= 20000.
+      \note used if Convection Type=Value, min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
       \default .1
       \units W/m2-K
   A8, \field Convection Coefficient 2 Schedule Name
-       \note used if Convection Coefficient Type=Schedule
-       \type object-list
-       \object-list ScheduleNames
+      \note used if Convection Type=Schedule,  min and max limits are set in HeatBalanceAlgorithm object.
+      \note Default limits are Minimum >= 0.1 and Maximum <= 1000
+      \type object-list
+      \object-list ScheduleNames
   A9; \field Convection Coefficient 2 User Curve Name
       \note used if Convection Type = UserCurve
       \type object-list
@@ -21224,7 +21249,7 @@ HVACTemplate:Zone:FanCoil,
       \units C
   A9; \field Dedicated Outdoor Air System Name
       \note Enter the name of an HVACTemplate:System:DedicatedOutdoorAir object if this
-      \note zone is served by a separated dedicated outdoor air system (DOAS).
+      \note zone is served by a separate dedicated outdoor air system (DOAS).
       \note Leave field blank if no DOAS serves this zone.
       \type object-list
       \object-list HVACTemplateDOASSystems
@@ -21391,7 +21416,7 @@ HVACTemplate:Zone:PTAC,
       \default 0.0
  A11; \field Dedicated Outdoor Air System Name
       \note Enter the name of an HVACTemplate:System:DedicatedOutdoorAir object if this
-      \note zone is served by a separated dedicated outdoor air system (DOAS).
+      \note zone is served by a separate dedicated outdoor air system (DOAS).
       \note Leave field blank if no DOAS serves this zone.
       \type object-list
       \object-list HVACTemplateDOASSystems
@@ -21616,7 +21641,7 @@ HVACTemplate:Zone:PTHP,
       \default 0.0
  A15; \field Dedicated Outdoor Air System Name
       \note Enter the name of an HVACTemplate:System:DedicatedOutdoorAir object if this
-      \note zone is served by a separated dedicated outdoor air system (DOAS).
+      \note zone is served by a separate dedicated outdoor air system (DOAS).
       \note Leave field blank if no DOAS serves this zone.
       \type object-list
       \object-list HVACTemplateDOASSystems
@@ -22172,7 +22197,7 @@ HVACTemplate:Zone:WaterToAirHeatPump,
       \note Enter 0 when fan operating mode is continuous
  A10; \field Dedicated Outdoor Air System Name
       \note Enter the name of an HVACTemplate:System:DedicatedOutdoorAir object if this
-      \note zone is served by a separated dedicated outdoor air system (DOAS).
+      \note zone is served by a separate dedicated outdoor air system (DOAS).
       \note Leave field blank if no DOAS serves this zone.
       \type object-list
       \object-list HVACTemplateDOASSystems
@@ -23568,7 +23593,7 @@ HVACTemplate:System:DedicatedOutdoorAir,
  A16, \field Dehumidification Control Type
       \note None = meet sensible load only
       \note CoolReheatHeatingCoil = cool beyond the dry-bulb setpoint, reheat with heating coil
-      \note Valid for all cooling coil types.  If not heating coil specified, cold supply temps may occur.
+      \note Valid for all cooling coil types.  If no heating coil specified, cold supply temps may occur.
       \note Multimode = activate enhanced dehumidification mode as needed and meet sensible load.
       \note Valid only for Cooling Coil Type = TwoStageHumidityControlDX
       \type choice
@@ -23578,7 +23603,7 @@ HVACTemplate:System:DedicatedOutdoorAir,
       \default None
  N23, \field Dehumidification Setpoint
       \note The supply air humidity ratio for dehumidification control.
-      \note Default is a 12.8C (55F) dewpoint.
+      \note Default of 0.00924 kg-H2O/kg-dry-air is equivalent to 12.8C (55F) dewpoint.
       \type real
       \minimum 0.0
       \maximum 1.0
@@ -24204,7 +24229,7 @@ Sizing:Zone,
   N15,\field Design Zone Air Distribution Effectiveness in Cooling Mode
       \type real
       \minimum> 0
-      \default 0.3
+      \default 1
   N16;\field Design Zone Air Distribution Effectiveness in Heating Mode
       \type real
       \minimum> 0
@@ -26254,12 +26279,12 @@ ZoneHVAC:TerminalUnit:VariableRefrigerantFlow,
   A11,  \field Cooling Coil Object Type
         \type choice
         \key Coil:Cooling:DX:VariableRefrigerantFlow
-        \note Cooling Coil Type must be Coil:CoolingDX:VariableRefrigerantFlow
+        \note Cooling Coil Type must be Coil:Cooling:DX:VariableRefrigerantFlow
         \note This field may be left blank if heating-only mode is used
   A12,  \field Cooling Coil Object Name
         \type object-list
         \object-list CoolingCoilsDXVarRefrigFlow
-        \note Cooling Coil Type must be Coil:CoolingDX:VariableRefrigerantFlow
+        \note Cooling Coil Type must be Coil:Cooling:DX:VariableRefrigerantFlow
         \note This field may be left blank if heating-only mode is used
   A13,  \field Heating Coil Object Type
         \type choice
@@ -41331,10 +41356,15 @@ Branch,
         \autosizable
    A2, \field Pressure Drop Curve Name
         \type object-list
-        \object-list AllCurves
+        \object-list PressureDropCurves
+        \object-list ExponentCurves
+        \object-list LinearOrQuadraticCurves
+        \object-list CubicCurves
         \note Optional field to include this branch in plant pressure drop calculations
         \note This field is only relevant for branches in PlantLoops and CondenserLoops
         \note Air loops do not account for pressure drop using this field
+        \note Valid curve types are: Curve:Functional:PressureDrop or
+        \note one of Curve:{Linear,Quadratic,Cubic,Exponent}')
    A3, \field Component 1 Object Type
         \begin-extensible
         \required-field
@@ -48879,6 +48909,11 @@ WaterHeater:Stratified,
        \minimum 0.0
        \maximum 1.0
        \default 1.0
+       \note The use side effectiveness in the stratified tank model is a simplified analogy of
+       \note a heat exchanger's effectiveness. This effectiveness is equal to the fraction of
+       \note use mass flow rate that directly mixes with the tank fluid. And one minus the
+       \note effectiveness is the fraction that bypasses the tank. The use side mass flow rate
+       \note that bypasses the tank is mixed with the fluid or water leaving the stratified tank.
   N24, \field Use Side Inlet Height
        \type real
        \units m
@@ -48901,6 +48936,11 @@ WaterHeater:Stratified,
        \minimum 0.0
        \maximum 1.0
        \default 1.0
+       \note The source side effectiveness in the stratified tank model is a simplified analogy of
+       \note a heat exchanger's effectiveness. This effectiveness is equal to the fraction of
+       \note source mass flow rate that directly mixes with the tank fluid. And one minus the
+       \note effectiveness is the fraction that bypasses the tank. The source side mass flow rate
+       \note that bypasses the tank is mixed with the fluid or water leaving the stratified tank.
   N27, \field Source Side Inlet Height
        \type real
        \units m
@@ -49523,6 +49563,11 @@ ThermalStorage:ChilledWater:Stratified,
        \minimum 0.0
        \maximum 1.0
        \default 1.0
+       \note The use side effectiveness in the stratified tank model is a simplified analogy of
+       \note a heat exchanger's effectiveness. This effectiveness is equal to the fraction of
+       \note use mass flow rate that directly mixes with the tank fluid. And one minus the
+       \note effectiveness is the fraction that bypasses the tank. The use side mass flow rate
+       \note that bypasses the tank is mixed with the fluid or water leaving the stratified tank.
   A10, \field Use Side Availability Schedule Name
        \type alpha
   N10 , \field Use Side Inlet Height
@@ -49554,6 +49599,11 @@ ThermalStorage:ChilledWater:Stratified,
        \minimum 0.0
        \maximum 1.0
        \default 1.0
+       \note The source side effectiveness in the stratified tank model is a simplified analogy of
+       \note a heat exchanger's effectiveness. This effectiveness is equal to the fraction of
+       \note source mass flow rate that directly mixes with the tank fluid. And one minus the
+       \note effectiveness is the fraction that bypasses the tank. The source side mass flow rate
+       \note that bypasses the tank is mixed with the fluid or water leaving the stratified tank.
   A13, \field Source Side Availability Schedule Name
        \type alpha
   N14, \field Source Side Inlet Height
@@ -54123,16 +54173,17 @@ Refrigeration:SecondarySystem,
         \key FluidPhaseChange
         \required-field
         \note If FluidAlwaysLiquid is selected, the fluid properties
-        \note    must be input using the objects: FluidPropertyConcentration,
-        \note    FluidNames,FluidPropertyTemperatures, and GlycolConcentrations
+        \note    must be input using the objects: FluidProperties:Name,
+        \note    FluidProperties:GlycolConcentration, and, if user defined fluid type,
+        \note    FluidProperties:Temperatures and FluidProperties:Concentration.
         \note    Many sets of fluid properties can be found in GlycolPropertiesRefData.idf
         \note If FluidPhaseChange is selected, the refrigerant properties
-        \note    must be input using the objects: FluidNames,
-        \note    FluidPropertyTemperatures, FluidPropertySaturated, and
-        \note    FluidPropertySuperheated
+        \note    must be input using the objects: (if user defined fluid type): FluidProperties:Name,
+        \note    FluidProperties:Temperatures, FluidProperties:Saturated, and
+        \note    FluidProperties:Superheated
         \note    Many sets of refrigerant data can be found in FluidPropertiesRefData.idf
   A4 ,  \field Circulating Fluid Name
-        \note This must correspond to a name in the GlycolConcentrations and/or FluidNames object.
+        \note This must correspond to a name in the FluidProperties:Name object.
         \required-field
         \type object-list
         \object-list FluidAndGlycolNames
@@ -54251,7 +54302,7 @@ Refrigeration:SecondarySystem,
 
 
  Refrigeration:WalkIn,
-        \extensible:12
+        \extensible:12 -- duplicate last 12 fields, remembering to remove ; from "inner" fields.
         \min-fields 28
   A1 ,  \field Name
         \required-field
@@ -54820,7 +54871,7 @@ Refrigeration:AirChiller,
         \note This value is only used if the Cooling Source Type is DXEvaporator
 
 ZoneHVAC:RefrigerationChillerSet,
-        \extensible:1 Duplicate the last field Air Chiller #20 Name
+        \extensible:1 -- duplicate last field, remembering to remove ; from "inner" fields.
         \min-fields 6
   A1 ,  \field Name
         \required-field
@@ -54843,6 +54894,7 @@ ZoneHVAC:RefrigerationChillerSet,
         \note The name of the node where the chiller coil sends its outlet air,
         \note  which must be one of the inlet air nodes for the zone which is being cooled.
   A6 ,  \field Air Chiller 1 Name
+        \begin-extensible
         \type alpha
         \note This is the first chiller turned on to meet the zone load
         \object-list RefrigerationAirChillerNames
@@ -56399,7 +56451,7 @@ Generator:FuelCell:AuxiliaryHeater,
   N2, \field Ancilliary Power Constant Term
   N3, \field Ancilliary Power Linear Term
   N4, \field Skin Loss U-Factor Times Area Value
-4      \units W/K
+      \units W/K
   A2, \field Skin Loss Destination
       \type choice
       \key SurroundingZone
@@ -59002,6 +59054,7 @@ Curve:Functional:PressureDrop,
        \required-field
        \type alpha
        \reference AllCurves
+       \reference PressureDropCurves
   N1 , \field Diameter
        \required-field
        \units m
