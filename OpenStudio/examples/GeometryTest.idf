@@ -100,11 +100,11 @@
 ! HTML Report:                    AllSummaryAndMonthly
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
- 
-  Version,7.0;
- 
+
+  Version,7.1;
+
   Timestep,4;
- 
+
   Building,
     PSI HOUSE DORM AND OFFICES,  !- Name
     36.87000,                !- North Axis {deg}
@@ -114,20 +114,20 @@
     FullInteriorAndExterior, !- Solar Distribution
     25,                      !- Maximum Number of Warmup Days
     6;                       !- Minimum Number of Warmup Days
- 
+
   HeatBalanceAlgorithm,ConductionTransferFunction;
- 
+
   SurfaceConvectionAlgorithm:Inside,TARP;
- 
+
   SurfaceConvectionAlgorithm:Outside,DOE-2;
- 
+
   SimulationControl,
     No,                      !- Do Zone Sizing Calculation
     No,                      !- Do System Sizing Calculation
     No,                      !- Do Plant Sizing Calculation
     Yes,                     !- Run Simulation for Sizing Periods
     Yes;                     !- Run Simulation for Weather File Run Periods
- 
+
   RunPeriod,
     ,                        !- Name
     1,                       !- Begin Month
@@ -140,14 +140,14 @@
     No,                      !- Apply Weekend Holiday Rule
     Yes,                     !- Use Weather File Rain Indicators
     Yes;                     !- Use Weather File Snow Indicators
- 
+
   Site:Location,
     COLORADO_SPRGS_CO_USA_WMO_724660,  !- Name
     38.82,                   !- Latitude {deg}
     -104.72,                 !- Longitude {deg}
     -7.0,                    !- Time Zone {hr}
     1881.00;                 !- Elevation {m}
- 
+
  !  WMO=724660 Time Zone=NAM        (GMT-07:00) Mountain Time (US & Canada)
  !  Data Source=ASHRAE 2005 Annual Design Conditions
  ! Using Design Conditions from "Climate Design Data 2005 ASHRAE Handbook"
@@ -156,45 +156,67 @@
  ! COLORADO_SPRGS_CO_USA Annual Heating Design Conditions Wind Speed=2.8m/s Wind Dir=20
  ! Coldest Month=January
  ! COLORADO_SPRGS_CO_USA Annual Heating 99.6%, MaxDB=-18.4°C
- 
+
   SizingPeriod:DesignDay,
     COLORADO_SPRGS Ann Htg 99.6% Condns DB,  !- Name
+    1,                       !- Month
+    21,                      !- Day of Month
+    WinterDesignDay,         !- Day Type
     -18.4,                   !- Maximum Dry-Bulb Temperature {C}
     0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
-    -18.4,                   !- Humidity Indicating Conditions at Maximum Dry-Bulb
+    ,                        !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    Wetbulb,                 !- Humidity Condition Type
+    -18.4,                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
     80677.,                  !- Barometric Pressure {Pa}
     2.8,                     !- Wind Speed {m/s}
     20,                      !- Wind Direction {deg}
-    0.00,                    !- Sky Clearness
-    0,                       !- Rain Indicator
-    0,                       !- Snow Indicator
-    21,                      !- Day of Month
-    1,                       !- Month
-    WinterDesignDay,         !- Day Type
-    0,                       !- Daylight Saving Time Indicator
-    WetBulb;                 !- Humidity Indicating Type
- 
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAEClearSky,          !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+    0.00;                    !- Sky Clearness
+
  ! COLORADO_SPRGS Annual Cooling Design Conditions Wind Speed=5.3m/s Wind Dir=180
  ! Hottest Month=July
  ! COLORADO_SPRGS_CO_USA Annual Cooling (DB=>MWB) .4%, MaxDB=32.1°C MWB=14.6°C
- 
+
   SizingPeriod:DesignDay,
     COLORADO_SPRGS Ann Clg .4% Condns DB=>MWB,  !- Name
+    7,                       !- Month
+    21,                      !- Day of Month
+    SummerDesignDay,         !- Day Type
     32.1,                    !- Maximum Dry-Bulb Temperature {C}
     14.1,                    !- Daily Dry-Bulb Temperature Range {deltaC}
-    14.6,                    !- Humidity Indicating Conditions at Maximum Dry-Bulb
+    ,                        !- Dry-Bulb Temperature Range Modifier Type
+    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    Wetbulb,                 !- Humidity Condition Type
+    14.6,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+    ,                        !- Humidity Condition Day Schedule Name
+    ,                        !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+    ,                        !- Enthalpy at Maximum Dry-Bulb {J/kg}
+    ,                        !- Daily Wet-Bulb Temperature Range {deltaC}
     80677.,                  !- Barometric Pressure {Pa}
     5.3,                     !- Wind Speed {m/s}
     180,                     !- Wind Direction {deg}
-    1.00,                    !- Sky Clearness
-    0,                       !- Rain Indicator
-    0,                       !- Snow Indicator
-    21,                      !- Day of Month
-    7,                       !- Month
-    SummerDesignDay,         !- Day Type
-    0,                       !- Daylight Saving Time Indicator
-    WetBulb;                 !- Humidity Indicating Type
- 
+    No,                      !- Rain Indicator
+    No,                      !- Snow Indicator
+    No,                      !- Daylight Saving Time Indicator
+    ASHRAEClearSky,          !- Solar Model Indicator
+    ,                        !- Beam Solar Day Schedule Name
+    ,                        !- Diffuse Solar Day Schedule Name
+    ,                        !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+    ,                        !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+    1.00;                    !- Sky Clearness
+
   Material,
     A2 - 4 IN DENSE FACE BRICK,  !- Name
     Rough,                   !- Roughness
@@ -205,11 +227,11 @@
     0.9000000,               !- Thermal Absorptance
     0.9300000,               !- Solar Absorptance
     0.9300000;               !- Visible Absorptance
- 
+
   Material:AirGap,
     B1 - AIRSPACE RESISTANCE,!- Name
     0.1603675;               !- Thermal Resistance {m2-K/W}
- 
+
   Material,
     C3 - 4 IN HW CONCRETE BLOCK,  !- Name
     MediumRough,             !- Roughness
@@ -220,7 +242,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Material,
     E1 - 3 / 4 IN PLASTER OR GYP BOARD,  !- Name
     Smooth,                  !- Roughness
@@ -231,7 +253,7 @@
     0.9000000,               !- Thermal Absorptance
     0.9200000,               !- Solar Absorptance
     0.9200000;               !- Visible Absorptance
- 
+
   Material,
     C7 - 8 IN LW CONCRETE BLOCK,  !- Name
     Rough,                   !- Roughness
@@ -242,7 +264,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Material,
     CONCRETE - SAND AND GRAVEL 4 IN,  !- Name
     MediumRough,             !- Roughness
@@ -253,7 +275,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6000000,               !- Solar Absorptance
     0.6000000;               !- Visible Absorptance
- 
+
   Material,
     E2 - 1 / 2 IN SLAG OR STONE,  !- Name
     Rough,                   !- Roughness
@@ -264,7 +286,7 @@
     0.9000000,               !- Thermal Absorptance
     0.5500000,               !- Solar Absorptance
     0.5500000;               !- Visible Absorptance
- 
+
   Material,
     E3 - 3 / 8 IN FELT AND MEMBRANE,  !- Name
     Rough,                   !- Roughness
@@ -275,7 +297,7 @@
     0.9000000,               !- Thermal Absorptance
     0.7500000,               !- Solar Absorptance
     0.7500000;               !- Visible Absorptance
- 
+
   Material,
     B6 - 2 IN DENSE INSULATION,  !- Name
     VeryRough,               !- Roughness
@@ -286,7 +308,7 @@
     0.9000000,               !- Thermal Absorptance
     0.5000000,               !- Solar Absorptance
     0.5000000;               !- Visible Absorptance
- 
+
   Material,
     C12 - 2 IN HW CONCRETE,  !- Name
     MediumRough,             !- Roughness
@@ -297,7 +319,7 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   WindowMaterial:Glazing,
     GLASS - CLEAR PLATE 1 / 4 IN,  !- Name
     SpectralAverage,         !- Optical Data Type
@@ -313,12 +335,12 @@
     0.84,                    !- Front Side Infrared Hemispherical Emissivity
     0.84,                    !- Back Side Infrared Hemispherical Emissivity
     0.9;                     !- Conductivity {W/m-K}
- 
+
   WindowMaterial:Gas,
     AIRGAP,                  !- Name
     AIR,                     !- Gas Type
     0.0125;                  !- Thickness {m}
- 
+
   Material,
     C2 - 4 IN LW CONCRETE BLOCK,  !- Name
     MediumRough,             !- Roughness
@@ -329,78 +351,78 @@
     0.9000000,               !- Thermal Absorptance
     0.6500000,               !- Solar Absorptance
     0.6500000;               !- Visible Absorptance
- 
+
   Construction,
     EXTWALL09,               !- Name
     A2 - 4 IN DENSE FACE BRICK,  !- Outside Layer
     B1 - AIRSPACE RESISTANCE,!- Layer 2
     C3 - 4 IN HW CONCRETE BLOCK,  !- Layer 3
     E1 - 3 / 4 IN PLASTER OR GYP BOARD;  !- Layer 4
- 
+
   Construction,
     INTERIOR,                !- Name
     C7 - 8 IN LW CONCRETE BLOCK;  !- Outside Layer
- 
+
   Construction,
     SLAB FLOOR,              !- Name
     CONCRETE - SAND AND GRAVEL 4 IN;  !- Outside Layer
- 
+
   Construction,
     ROOF31,                  !- Name
     E2 - 1 / 2 IN SLAG OR STONE,  !- Outside Layer
     E3 - 3 / 8 IN FELT AND MEMBRANE,  !- Layer 2
     B6 - 2 IN DENSE INSULATION,  !- Layer 3
     C12 - 2 IN HW CONCRETE;  !- Layer 4
- 
+
   Construction,
     DOUBLE PANE HW WINDOW,   !- Name
     GLASS - CLEAR PLATE 1 / 4 IN,  !- Outside Layer
     AIRGAP,                  !- Layer 2
     GLASS - CLEAR PLATE 1 / 4 IN;  !- Layer 3
- 
+
   Construction,
     PARTITION02,             !- Name
     E1 - 3 / 4 IN PLASTER OR GYP BOARD,  !- Outside Layer
     C2 - 4 IN LW CONCRETE BLOCK,  !- Layer 2
     E1 - 3 / 4 IN PLASTER OR GYP BOARD;  !- Layer 3
- 
+
   ScheduleTypeLimits,
     Any Number;              !- Name
- 
+
   ScheduleTypeLimits,
     Fraction,                !- Name
     0.0,                     !- Lower Limit Value
     1.0,                     !- Upper Limit Value
     CONTINUOUS;              !- Numeric Type
- 
+
   Schedule:Compact,
     Activity Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,131.7938;   !- Field 3
- 
+
   Schedule:Compact,
     Work Eff Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.0;        !- Field 3
- 
+
   Schedule:Compact,
     Clothing Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,1.0;        !- Field 3
- 
+
   Schedule:Compact,
     Air Velo Sch,            !- Name
     Any Number,              !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,0.137;      !- Field 3
- 
+
   Schedule:Compact,
     Residence Lighting,      !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -420,7 +442,7 @@
     Until: 22:00,1.0,        !- Field 24
     Until: 23:00,0.5,        !- Field 26
     Until: 24:00,0.3;        !- Field 28
- 
+
   Schedule:Compact,
     Gas Eq Sch,              !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -433,7 +455,7 @@
     Through: 12/31,          !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,1.0;        !- Field 11
- 
+
   Schedule:Compact,
     Infiltration Sch,        !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -446,7 +468,7 @@
     Through: 12/31,          !- Field 9
     For: AllDays,            !- Field 10
     Until: 24:00,0.0;        !- Field 11
- 
+
   Schedule:Compact,
     Residence Occupancy,     !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -465,7 +487,7 @@
     Until: 22:00,.3,         !- Field 22
     Until: 23:00,.7,         !- Field 24
     Until: 24:00,1.0;        !- Field 26
- 
+
   Schedule:Compact,
     Residence Equipment,     !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -479,7 +501,7 @@
     Until: 19:00,0.7,        !- Field 13
     Until: 22:00,0.5,        !- Field 15
     Until: 24:00,0.0;        !- Field 17
- 
+
   Schedule:Compact,
     OFFICE LIGHTING,         !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -492,7 +514,7 @@
     Until: 24:00,0.05,       !- Field 11
     For: AllOtherDays,       !- Field 13
     Until: 24:00,0.05;       !- Field 14
- 
+
   Schedule:Compact,
     OFFICE OCCUPANCY,        !- Name
     Fraction,                !- Schedule Type Limits Name
@@ -509,9 +531,9 @@
     Until: 24:00,0.0,        !- Field 19
     For: AllOtherDays,       !- Field 21
     Until: 24:00,0.0;        !- Field 22
- 
+
   Site:GroundTemperature:BuildingSurface,18.89,18.92,19.02,19.12,19.21,19.23,19.07,19.32,19.09,19.21,19.13,18.96;
- 
+
   Zone,
     PSI FOYER,               !- Name
     0.0000000E+00,           !- Direction of Relative North {deg}
@@ -522,7 +544,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     DORM ROOMS AND COMMON AREAS,  !- Name
     0.0000000E+00,           !- Direction of Relative North {deg}
@@ -533,7 +555,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     LEFT FORK,               !- Name
     -36.87000,               !- Direction of Relative North {deg}
@@ -544,7 +566,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     MIDDLE FORK,             !- Name
     0.0000000E+00,           !- Direction of Relative North {deg}
@@ -555,7 +577,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Zone,
     RIGHT FORK,              !- Name
     36.87000,                !- Direction of Relative North {deg}
@@ -566,7 +588,7 @@
     1,                       !- Multiplier
     autocalculate,           !- Ceiling Height {m}
     autocalculate;           !- Volume {m3}
- 
+
   Lights,
     PSI FOYER Lights 1,      !- Name
     PSI FOYER,               !- Zone or ZoneList Name
@@ -580,7 +602,7 @@
     0.2000000,               !- Fraction Visible
     1.0,                     !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   GasEquipment,
     PSI FOYER GasEq 1,       !- Name
     PSI FOYER,               !- Zone or ZoneList Name
@@ -592,7 +614,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   ZoneInfiltration:DesignFlowRate,
     PSI FOYER Infil 1,       !- Name
     PSI FOYER,               !- Zone or ZoneList Name
@@ -601,12 +623,12 @@
     2.831685,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour
+    ,                        !- Air Changes per Hour {1/hr}
     0.6060000,               !- Constant Term Coefficient
     3.6359996E-02,           !- Temperature Term Coefficient
     0.1177165,               !- Velocity Term Coefficient
     0.0000000E+00;           !- Velocity Squared Term Coefficient
- 
+
   Daylighting:Controls,
     PSI FOYER,               !- Zone Name
     1,                       !- Total Daylighting Reference Points
@@ -627,7 +649,7 @@
     0.2,                     !- Minimum Light Output Fraction for Continuous Dimming Control
     1,                       !- Number of Stepped Control Steps
     1.0;                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
- 
+
   People,
     DORM ROOMS AND COMMON AREAS,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone or ZoneList Name
@@ -647,7 +669,7 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     DORM ROOMS AND COMMON AREAS Lights 1,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone or ZoneList Name
@@ -661,7 +683,7 @@
     0.2000000,               !- Fraction Visible
     1.0,                     !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     DORM ROOMS AND COMMON AREAS ElecEq 1,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone or ZoneList Name
@@ -673,7 +695,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   GasEquipment,
     DORM ROOMS AND COMMON AREAS GasEq 1,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone or ZoneList Name
@@ -685,7 +707,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   ZoneInfiltration:DesignFlowRate,
     DORM ROOMS AND COMMON AREAS Infil 1,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone or ZoneList Name
@@ -694,12 +716,12 @@
     2.831685,                !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour
+    ,                        !- Air Changes per Hour {1/hr}
     0.6060000,               !- Constant Term Coefficient
     3.6359996E-02,           !- Temperature Term Coefficient
     0.1177165,               !- Velocity Term Coefficient
     0.0000000E+00;           !- Velocity Squared Term Coefficient
- 
+
   Daylighting:Controls,
     DORM ROOMS AND COMMON AREAS,  !- Zone Name
     1,                       !- Total Daylighting Reference Points
@@ -720,7 +742,7 @@
     0.2,                     !- Minimum Light Output Fraction for Continuous Dimming Control
     1,                       !- Number of Stepped Control Steps
     1.0;                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
- 
+
   Output:IlluminanceMap,
     DORM ROOMS AND COMMON AREAS Illuminance Map,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone Name
@@ -731,7 +753,7 @@
     6.737699,                !- Y Minimum Coordinate {m}
     13.237699,               !- Y Maximum Coordinate {m}
     10;                      !- Number of Y Grid Points
- 
+
   People,
     LEFT FORK,               !- Name
     LEFT FORK,               !- Zone or ZoneList Name
@@ -751,7 +773,7 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     LEFT FORK Lights 1,      !- Name
     LEFT FORK,               !- Zone or ZoneList Name
@@ -765,7 +787,7 @@
     0.2000000,               !- Fraction Visible
     1.0,                     !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     LEFT FORK ElecEq 1,      !- Name
     LEFT FORK,               !- Zone or ZoneList Name
@@ -777,7 +799,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   GasEquipment,
     LEFT FORK GasEq 1,       !- Name
     LEFT FORK,               !- Zone or ZoneList Name
@@ -789,7 +811,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   ZoneInfiltration:DesignFlowRate,
     LEFT FORK Infil 1,       !- Name
     LEFT FORK,               !- Zone or ZoneList Name
@@ -798,12 +820,12 @@
     0.5899343,               !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour
+    ,                        !- Air Changes per Hour {1/hr}
     0.6060000,               !- Constant Term Coefficient
     3.6359996E-02,           !- Temperature Term Coefficient
     0.1177165,               !- Velocity Term Coefficient
     0.0000000E+00;           !- Velocity Squared Term Coefficient
- 
+
   Daylighting:Controls,
     LEFT FORK,               !- Zone Name
     1,                       !- Total Daylighting Reference Points
@@ -824,7 +846,7 @@
     0.2,                     !- Minimum Light Output Fraction for Continuous Dimming Control
     1,                       !- Number of Stepped Control Steps
     1.0;                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
- 
+
   People,
     MIDDLE FORK,             !- Name
     MIDDLE FORK,             !- Zone or ZoneList Name
@@ -844,7 +866,7 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     MIDDLE FORK Lights 1,    !- Name
     MIDDLE FORK,             !- Zone or ZoneList Name
@@ -858,7 +880,7 @@
     0.2000000,               !- Fraction Visible
     1.0,                     !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     MIDDLE FORK ElecEq 1,    !- Name
     MIDDLE FORK,             !- Zone or ZoneList Name
@@ -870,7 +892,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   GasEquipment,
     MIDDLE FORK GasEq 1,     !- Name
     MIDDLE FORK,             !- Zone or ZoneList Name
@@ -882,7 +904,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   ZoneInfiltration:DesignFlowRate,
     MIDDLE FORK Infil 1,     !- Name
     MIDDLE FORK,             !- Zone or ZoneList Name
@@ -891,12 +913,12 @@
     0.5899343,               !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour
+    ,                        !- Air Changes per Hour {1/hr}
     0.6060000,               !- Constant Term Coefficient
     3.6359996E-02,           !- Temperature Term Coefficient
     0.1177165,               !- Velocity Term Coefficient
     0.0000000E+00;           !- Velocity Squared Term Coefficient
- 
+
   Daylighting:Controls,
     MIDDLE FORK,             !- Zone Name
     1,                       !- Total Daylighting Reference Points
@@ -917,7 +939,7 @@
     0.2,                     !- Minimum Light Output Fraction for Continuous Dimming Control
     1,                       !- Number of Stepped Control Steps
     1.0;                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
- 
+
   People,
     RIGHT FORK,              !- Name
     RIGHT FORK,              !- Zone or ZoneList Name
@@ -937,7 +959,7 @@
     Clothing Sch,            !- Clothing Insulation Schedule Name
     Air Velo Sch,            !- Air Velocity Schedule Name
     FANGER;                  !- Thermal Comfort Model 1 Type
- 
+
   Lights,
     RIGHT FORK Lights 1,     !- Name
     RIGHT FORK,              !- Zone or ZoneList Name
@@ -951,7 +973,7 @@
     0.2000000,               !- Fraction Visible
     1.0,                     !- Fraction Replaceable
     GeneralLights;           !- End-Use Subcategory
- 
+
   ElectricEquipment,
     RIGHT FORK ElecEq 1,     !- Name
     RIGHT FORK,              !- Zone or ZoneList Name
@@ -963,7 +985,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   GasEquipment,
     RIGHT FORK GasEq 1,      !- Name
     RIGHT FORK,              !- Zone or ZoneList Name
@@ -975,7 +997,7 @@
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
- 
+
   ZoneInfiltration:DesignFlowRate,
     RIGHT FORK Infil 1,      !- Name
     RIGHT FORK,              !- Zone or ZoneList Name
@@ -984,12 +1006,12 @@
     0.5899343,               !- Design Flow Rate {m3/s}
     ,                        !- Flow per Zone Floor Area {m3/s-m2}
     ,                        !- Flow per Exterior Surface Area {m3/s-m2}
-    ,                        !- Air Changes per Hour
+    ,                        !- Air Changes per Hour {1/hr}
     0.6060000,               !- Constant Term Coefficient
     3.6359996E-02,           !- Temperature Term Coefficient
     0.1177165,               !- Velocity Term Coefficient
     0.0000000E+00;           !- Velocity Squared Term Coefficient
- 
+
   Daylighting:Controls,
     RIGHT FORK,              !- Zone Name
     1,                       !- Total Daylighting Reference Points
@@ -1010,13 +1032,13 @@
     0.2,                     !- Minimum Light Output Fraction for Continuous Dimming Control
     1,                       !- Number of Stepped Control Steps
     1.0;                     !- Probability Lighting will be Reset When Needed in Manual Stepped Control
- 
+
   GlobalGeometryRules,
     UpperLeftCorner,         !- Starting Vertex Position
     Counterclockwise,        !- Vertex Entry Direction
     Absolute,                !- Coordinate System
     Absolute;                !- Daylighting Reference Point Coordinate System
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1032,7 +1054,7 @@
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     12.679660,-9.509782,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     12.679660,-9.509782,1.524000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1048,7 +1070,7 @@
     12.679660,-9.509782,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     16.337270,-4.632988,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     16.337270,-4.632988,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1064,7 +1086,7 @@
     3.657609,4.876794,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     0.000000,0.000000,1.524000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -1080,7 +1102,7 @@
     16.337270,-4.632988,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     3.657609,4.876794,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     3.657609,4.876794,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1096,7 +1118,7 @@
     12.679660,-9.509782,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     0.000000,0.000000,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     3.657609,4.876794,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn001:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -1112,7 +1134,7 @@
     0.000000,0.000000,1.524000,  !- X,Y,Z ==> Vertex 2 {m}
     12.679660,-9.509782,1.524000,  !- X,Y,Z ==> Vertex 3 {m}
     16.337270,-4.632988,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn001:Roof001:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1128,7 +1150,7 @@
     0.390144,0.012191,1.706880,  !- X,Y,Z ==> Vertex 2 {m}
     12.582129,-9.131831,1.706881,  !- X,Y,Z ==> Vertex 3 {m}
     15.947125,-4.645178,5.913120;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1144,7 +1166,7 @@
     16.245830,-4.754909,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     31.607790,15.727630,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     31.607790,15.727630,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1160,7 +1182,7 @@
     17.087080,-3.633246,3.718560,  !- X,Y,Z ==> Vertex 2 {m}
     17.818601,-2.657888,3.718560,  !- X,Y,Z ==> Vertex 3 {m}
     17.818601,-2.657888,5.547360;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1176,7 +1198,7 @@
     18.239228,-2.097055,0.944880,  !- X,Y,Z ==> Vertex 2 {m}
     18.970749,-1.121696,0.944880,  !- X,Y,Z ==> Vertex 3 {m}
     18.970749,-1.121696,2.773680;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win003,    !- Name
     Window,                  !- Surface Type
@@ -1192,7 +1214,7 @@
     19.354798,-0.609633,3.779520,  !- X,Y,Z ==> Vertex 2 {m}
     20.086320,0.365725,3.779520,  !- X,Y,Z ==> Vertex 3 {m}
     20.086320,0.365725,5.608320;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win004,    !- Name
     Window,                  !- Surface Type
@@ -1208,7 +1230,7 @@
     20.781267,1.292318,0.853440,  !- X,Y,Z ==> Vertex 2 {m}
     21.512788,2.267676,0.853440,  !- X,Y,Z ==> Vertex 3 {m}
     21.512788,2.267676,2.682240;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win005,    !- Name
     Window,                  !- Surface Type
@@ -1224,7 +1246,7 @@
     21.860260,2.730970,3.870960,  !- X,Y,Z ==> Vertex 2 {m}
     22.591780,3.706328,3.870960,  !- X,Y,Z ==> Vertex 3 {m}
     22.591780,3.706328,5.699760;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win006,    !- Name
     Window,                  !- Surface Type
@@ -1240,7 +1262,7 @@
     23.176999,4.486617,0.822960,  !- X,Y,Z ==> Vertex 2 {m}
     23.908521,5.461975,0.822960,  !- X,Y,Z ==> Vertex 3 {m}
     23.908521,5.461975,2.651760;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win007,    !- Name
     Window,                  !- Surface Type
@@ -1256,7 +1278,7 @@
     24.329147,6.022808,3.931920,  !- X,Y,Z ==> Vertex 2 {m}
     25.060668,6.998166,3.931920,  !- X,Y,Z ==> Vertex 3 {m}
     25.060668,6.998166,5.760720;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win008,    !- Name
     Window,                  !- Surface Type
@@ -1272,7 +1294,7 @@
     25.591020,7.705299,0.822960,  !- X,Y,Z ==> Vertex 2 {m}
     26.322541,8.680657,0.822960,  !- X,Y,Z ==> Vertex 3 {m}
     26.322541,8.680657,2.651760;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win009,    !- Name
     Window,                  !- Surface Type
@@ -1288,7 +1310,7 @@
     27.072352,9.680401,3.992880,  !- X,Y,Z ==> Vertex 2 {m}
     27.803872,10.655758,3.992880,  !- X,Y,Z ==> Vertex 3 {m}
     27.803872,10.655758,5.821680;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall001:Win010,    !- Name
     Window,                  !- Surface Type
@@ -1304,7 +1326,7 @@
     28.352517,11.387282,0.853440,  !- X,Y,Z ==> Vertex 2 {m}
     29.084039,12.362641,0.853440,  !- X,Y,Z ==> Vertex 3 {m}
     29.084039,12.362641,2.682240;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1320,7 +1342,7 @@
     19.019570,25.359330,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     3.657609,4.876793,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     3.657609,4.876793,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1336,7 +1358,7 @@
     5.212094,6.949431,0.518160,  !- X,Y,Z ==> Vertex 2 {m}
     4.480572,5.974073,0.518160,  !- X,Y,Z ==> Vertex 3 {m}
     4.480572,5.974072,2.346960;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1352,7 +1374,7 @@
     6.748289,8.997684,3.870960,  !- X,Y,Z ==> Vertex 2 {m}
     6.016768,8.022326,3.870960,  !- X,Y,Z ==> Vertex 3 {m}
     6.016768,8.022326,5.699760;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win003,    !- Name
     Window,                  !- Surface Type
@@ -1368,7 +1390,7 @@
     8.229623,10.972789,0.518160,  !- X,Y,Z ==> Vertex 2 {m}
     7.498099,9.997427,0.518160,  !- X,Y,Z ==> Vertex 3 {m}
     7.498099,9.997427,2.346960;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win004,    !- Name
     Window,                  !- Surface Type
@@ -1384,7 +1406,7 @@
     9.784103,13.045421,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     9.052581,12.070062,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     9.052581,12.070062,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win005,    !- Name
     Window,                  !- Surface Type
@@ -1400,7 +1422,7 @@
     11.302010,15.069290,0.640080,  !- X,Y,Z ==> Vertex 2 {m}
     10.570489,14.093931,0.640080,  !- X,Y,Z ==> Vertex 3 {m}
     10.570489,14.093931,2.468880;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win006,    !- Name
     Window,                  !- Surface Type
@@ -1416,7 +1438,7 @@
     17.958862,23.945058,3.688080,  !- X,Y,Z ==> Vertex 2 {m}
     17.227340,22.969700,3.688080,  !- X,Y,Z ==> Vertex 3 {m}
     17.227340,22.969700,5.516880;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win007,    !- Name
     Window,                  !- Surface Type
@@ -1432,7 +1454,7 @@
     16.605542,22.140638,0.762000,  !- X,Y,Z ==> Vertex 2 {m}
     15.874025,21.165286,0.762000,  !- X,Y,Z ==> Vertex 3 {m}
     15.874025,21.165286,2.590800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win008,    !- Name
     Window,                  !- Surface Type
@@ -1448,7 +1470,7 @@
     15.160790,20.214310,3.718560,  !- X,Y,Z ==> Vertex 2 {m}
     14.429268,19.238951,3.718560,  !- X,Y,Z ==> Vertex 3 {m}
     14.429268,19.238951,5.547360;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win009,    !- Name
     Window,                  !- Surface Type
@@ -1464,7 +1486,7 @@
     13.880627,18.507432,0.670560,  !- X,Y,Z ==> Vertex 2 {m}
     13.149102,17.532069,0.670560,  !- X,Y,Z ==> Vertex 3 {m}
     13.149102,17.532069,2.499360;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Wall002:Win010,    !- Name
     Window,                  !- Surface Type
@@ -1480,7 +1502,7 @@
     12.563890,16.751790,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     11.832369,15.776431,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     11.832369,15.776431,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1496,7 +1518,7 @@
     3.566169,4.754874,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     16.245830,-4.754909,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     16.245830,-4.754909,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -1512,7 +1534,7 @@
     31.699230,15.849550,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     29.992360,21.701710,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall005,           !- Name
     Wall,                    !- Surface Type
@@ -1528,7 +1550,7 @@
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     25.115570,25.359320,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115570,25.359320,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Wall006,           !- Name
     Wall,                    !- Surface Type
@@ -1544,7 +1566,7 @@
     25.115570,25.359320,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019570,25.359330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019570,25.359330,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1560,7 +1582,7 @@
     16.337270,-4.632988,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     3.657609,4.876793,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019570,25.359330,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Flr002,            !- Name
     Floor,                   !- Surface Type
@@ -1576,7 +1598,7 @@
     31.699230,15.849550,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019570,25.359330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115570,25.359320,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn002:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -1592,7 +1614,7 @@
     3.657609,4.876793,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     16.337270,-4.632988,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     31.699230,15.849550,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Roof001:SkyLt001,  !- Name
     Window,                  !- Surface Type
@@ -1608,14 +1630,14 @@
     13.718092,6.749416,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     15.318093,5.549416,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     16.518093,7.149416,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   DaylightingDevice:LightWell,
     Zn002:Roof001:SkyLt001,  !- Exterior Window Name
     1.2,                     !- Height of Well {m}
     12.0,                    !- Perimeter of Bottom of Well {m}
     9.0,                     !- Area of Bottom of Well {m2}
     0.70;                    !- Visible Reflectance of Well Walls {dimensionless}
- 
+
   FenestrationSurface:Detailed,
     Zn002:Roof001:SkyLt002,  !- Name
     Window,                  !- Surface Type
@@ -1631,14 +1653,14 @@
     18.838746,13.576929,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     20.438746,12.376929,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     21.638746,13.976929,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   DaylightingDevice:LightWell,
     Zn002:Roof001:SkyLt002,  !- Exterior Window Name
     1.2,                     !- Height of Well {m}
     12.0,                    !- Perimeter of Bottom of Well {m}
     9.0,                     !- Area of Bottom of Well {m2}
     0.70;                    !- Visible Reflectance of Well Walls {dimensionless}
- 
+
   BuildingSurface:Detailed,
     Zn002:Roof002,           !- Name
     Roof,                    !- Surface Type
@@ -1654,19 +1676,19 @@
     31.699230,15.849550,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     29.992360,21.701710,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115570,25.359320,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   InternalMass,
     Zn002:IntM001,           !- Name
     INTERIOR,                !- Construction Name
     DORM ROOMS AND COMMON AREAS,  !- Zone Name
     408.7734;                !- Surface Area {m2}
- 
+
   InternalMass,
     Zn002:IntM002,           !- Name
     PARTITION02,             !- Construction Name
     DORM ROOMS AND COMMON AREAS,  !- Zone Name
     371.6122;                !- Surface Area {m2}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1682,7 +1704,7 @@
     25.115560,25.359330,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     25.115560,37.551330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115560,37.551330,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1698,7 +1720,7 @@
     25.115560,37.551330,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,37.551330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,37.551330,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1714,7 +1736,7 @@
     24.810760,37.551330,0.304800,  !- X,Y,Z ==> Vertex 2 {m}
     19.324360,37.551330,0.304800,  !- X,Y,Z ==> Vertex 3 {m}
     19.324360,37.551330,5.791200;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1730,7 +1752,7 @@
     19.019560,37.551330,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,25.359330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,25.359330,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1746,7 +1768,7 @@
     19.019560,37.246520,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,36.027330,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,36.027330,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win002,    !- Name
     Window,                  !- Surface Type
@@ -1762,7 +1784,7 @@
     19.019560,35.417730,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,34.198530,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,34.198530,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win003,    !- Name
     Window,                  !- Surface Type
@@ -1778,7 +1800,7 @@
     19.019560,33.588930,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,32.369730,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,32.369730,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win004,    !- Name
     Window,                  !- Surface Type
@@ -1794,7 +1816,7 @@
     19.019560,31.760130,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,30.540930,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,30.540930,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win005,    !- Name
     Window,                  !- Surface Type
@@ -1810,7 +1832,7 @@
     19.019560,37.246520,0.762000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,36.027330,0.762000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,36.027330,2.590800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win006,    !- Name
     Window,                  !- Surface Type
@@ -1826,7 +1848,7 @@
     19.019560,35.417730,0.762000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,34.198530,0.762000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,34.198530,2.590800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win007,    !- Name
     Window,                  !- Surface Type
@@ -1842,7 +1864,7 @@
     19.019560,33.588930,0.762000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,32.369730,0.762000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,32.369730,2.590800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win008,    !- Name
     Window,                  !- Surface Type
@@ -1858,7 +1880,7 @@
     19.019560,31.760130,0.762000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,30.540930,0.762000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,30.540930,2.590800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn003:Wall003:Win009,    !- Name
     Window,                  !- Surface Type
@@ -1874,7 +1896,7 @@
     19.019560,29.931330,2.286000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,28.712130,2.286000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,28.712130,4.114800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -1890,7 +1912,7 @@
     19.019560,25.359330,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     25.115560,25.359330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115560,25.359330,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -1906,7 +1928,7 @@
     25.115560,25.359330,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     19.019560,25.359330,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     19.019560,37.551330,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn003:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -1922,7 +1944,7 @@
     19.019560,25.359330,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     25.115560,25.359330,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115560,37.551330,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -1938,7 +1960,7 @@
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     37.307580,31.455290,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     37.307580,31.455300,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -1954,7 +1976,7 @@
     37.307580,31.455290,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     32.430780,35.112900,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     32.430780,35.112900,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn004:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -1970,7 +1992,7 @@
     37.063741,31.638172,0.304800,  !- X,Y,Z ==> Vertex 2 {m}
     32.674619,34.930018,0.304800,  !- X,Y,Z ==> Vertex 3 {m}
     32.674621,34.930021,5.791200;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -1986,7 +2008,7 @@
     32.430780,35.112900,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     25.115560,25.359320,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     25.115560,25.359320,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -2002,7 +2024,7 @@
     25.115560,25.359320,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     29.992360,21.701710,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -2018,7 +2040,7 @@
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     25.115560,25.359320,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     32.430780,35.112900,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn004:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -2034,7 +2056,7 @@
     25.115560,25.359320,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     29.992360,21.701710,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     37.307580,31.455300,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall001,           !- Name
     Wall,                    !- Surface Type
@@ -2050,7 +2072,7 @@
     31.699220,15.849540,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     43.403550,19.263260,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     43.403550,19.263260,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win001,    !- Name
     Window,                  !- Surface Type
@@ -2066,7 +2088,7 @@
     41.794199,18.793872,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     42.964641,19.135246,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     42.964641,19.135246,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win002,    !- Name
     Window,                  !- Surface Type
@@ -2082,7 +2104,7 @@
     40.272640,18.350089,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     41.443070,18.691460,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     41.443070,18.691460,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win003,    !- Name
     Window,                  !- Surface Type
@@ -2098,7 +2120,7 @@
     38.721819,17.897772,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     39.892249,18.239143,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     39.892249,18.239143,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win004,    !- Name
     Window,                  !- Surface Type
@@ -2114,7 +2136,7 @@
     37.200251,17.453987,3.810000,  !- X,Y,Z ==> Vertex 2 {m}
     38.370690,17.795361,3.810000,  !- X,Y,Z ==> Vertex 3 {m}
     38.370690,17.795361,5.638800;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win005,    !- Name
     Window,                  !- Surface Type
@@ -2130,7 +2152,7 @@
     41.852729,18.810943,0.883920,  !- X,Y,Z ==> Vertex 2 {m}
     43.023159,19.152314,0.883920,  !- X,Y,Z ==> Vertex 3 {m}
     43.023159,19.152314,2.712720;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win006,    !- Name
     Window,                  !- Surface Type
@@ -2146,7 +2168,7 @@
     40.360420,18.375691,0.883920,  !- X,Y,Z ==> Vertex 2 {m}
     41.530858,18.717065,0.883920,  !- X,Y,Z ==> Vertex 3 {m}
     41.530858,18.717065,2.712720;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win007,    !- Name
     Window,                  !- Surface Type
@@ -2162,7 +2184,7 @@
     38.780340,17.914841,0.883920,  !- X,Y,Z ==> Vertex 2 {m}
     39.950770,18.256212,0.883920,  !- X,Y,Z ==> Vertex 3 {m}
     39.950770,18.256212,2.712720;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win008,    !- Name
     Window,                  !- Surface Type
@@ -2178,7 +2200,7 @@
     37.200251,17.453987,0.883920,  !- X,Y,Z ==> Vertex 2 {m}
     38.370690,17.795361,0.883920,  !- X,Y,Z ==> Vertex 3 {m}
     38.370690,17.795361,2.712720;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall001:Win009,    !- Name
     Window,                  !- Surface Type
@@ -2194,7 +2216,7 @@
     35.590909,16.984602,2.255520,  !- X,Y,Z ==> Vertex 2 {m}
     36.761339,17.325973,2.255520,  !- X,Y,Z ==> Vertex 3 {m}
     36.761339,17.325973,4.084320;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall002,           !- Name
     Wall,                    !- Surface Type
@@ -2210,7 +2232,7 @@
     43.403550,19.263260,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     41.696690,25.115430,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     41.696690,25.115430,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   FenestrationSurface:Detailed,
     Zn005:Wall002:Win001,    !- Name
     Window,                  !- Surface Type
@@ -2226,7 +2248,7 @@
     43.318207,19.555869,0.304800,  !- X,Y,Z ==> Vertex 2 {m}
     41.782033,24.822821,0.304800,  !- X,Y,Z ==> Vertex 3 {m}
     41.782033,24.822821,5.791200;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall003,           !- Name
     Wall,                    !- Surface Type
@@ -2242,7 +2264,7 @@
     41.696690,25.115430,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     29.992360,21.701710,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Wall004,           !- Name
     Wall,                    !- Surface Type
@@ -2258,7 +2280,7 @@
     29.992360,21.701710,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     31.699220,15.849540,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     31.699220,15.849540,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Flr001,            !- Name
     Floor,                   !- Surface Type
@@ -2274,7 +2296,7 @@
     43.403550,19.263260,0.000000,  !- X,Y,Z ==> Vertex 2 {m}
     31.699220,15.849540,0.000000,  !- X,Y,Z ==> Vertex 3 {m}
     29.992360,21.701710,0.000000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   BuildingSurface:Detailed,
     Zn005:Roof001,           !- Name
     Roof,                    !- Surface Type
@@ -2290,52 +2312,52 @@
     31.699220,15.849540,6.096000,  !- X,Y,Z ==> Vertex 2 {m}
     43.403550,19.263260,6.096000,  !- X,Y,Z ==> Vertex 3 {m}
     41.696690,25.115430,6.096000;  !- X,Y,Z ==> Vertex 4 {m}
- 
+
   ScheduleTypeLimits,
     Temperature,             !- Name
     -100,                    !- Lower Limit Value
     200,                     !- Upper Limit Value
     CONTINUOUS;              !- Numeric Type
- 
+
   ScheduleTypeLimits,
     ControlType,             !- Name
     0,                       !- Lower Limit Value
     4,                       !- Upper Limit Value
     DISCRETE;                !- Numeric Type
- 
+
   Schedule:Compact,
     Zone Control Type Schedule,  !- Name
     ControlType,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,4;          !- Field 3
- 
+
   Schedule:Compact,
     PSI FOYER Heating Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,20.0;       !- Field 3
- 
+
   Schedule:Compact,
     PSI FOYER Cooling Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,25.6;       !- Field 3
- 
+
   ZoneControl:Thermostat,
     PSI FOYER CONTROLS,      !- Name
     PSI FOYER,               !- Zone or ZoneList Name
     Zone Control Type Schedule,  !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     PSI FOYER SETPOINTS;     !- Control 1 Name
- 
+
   ThermostatSetpoint:DualSetpoint,
     PSI FOYER SETPOINTS,     !- Name
     PSI FOYER Heating Setpoints,  !- Heating Setpoint Temperature Schedule Name
     PSI FOYER Cooling Setpoints;  !- Cooling Setpoint Temperature Schedule Name
- 
+
   ZoneHVAC:EquipmentConnections,
     PSI FOYER,               !- Zone Name
     PSI FOYER EQUIPMENT,     !- Zone Conditioning Equipment List Name
@@ -2343,14 +2365,14 @@
     ,                        !- Zone Air Exhaust Node or NodeList Name
     PSI FOYER NODE,          !- Zone Air Node Name
     PSI FOYER OUTLET;        !- Zone Return Air Node Name
- 
+
   ZoneHVAC:EquipmentList,
     PSI FOYER EQUIPMENT,     !- Name
     ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
     PSI FOYER PURCHASED AIR, !- Zone Equipment 1 Name
     1,                       !- Zone Equipment 1 Cooling Sequence
     1;                       !- Zone Equipment 1 Heating or No-Load Sequence
- 
+
   ZoneHVAC:IdealLoadsAirSystem,
     PSI FOYER PURCHASED AIR, !- Name
     ,                        !- Availability Schedule Name
@@ -2358,8 +2380,8 @@
     ,                        !- Zone Exhaust Air Node Name
     50,                      !- Maximum Heating Supply Air Temperature {C}
     13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     NoLimit,                 !- Heating Limit
     autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -2378,37 +2400,37 @@
     ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
- 
+
   NodeList,
     PSI FOYER INLETS,        !- Name
     PSI FOYER INLET;         !- Node 1 Name
- 
+
   Schedule:Compact,
     DORM ROOMS AND COMMON AREAS Heating Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,20.0;       !- Field 3
- 
+
   Schedule:Compact,
     DORM ROOMS AND COMMON AREAS Cooling Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,25.6;       !- Field 3
- 
+
   ZoneControl:Thermostat,
     DORM ROOMS AND COMMON AREAS CONTROLS,  !- Name
     DORM ROOMS AND COMMON AREAS,  !- Zone or ZoneList Name
     Zone Control Type Schedule,  !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     DORM ROOMS AND COMMON AREAS SETPOINTS;  !- Control 1 Name
- 
+
   ThermostatSetpoint:DualSetpoint,
     DORM ROOMS AND COMMON AREAS SETPOINTS,  !- Name
     DORM ROOMS AND COMMON AREAS Heating Setpoints,  !- Heating Setpoint Temperature Schedule Name
     DORM ROOMS AND COMMON AREAS Cooling Setpoints;  !- Cooling Setpoint Temperature Schedule Name
- 
+
   ZoneHVAC:EquipmentConnections,
     DORM ROOMS AND COMMON AREAS,  !- Zone Name
     DORM ROOMS AND COMMON AREAS EQUIPMENT,  !- Zone Conditioning Equipment List Name
@@ -2416,14 +2438,14 @@
     ,                        !- Zone Air Exhaust Node or NodeList Name
     DORM ROOMS AND COMMON AREAS NODE,  !- Zone Air Node Name
     DORM ROOMS AND COMMON AREAS OUTLET;  !- Zone Return Air Node Name
- 
+
   ZoneHVAC:EquipmentList,
     DORM ROOMS AND COMMON AREAS EQUIPMENT,  !- Name
     ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
     DORM ROOMS AND COMMON AREAS PURCHASED AIR,  !- Zone Equipment 1 Name
     1,                       !- Zone Equipment 1 Cooling Sequence
     1;                       !- Zone Equipment 1 Heating or No-Load Sequence
- 
+
   ZoneHVAC:IdealLoadsAirSystem,
     DORM ROOMS AND COMMON AREAS PURCHASED AIR,  !- Name
     ,                        !- Availability Schedule Name
@@ -2431,8 +2453,8 @@
     ,                        !- Zone Exhaust Air Node Name
     50,                      !- Maximum Heating Supply Air Temperature {C}
     13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     NoLimit,                 !- Heating Limit
     autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -2451,37 +2473,37 @@
     ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
- 
+
   NodeList,
     DORM ROOMS AND COMMON AREAS INLETS,  !- Name
     DORM ROOMS AND COMMON AREAS INLET;  !- Node 1 Name
- 
+
   Schedule:Compact,
     LEFT FORK Heating Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,20.0;       !- Field 3
- 
+
   Schedule:Compact,
     LEFT FORK Cooling Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,25.6;       !- Field 3
- 
+
   ZoneControl:Thermostat,
     LEFT FORK CONTROLS,      !- Name
     LEFT FORK,               !- Zone or ZoneList Name
     Zone Control Type Schedule,  !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     LEFT FORK SETPOINTS;     !- Control 1 Name
- 
+
   ThermostatSetpoint:DualSetpoint,
     LEFT FORK SETPOINTS,     !- Name
     LEFT FORK Heating Setpoints,  !- Heating Setpoint Temperature Schedule Name
     LEFT FORK Cooling Setpoints;  !- Cooling Setpoint Temperature Schedule Name
- 
+
   ZoneHVAC:EquipmentConnections,
     LEFT FORK,               !- Zone Name
     LEFT FORK EQUIPMENT,     !- Zone Conditioning Equipment List Name
@@ -2489,14 +2511,14 @@
     ,                        !- Zone Air Exhaust Node or NodeList Name
     LEFT FORK NODE,          !- Zone Air Node Name
     LEFT FORK OUTLET;        !- Zone Return Air Node Name
- 
+
   ZoneHVAC:EquipmentList,
     LEFT FORK EQUIPMENT,     !- Name
     ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
     LEFT FORK PURCHASED AIR, !- Zone Equipment 1 Name
     1,                       !- Zone Equipment 1 Cooling Sequence
     1;                       !- Zone Equipment 1 Heating or No-Load Sequence
- 
+
   ZoneHVAC:IdealLoadsAirSystem,
     LEFT FORK PURCHASED AIR, !- Name
     ,                        !- Availability Schedule Name
@@ -2504,8 +2526,8 @@
     ,                        !- Zone Exhaust Air Node Name
     50,                      !- Maximum Heating Supply Air Temperature {C}
     13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     NoLimit,                 !- Heating Limit
     autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -2524,37 +2546,37 @@
     ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
- 
+
   NodeList,
     LEFT FORK INLETS,        !- Name
     LEFT FORK INLET;         !- Node 1 Name
- 
+
   Schedule:Compact,
     MIDDLE FORK Heating Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,20.0;       !- Field 3
- 
+
   Schedule:Compact,
     MIDDLE FORK Cooling Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,25.6;       !- Field 3
- 
+
   ZoneControl:Thermostat,
     MIDDLE FORK CONTROLS,    !- Name
     MIDDLE FORK,             !- Zone or ZoneList Name
     Zone Control Type Schedule,  !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     MIDDLE FORK SETPOINTS;   !- Control 1 Name
- 
+
   ThermostatSetpoint:DualSetpoint,
     MIDDLE FORK SETPOINTS,   !- Name
     MIDDLE FORK Heating Setpoints,  !- Heating Setpoint Temperature Schedule Name
     MIDDLE FORK Cooling Setpoints;  !- Cooling Setpoint Temperature Schedule Name
- 
+
   ZoneHVAC:EquipmentConnections,
     MIDDLE FORK,             !- Zone Name
     MIDDLE FORK EQUIPMENT,   !- Zone Conditioning Equipment List Name
@@ -2562,14 +2584,14 @@
     ,                        !- Zone Air Exhaust Node or NodeList Name
     MIDDLE FORK NODE,        !- Zone Air Node Name
     MIDDLE FORK OUTLET;      !- Zone Return Air Node Name
- 
+
   ZoneHVAC:EquipmentList,
     MIDDLE FORK EQUIPMENT,   !- Name
     ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
     MIDDLE FORK PURCHASED AIR,  !- Zone Equipment 1 Name
     1,                       !- Zone Equipment 1 Cooling Sequence
     1;                       !- Zone Equipment 1 Heating or No-Load Sequence
- 
+
   ZoneHVAC:IdealLoadsAirSystem,
     MIDDLE FORK PURCHASED AIR,  !- Name
     ,                        !- Availability Schedule Name
@@ -2577,8 +2599,8 @@
     ,                        !- Zone Exhaust Air Node Name
     50,                      !- Maximum Heating Supply Air Temperature {C}
     13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     NoLimit,                 !- Heating Limit
     autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -2597,37 +2619,37 @@
     ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
- 
+
   NodeList,
     MIDDLE FORK INLETS,      !- Name
     MIDDLE FORK INLET;       !- Node 1 Name
- 
+
   Schedule:Compact,
     RIGHT FORK Heating Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,20.0;       !- Field 3
- 
+
   Schedule:Compact,
     RIGHT FORK Cooling Setpoints,  !- Name
     Temperature,             !- Schedule Type Limits Name
     Through: 12/31,          !- Field 1
     For: AllDays,            !- Field 2
     Until: 24:00,25.6;       !- Field 3
- 
+
   ZoneControl:Thermostat,
     RIGHT FORK CONTROLS,     !- Name
     RIGHT FORK,              !- Zone or ZoneList Name
     Zone Control Type Schedule,  !- Control Type Schedule Name
     ThermostatSetpoint:DualSetpoint,  !- Control 1 Object Type
     RIGHT FORK SETPOINTS;    !- Control 1 Name
- 
+
   ThermostatSetpoint:DualSetpoint,
     RIGHT FORK SETPOINTS,    !- Name
     RIGHT FORK Heating Setpoints,  !- Heating Setpoint Temperature Schedule Name
     RIGHT FORK Cooling Setpoints;  !- Cooling Setpoint Temperature Schedule Name
- 
+
   ZoneHVAC:EquipmentConnections,
     RIGHT FORK,              !- Zone Name
     RIGHT FORK EQUIPMENT,    !- Zone Conditioning Equipment List Name
@@ -2635,14 +2657,14 @@
     ,                        !- Zone Air Exhaust Node or NodeList Name
     RIGHT FORK NODE,         !- Zone Air Node Name
     RIGHT FORK OUTLET;       !- Zone Return Air Node Name
- 
+
   ZoneHVAC:EquipmentList,
     RIGHT FORK EQUIPMENT,    !- Name
     ZoneHVAC:IdealLoadsAirSystem,  !- Zone Equipment 1 Object Type
     RIGHT FORK PURCHASED AIR,!- Zone Equipment 1 Name
     1,                       !- Zone Equipment 1 Cooling Sequence
     1;                       !- Zone Equipment 1 Heating or No-Load Sequence
- 
+
   ZoneHVAC:IdealLoadsAirSystem,
     RIGHT FORK PURCHASED AIR,!- Name
     ,                        !- Availability Schedule Name
@@ -2650,8 +2672,8 @@
     ,                        !- Zone Exhaust Air Node Name
     50,                      !- Maximum Heating Supply Air Temperature {C}
     13,                      !- Minimum Cooling Supply Air Temperature {C}
-    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kg-H2O/kg-air}
-    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kg-H2O/kg-air}
+    0.015,                   !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
+    0.010,                   !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
     NoLimit,                 !- Heating Limit
     autosize,                !- Maximum Heating Air Flow Rate {m3/s}
     ,                        !- Maximum Sensible Heating Capacity {W}
@@ -2670,55 +2692,55 @@
     ,                        !- Heat Recovery Type
     ,                        !- Sensible Heat Recovery Effectiveness {dimensionless}
     ;                        !- Latent Heat Recovery Effectiveness {dimensionless}
- 
+
   NodeList,
     RIGHT FORK INLETS,       !- Name
     RIGHT FORK INLET;        !- Node 1 Name
- 
+
   Output:VariableDictionary,IDF;
- 
+
   Output:Constructions,Constructions;
- 
+
   Output:Schedules,Hourly;
- 
+
   OutputControl:Table:Style,
     HTML;                    !- Column Separator
- 
+
   Output:Table:SummaryReports,
     AllSummaryAndMonthly;    !- Report 1 Name
- 
+
   Output:SQLite,
     SimpleAndTabular;        !- Option Type
- 
+
   Output:Surfaces:Drawing,DXF;
- 
+
   Output:Variable,*,Zone/Sys Sensible Heating Rate,hourly;
- 
+
   Output:Variable,*,Zone/Sys Sensible Cooling Rate,hourly;
- 
+
   Output:Variable,*,Zone Air Balance Internal Convective Gains Rate,hourly;
- 
+
   Output:Variable,*,Zone Air Balance Surface Convection Rate,hourly;
- 
+
   Output:Variable,*,Zone Air Balance Interzone Air Transfer Rate,hourly;
- 
+
   Output:Variable,*,Zone Air Balance Outdoor Air Transfer Rate,hourly;
- 
+
   Output:Variable,*,Zone Air Balance System Air Transfer Rate,hourly;
- 
+
   Output:Variable,*,Zone Air Balance Air Energy Storage Rate,hourly;
- 
+
   Output:Variable,*,Zone Mean Air Temperature,hourly;
- 
+
   Output:Variable,*,Zone Mean Radiant Temperature,hourly;
- 
-  Output:Variable,*,Surface Inside Temperature,hourly;
- 
-  Output:Variable,*,Surface Outside Temperature,hourly;
- 
+
+  Output:Variable,*,Surface Inside Face Temperature,hourly;
+
+  Output:Variable,*,Surface Outside Face Temperature,hourly;
+
   Output:Variable,*,Surface Ext Solar Incident,hourly;
- 
+
   Output:Variable,*,Daylight Illum at Ref Point 1,hourly;
- 
+
   Output:Variable,*,Glare Index at Ref Point 1,hourly;
- 
+

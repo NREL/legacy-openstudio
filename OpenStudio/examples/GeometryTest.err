@@ -1,5 +1,5 @@
-Program Version,EnergyPlus, Windows, VERSION 7.0.0.---, YMD=2011.10.13 14:45,IDD_Version 7.0.0.024
-   ** Warning ** World Coordinate System selected.  Any non-zero Building/Zone North Axes or non-zero Zone Origins are ignored.
+Program Version,EnergyPlus-32-MP 7.1.0.012, 5/29/2012 10:11 PM,IDD_Version 7.1.0.012
+   ** Warning ** GetSurfaceData: World Coordinate System selected.  Any non-zero Building/Zone North Axes or non-zero Zone Origins are ignored.
    **   ~~~   ** These may be used in daylighting reference point coordinate calculations  but not in normal geometry inputs.
    ************* Testing Individual Branch Integrity
    ************* All Branches passed integrity testing
@@ -12,4 +12,4 @@ Program Version,EnergyPlus, Windows, VERSION 7.0.0.---, YMD=2011.10.13 14:45,IDD
    ************* Simulation Error Summary *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 07min 57.02sec
+   ************* EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 09min 24.59sec

@@ -1,6 +1,6 @@
 !-   ===========  ALL OBJECTS IN CLASS: VERSION ===========
 
-  Version,7.0;
+  Version,7.1;
 
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
 
@@ -11,7 +11,8 @@
     0.04,                    !- Loads Convergence Tolerance Value
     0.4,                     !- Temperature Convergence Tolerance Value {deltaC}
     FullInteriorAndExterior, !- Solar Distribution
-    25;                      !- Maximum Number of Warmup Days
+    25,                      !- Maximum Number of Warmup Days
+    ;                        !- Minimum Number of Warmup Days
 
 !-   ===========  ALL OBJECTS IN CLASS: TIMESTEP ===========
 

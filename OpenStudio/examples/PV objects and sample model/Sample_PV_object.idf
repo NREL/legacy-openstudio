@@ -1,6 +1,8 @@
  !-   ===========  IMPORTED PV OBJECTS ===========
-
 !  Version,7.0;
+
+!  Version,
+!    7.1;                    !- Version Identifier
 
   Material,
     B4 - 3 IN INSULATION,    !- Name
@@ -123,14 +125,14 @@
     ,                        !- Track Meter Scheme Meter Name
     DirectCurrentWithInverter,  !- Electrical Buss Type
     Simple Ideal Inverter;   !- Inverter Object Name
- 
+
   ElectricLoadCenter:Inverter:Simple,
     Simple Ideal Inverter,   !- Name
     always On,               !- Availability Schedule Name
     ,                        !- Zone Name
     0.0,                     !- Radiative Fraction
     1.0;                     !- Inverter Efficiency
- 
+
   ElectricLoadCenter:Generators,
     PV list,                 !- Name
     SIMPLE PV ShadingSurface,!- Generator 1 Name
@@ -148,53 +150,53 @@
     20000,                   !- Generator 3 Rated Electric Power Output {W}
     always On,               !- Generator 3 Availability Schedule Name
     ;                        !- Generator 3 Rated Thermal to Electrical Power Ratio
- 
+
   PhotovoltaicPerformance:Simple,
     12percentEffPVhalfArea,  !- Name
     0.5,                     !- Fraction of Surface Area with Active Solar Cells {dimensionless}
     Fixed,                   !- Conversion Efficiency Input Mode
     0.12;                    !- Value for Cell Efficiency if Fixed
- 
+
   Generator:Photovoltaic,
     SIMPLE PV ShadingSurface,!- Name
     external shade,          !- Surface Name
     PhotovoltaicPerformance:Simple,  !- Photovoltaic Performance Object Type
     12percentEffPVhalfArea,  !- Module Performance Name
     Decoupled,               !- Heat Transfer Integration Mode
-    1.0,                     !- Number of Modules in Parallel {dimensionless}
+    1.0,                     !- Number of Series Strings in Parallel {dimensionless}
     1.0;                     !- Number of Modules in Series {dimensionless}
- 
+
   Generator:Photovoltaic,
     SIMPLE Integrated PV,    !- Name
     spandral panel,          !- Surface Name
     PhotovoltaicPerformance:Simple,  !- Photovoltaic Performance Object Type
     12percentEffPVhalfArea,  !- Module Performance Name
     IntegratedSurfaceOutsideFace,  !- Heat Transfer Integration Mode
-    1.0,                     !- Number of Modules in Parallel {dimensionless}
+    1.0,                     !- Number of Series Strings in Parallel {dimensionless}
     1.0;                     !- Number of Modules in Series {dimensionless}
- 
+
   Generator:Photovoltaic,
     SIMPLE Roof Paver PV,    !- Name
     roof,                    !- Surface Name
     PhotovoltaicPerformance:Simple,  !- Photovoltaic Performance Object Type
     12percentEffPVhalfArea,  !- Module Performance Name
     IntegratedExteriorVentedCavity,  !- Heat Transfer Integration Mode
-    1.0,                     !- Number of Modules in Parallel {dimensionless}
+    1.0,                     !- Number of Series Strings in Parallel {dimensionless}
     1.0;                     !- Number of Modules in Series {dimensionless}
- 
+
   Output:Variable,*,PV Generator DC Power,hourly;
- 
+
   Output:Variable,*,PV Generator DC Energy,hourly;
- 
+
   Output:Variable,*,Inverter AC Energy Output,hourly;
- 
+
   Output:Variable,*,Inverter AC Power Output,hourly;
- 
+
   Output:Variable,*,PV Array Efficiency,hourly;
- 
+
   Output:Variable,*,PV Cell Temperature,hourly;
- 
+
   Output:Meter,Photovoltaic:ElectricityProduced,runperiod;
- 
+
   Output:Meter:MeterFileOnly,Photovoltaic:ElectricityProduced,monthly;
- 
+
