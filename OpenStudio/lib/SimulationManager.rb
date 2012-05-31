@@ -122,8 +122,8 @@ module OpenStudio
       end
 
       if (Plugin.model_manager.get_attribute("Report Surface Temps"))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Surface Inside Temperature", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Surface Outside Temperature", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Surface Inside Face Temperature", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Surface Outside Face Temperature", "Hourly"]))
       end
 
       if (Plugin.model_manager.get_attribute("Report Daylighting"))
@@ -134,9 +134,9 @@ module OpenStudio
       end
 
       if (Plugin.model_manager.get_attribute("Report Zone Loads"))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Air Heating Rate", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Air Sensible Cooling Rate", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Air Total Cooling Rate", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Sensible Heating Rate", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Sensible Cooling Rate", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Total Cooling Rate", "Hourly"]))
       end
       
       # make a temp directory to run in
