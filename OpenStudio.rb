@@ -111,7 +111,7 @@ first_launch = load_old_plugin.nil?
 if first_launch
   load_old_plugin = false
   
-  result = UI.messagebox("Welcome to OpenStudio Google SketchUp Plug-in #{$OPENSTUDIO_SKETCHUPPLUGIN_VERSION}\nSwitch back to the legacy plug-in using 'Plugins->Select OpenStudio Version'\nYes to see the getting started guide now.\nNo to skip this message next time.\nCancel to do nothing.\n", MB_YESNOCANCEL )
+  result = UI.messagebox("Welcome to OpenStudio SketchUp Plug-in #{$OPENSTUDIO_SKETCHUPPLUGIN_VERSION}\nSwitch back to the legacy plug-in using 'Plugins->Select OpenStudio Version'\nYes to see the getting started guide now.\nNo to skip this message next time.\nCancel to do nothing.\n", MB_YESNOCANCEL )
   if result == 2 # CANCEL
     # nothing
   elsif result == 6 # YES
