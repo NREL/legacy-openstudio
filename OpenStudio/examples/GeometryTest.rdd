@@ -1,4 +1,4 @@
-! Program Version,EnergyPlus-32-MP 7.1.0.012, 5/29/2012 10:11 PM,IDD_Version 7.1.0.012
+! Program Version,EnergyPlus-Windows-OMP-64 7.2.0.006, YMD=2012.10.08 13:21,IDD_Version 7.2.0.006
 ! Output:Variable Objects (applicable to this run)
 Output:Variable,*,Outdoor Dry Bulb,hourly; !- Zone Average [C]
 Output:Variable,*,Outdoor Dew Point,hourly; !- Zone Average [C]
@@ -171,6 +171,9 @@ Output:Variable,*,Surface Ext Beam Sol From Bm-To-Bm Refl From Obstructions,hour
 Output:Variable,*,Surface Ext Diff Sol From Bm-To-Diff Refl From Obstructions,hourly; !- Zone Average [W/m2]
 Output:Variable,*,Surface Ext Solar From Bm-To-Diff Refl From Ground,hourly; !- Zone Average [W/m2]
 Output:Variable,*,Surface Anisotropic Sky Multiplier,hourly; !- Zone Average []
+Output:Variable,*,BSDF Beam Direction Number,hourly; !- Zone Average []
+Output:Variable,*,BSDF Beam Theta Angle,hourly; !- Zone Average [rad]
+Output:Variable,*,BSDF Beam Phi Angle,hourly; !- Zone Average [rad]
 Output:Variable,*,Window Solar Absorbed:All Glass Layers,hourly; !- Zone Average [W]
 Output:Variable,*,Total Shortwave Absorbed:All Glass Layers,hourly; !- Zone Average [W]
 Output:Variable,*,Window Transmitted Solar,hourly; !- Zone Average [W]
@@ -278,6 +281,7 @@ Output:Variable,*,Zone Air Balance Surface Convection Rate,hourly; !- HVAC Avera
 Output:Variable,*,Zone Air Balance Interzone Air Transfer Rate,hourly; !- HVAC Average [W]
 Output:Variable,*,Zone Air Balance Outdoor Air Transfer Rate,hourly; !- HVAC Average [W]
 Output:Variable,*,Zone Air Balance System Air Transfer Rate,hourly; !- HVAC Average [W]
+Output:Variable,*,Zone Air Balance System Convective Gains Rate,hourly; !- HVAC Average [W]
 Output:Variable,*,Zone Air Balance Air Energy Storage Rate,hourly; !- HVAC Average [W]
 Output:Variable,*,Zone Infiltration Sensible Heat Loss,hourly; !- HVAC Sum [J]
 Output:Variable,*,Zone Infiltration Sensible Heat Gain,hourly; !- HVAC Sum [J]
@@ -360,6 +364,7 @@ Output:Variable,*,Ideal Loads Heat Recovery Latent Cooling Rate,hourly; !- HVAC 
 Output:Variable,*,Ideal Loads Heat Recovery Total Cooling Rate,hourly; !- HVAC Average [W]
 Output:Variable,*,Ideal Loads Time Economizer Active,hourly; !- HVAC Sum [hr]
 Output:Variable,*,Ideal Loads Time Heat Recovery Active,hourly; !- HVAC Sum [hr]
+Output:Variable,*,Ideal Loads Hybrid Ventilation Availability Status,hourly; !- HVAC Average []
 Output:Variable,*,Max SimAir Iterations,hourly; !- HVAC Sum []
 Output:Variable,*,Tot SimAir Iterations,hourly; !- HVAC Sum []
 Output:Variable,*,Tot SimAirLoopComponents Calls,hourly; !- HVAC Sum []

@@ -99,7 +99,7 @@
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
 
-  Version,7.1;
+  Version,7.2;
 
   Building,
     Building,                !- Name
@@ -1834,7 +1834,11 @@
     HotWater,                !- Heating Coil Type
     ,                        !- Heating Coil Availability Schedule Name
     50,                      !- Heating Coil Design Setpoint {C}
-    ;                        !- Dedicated Outdoor Air System Name
+    ,                        !- Dedicated Outdoor Air System Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    ,                        !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    ;                        !- Zone Heating Design Supply Air Temperature Difference {deltaC}
 
   HVACTemplate:Zone:FanCoil,
     SPACE2-1,                !- Zone Name
@@ -1857,7 +1861,11 @@
     HotWater,                !- Heating Coil Type
     ,                        !- Heating Coil Availability Schedule Name
     50,                      !- Heating Coil Design Setpoint {C}
-    ;                        !- Dedicated Outdoor Air System Name
+    ,                        !- Dedicated Outdoor Air System Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    ,                        !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    ;                        !- Zone Heating Design Supply Air Temperature Difference {deltaC}
 
   HVACTemplate:Zone:FanCoil,
     SPACE3-1,                !- Zone Name
@@ -1880,7 +1888,11 @@
     HotWater,                !- Heating Coil Type
     ,                        !- Heating Coil Availability Schedule Name
     50,                      !- Heating Coil Design Setpoint {C}
-    ;                        !- Dedicated Outdoor Air System Name
+    ,                        !- Dedicated Outdoor Air System Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    ,                        !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    ;                        !- Zone Heating Design Supply Air Temperature Difference {deltaC}
 
   HVACTemplate:Zone:FanCoil,
     SPACE4-1,                !- Zone Name
@@ -1903,7 +1915,11 @@
     HotWater,                !- Heating Coil Type
     ,                        !- Heating Coil Availability Schedule Name
     50,                      !- Heating Coil Design Setpoint {C}
-    ;                        !- Dedicated Outdoor Air System Name
+    ,                        !- Dedicated Outdoor Air System Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    ,                        !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    ;                        !- Zone Heating Design Supply Air Temperature Difference {deltaC}
 
   HVACTemplate:Zone:FanCoil,
     SPACE5-1,                !- Zone Name
@@ -1926,7 +1942,11 @@
     HotWater,                !- Heating Coil Type
     ,                        !- Heating Coil Availability Schedule Name
     50,                      !- Heating Coil Design Setpoint {C}
-    ;                        !- Dedicated Outdoor Air System Name
+    ,                        !- Dedicated Outdoor Air System Name
+    SupplyAirTemperature,    !- Zone Cooling Design Supply Air Temperature Input Method
+    ,                        !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+    SupplyAirTemperature,    !- Zone Heating Design Supply Air Temperature Input Method
+    ;                        !- Zone Heating Design Supply Air Temperature Difference {deltaC}
 
   HVACTemplate:Plant:ChilledWaterLoop,
     Chilled Water Loop,      !- Name

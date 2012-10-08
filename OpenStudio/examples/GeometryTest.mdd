@@ -1,4 +1,4 @@
-! Program Version,EnergyPlus-32-MP 7.1.0.012, 5/29/2012 10:11 PM,IDD_Version 7.1.0.012
+! Program Version,EnergyPlus-Windows-OMP-64 7.2.0.006, YMD=2012.10.08 13:21,IDD_Version 7.2.0.006
 ! Output:Meter Objects (applicable to this run)
 Output:Meter,Electricity:Facility,hourly; !- [J]
 Output:Meter:Cumulative,Electricity:Facility,hourly; !- [J]

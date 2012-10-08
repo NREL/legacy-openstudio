@@ -1,6 +1,6 @@
-Program Version,EnergyPlus-32-MP 7.1.0.012, 5/29/2012 10:11 PM
+Program Version,EnergyPlus-Windows-OMP-64 7.2.0.006, YMD=2012.10.08 13:21
 ! <Version>, Version ID
- Version, 7.1
+ Version, 7.2
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
  Timesteps per Hour,  4, 15
 ! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
@@ -122,8 +122,6 @@ Schedule,RIGHT FORK COOLING SETPOINTS,TEMPERATURE,Through Dec 31,RIGHT FORK COOL
 Inside Convection Algorithm,TARP
 ! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
 Outside Convection Algorithm,DOE-2
-! <Solution Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CONDFD - ConductionFiniteDifference | CONDFDSimple - Conduction Finite Difference Simplified | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}
-Solution Algorithm, CTF - Conduction Transfer Function,200
 ! <Sky Radiance Distribution>, Value {Anisotropic}
 Sky Radiance Distribution,Anisotropic
 ! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
@@ -136,6 +134,8 @@ Sky Radiance Distribution,Anisotropic
 Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
 ! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
  Surface Geometry,UpperLeftCorner,Counterclockwise,WorldCoordinateSystem,WorldCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
 ! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
  Shading Summary,0,0,0
 ! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
@@ -174,15 +174,15 @@ Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
  GasEquipment Internal Gains, LEFT FORK GASEQ 1,GAS EQ SCH,LEFT FORK,74.32,8.0,14643.750,197.030,1830.469,0.000,0.300,0.000,0.700,General
  GasEquipment Internal Gains, MIDDLE FORK GASEQ 1,GAS EQ SCH,MIDDLE FORK,74.32,8.0,14643.750,197.030,1830.469,0.000,0.300,0.000,0.700,General
  GasEquipment Internal Gains, RIGHT FORK GASEQ 1,GAS EQ SCH,RIGHT FORK,74.32,8.0,14643.750,197.030,1830.469,0.000,0.300,0.000,0.700,General
-! <Construction>,Construction Name,Index,#Layers,#CTFs,Time Step {hours},ThermalConductance {w/m2-K},OuterThermalAbsorptance,InnerThermalAbsorptance,OuterSolarAbsorptance,InnerSolarAbsorptance,Roughness
-! <Material>,Material Name,Thickness {m},Conductivity {w/m-K},Density {kg/m3},Specific Heat {J/kg-K},ThermalResistance {m2-K/w}
+! <Construction CTF>,Construction Name,Index,#Layers,#CTFs,Time Step {hours},ThermalConductance {w/m2-K},OuterThermalAbsorptance,InnerThermalAbsorptance,OuterSolarAbsorptance,InnerSolarAbsorptance,Roughness
+! <Material CTF Summary>,Material Name,Thickness {m},Conductivity {w/m-K},Density {kg/m3},Specific Heat {J/kg-K},ThermalResistance {m2-K/w}
 ! <Material:Air>,Material Name,ThermalResistance {m2-K/w}
 ! <CTF>,Time,Outside,Cross,Inside,Flux (except final one)
- Construction,EXTWALL09,   1,   4,  10,   0.250,      2.545    ,   0.900,   0.900,   0.930,   0.920,Rough
- Material,A2 - 4 IN DENSE FACE BRICK,  0.1015,         1.245,   2082.400,      920.480,  0.8151E-01
+ Construction CTF,EXTWALL09,   1,   4,  10,   0.250,      2.545    ,   0.900,   0.900,   0.930,   0.920,Rough
+ Material CTF Summary,A2 - 4 IN DENSE FACE BRICK,  0.1015,         1.245,   2082.400,      920.480,  0.8151E-01
  Material:Air,B1 - AIRSPACE RESISTANCE,  0.1604    
- Material,C3 - 4 IN HW CONCRETE BLOCK,  0.1015,         0.813,    977.126,      836.800,  0.1249    
- Material,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
+ Material CTF Summary,C3 - 4 IN HW CONCRETE BLOCK,  0.1015,         0.813,    977.126,      836.800,  0.1249    
+ Material CTF Summary,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
  CTF,  10,      0.13798293E-11,      0.37791605E-13,      0.62430365E-10,     -0.37641895E-14
  CTF,   9,     -0.32803272E-08,      0.29957965E-10,     -0.60855585E-07,      0.10196130E-10
  CTF,   8,      0.23798937E-05,      0.21201386E-07,      0.21649368E-04,     -0.88463039E-08
@@ -194,27 +194,27 @@ Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
  CTF,   2,       133.27916    ,      0.47407165E-02,       120.00639    ,      -1.9706501    
  CTF,   1,      -130.02410    ,      0.22467087E-03,      -106.88261    ,       2.3359192    
  CTF,   0,       46.959982    ,      0.19329083E-06,       36.168919    
- Construction,INTERIOR,   2,   1,   5,   0.250,      2.807    ,   0.900,   0.900,   0.650,   0.650,Rough
- Material,C7 - 8 IN LW CONCRETE BLOCK,  0.2033,         0.571,    608.702,      836.800,  0.3562    
+ Construction CTF,INTERIOR,   2,   1,   5,   0.250,      2.807    ,   0.900,   0.900,   0.650,   0.650,Rough
+ Material CTF Summary,C7 - 8 IN LW CONCRETE BLOCK,  0.2033,         0.571,    608.702,      836.800,  0.3562    
  CTF,   5,     -0.12331028E-01,      0.86662734E-05,     -0.12331028E-01,      0.49409614E-03
  CTF,   4,      0.45589309    ,      0.17892621E-02,      0.45589309    ,     -0.19482860E-01
  CTF,   3,      -4.7798640    ,      0.31311874E-01,      -4.7798640    ,      0.22645207    
  CTF,   2,       18.176318    ,      0.91004796E-01,       18.176318    ,     -0.98984133    
  CTF,   1,      -26.952873    ,      0.45006122E-01,      -26.952873    ,       1.7214348    
  CTF,   0,       13.283952    ,      0.19747213E-02,       13.283952    
- Construction,SLAB FLOOR,   3,   1,   5,   0.250,      17.04    ,   0.900,   0.900,   0.600,   0.600,MediumRough
- Material,CONCRETE - SAND AND GRAVEL 4 IN,  0.1015,         1.730,   2242.585,      836.800,  0.5868E-01
+ Construction CTF,SLAB FLOOR,   3,   1,   5,   0.250,      17.04    ,   0.900,   0.900,   0.600,   0.600,MediumRough
+ Material CTF Summary,CONCRETE - SAND AND GRAVEL 4 IN,  0.1015,         1.730,   2242.585,      836.800,  0.5868E-01
  CTF,   5,     -0.41142049E-07,      0.15543709E-07,     -0.41142049E-07,      0.12297289E-10
  CTF,   4,      0.57884701E-03,      0.22976293E-03,      0.57884701E-03,     -0.40580373E-06
  CTF,   3,     -0.33051123    ,      0.91914804E-01,     -0.33051123    ,      0.65922430E-03
  CTF,   2,       12.566595    ,       2.1743923    ,       12.566595    ,     -0.58066613E-01
  CTF,   1,      -62.622544    ,       4.7096437    ,      -62.622544    ,      0.60555731    
  CTF,   0,       58.085610    ,      0.72354869    ,       58.085610    
- Construction,ROOF31,   4,   4,   7,   0.250,     0.7901    ,   0.900,   0.900,   0.550,   0.650,Rough
- Material,E2 - 1 / 2 IN SLAG OR STONE,  0.0127,         1.436,    881.015,     1673.600,  0.8854E-02
- Material,E3 - 3 / 8 IN FELT AND MEMBRANE,  0.0095,         0.190,   1121.292,     1673.600,  0.5014E-01
- Material,B6 - 2 IN DENSE INSULATION,  0.0509,         0.043,     91.305,      836.800,   1.177    
- Material,C12 - 2 IN HW CONCRETE,  0.0509,         1.730,   2242.585,      836.800,  0.2943E-01
+ Construction CTF,ROOF31,   4,   4,   7,   0.250,     0.7901    ,   0.900,   0.900,   0.550,   0.650,Rough
+ Material CTF Summary,E2 - 1 / 2 IN SLAG OR STONE,  0.0127,         1.436,    881.015,     1673.600,  0.8854E-02
+ Material CTF Summary,E3 - 3 / 8 IN FELT AND MEMBRANE,  0.0095,         0.190,   1121.292,     1673.600,  0.5014E-01
+ Material CTF Summary,B6 - 2 IN DENSE INSULATION,  0.0509,         0.043,     91.305,      836.800,   1.177    
+ Material CTF Summary,C12 - 2 IN HW CONCRETE,  0.0509,         1.730,   2242.585,      836.800,  0.2943E-01
  CTF,   7,     -0.26803138E-11,      0.27764605E-13,     -0.10338291E-11,     -0.12767693E-15
  CTF,   6,      0.33575670E-06,      0.29728283E-08,      0.77438742E-07,     -0.28809553E-12
  CTF,   5,     -0.59152750E-03,      0.92531613E-05,     -0.26345192E-03,      0.21578481E-07
@@ -223,10 +223,10 @@ Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
  CTF,   2,       30.166139    ,      0.16272060    ,       34.528042    ,     -0.18918171    
  CTF,   1,      -62.011246    ,      0.66633129E-01,      -94.577468    ,      0.81824179    
  CTF,   0,       36.654812    ,      0.10243461E-02,       64.589992    
- Construction,PARTITION02,   6,   3,   7,   0.250,      3.133    ,   0.900,   0.900,   0.920,   0.920,Smooth
- Material,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
- Material,C2 - 4 IN LW CONCRETE BLOCK,  0.1015,         0.381,    608.702,      836.800,  0.2667    
- Material,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
+ Construction CTF,PARTITION02,   6,   3,   7,   0.250,      3.133    ,   0.900,   0.900,   0.920,   0.920,Smooth
+ Material CTF Summary,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
+ Material CTF Summary,C2 - 4 IN LW CONCRETE BLOCK,  0.1015,         0.381,    608.702,      836.800,  0.2667    
+ Material CTF Summary,E1 - 3 / 4 IN PLASTER OR GYP BOARD,  0.0191,         0.726,   1601.846,      836.800,  0.2622E-01
  CTF,   7,     -0.28231540E-08,      0.87335168E-11,     -0.28231540E-08,      0.64826697E-13
  CTF,   6,      0.48105029E-05,      0.98567802E-07,      0.48105029E-05,     -0.55950165E-09
  CTF,   5,     -0.17666326E-02,      0.84297029E-04,     -0.17666326E-02,      0.83607551E-06
@@ -467,29 +467,29 @@ Environment:Design Day Data,-18.40,0.00,DefaultMultipliers,80677,20,2.8,0.00,No 
 Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
 Environment:WarmupDays,  6
 ! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
- Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,9.6589403142E-015,4.4455387265E-014,Pass,Pass,1.3270027347E-003,3.9734864895E-003,Pass,Pass
- Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,4.8561969369E-002,0.1017047096,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9412421138E-004,2.0139108531E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.2566542056E-015,2.5979113342E-015,Pass,Pass,1.3388287418E-002,7.3161417418E-003,Pass,Pass
- Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9615351025E-004,2.0297461329E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,1.8688754248E-014,7.1906339744E-014,Pass,Pass,1.2875731831E-003,3.8527849053E-003,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,4.8618363910E-002,0.1017742180,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9412575466E-004,2.0128549371E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.8170052052E-004,1.9563975609E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9618523393E-004,2.0287088588E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 Environment,COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
 Environment:Daylight Saving,No,SizingPeriod:DesignDay
 Environment:Design Day Data,32.10,14.10,DefaultMultipliers,80677,180,5.3,1.00,No ,No 
 Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAEClearSky
 Environment:WarmupDays,  6
- Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666667,0.1980348983,Pass,Pass,0.1192175236,0.2177352505,Pass,Pass
- Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1046690383,0.1482206383,Pass,Pass,9.9528748549E-002,0.3343237100,Pass,Pass
- Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1076196900,0.1374301117,Pass,Pass,7.4992828510E-002,0.1881148739,Pass,Pass
- Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1097593976,0.1302989614,Pass,Pass,6.7491280706E-002,0.1393206873,Pass,Pass
- Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1155092211,0.1498764348,Pass,Pass,8.4807509717E-002,0.2611881435,Pass,Pass
+ Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666667,0.1975908828,Pass,Pass,0.1216983176,0.2308342544,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1061225924,0.1506973301,Pass,Pass,6.7125145474E-002,0.1650680600,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1107070594,0.1384503632,Pass,Pass,6.8509947433E-002,0.1584909710,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1121061571,0.1301062145,Pass,Pass,0.1413566358,0.7376164205,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666666,0.1503703279,Pass,Pass,7.0918298876E-002,0.1656612988,Pass,Pass
 Environment,COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,WeatherFileRunPeriod,01/01,12/31,Sunday,365,UseWeatherFile,Yes,Yes,No ,Yes,Yes
 Environment:Daylight Saving,No,
 Environment:WarmupDays,  6
- Warmup Convergence Information,PSI FOYER,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,1.0324018827E-002,3.3337055259E-002,Pass,Pass,6.7790861585E-002,0.1737648261,Pass,Pass
- Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.0223992155E-002,9.7494402356E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,LEFT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,2.7237471537E-014,3.3538455534E-014,Pass,Pass,8.1747915504E-002,6.2587472450E-002,Pass,Pass
- Warmup Convergence Information,MIDDLE FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,3.8820798428E-014,3.8473762237E-014,Pass,Pass,2.8551937248E-002,1.7942167536E-002,Pass,Pass
- Warmup Convergence Information,RIGHT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,3.0383103441E-014,3.7285407734E-014,Pass,Pass,5.7075060555E-002,5.1511644566E-002,Pass,Pass
-! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS). IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number NominalSurface, Number Parallel Sims
-Program Control:Threads/Parallel Sims, Yes,8, 1, 1, 1, 8, 80, 1
+ Warmup Convergence Information,PSI FOYER,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.6664526947E-003,2.3177838222E-002,Pass,Pass,6.6641182278E-002,0.1473879295,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,5.9785858221E-002,9.7703883783E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.2589974015E-003,1.2282953091E-002,Pass,Pass,0.1741282629,0.8713228692,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,2.7755575616E-014,2.6234173057E-014,Pass,Pass,3.7148319461E-002,2.5243631727E-002,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,1.5515527865E-003,6.9968111294E-003,Pass,Pass,0.1650363680,0.6175659189,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,8, Not Set, Not Set, Not Set, 8, 80, 1
 End of Data
