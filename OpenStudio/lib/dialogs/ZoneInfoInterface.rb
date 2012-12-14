@@ -19,9 +19,9 @@ module OpenStudio
         @hash['ROTATION'] = @input_object.fields[2]        
         @hash['MULTIPLIER'] = @input_object.fields[7]
 
-        if (@input_object.fields[12].nil?)
+        if (@input_object.fields[13].nil?)
           @hash['INCLUDE_FLOOR_AREA'] = true
-        elsif (@input_object.fields[12].upcase == 'YES')
+        elsif (@input_object.fields[13].upcase == 'YES')
           @hash['INCLUDE_FLOOR_AREA'] = true
         else
           @hash['INCLUDE_FLOOR_AREA'] = false
@@ -60,17 +60,17 @@ module OpenStudio
       @input_object.fields[2] = @hash['ROTATION']
       @input_object.fields[7] = @hash['MULTIPLIER']
 
-      if (@input_object.fields[12].nil?)
+      if (@input_object.fields[13].nil?)
         if (@hash['INCLUDE_FLOOR_AREA'])
           # Do nothing, leave blank as before
         else
-          @input_object.fields[12] = 'No'
+          @input_object.fields[13] = 'No'
         end
       else
         if (@hash['INCLUDE_FLOOR_AREA'])
-          @input_object.fields[12] = 'Yes'
+          @input_object.fields[13] = 'Yes'
         else
-          @input_object.fields[12] = 'No'
+          @input_object.fields[13] = 'No'
         end
       end
       

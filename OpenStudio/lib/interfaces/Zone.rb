@@ -429,7 +429,7 @@ module OpenStudio
 
 
     def include_in_building_floor_area?
-      if (@input_object.fields[12].nil? or @input_object.fields[12].upcase == "YES")
+      if (@input_object.fields[13].nil? or @input_object.fields[13].upcase == "YES")
         return(true)
       else
         return(false)
