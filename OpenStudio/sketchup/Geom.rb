@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2012, Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
 # This file adds new methods to native SketchUp classes.
