@@ -168,7 +168,7 @@ module OpenStudio
         hash['EnergyPlus Path'] = "C:/EnergyPlusV8-0-0/EnergyPlus.exe"  # Default installation path
       elsif (platform == Platform_Mac)
         hash['Text Editor Path'] = "/Applications/TextEdit.app"
-        hash['EnergyPlus Path'] = "/Applications/EnergyPlus-8-0-0/bin/energyplus"  # Default installation path
+        hash['EnergyPlus Path'] = "/Applications/EnergyPlus-8-0-0/energyplus"  # Default installation path
     hash['Check For Update'] = false
       end
 
