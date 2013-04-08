@@ -101,7 +101,7 @@
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
 
-  Version,7.2;
+  Version,8.0;
 
   Timestep,4;
 
@@ -165,7 +165,7 @@
     -18.4,                   !- Maximum Dry-Bulb Temperature {C}
     0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
     ,                        !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
     -18.4,                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
@@ -197,7 +197,7 @@
     32.1,                    !- Maximum Dry-Bulb Temperature {C}
     14.1,                    !- Daily Dry-Bulb Temperature Range {deltaC}
     ,                        !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
     14.6,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
@@ -609,8 +609,8 @@
     Gas Eq Sch,              !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     5857.501,                !- Design Level {W}
-    ,                        !- Watts per Zone Floor Area {W/m2}
-    ,                        !- Watts per Person {W/Person}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/Person}
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
@@ -702,8 +702,8 @@
     Gas Eq Sch,              !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     29287.51,                !- Design Level {W}
-    ,                        !- Watts per Zone Floor Area {W/m2}
-    ,                        !- Watts per Person {W/Person}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/Person}
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
@@ -806,8 +806,8 @@
     Gas Eq Sch,              !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     14643.75,                !- Design Level {W}
-    ,                        !- Watts per Zone Floor Area {W/m2}
-    ,                        !- Watts per Person {W/Person}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/Person}
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
@@ -899,8 +899,8 @@
     Gas Eq Sch,              !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     14643.75,                !- Design Level {W}
-    ,                        !- Watts per Zone Floor Area {W/m2}
-    ,                        !- Watts per Person {W/Person}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/Person}
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
@@ -992,8 +992,8 @@
     Gas Eq Sch,              !- Schedule Name
     EquipmentLevel,          !- Design Level Calculation Method
     14643.75,                !- Design Level {W}
-    ,                        !- Watts per Zone Floor Area {W/m2}
-    ,                        !- Watts per Person {W/Person}
+    ,                        !- Power per Zone Floor Area {W/m2}
+    ,                        !- Power per Person {W/Person}
     0.0000000E+00,           !- Fraction Latent
     0.3000000,               !- Fraction Radiant
     0.0000000E+00;           !- Fraction Lost
@@ -2714,21 +2714,21 @@
 
   Output:Surfaces:Drawing,DXF;
 
-  Output:Variable,*,Zone/Sys Sensible Heating Rate,hourly;
+  Output:Variable,*,Zone Air System Sensible Heating Rate,hourly;
 
-  Output:Variable,*,Zone/Sys Sensible Cooling Rate,hourly;
+  Output:Variable,*,Zone Air System Sensible Cooling Rate,hourly;
 
-  Output:Variable,*,Zone Air Balance Internal Convective Gains Rate,hourly;
+  Output:Variable,*,Zone Air Heat Balance Internal Convective Heat Gain Rate,hourly;
 
-  Output:Variable,*,Zone Air Balance Surface Convection Rate,hourly;
+  Output:Variable,*,Zone Air Heat Balance Surface Convection Rate,hourly;
 
-  Output:Variable,*,Zone Air Balance Interzone Air Transfer Rate,hourly;
+  Output:Variable,*,Zone Air Heat Balance Interzone Air Transfer Rate,hourly;
 
-  Output:Variable,*,Zone Air Balance Outdoor Air Transfer Rate,hourly;
+  Output:Variable,*,Zone Air Heat Balance Outdoor Air Transfer Rate,hourly;
 
-  Output:Variable,*,Zone Air Balance System Air Transfer Rate,hourly;
+  Output:Variable,*,Zone Air Heat Balance System Air Transfer Rate,hourly;
 
-  Output:Variable,*,Zone Air Balance Air Energy Storage Rate,hourly;
+  Output:Variable,*,Zone Air Heat Balance Air Energy Storage Rate,hourly;
 
   Output:Variable,*,Zone Mean Air Temperature,hourly;
 
@@ -2738,9 +2738,9 @@
 
   Output:Variable,*,Surface Outside Face Temperature,hourly;
 
-  Output:Variable,*,Surface Ext Solar Incident,hourly;
+  Output:Variable,*,Surface Outside Face Incident Solar Radiation Rate per Area,hourly;
 
-  Output:Variable,*,Daylight Illum at Ref Point 1,hourly;
+  Output:Variable,*,Daylighting Reference Point 1 Illuminance,hourly;
 
-  Output:Variable,*,Glare Index at Ref Point 1,hourly;
+  Output:Variable,*,Daylighting Reference Point 1 Glare Index,hourly;
 

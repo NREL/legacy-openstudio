@@ -165,10 +165,10 @@ module OpenStudio
       
       if (platform == Platform_Windows)
         hash['Text Editor Path'] = "C:/WINDOWS/system32/notepad.exe"
-        hash['EnergyPlus Path'] = "C:/EnergyPlusV7-2-0/EnergyPlus.exe"  # Default installation path
+        hash['EnergyPlus Path'] = "C:/EnergyPlusV8-0-0/EnergyPlus.exe"  # Default installation path
       elsif (platform == Platform_Mac)
         hash['Text Editor Path'] = "/Applications/TextEdit.app"
-        hash['EnergyPlus Path'] = "/Applications/EnergyPlus-7-2-0/bin/energyplus"  # Default installation path
+        hash['EnergyPlus Path'] = "/Applications/EnergyPlus-8-0-0/bin/energyplus"  # Default installation path
     hash['Check For Update'] = false
       end
 
@@ -201,7 +201,7 @@ module OpenStudio
 
 
     def energyplus_version
-      return('7.2.0')
+      return('8.0.0')
     end
 
   end

@@ -86,7 +86,7 @@
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
 
-  Version,7.2;
+  Version,8.0;
 
   Timestep,4;
 
@@ -148,7 +148,7 @@
     2.9,                     !- Maximum Dry-Bulb Temperature {C}
     0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
     ,                        !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
     2.9,                     !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
@@ -180,7 +180,7 @@
     43.4,                    !- Maximum Dry-Bulb Temperature {C}
     12.3,                    !- Daily Dry-Bulb Temperature Range {deltaC}
     ,                        !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
     21.1,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
@@ -2255,13 +2255,13 @@
     For: AllDays,            !- Field 2
     Until: 24:00,0.1;        !- Field 3
 
-  Output:Variable,*,outdoor dry bulb,hourly;
+  Output:Variable,*,Site Outdoor Air Drybulb Temperature,hourly;
 
   Output:Variable,*,Zone Mean Air Temperature,hourly;
 
-  Output:Variable,*,Zone Total Internal Latent Gain,hourly;
+  Output:Variable,*,Zone Total Internal Latent Gain Energy,hourly;
 
-  Output:Variable,*,Zone Lights Electric Consumption,hourly;
+  Output:Variable,*,Zone Lights Electric Energy,hourly;
 
   Output:Meter,Electricity:Building,hourly;
 
@@ -2277,9 +2277,9 @@
 
   Output:Variable,*,Surface Outside Face Convection Heat Transfer Coefficient,daily;
 
-  Output:Variable,*,surface ext sunlit area,daily;
+  Output:Variable,*,Surface Outside Face Sunlit Area,daily;
 
-  Output:Variable,*,surface ext sunlit fraction,daily;
+  Output:Variable,*,Surface Outside Face Sunlit Fraction,daily;
 
   Output:VariableDictionary,Regular;
 

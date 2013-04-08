@@ -127,16 +127,16 @@ module OpenStudio
       end
 
       if (Plugin.model_manager.get_attribute("Report Daylighting"))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Daylight Illum at Ref Point 1", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Glare Index at Ref Point 1", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Daylight Illum at Ref Point 2", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Glare Index at Ref Point 2", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Daylighting Reference Point 1 Illuminance", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Daylighting Reference Point 1 Glare Index", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Daylighting Reference Point 2 Illuminance", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Daylighting Reference Point 2 Glare Index", "Hourly"]))
       end
 
       if (Plugin.model_manager.get_attribute("Report Zone Loads"))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Sensible Heating Rate", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Sensible Cooling Rate", "Hourly"]))
-        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Ideal Loads Total Cooling Rate", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Zone Ideal Loads Supply Air Sensible Heating Rate", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Zone Ideal Loads Supply Air Sensible Cooling Rate", "Hourly"]))
+        new_input_file.add_object(InputObject.new("Output:Variable", ["Output:Variable", "*", "Zone Ideal Loads Supply Air Total Cooling Rate", "Hourly"]))
       end
       
       # make a temp directory to run in

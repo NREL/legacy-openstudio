@@ -99,7 +99,7 @@
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
 
-  Version,7.2;
+  Version,8.0;
 
   Building,
     Building,                !- Name
@@ -227,7 +227,7 @@
     -17.3,                   !- Maximum Dry-Bulb Temperature {C}
     0.0,                     !- Daily Dry-Bulb Temperature Range {deltaC}
     ,                        !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
     -17.3,                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
@@ -257,7 +257,7 @@
     31.5,                    !- Maximum Dry-Bulb Temperature {C}
     10.7,                    !- Daily Dry-Bulb Temperature Range {deltaC}
     ,                        !- Dry-Bulb Temperature Range Modifier Type
-    ,                        !- Dry-Bulb Temperature Range Modifier Schedule Name
+    ,                        !- Dry-Bulb Temperature Range Modifier Day Schedule Name
     Wetbulb,                 !- Humidity Condition Type
     23.0,                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
     ,                        !- Humidity Condition Day Schedule Name
@@ -2016,13 +2016,13 @@
     1,                       !- Priority
     ;                        !- Sizing Factor
 
-  Output:Variable,*,Outdoor Dry Bulb,hourly;
+  Output:Variable,*,Site Outdoor Air Drybulb Temperature,hourly;
 
-  Output:Variable,*,Zone/Sys Air Temperature,hourly;
+  Output:Variable,*,Zone Air Temperature,hourly;
 
-  Output:Variable,*,Zone/Sys Sensible Cooling Rate,hourly;
+  Output:Variable,*,Zone Air System Sensible Cooling Rate,hourly;
 
-  Output:Variable,*,Zone/Sys Sensible Heating Rate,hourly;
+  Output:Variable,*,Zone Air System Sensible Heating Rate,hourly;
 
   Output:Variable,*,Zone Mean Air Temperature,hourly;
 
@@ -2030,39 +2030,39 @@
 
   Output:Variable,*,Zone Operative Temperature,hourly;
 
-  Output:Variable,*,Time Not Comfortable Summer Or Winter Clothes,hourly;
+  Output:Variable,*,Zone Thermal Comfort ASHRAE 55 Simple Model Summer or Winter Clothes Not Comfortable Time,hourly;
 
   Output:Variable,*,Zone Air Humidity Ratio,hourly;
 
   Output:Variable,*,Zone Air Relative Humidity,hourly;
 
-  Output:Variable,*,Time Heating Setpoint Not Met While Occupied,hourly;
+  Output:Variable,*,Zone Heating Setpoint Not Met While Occupied Time,hourly;
 
-  Output:Variable,*,Time Cooling Setpoint Not Met While Occupied,hourly;
+  Output:Variable,*,Zone Cooling Setpoint Not Met While Occupied Time,hourly;
 
-  Output:Variable,*,Total Water Heating Coil Rate,hourly;
+  Output:Variable,*,Heating Coil Heating Rate,hourly;
 
-  Output:Variable,*,Total Water Cooling Coil Rate,hourly;
+  Output:Variable,*,Cooling Coil Total Cooling Rate,hourly;
 
-  Output:Variable,*,Sensible Water Cooling Coil Rate,hourly;
+  Output:Variable,*,Cooling Coil Sensible Cooling Rate,hourly;
 
-  Output:Variable,*,Plant Loop OutletNode Temperature,hourly;
+  Output:Variable,*,Plant Supply Side Outlet Temperature,hourly;
 
-  Output:Variable,*,Chiller Evap Heat Trans Rate,hourly;
+  Output:Variable,*,Chiller Evaporator Cooling Rate,hourly;
 
-  Output:Variable,*,Chiller Cond Heat Trans Rate,hourly;
+  Output:Variable,*,Chiller Condenser Heat Transfer Rate,hourly;
 
   Output:Variable,*,Chiller Electric Power,hourly;
 
   Output:Variable,*,Chiller COP,hourly;
 
-  Output:Variable,*,Boiler Heating Output Rate,hourly;
+  Output:Variable,*,Boiler Heating Rate,hourly;
 
-  Output:Variable,*,Boiler Gas Consumption Rate,hourly;
+  Output:Variable,*,Boiler Gas Rate,hourly;
 
-  Output:Variable,*,Tower Heat Transfer,hourly;
+  Output:Variable,*,Cooling Tower Heat Transfer Rate,hourly;
 
-  Output:Variable,*,Tower Fan Electric Power,hourly;
+  Output:Variable,*,Cooling Tower Fan Electric Power,hourly;
 
   Output:VariableDictionary,Regular;
 

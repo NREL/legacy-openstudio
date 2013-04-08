@@ -1,4 +1,4 @@
-Program Version,EnergyPlus-Windows-OMP-64 7.2.0.006, YMD=2012.10.08 13:21,IDD_Version 7.2.0.006
+Program Version,EnergyPlus-Windows-64 8.0.0.007, YMD=2013.04.08 10:09,IDD_Version 8.0.0.007
    ** Warning ** GetSurfaceData: World Coordinate System selected.  Any non-zero Building/Zone North Axes or non-zero Zone Origins are ignored.
    **   ~~~   ** These may be used in daylighting reference point coordinate calculations  but not in normal geometry inputs.
    ************* Testing Individual Branch Integrity
@@ -12,4 +12,4 @@ Program Version,EnergyPlus-Windows-OMP-64 7.2.0.006, YMD=2012.10.08 13:21,IDD_Ve
    ************* Simulation Error Summary *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 11min 43.92sec
+   ************* EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 08min 42.83sec

@@ -61,6 +61,8 @@ if old_plugin
       old_version = "1.0.8"     
      elsif /IDD_Version 7\.2\.0/.match(line)
       old_version = "1.0.9"     
+     elsif /IDD_Version 8\.0\.0/.match(line)
+      old_version = "1.0.10"     
     end
   end
   

@@ -1,6 +1,6 @@
 !-   ===========  ALL OBJECTS IN CLASS: VERSION ===========
 
-  Version,7.2;
+  Version,8.0;
 
 !-   ===========  ALL OBJECTS IN CLASS: BUILDING ===========
 
@@ -806,7 +806,7 @@
     0.02,                    !- Area Fraction of Openings {dimensionless}
     0.9,                     !- Thermal Emissivity of Exterior Baffle Material {dimensionless}
     0.92,                    !- Solar Absorbtivity of Exterior Baffle {dimensionless}
-    0.05,                    !- Height Scale for Buoyancy-Driven Ventilation
+    0.05,                    !- Height Scale for Buoyancy-Driven Ventilation {m}
     0.05,                    !- Effective Thickness of Cavity Behind Exterior Baffle {m}
     0.97,                    !- Ratio of Actual Surface Area to Projected Surface Area {dimensionless}
     Smooth,                  !- Roughness of Exterior Surface
@@ -882,17 +882,17 @@
     1.0,                     !- Number of Series Strings in Parallel {dimensionless}
     1.0;                     !- Number of Modules in Series {dimensionless}
 
-  Output:Variable,*,PV Generator DC Power,hourly;
+  Output:Variable,*,Generator Produced DC Electric Power,hourly;
 
-  Output:Variable,*,PV Generator DC Energy,hourly;
+  Output:Variable,*,Generator Produced DC Electric Energy,hourly;
 
-  Output:Variable,*,Inverter AC Energy Output,hourly;
+  Output:Variable,*,Inverter AC Output Electric Energy,hourly;
 
-  Output:Variable,*,Inverter AC Power Output,hourly;
+  Output:Variable,*,Inverter AC Output Electric Power,hourly;
 
-  Output:Variable,*,PV Array Efficiency,hourly;
+  Output:Variable,*,Generator PV Array Efficiency,hourly;
 
-  Output:Variable,*,PV Cell Temperature,hourly;
+  Output:Variable,*,Generator PV Cell Temperature,hourly;
 
   Output:Meter,Photovoltaic:ElectricityProduced,runperiod;
 
