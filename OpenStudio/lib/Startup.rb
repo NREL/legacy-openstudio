@@ -25,7 +25,7 @@ installed_version = Sketchup.version
 installed_version_key = ''; installed_version.split('.').each { |e| installed_version_key += e.rjust(4, '0') }
 
 if (installed_version_key < minimum_version_key)
-  UI.messagebox("OpenStudio is only compatible with Google SketchUp version " + minimum_version +
+  UI.messagebox("OpenStudio is only compatible with SketchUp version " + minimum_version +
     " or higher.\nThe installed version is " + installed_version + ".  The plugin was not loaded.", MB_OK)
 else
   load("OpenStudio/lib/PluginManager.rb")

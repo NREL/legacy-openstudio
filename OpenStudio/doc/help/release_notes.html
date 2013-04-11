@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type"
  content="text/html; charset=ISO-8859-1">
-  <title>OpenStudio Documentation: Release Notes</title>
+  <title>Legacy OpenStudio SketchUp Plug-in Documentation: Release Notes</title>
   <link rel="stylesheet" type="text/css" href="includes/ep.css">
   <script language="Javascript" type="text/javascript">
 <!--
@@ -59,7 +59,7 @@ function msout(num) {
           <tr>
             <td class="subsitephoto" width="100%" bgcolor="#000066"><a
  href="index.html"><img src="images/spacer.gif"
- alt="OpenStudio Documentation" width="333" height="52"></a></td>
+ alt="Legacy OpenStudio SketchUp Plug-in Documentation" width="333" height="52"></a></td>
             <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
           </tr>
         </tbody>
@@ -95,137 +95,38 @@ function msout(num) {
               <li>Windows XP</li>
               <li>Windows Vista</li>
               <li>Windows 7</li>
-              <li>Mac OS 10.x</li>
+              <li>Mac OS 10.7 or higher</li>
             </ul>
             <h3>Supported Versions of SketchUp</h3>
             <ul>
-              <li><a href="http://sketchup.google.com/" target="_new">Google
-SketchUp
-7.x</a> Pro or free versions</li>
+              <li><a href="http://sketchup.com/" target="_new">
+SketchUp 7 or higher</a> Pro or free versions</li>
             </ul>
 <!--<P2i>(note: 6.x no longer supported)</P2i><br>-->
             <h3>Supported Versions of EnergyPlus</h3>
             <ul>
               <li><a
  href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus
-5.x</a></li>
+8.0</a></li>
             </ul>
             <a name="installation"></a>
             <h2>Installation and Setup</h2>
             <ul>
               <li>Download and install <a
- href="http://sketchup.google.com/" target="_new">Google SketchUp 7</a></li>
+ href="http://sketchup.com/" target="_new">SketchUp</a></li>
               <li>Download and install <a
  href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus
-5.X</a></li>
+8.0</a></li>
               <li>Download and install <a
  href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"
- target="_self">OpenStudio</a></li>
+ target="_self">Legacy OpenStudio Plug-in</a></li>
             </ul>
             <p2i>(note: Admin rights will be required to install these
 applications)</p2i><br>
-            <a name="new_features"></a>
-            <h2>New Features</h2>
-            <ul>
-              <li>Added support for <a
- href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus
-5.0</a></li>
-              <li><a href="ref_modeling_tools.html#new_daylighting"><img
- src="../../lib/resources/icons/NewDaylighting-16.png" alt=" "></a> <a
- href="ref_modeling_tools.html#new_daylighting">Daylighting:Controls</a></li>
-              <li><a href="ref_modeling_tools.html#new_illuminance"><img
- src="../../lib/resources/icons/NewIlluminance-16.png" alt=""></a> <a
- href="ref_modeling_tools.html#new_illuminance">Output:IlluminanceMap
-Input Objects</a></li>
-              <li><a href="ref_view_data.html#surface_search"><img
- src="../../lib/resources/icons/SurfaceSearch-16.png" alt=""></a> <a
- href="ref_view_data.html#surface_search">Surface and sub-surface search</a></li>
-              <li><a href="ref_modeling_tools.html#zone_loads"><img
- src="../../lib/resources/icons/ZoneLoads-16.png" alt=""></a> <a
- href="ref_modeling_tools.html#zone_loads">Quickly add internal gains
-and HVACTemplate:Zone:IdealLoadsAirSystem to zones</a></li>
-              <li><a href="ref_modeling_tools.html#surface_matching"><img
- src="../../lib/resources/icons/SurfaceMatchingSelected-16.png" alt=""></a>
-                <a href="ref_modeling_tools.html#surface_matching">Automatic
-surface
-matching
-and
-unmatching
-tool</a></li>
-              <li><a href="ref_view_data.html#default_const_prefs"><img
- src="../../lib/resources/icons/SetDefaultConstPrefs-16.png" alt=""></a>
-                <a href="ref_view_data.html#default_const_prefs">Default
-construction
-manager</a></li>
-              <li><a href="ref_rendering.html#render_by_boundary"><img
- src="../../lib/resources/icons/RenderByBoundary-16x16.png"> Render by
-Outside Boundary Condition</a></li>
-              <li>Improved documentation and tutorials</li>
-            </ul>
-            <a name="bugs_fixed"></a>
-            <h2>Bugs Fixed</h2>
-            <ul>
-              <li>Improved support for simple geometry</li>
-              <li>Removed dependency on Windows system dlls not shipped
-with plugin</li>
-              <li>Run EnergyPlus through OpenStudio as a non-admin</li>
-              <li>Back faces of EnergyPlus Shading Surfaces now have
-different colors than their front faces.</li>
-              <li>Stability improvements to the Object Info Dialog</li>
-            </ul>
-            <a name="patch_1.0.5.362"></a>
-            <h2>Changes in Patch 1.0.5.362 </h2>
-            <ul>
-              <li>Fix a bug that caused some sub-surfaces on angled
-base surfaces to become detached from their base surface.</li>
-              <li>Fixed a bug where some non rectangular surfaces
-wouldn&#8217;t properly match using the Surface Matching tool.</li>
-              <li>Drastically increased the speed of the Surface
-Matching tool.</li>
-              <li>When applying default constructions to a selection,
-the adjacent surfaces in other zones are now also changed to keep the
-constructions in sync.</li>
-              <li>Fix a problem with flickering of the Objet Info
-window after changing rendering modes.<br>
-              </li>
-            </ul>
-            <a name="patch_1.0.5.355"></a>
-            <h2>Changes in Patch 1.0.5.355 </h2>
-            <ul>
-              <li>Attached shading surfaces can now be manually
-assigned a base surface. By default the base surface is a floor in the
-zone, however you may need to change it to an exterior wall. EnergyPlus
-requires that shading surfaces have an exterior base surface.</li>
-              <li>When you click &#8220;Reset to Default Office&#8221; in Zone
-Loads &#8220;Constant Setponit Thermostat&#8221; is now set for
-HVACTemplase:Thermostat. This is only visible if you also turn on &#8220;Add
-HVAC Template:Aone:IdealLoadsAirSystem.&#8221;</li>
-              <li>When you save Zone Load Preferences, your
-Thermostat is also saved along with Zone Loads.</li>
-              <li>For Surface, Zone, and all Ground outside
-boundary conditions sun and wind exposure are now set to "NoSun" and
-"NoWind".</li>
-              <li>For Outdoors, Adiabatic, Other Side Coefficients,
-and Other Side Conditions Model outside boundary conditions you can
-manually set the sun and wind exposure. When choosign "Outdoors"
-exposures are set to "SunExposed" and "WindExposed" by default, but you
-can manually change them.</li>
-              <li>Fixed issues &nbsp;with conversion of Simple
-Objects to Detailed Objects.</li>
-              <li>Units for summary reports can now be
-set under the "Run Simulation" dialog. This includes the Annual
-Building Utility Performance Summary.<br>
-              </li>
-              <li>Added four IDF specific tutorials showing how to add
-and edit some IDF objects outside of OpenStudio. Batch simulation
-through EP-Launch, featured on tutorial 301, is currently not avalable
-for Mac OS.<br>
-              </li>
-            </ul>
             <a name="known_issues"></a>
             <h2>Known Issues</h2>
             <ul>
-              <li>When working with OpenStudio, save only your IDF
+              <li>When working with the Legacy OpenStudio Plug-in, save only your IDF
 file. Do not save the SketchUp SKP file. Opening SKP files that have an
 associated IDF file can result in a set of duplicates surfaces that are
 slightly offset from the original surfaces and cause other problems. </li>
@@ -236,7 +137,7 @@ Mac in the status bar under any conditions. </li>
 Zones, and then hide a zone, you will receive an error message.</li>
               <li>Rendering Settings Dialog does not work on a Mac
 because the JavaScript engine in Safari</li>
-              <li>Can't move zone origin through OpenStudio.</li>
+              <li>Can't move zone origin through Legacy OpenStudio Plug-in.</li>
               <li>Surface Matching may not properly match some non
 rectangular surfaces. If this happens you can manually match the
 surfaces using the Object Information Window. An alternative workflow
@@ -254,7 +155,7 @@ you want to make changes to curves via the object info window you have
 to "View Hidden Geometry" to select individual facets. You can't
 globally change the whole curve at once.</li>
               <li>When you are drawing in a zone and extrude your plan
-up OpenStudio runs through and classifies all of the newly created base
+up the Legacy OpenStudio Plug-in runs through and classifies all of the newly created base
 surfaces. Normally this is very quick, but if you have a complex shape,
 and also if you have the Object Information window and/or Outliner
 window open it make take longer. If you interrupt the process by
@@ -264,9 +165,9 @@ surfaces, or delete and redraw them.</li>
             </ul>
             <a name="troubleshooting"></a>
             <h2>Troubleshooting</h2>
-            <h3>OpenStudio</h3>
+            <h3>Legacy OpenStudio Plug-in</h3>
             <ul>
-              <li>We recognize that OpenStudio is not perfect. SketchUp
+              <li>We recognize that the Legacy OpenStudio Plug-in is not perfect. SketchUp
 is a flexible and dynamic program that allows the user to draw all
 kinds of geometry in many ways, and we have not been able to test all
 of them. We welcome your assistance in identifying bugs so we can fix
@@ -274,7 +175,7 @@ them in the next version. We welcome feedback about how we might
 improve the plugin. We would also like to learn about feature requests,
 compliments, criticisms, etc. </li>
               <li>For all bug reports, feedback, and questions about
-OpenStudio, visit the collaborative project Web site at <a
+the Legacy OpenStudio Plug-in, visit the collaborative project Web site at <a
  href="http://openstudio.sourceforge.net/" target="_new">SourceForge.net.</a></li>
               <li>The project Web site enables you to join the user
 support mailing list, browse the list of known issues in the bug
@@ -303,7 +204,7 @@ possible. Thanks for your help and patience! </li>
             <ul>
               <li>The <a href="http://energyplus.helpserve.com/"
  target="_new">EnergyPlus forum and knowledgebase,</a> can help with
-EnergyPlus questions that fall outside of the scope of OpenStudio.</li>
+EnergyPlus questions that fall outside of the scope of the Legacy OpenStudio Plug-in.</li>
               <li>There is also extensive PDF documentation of
 EnergyPlus under your EnergyPlus install in a subfolder called
 "documentation". Refer to "InputOutputReference.pdf" and
@@ -320,7 +221,7 @@ explain strategies for breaking a building into Thermal zones.
             <h3>SketchUp</h3>
             <ul>
               <li><a
- href="http://sketchup.google.com/support/bin/answer.py?hl=en&amp;answer=36207"
+ href="http://support.google.com/sketchup/?hl=en"
  target="_new">Link to SketchUp's On-Line Help Guides and Video
 Tutorials</a></li>
               <li><a
