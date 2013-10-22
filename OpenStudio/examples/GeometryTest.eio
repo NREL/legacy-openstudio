@@ -1,6 +1,6 @@
-Program Version,EnergyPlus-Windows-64 8.0.0.007, YMD=2013.04.08 10:09
+Program Version,EnergyPlus-Windows-32 8.1.0.008, YMD=2013.10.22 07:56
 ! <Version>, Version ID
- Version, 8.0
+ Version, 8.1
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
  Timesteps per Hour,  4, 15
 ! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
@@ -152,11 +152,11 @@ Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.
  Zone Internal Gains, LEFT FORK,74.32,8.0,9.290,0.108,13.989,5.359,197.030,0.000,0.000,0.000,216.378,No
  Zone Internal Gains, MIDDLE FORK,74.32,8.0,9.290,0.108,13.989,5.359,197.030,0.000,0.000,0.000,216.378,No
  Zone Internal Gains, RIGHT FORK,74.32,8.0,9.290,0.108,13.989,5.359,197.030,0.000,0.000,0.000,216.378,No
-! <People Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate,Nominal Minimum Number of People,Nominal Maximum Number of People,MRT Calculation Type,Work Efficiency,Clothing,Air Velocity,Fanger Calculation,Pierce Calculation,KSU Calculation
- People Internal Gains, DORM ROOMS AND COMMON AREAS,RESIDENCE OCCUPANCY,DORM ROOMS AND COMMON AREAS,445.93,31.0,31.0,6.952E-002,14.385,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,9,31,Zone Averaged,WORK EFF SCH,CLOTHING SCH,AIR VELO SCH,Yes,No,No
- People Internal Gains, LEFT FORK,OFFICE OCCUPANCY,LEFT FORK,74.32,8.0,8.0,0.108,9.290,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,0,8,Zone Averaged,WORK EFF SCH,CLOTHING SCH,AIR VELO SCH,Yes,No,No
- People Internal Gains, MIDDLE FORK,OFFICE OCCUPANCY,MIDDLE FORK,74.32,8.0,8.0,0.108,9.290,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,0,8,Zone Averaged,WORK EFF SCH,CLOTHING SCH,AIR VELO SCH,Yes,No,No
- People Internal Gains, RIGHT FORK,OFFICE OCCUPANCY,RIGHT FORK,74.32,8.0,8.0,0.108,9.290,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,0,8,Zone Averaged,WORK EFF SCH,CLOTHING SCH,AIR VELO SCH,Yes,No,No
+! <People Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate,Nominal Minimum Number of People,Nominal Maximum Number of People,MRT Calculation Type,Work Efficiency, Clothing Insulation Calculation Method,Clothing Insulation Calculation Method Schedule,Clothing,Air Velocity,Fanger Calculation,Pierce Calculation,KSU Calculation
+ People Internal Gains, DORM ROOMS AND COMMON AREAS,RESIDENCE OCCUPANCY,DORM ROOMS AND COMMON AREAS,445.93,31.0,31.0,6.952E-002,14.385,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,9,31,Zone Averaged,WORK EFF SCH,Clothing Insulation Schedule,N/A,CLOTHING SCH,AIR VELO SCH,Yes,No,No
+ People Internal Gains, LEFT FORK,OFFICE OCCUPANCY,LEFT FORK,74.32,8.0,8.0,0.108,9.290,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,0,8,Zone Averaged,WORK EFF SCH,Clothing Insulation Schedule,N/A,CLOTHING SCH,AIR VELO SCH,Yes,No,No
+ People Internal Gains, MIDDLE FORK,OFFICE OCCUPANCY,MIDDLE FORK,74.32,8.0,8.0,0.108,9.290,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,0,8,Zone Averaged,WORK EFF SCH,Clothing Insulation Schedule,N/A,CLOTHING SCH,AIR VELO SCH,Yes,No,No
+ People Internal Gains, RIGHT FORK,OFFICE OCCUPANCY,RIGHT FORK,74.32,8.0,8.0,0.108,9.290,0.600,0.400,AutoCalculate,ACTIVITY SCH,No,3.8200E-008,0,8,Zone Averaged,WORK EFF SCH,Clothing Insulation Schedule,N/A,CLOTHING SCH,AIR VELO SCH,Yes,No,No
 ! <Lights Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Lighting Level {W},Lights/Floor Area {W/m2},Lights per person {W/person},Fraction Return Air,Fraction Radiant,Fraction Short Wave,Fraction Convected,Fraction Replaceable,End-Use Category,Nominal Minimum Lighting Level {W},Nominal Maximum Lighting Level {W}
  Lights Internal Gains, PSI FOYER LIGHTS 1,RESIDENCE LIGHTING,PSI FOYER,96.62,0.0,518.389,5.365,N/A,0.000,0.400,0.200,0.400,1.000,GeneralLights,51.839,518.389
  Lights Internal Gains, DORM ROOMS AND COMMON AREAS LIGHTS 1,RESIDENCE LIGHTING,DORM ROOMS AND COMMON AREAS,445.93,31.0,1247.648,2.798,40.247,0.000,0.400,0.200,0.400,1.000,GeneralLights,124.765,1247.648
@@ -467,9 +467,9 @@ Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRA
  Overcast Sky Daylight Factors,01/21,RIGHT FORK,ZN005:WALL002:WIN001,3.2450E-002,0.0000
 Environment:WarmupDays,  6
 ! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
- Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,2.2426505097E-014,7.0387439302E-014,Pass,Pass,1.2875731814E-003,3.8527849002E-003,Pass,Pass
+ Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,4.3557749999E-014,1.1283740239E-013,Pass,Pass,1.2875731814E-003,3.8527849002E-003,Pass,Pass
  Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,4.8618363909E-002,0.1017742181,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9412575465E-004,2.0128549371E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9412575466E-004,2.0128549371E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
  Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.8170052051E-004,1.9563975608E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
  Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN HTG 99.6% CONDNS DB,3.9618523392E-004,2.0287088588E-004,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 Environment,COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
@@ -477,19 +477,19 @@ Environment:Daylight Saving,No,SizingPeriod:DesignDay
 Environment:Design Day Data,32.10,14.10,DefaultMultipliers,80677,180,5.3,1.00,No ,No 
 Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAEClearSky
 Environment:WarmupDays,  6
- Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666667,0.1975908828,Pass,Pass,0.1216983175,0.2308342542,Pass,Pass
- Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1061225924,0.1506973301,Pass,Pass,6.7125145421E-002,0.1650680597,Pass,Pass
- Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1107070594,0.1384503632,Pass,Pass,6.8509947422E-002,0.1584909710,Pass,Pass
- Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1121061570,0.1301062145,Pass,Pass,0.1413566345,0.7376164085,Pass,Pass
- Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666666,0.1503703279,Pass,Pass,7.0918298601E-002,0.1656612986,Pass,Pass
+ Warmup Convergence Information,PSI FOYER,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666667,0.1975908828,Pass,Pass,0.1216983176,0.2308342551,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1061225924,0.1506973301,Pass,Pass,6.7125145832E-002,0.1650680623,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1107070594,0.1384503631,Pass,Pass,6.8509948131E-002,0.1584909748,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1121061571,0.1301062145,Pass,Pass,0.1413566578,0.7376166259,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,SizingPeriod: COLORADO_SPRGS ANN CLG .4% CONDNS DB=>MWB,0.1166666666,0.1503703278,Pass,Pass,7.0918301417E-002,0.1656613040,Pass,Pass
 Environment,COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,WeatherFileRunPeriod,01/01,12/31,Sunday,365,UseWeatherFile,Yes,Yes,No ,Yes,Yes
 Environment:Daylight Saving,No,
 Environment:WarmupDays,  6
- Warmup Convergence Information,PSI FOYER,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.6664526947E-003,2.3177838222E-002,Pass,Pass,6.6641182278E-002,0.1473879295,Pass,Pass
- Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,5.9785858223E-002,9.7703883791E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
- Warmup Convergence Information,LEFT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.2589974016E-003,1.2282953091E-002,Pass,Pass,0.1741282629,0.8713228694,Pass,Pass
- Warmup Convergence Information,MIDDLE FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,1.7763568394E-014,2.1518860364E-014,Pass,Pass,3.7148319462E-002,2.5243631727E-002,Pass,Pass
- Warmup Convergence Information,RIGHT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,1.5515527866E-003,6.9968111296E-003,Pass,Pass,0.1650363680,0.6175659191,Pass,Pass
+ Warmup Convergence Information,PSI FOYER,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.6664526499E-003,2.3177838141E-002,Pass,Pass,6.6641182256E-002,0.1473879294,Pass,Pass
+ Warmup Convergence Information,DORM ROOMS AND COMMON AREAS,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,5.9785858204E-002,9.7703883796E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+ Warmup Convergence Information,LEFT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,6.2589974401E-003,1.2282953145E-002,Pass,Pass,0.1741282772,0.8713229923,Pass,Pass
+ Warmup Convergence Information,MIDDLE FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,2.5979218776E-014,2.8648917398E-014,Pass,Pass,3.7148319456E-002,2.5243631738E-002,Pass,Pass
+ Warmup Convergence Information,RIGHT FORK,RunPeriod: COLORADO_SPRINGS CO USA TMY2-93037 WMO#=724660,1.5515527983E-003,6.9968111624E-003,Pass,Pass,0.1650363774,0.6175659981,Pass,Pass
 ! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
 Program Control:Threads/Parallel Sims, No,1, N/A, N/A, N/A, N/A, N/A, 1
 End of Data

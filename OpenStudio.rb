@@ -44,7 +44,7 @@ end
 old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
 old_version = nil
 if old_plugin
-  
+
   # peak at Idd to figure out version
   old_version = "Unknown"
   File.open(old_plugin, 'r') do |file|
@@ -63,9 +63,11 @@ if old_plugin
       old_version = "1.0.9"     
      elsif /IDD_Version 8\.0\.0/.match(line)
       old_version = "1.0.10"     
+     elsif /IDD_Version 8\.1\.0/.match(line)
+      old_version = "1.0.11"     
     end
   end
-  
+
   OPENSTUDIO_PLUGIN_NAME = "Legacy OpenStudio"
   OPENSTUDIO_PLUGIN_VERSION = old_version
 end

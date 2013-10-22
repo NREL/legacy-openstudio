@@ -1,4 +1,4 @@
-! Program Version,EnergyPlus-Windows-64 8.0.0.007, YMD=2013.04.08 10:09,IDD_Version 8.0.0.007
+! Program Version,EnergyPlus-Windows-32 8.1.0.008, YMD=2013.10.22 07:56,IDD_Version 8.1.0.008
 ! Output:Variable Objects (applicable to this run)
 Output:Variable,*,Site Outdoor Air Drybulb Temperature,hourly; !- Zone Average [C]
 Output:Variable,*,Site Outdoor Air Dewpoint Temperature,hourly; !- Zone Average [C]
@@ -176,6 +176,15 @@ Output:Variable,*,Surface Window BSDF Beam Theta Angle,hourly; !- Zone Average [
 Output:Variable,*,Surface Window BSDF Beam Phi Angle,hourly; !- Zone Average [rad]
 Output:Variable,*,Surface Window Total Glazing Layers Absorbed Solar Radiation Rate,hourly; !- Zone Average [W]
 Output:Variable,*,Surface Window Total Glazing Layers Absorbed Shortwave Radiation Rate,hourly; !- Zone Average [W]
+Output:Variable,*,Surface Window Total Absorbed Shortwave Radiation Rate Layer 1,hourly; !- Zone Average [W]
+Output:Variable,*,Surface Window Front Face Temperature Layer 1,hourly; !- Zone Average [C]
+Output:Variable,*,Surface Window Back Face Temperature Layer 1,hourly; !- Zone Average [C]
+Output:Variable,*,Surface Window Total Absorbed Shortwave Radiation Rate Layer 2,hourly; !- Zone Average [W]
+Output:Variable,*,Surface Window Front Face Temperature Layer 2,hourly; !- Zone Average [C]
+Output:Variable,*,Surface Window Back Face Temperature Layer 2,hourly; !- Zone Average [C]
+Output:Variable,*,Surface Window Total Absorbed Shortwave Radiation Rate Layer 3,hourly; !- Zone Average [W]
+Output:Variable,*,Surface Window Front Face Temperature Layer 3,hourly; !- Zone Average [C]
+Output:Variable,*,Surface Window Back Face Temperature Layer 3,hourly; !- Zone Average [C]
 Output:Variable,*,Surface Window Transmitted Solar Radiation Rate,hourly; !- Zone Average [W]
 Output:Variable,*,Surface Window Transmitted Beam Solar Radiation Rate,hourly; !- Zone Average [W]
 Output:Variable,*,Surface Window Transmitted Beam To Beam Solar Radiation Rate,hourly; !- Zone Average [W]
@@ -338,6 +347,7 @@ Output:Variable,*,Zone Predicted Moisture Load to Dehumidifying Setpoint Moistur
 Output:Variable,*,Zone Thermostat Control Type,hourly; !- Zone Average []
 Output:Variable,*,Zone Thermostat Heating Setpoint Temperature,hourly; !- Zone Average [C]
 Output:Variable,*,Zone Thermostat Cooling Setpoint Temperature,hourly; !- Zone Average [C]
+Output:Variable,*,Zone Predicted Sensible Load Room Air Correction Factor,hourly; !- HVAC Average []
 Output:Variable,*,HVAC System Solver Iteration Count,hourly; !- HVAC Sum []
 Output:Variable,*,Air System Solver Iteration Count,hourly; !- HVAC Sum []
 Output:Variable,*,Zone Ideal Loads Supply Air Sensible Heating Energy,hourly; !- HVAC Sum [J]
@@ -411,6 +421,7 @@ Output:Variable,*,Zone Thermal Comfort Fanger Model PPD,hourly; !- Zone Average 
 Output:Variable,*,Zone Thermal Comfort Clothing Surface Temperature,hourly; !- Zone Average [C]
 Output:Variable,*,Zone Thermal Comfort Mean Radiant Temperature,hourly; !- Zone Average [C]
 Output:Variable,*,Zone Thermal Comfort Operative Temperature,hourly; !- Zone Average [C]
+Output:Variable,*,Zone Thermal Comfort Clothing Value,hourly; !- Zone Average [clo]
 Output:Variable,*,Zone Thermal Comfort ASHRAE 55 Simple Model Summer Clothes Not Comfortable Time,hourly; !- Zone Sum [hr]
 Output:Variable,*,Zone Thermal Comfort ASHRAE 55 Simple Model Winter Clothes Not Comfortable Time,hourly; !- Zone Sum [hr]
 Output:Variable,*,Zone Thermal Comfort ASHRAE 55 Simple Model Summer or Winter Clothes Not Comfortable Time,hourly; !- Zone Sum [hr]
