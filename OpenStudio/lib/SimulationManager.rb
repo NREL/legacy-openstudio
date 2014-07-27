@@ -2,8 +2,13 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/stdruby/fileutils")
-require("OpenStudio/stdruby/tmpdir")
+begin
+  require("fileutils")
+  require("tmpdir")
+rescue LoadError
+  require("OpenStudio/stdruby/fileutils")
+  require("OpenStudio/stdruby/tmpdir")
+end
 
 module OpenStudio
 

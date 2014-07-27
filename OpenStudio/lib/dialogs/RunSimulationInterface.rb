@@ -4,7 +4,12 @@
 
 require("OpenStudio/lib/dialogs/DialogInterface")
 require("OpenStudio/lib/dialogs/RunSimulationDialog")
-require("OpenStudio/stdruby/tmpdir")
+
+begin
+  require("tmpdir")
+rescue LoadError
+  require("OpenStudio/stdruby/tmpdir")
+end
 
 module OpenStudio
 

@@ -12,7 +12,7 @@
 # if (RUBY_VERSION < '1.8.0')
 
 
-if (RUBY_PLATFORM =~ /mswin/)  # Windows
+if (RUBY_PLATFORM =~ /mswin/ or RUBY_PLATFORM =~ /mingw/)  # Windows
   minimum_version = '7.0.0000'
   minimum_version_key = '000700000000'
 elsif (RUBY_PLATFORM =~ /darwin/)  # Mac OS X
