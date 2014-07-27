@@ -1,5 +1,5 @@
 ######################################################################
-#  Copyright (c) 2008-2013, Alliance for Sustainable Energy.  
+#  Copyright (c) 2008-2014, Alliance for Sustainable Energy.  
 #  All rights reserved.
 #  
 #  This library is free software; you can redistribute it and/or
@@ -24,7 +24,7 @@ new_plugin = Sketchup.find_support_file("Startup.rb", "Plugins/OpenStudio")
 new_version = nil
 if new_plugin
 
-  # peak at Startup.rb to figure out version
+  # peek at Startup.rb to figure out version
   new_version = "Unknown"
   File.open(new_plugin, 'r') do |file|
     while line = file.gets
@@ -44,8 +44,8 @@ end
 old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
 old_version = nil
 if old_plugin
-
-  # peak at Idd to figure out version
+  
+  # peek at Idd to figure out version
   old_version = "Unknown"
   File.open(old_plugin, 'r') do |file|
     line = file.gets
@@ -67,7 +67,7 @@ if old_plugin
       old_version = "1.0.11"     
     end
   end
-
+  
   OPENSTUDIO_PLUGIN_NAME = "Legacy OpenStudio"
   OPENSTUDIO_PLUGIN_VERSION = old_version
 end
@@ -149,7 +149,7 @@ if load_old_plugin and old_plugin
   ext.description = "Adds building energy modeling capabilities by coupling SketchUp to the EnergyPlus simulation engine.  \r\n\r\nVisit www.energyplus.gov for more information."
   ext.version = old_version
   ext.creator = "National Renewable Energy Laboratory"
-  ext.copyright = "2008-2013, Alliance for Sustainable Energy"
+  ext.copyright = "2008-2014, Alliance for Sustainable Energy"
 
   # 'true' automatically loads the extension the first time it is registered, e.g., after install
   Sketchup.register_extension(ext, true)
@@ -161,7 +161,7 @@ elsif new_plugin
   ext.description = "Adds building energy modeling capabilities by coupling SketchUp to the OpenStudio suite of tools.  \r\n\r\nVisit openstudio.nrel.gov for more information."
   ext.version = new_version
   ext.creator = "National Renewable Energy Laboratory"
-  ext.copyright = "2008-2013, Alliance for Sustainable Energy"
+  ext.copyright = "2008-2014, Alliance for Sustainable Energy"
 
   # 'true' automatically loads the extension the first time it is registered, e.g., after install
   Sketchup.register_extension(ext, true)
