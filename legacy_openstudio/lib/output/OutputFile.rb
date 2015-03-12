@@ -2,11 +2,11 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/output/OutputVariableDefinition")
-require("OpenStudio/lib/output/OutputRunPeriod")
+require("legacy_openstudio/lib/output/OutputVariableDefinition")
+require("legacy_openstudio/lib/output/OutputRunPeriod")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class OutputFile
 

@@ -2,10 +2,10 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require 'OpenStudio/lib/tools/Tool'
-require 'OpenStudio/lib/interfaces/DaylightingControls'
+require 'legacy_openstudio/lib/tools/Tool'
+require 'legacy_openstudio/lib/interfaces/DaylightingControls'
 
-module OpenStudio
+module LegacyOpenStudio
 
   class NewDaylightingControlsTool < Tool
   

@@ -3,7 +3,7 @@
 # See the file "License.txt" for additional terms and conditions.
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   # This is a kludge to get a selection update when a Group is closed after being edited.
   # SelectionObserver does not provide any event.  Fortunately, InstanceObserver, which

@@ -2,10 +2,10 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/interfaces/SurfaceGroup")
+require("legacy_openstudio/lib/interfaces/SurfaceGroup")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class DetachedShadingGroup < SurfaceGroup
 

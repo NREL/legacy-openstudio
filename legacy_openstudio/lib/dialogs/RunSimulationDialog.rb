@@ -2,12 +2,12 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/dialogs/Dialogs")
-require("OpenStudio/lib/dialogs/DialogContainers")
-require("OpenStudio/lib/WeatherFile")
+require("legacy_openstudio/lib/dialogs/Dialogs")
+require("legacy_openstudio/lib/dialogs/DialogContainers")
+require("legacy_openstudio/lib/WeatherFile")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class RunSimulationDialog < PropertiesDialog
 

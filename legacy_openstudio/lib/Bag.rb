@@ -8,7 +8,7 @@
 # Also Bag never contains nil in its collection.
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class Bag
 

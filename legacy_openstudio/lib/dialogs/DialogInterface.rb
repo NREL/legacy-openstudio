@@ -3,7 +3,7 @@
 # See the file "License.txt" for additional terms and conditions.
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   # Abstract supercalls for all dialog interfaces
   # Everything in an interface is supposed to be independent of the GUI implementation.

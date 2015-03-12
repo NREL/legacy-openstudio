@@ -2,22 +2,22 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/dialogs/Dialogs")
-require("OpenStudio/lib/dialogs/DialogContainers")
+require("legacy_openstudio/lib/dialogs/Dialogs")
+require("legacy_openstudio/lib/dialogs/DialogContainers")
 
-require("OpenStudio/lib/dialogs/BuildingInfoPage")
-require("OpenStudio/lib/dialogs/ZoneInfoPage")
-require("OpenStudio/lib/dialogs/BaseSurfaceInfoPage")
-require("OpenStudio/lib/dialogs/SubSurfaceInfoPage")
-require("OpenStudio/lib/dialogs/AttachedShadingSurfaceInfoPage")
-require("OpenStudio/lib/dialogs/DetachedShadingGroupInfoPage")
-require("OpenStudio/lib/dialogs/DetachedShadingSurfaceInfoPage")
-require("OpenStudio/lib/dialogs/OutputIlluminanceMapInfoPage")
-require("OpenStudio/lib/dialogs/DaylightingControlsInfoPage")
-require("OpenStudio/lib/dialogs/NoSelectionInfoPage")
+require("legacy_openstudio/lib/dialogs/BuildingInfoPage")
+require("legacy_openstudio/lib/dialogs/ZoneInfoPage")
+require("legacy_openstudio/lib/dialogs/BaseSurfaceInfoPage")
+require("legacy_openstudio/lib/dialogs/SubSurfaceInfoPage")
+require("legacy_openstudio/lib/dialogs/AttachedShadingSurfaceInfoPage")
+require("legacy_openstudio/lib/dialogs/DetachedShadingGroupInfoPage")
+require("legacy_openstudio/lib/dialogs/DetachedShadingSurfaceInfoPage")
+require("legacy_openstudio/lib/dialogs/OutputIlluminanceMapInfoPage")
+require("legacy_openstudio/lib/dialogs/DaylightingControlsInfoPage")
+require("legacy_openstudio/lib/dialogs/NoSelectionInfoPage")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class ObjectInfoDialog < PropertiesDialog
 

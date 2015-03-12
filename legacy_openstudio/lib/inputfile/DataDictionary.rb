@@ -2,11 +2,11 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/inputfile/FieldDefinition")
-require("OpenStudio/lib/inputfile/ClassDefinition")
+require("legacy_openstudio/lib/inputfile/FieldDefinition")
+require("legacy_openstudio/lib/inputfile/ClassDefinition")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class DataDictionary
   

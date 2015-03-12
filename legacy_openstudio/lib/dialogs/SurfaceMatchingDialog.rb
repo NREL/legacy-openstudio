@@ -2,12 +2,12 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/dialogs/Dialogs")
-require("OpenStudio/lib/interfaces/BaseSurface")
-require("OpenStudio/lib/interfaces/SubSurface")
-require("OpenStudio/lib/dialogs/LastReportInterface")
+require("legacy_openstudio/lib/dialogs/Dialogs")
+require("legacy_openstudio/lib/interfaces/BaseSurface")
+require("legacy_openstudio/lib/interfaces/SubSurface")
+require("legacy_openstudio/lib/dialogs/LastReportInterface")
 
-module OpenStudio
+module LegacyOpenStudio
 
   class SurfaceMatchingDialog < PropertiesDialog
 
@@ -92,7 +92,7 @@ Do you want to continue?", MB_OKCANCEL)
       begin
       
         if @profile
-          require 'OpenStudio/stdruby/profiler'
+          require 'legacy_openstudio/stdruby/profiler'
           Profiler__::start_profile
         end
 

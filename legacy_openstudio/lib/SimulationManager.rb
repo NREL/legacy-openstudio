@@ -6,11 +6,11 @@ begin
   require("fileutils")
   require("tmpdir")
 rescue LoadError
-  require("OpenStudio/stdruby/fileutils")
-  require("OpenStudio/stdruby/tmpdir")
+  require("legacy_openstudio/stdruby/fileutils")
+  require("legacy_openstudio/stdruby/tmpdir")
 end
 
-module OpenStudio
+module LegacyOpenStudio
 
   class SimulationManager
   

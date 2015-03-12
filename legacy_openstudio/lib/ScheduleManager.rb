@@ -2,7 +2,7 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-module OpenStudio
+module LegacyOpenStudio
 
   # A class to hold the definitions for schedules
   # Later this will be expanded to allow the user to create/edit/delete schedules

@@ -2,9 +2,9 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require 'OpenStudio/lib/dialogs/DefaultConstructionsInterface'
+require 'legacy_openstudio/lib/dialogs/DefaultConstructionsInterface'
 
-module OpenStudio
+module LegacyOpenStudio
 
   # A class to hold the definitions for inside and outside materials
   # Later this will be expanded to allow the user to create/edit/delete constructions and materials

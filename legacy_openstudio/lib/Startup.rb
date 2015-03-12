@@ -28,5 +28,5 @@ if (installed_version_key < minimum_version_key)
   UI.messagebox("OpenStudio is only compatible with SketchUp version " + minimum_version +
     " or higher.\nThe installed version is " + installed_version + ".  The plugin was not loaded.", MB_OK)
 else
-  load("OpenStudio/lib/PluginManager.rb")
+  load("legacy_openstudio/lib/PluginManager.rb")
 end

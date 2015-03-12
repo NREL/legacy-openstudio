@@ -2,11 +2,11 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/dialogs/Dialogs")
-require("OpenStudio/lib/dialogs/ThermostatInterface")
-require("OpenStudio/lib/dialogs/LastReportInterface")
+require("legacy_openstudio/lib/dialogs/Dialogs")
+require("legacy_openstudio/lib/dialogs/ThermostatInterface")
+require("legacy_openstudio/lib/dialogs/LastReportInterface")
 
-module OpenStudio
+module LegacyOpenStudio
 
   class ZoneLoadsDialog < PropertiesDialog
 

@@ -2,30 +2,30 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/dialogs/FileInfoInterface")
-require("OpenStudio/lib/dialogs/SimulationInfoInterface")
-require("OpenStudio/lib/dialogs/ObjectInfoInterface")
-require("OpenStudio/lib/dialogs/RunSimulationInterface")
-require("OpenStudio/lib/dialogs/RenderingSettingsInterface")
-require("OpenStudio/lib/dialogs/ColorScaleInterface")
-require("OpenStudio/lib/dialogs/AnimationSettingsInterface")
-require("OpenStudio/lib/dialogs/PreferencesInterface")
-require("OpenStudio/lib/dialogs/AboutInterface")
-require("OpenStudio/lib/dialogs/SurfaceSearchInterface")
-require("OpenStudio/lib/dialogs/SurfaceMatchingInterface")
-require("OpenStudio/lib/dialogs/DefaultConstructionsInterface")
-require("OpenStudio/lib/dialogs/ZoneLoadsInterface")
-require("OpenStudio/lib/dialogs/ThermostatInterface")
-require("OpenStudio/lib/tools/DataTool")
-require("OpenStudio/lib/tools/InfoTool")
-require("OpenStudio/lib/tools/NewShadingTool")
-require("OpenStudio/lib/tools/NewDaylightingControlsTool")
-require("OpenStudio/lib/tools/NewOutputIlluminanceMapTool")
-require("OpenStudio/lib/tools/NewZoneTool")
-require("OpenStudio/lib//observers/ErrorObserver")  # This is hopefully only a temporary location
+require("legacy_openstudio/lib/dialogs/FileInfoInterface")
+require("legacy_openstudio/lib/dialogs/SimulationInfoInterface")
+require("legacy_openstudio/lib/dialogs/ObjectInfoInterface")
+require("legacy_openstudio/lib/dialogs/RunSimulationInterface")
+require("legacy_openstudio/lib/dialogs/RenderingSettingsInterface")
+require("legacy_openstudio/lib/dialogs/ColorScaleInterface")
+require("legacy_openstudio/lib/dialogs/AnimationSettingsInterface")
+require("legacy_openstudio/lib/dialogs/PreferencesInterface")
+require("legacy_openstudio/lib/dialogs/AboutInterface")
+require("legacy_openstudio/lib/dialogs/SurfaceSearchInterface")
+require("legacy_openstudio/lib/dialogs/SurfaceMatchingInterface")
+require("legacy_openstudio/lib/dialogs/DefaultConstructionsInterface")
+require("legacy_openstudio/lib/dialogs/ZoneLoadsInterface")
+require("legacy_openstudio/lib/dialogs/ThermostatInterface")
+require("legacy_openstudio/lib/tools/DataTool")
+require("legacy_openstudio/lib/tools/InfoTool")
+require("legacy_openstudio/lib/tools/NewShadingTool")
+require("legacy_openstudio/lib/tools/NewDaylightingControlsTool")
+require("legacy_openstudio/lib/tools/NewOutputIlluminanceMapTool")
+require("legacy_openstudio/lib/tools/NewZoneTool")
+require("legacy_openstudio/lib//observers/ErrorObserver")  # This is hopefully only a temporary location
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class MenuManager
 

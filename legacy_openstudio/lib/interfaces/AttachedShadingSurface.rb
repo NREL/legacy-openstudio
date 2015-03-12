@@ -2,12 +2,12 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/interfaces/DrawingUtils")
-require("OpenStudio/lib/interfaces/Surface")
-require("OpenStudio/lib/inputfile/InputObject")
+require("legacy_openstudio/lib/interfaces/DrawingUtils")
+require("legacy_openstudio/lib/interfaces/Surface")
+require("legacy_openstudio/lib/inputfile/InputObject")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class AttachedShadingSurface < Surface
 

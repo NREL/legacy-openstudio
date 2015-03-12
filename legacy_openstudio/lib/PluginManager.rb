@@ -2,23 +2,23 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/AnimationManager")
-require("OpenStudio/lib/AsynchProc")
-require("OpenStudio/lib/CommandManager")
-require("OpenStudio/lib/DialogManager")
-require("OpenStudio/lib/MenuManager")
-require("OpenStudio/lib/ModelManager")
-require("OpenStudio/lib/SimulationManager")
-require("OpenStudio/lib/UpdateManager")
-require("OpenStudio/lib/inputfile/DataDictionary")
+require("legacy_openstudio/lib/AnimationManager")
+require("legacy_openstudio/lib/AsynchProc")
+require("legacy_openstudio/lib/CommandManager")
+require("legacy_openstudio/lib/DialogManager")
+require("legacy_openstudio/lib/MenuManager")
+require("legacy_openstudio/lib/ModelManager")
+require("legacy_openstudio/lib/SimulationManager")
+require("legacy_openstudio/lib/UpdateManager")
+require("legacy_openstudio/lib/inputfile/DataDictionary")
 
-require("OpenStudio/sketchup/UI")
-require("OpenStudio/sketchup/Sketchup")
-require("OpenStudio/sketchup/Geom")
+require("legacy_openstudio/sketchup/UI")
+require("legacy_openstudio/sketchup/Sketchup")
+require("legacy_openstudio/sketchup/Geom")
 
 #UI.messagebox "Starting Plugin!"
 
-module OpenStudio
+module LegacyOpenStudio
 
   Platform_Unknown = 0
   Platform_Windows = 1

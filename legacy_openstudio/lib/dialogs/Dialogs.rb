@@ -3,7 +3,7 @@
 # See the file "License.txt" for additional terms and conditions.
 
 
-module OpenStudio
+module LegacyOpenStudio
 
 # need support for singleton dialogs too
 

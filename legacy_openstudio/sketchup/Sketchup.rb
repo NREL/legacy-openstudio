@@ -2,7 +2,7 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/sketchup/Geom")
+require("legacy_openstudio/sketchup/Geom")
 
 
 # This file adds new methods to native SketchUp classes.

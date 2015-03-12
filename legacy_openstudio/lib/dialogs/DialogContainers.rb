@@ -3,7 +3,7 @@
 # See the file "License.txt" for additional terms and conditions.
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   # Abstract superclass for WindowContainer and FrameContainer
   # Basically a wrapper for UI::WebDialog, but enables dialog objects to be inserted into HTML frames.

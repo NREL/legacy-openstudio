@@ -2,9 +2,9 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/interfaces/DrawingUtils")
+require("legacy_openstudio/lib/interfaces/DrawingUtils")
 
-module OpenStudio
+module LegacyOpenStudio
 
   class ComponentObserver < Sketchup::EntityObserver
 

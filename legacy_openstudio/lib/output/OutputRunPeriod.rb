@@ -2,12 +2,12 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/output/TimeInterval")
-require("OpenStudio/lib/output/DataSeries")
-require("OpenStudio/lib/output/DataSet")
+require("legacy_openstudio/lib/output/TimeInterval")
+require("legacy_openstudio/lib/output/DataSeries")
+require("legacy_openstudio/lib/output/DataSet")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   RUN_PERIOD_TYPE_UNKNOWN = 0
   RUN_PERIOD_TYPE_DESIGN_DAY = 1

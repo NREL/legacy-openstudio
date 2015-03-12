@@ -2,11 +2,11 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/interfaces/DrawingInterface")
-require("OpenStudio/lib/interfaces/Zone")
-require("OpenStudio/lib/observers/ComponentObserver")
+require("legacy_openstudio/lib/interfaces/DrawingInterface")
+require("legacy_openstudio/lib/interfaces/Zone")
+require("legacy_openstudio/lib/observers/ComponentObserver")
 
-module OpenStudio
+module LegacyOpenStudio
 
   class OutputIlluminanceMap < DrawingInterface
   

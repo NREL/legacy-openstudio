@@ -2,13 +2,13 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/interfaces/DrawingInterface")
-require("OpenStudio/lib/observers/InstanceObserver")
-require("OpenStudio/lib/observers/SurfaceGroupObserver")
-require("OpenStudio/lib/observers/SurfaceGroupEntitiesObserver")
+require("legacy_openstudio/lib/interfaces/DrawingInterface")
+require("legacy_openstudio/lib/observers/InstanceObserver")
+require("legacy_openstudio/lib/observers/SurfaceGroupObserver")
+require("legacy_openstudio/lib/observers/SurfaceGroupEntitiesObserver")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class SurfaceGroup < DrawingInterface
 

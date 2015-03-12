@@ -3,7 +3,7 @@
 # See the file "License.txt" for additional terms and conditions.
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   VARIABLE_FREQUENCY_DETAILED = 0
   VARIABLE_FREQUENCY_TIME_STEP = 1

@@ -41,7 +41,12 @@ if new_plugin
 end
 
 # look for the old plugin
+rbz_installer = false
 old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
+if !old_plugin  
+  rbz_installer = true
+  old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/legacy_openstudio")
+end
 old_version = nil
 if old_plugin
   
@@ -144,7 +149,12 @@ end
 # load one plugin or the other
 if load_old_plugin and old_plugin
 
-  ext = SketchupExtension.new(OPENSTUDIO_PLUGIN_NAME, "OpenStudio/lib/Startup.rb")
+  startup_location = "OpenStudio/lib/Startup.rb"
+  if rbz_installer 
+    startup_location = "legacy_openstudio/lib/Startup.rb"
+  end
+    
+  ext = SketchupExtension.new(OPENSTUDIO_PLUGIN_NAME, startup_location)
   ext.name = OPENSTUDIO_PLUGIN_NAME
   ext.description = "Adds building energy modeling capabilities by coupling SketchUp to the EnergyPlus simulation engine.  \r\n\r\nVisit www.energyplus.gov for more information."
   ext.version = old_version

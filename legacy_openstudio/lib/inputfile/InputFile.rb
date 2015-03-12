@@ -2,12 +2,12 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/Collection")
-require("OpenStudio/lib/inputfile/DataDictionary")
-require("OpenStudio/lib/inputfile/InputObject")
+require("legacy_openstudio/lib/Collection")
+require("legacy_openstudio/lib/inputfile/DataDictionary")
+require("legacy_openstudio/lib/inputfile/InputObject")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
 # needs a copy method
 

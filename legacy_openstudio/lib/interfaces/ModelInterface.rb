@@ -2,26 +2,26 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/Collection")
+require("legacy_openstudio/lib/Collection")
 
-require("OpenStudio/lib/interfaces/SurfaceGeometry")
-require("OpenStudio/lib/interfaces/Location")
-require("OpenStudio/lib/interfaces/Building")
-require("OpenStudio/lib/interfaces/Zone")
-require("OpenStudio/lib/interfaces/BaseSurface")
-require("OpenStudio/lib/interfaces/SubSurface")
-require("OpenStudio/lib/interfaces/AttachedShadingSurface")
-require("OpenStudio/lib/interfaces/DetachedShadingSurface")
-require("OpenStudio/lib/interfaces/OtherInterfaces")
-require("OpenStudio/lib/interfaces/SimpleGeometry")
-require("OpenStudio/lib/interfaces/DaylightingControls")
-require("OpenStudio/lib/interfaces/OutputIlluminanceMap")
+require("legacy_openstudio/lib/interfaces/SurfaceGeometry")
+require("legacy_openstudio/lib/interfaces/Location")
+require("legacy_openstudio/lib/interfaces/Building")
+require("legacy_openstudio/lib/interfaces/Zone")
+require("legacy_openstudio/lib/interfaces/BaseSurface")
+require("legacy_openstudio/lib/interfaces/SubSurface")
+require("legacy_openstudio/lib/interfaces/AttachedShadingSurface")
+require("legacy_openstudio/lib/interfaces/DetachedShadingSurface")
+require("legacy_openstudio/lib/interfaces/OtherInterfaces")
+require("legacy_openstudio/lib/interfaces/SimpleGeometry")
+require("legacy_openstudio/lib/interfaces/DaylightingControls")
+require("legacy_openstudio/lib/interfaces/OutputIlluminanceMap")
 
-require("OpenStudio/lib/observers/ModelObserver.rb")
-require("OpenStudio/lib/observers/ModelEntitiesObserver.rb")
+require("legacy_openstudio/lib/observers/ModelObserver.rb")
+require("legacy_openstudio/lib/observers/ModelEntitiesObserver.rb")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class ModelInterface
 

@@ -2,10 +2,10 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-#require("OpenStudio/lib/output/OutputVariableDefinition")
+#require("legacy_openstudio/lib/output/OutputVariableDefinition")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class DataSet
     # This is a set of DataSeries objects that have been collected for some purpose.

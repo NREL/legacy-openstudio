@@ -2,12 +2,12 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/interfaces/DrawingInterface")
-require("OpenStudio/lib/inputfile/InputObject")
-require("OpenStudio/lib/observers/FaceObserver")
+require("legacy_openstudio/lib/interfaces/DrawingInterface")
+require("legacy_openstudio/lib/inputfile/InputObject")
+require("legacy_openstudio/lib/observers/FaceObserver")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class Surface < DrawingInterface
 

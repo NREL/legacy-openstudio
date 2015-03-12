@@ -2,23 +2,23 @@
 # Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 
-require("OpenStudio/lib/ConstructionManager")
-require("OpenStudio/lib/ScheduleManager")
-require("OpenStudio/lib/ResultsManager")
+require("legacy_openstudio/lib/ConstructionManager")
+require("legacy_openstudio/lib/ScheduleManager")
+require("legacy_openstudio/lib/ResultsManager")
 
-require("OpenStudio/lib/dialogs/ProgressDialog")
+require("legacy_openstudio/lib/dialogs/ProgressDialog")
 
-require("OpenStudio/lib/inputfile/InputFile")
+require("legacy_openstudio/lib/inputfile/InputFile")
 
-require("OpenStudio/lib/interfaces/ModelInterface")
+require("legacy_openstudio/lib/interfaces/ModelInterface")
 
-require("OpenStudio/lib/observers/AppObserver")
-require("OpenStudio/lib/observers/ModelObserver")
-require("OpenStudio/lib/observers/SelectionObserver")
-require("OpenStudio/lib/observers/UnitsObserver")
+require("legacy_openstudio/lib/observers/AppObserver")
+require("legacy_openstudio/lib/observers/ModelObserver")
+require("legacy_openstudio/lib/observers/SelectionObserver")
+require("legacy_openstudio/lib/observers/UnitsObserver")
 
 
-module OpenStudio
+module LegacyOpenStudio
 
   class ModelManager
    
