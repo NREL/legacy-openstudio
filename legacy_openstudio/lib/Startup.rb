@@ -28,5 +28,14 @@ if (installed_version_key < minimum_version_key)
   UI.messagebox("OpenStudio is only compatible with SketchUp version " + minimum_version +
     " or higher.\nThe installed version is " + installed_version + ".  The plugin was not loaded.", MB_OK)
 else
-  load("legacy_openstudio/lib/PluginManager.rb")
+  # start legacy plugin after everything and check for OpenStudio already loaded
+  UI.start_timer(1, false) { 
+    if Kernel.const_defined?("OpenStudio") && OpenStudio.const_defined?("Plugin")
+      # UI.MessageBox was being called repeatedly, maybe because it was blocking?
+      SKETCHUP_CONSOLE.show
+      puts "OpenStudio is already loaded, disable OpenStudio using 'Window->Preferences->Extensions' to use the Legacy OpenStudio Plug-in."
+    else
+      load("legacy_openstudio/lib/PluginManager.rb")
+    end
+  }
 end
