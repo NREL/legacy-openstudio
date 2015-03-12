@@ -32,7 +32,9 @@ else
   UI.start_timer(1, false) { 
     if Kernel.const_defined?("OpenStudio") && OpenStudio.const_defined?("Plugin")
       # UI.MessageBox was being called repeatedly, maybe because it was blocking?
-      SKETCHUP_CONSOLE.show
+      if Sketchup.version_number > 14000000     
+        SKETCHUP_CONSOLE.show
+      end
       puts "OpenStudio is already loaded, disable OpenStudio using 'Window->Preferences->Extensions' to use the Legacy OpenStudio Plug-in."
     else
       load("legacy_openstudio/lib/PluginManager.rb")
