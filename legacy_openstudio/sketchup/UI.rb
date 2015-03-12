@@ -32,7 +32,7 @@ module UI
     if (path.nil?)
       puts "UI.open_external_file:  nil path specified."
     else
-      if (RUBY_PLATFORM =~ /mswin/)  # Windows
+      if (RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/)  # Windows
         UI.shell_command('start "Open File" "' + path + '"')
       elsif (RUBY_PLATFORM =~ /darwin/)  # Mac OS X
         UI.shell_command('open "' + path + '"')
@@ -52,7 +52,7 @@ module UI
       
       if (not dir.empty?)
 
-        if (RUBY_PLATFORM =~ /mswin/)  # Windows
+        if (RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/)  # Windows
           # Replace / with \\ for the file separator
           dir = dir.split("/").join("\\")
 
@@ -104,7 +104,7 @@ module UI
       
       if (not dir.empty?)
       
-        if (RUBY_PLATFORM =~ /mswin/)  # Windows
+        if (RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/)  # Windows
           # Replace / with \\ for the file separator
           dir = dir.split("/").join("\\")
 

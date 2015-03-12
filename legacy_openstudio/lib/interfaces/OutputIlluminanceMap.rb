@@ -128,7 +128,7 @@ module LegacyOpenStudio
       end    
     
       # add the component definition
-      path = Sketchup.find_support_file("OpenStudio_OutputIlluminanceMap.skp", "Plugins/OpenStudio/lib/resources/components")
+      path = Sketchup.find_support_file("OpenStudio_OutputIlluminanceMap.skp", "Plugins/legacy_openstudio/lib/resources/components")
       component_definition = Sketchup.active_model.definitions.load(path)
       
       # parent entity is a Sketchup::Group

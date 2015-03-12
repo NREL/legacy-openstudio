@@ -691,14 +691,14 @@ module LegacyOpenStudio
           plugin_menu.add_item(new_shading_cmd)
 
           case (drawing_interface.class.to_s)
-          when 'OpenStudio::BaseSurface'
+          when 'LegacyOpenStudio::BaseSurface'
             plugin_menu.add_separator
             type_menu = plugin_menu.add_submenu("Surface Type")
             type_menu.add_item(floor_type_cmd)
             type_menu.add_item(wall_type_cmd)
             type_menu.add_item(ceiling_type_cmd)
             type_menu.add_item(roof_type_cmd)
-          when 'OpenStudio::SubSurface'
+          when 'LegacyOpenStudio::SubSurface'
             plugin_menu.add_separator
             type_menu = plugin_menu.add_submenu("Surface Type")
             type_menu.add_item(window_type_cmd)
@@ -706,10 +706,10 @@ module LegacyOpenStudio
             type_menu.add_item(glassdoor_type_cmd)
             type_menu.add_item(tdd_dome_type_cmd)
             type_menu.add_item(tdd_diffuser_type_cmd)
-          when 'OpenStudio::Zone'
+          when 'LegacyOpenStudio::Zone'
             #plugin_menu.add_separator
             # set origin tool
-          when 'OpenStudio::DetachedShadingGroup'
+          when 'LegacyOpenStudio::DetachedShadingGroup'
             plugin_menu.add_separator
             type_menu = plugin_menu.add_submenu("Surface Type")
             type_menu.add_item(building_shading_type_cmd)

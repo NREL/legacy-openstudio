@@ -107,7 +107,7 @@ module LegacyOpenStudio
     def platform
       # Could change this to a module method.
 
-      if (RUBY_PLATFORM =~ /mswin/)  # Windows
+      if (RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/)  # Windows
         return(Platform_Windows)
       elsif (RUBY_PLATFORM =~ /darwin/)  # Mac OS X
         return(Platform_Mac)
@@ -120,7 +120,7 @@ module LegacyOpenStudio
     def platform_select(win = nil, mac = win)
       # Could change this to a module method.
 
-      if (RUBY_PLATFORM =~ /mswin/)  # Windows
+      if (RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/)  # Windows
         return(win)
       elsif (RUBY_PLATFORM =~ /darwin/)  # Mac OS X
         return(mac)
@@ -160,7 +160,7 @@ module LegacyOpenStudio
       hash['Zoom Extents'] = true
       hash['On Coordinate System Change'] = "Always Ask User"
       hash['Server Timeout'] = "120"
-      hash['Last Input File Dir'] = Plugin.dir + "/lib/examples"
+      hash['Last Input File Dir'] = Plugin.dir
       hash['Open Dialogs'] = ""
       
       if (platform == Platform_Windows)
@@ -169,7 +169,7 @@ module LegacyOpenStudio
       elsif (platform == Platform_Mac)
         hash['Text Editor Path'] = "/Applications/TextEdit.app"
         hash['EnergyPlus Path'] = "/Applications/EnergyPlus-8-1-0/energyplus"  # Default installation path
-    hash['Check For Update'] = false
+        hash['Check For Update'] = false
       end
 
       return(hash)

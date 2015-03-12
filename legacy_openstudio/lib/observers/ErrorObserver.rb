@@ -21,7 +21,7 @@ def detect_errors
       path = path_line[0] + ':' + path_line[1]  # Colon here is to handle C: in the path
 
 
-      if (path.include?(OpenStudio::Plugin.dir))
+      if (path.include?(LegacyOpenStudio::Plugin.dir))
 
         msg = "Sorry...the plugin has encountered an error.  "
         msg += "This error may cause unpredictable behavior in the plugin--continue this session with caution!  "
@@ -42,7 +42,7 @@ def detect_errors
           msg += stack_call + "\n"
         }
 
-        UI.messagebox(msg, MB_MULTILINE, OpenStudio::Plugin.name + " - Error Alert")
+        UI.messagebox(msg, MB_MULTILINE, LegacyOpenStudio::Plugin.name + " - Error Alert")
 
       else
         # Not an OpenStudio bug!

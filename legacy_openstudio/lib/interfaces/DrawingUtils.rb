@@ -41,7 +41,7 @@ module DrawingUtils
     this_polygon = entity.outer_polygon.reduce
     entity.parent.entities.each { |other_entity|
       if ((other_entity.class == Sketchup::Face) and (other_entity != entity))
-        if (other_entity.drawing_interface.class == OpenStudio::BaseSurface)
+        if (other_entity.drawing_interface.class == LegacyOpenStudio::BaseSurface)
 
           other_polygon = other_entity.drawing_interface.face_polygon
 

@@ -137,7 +137,7 @@ module LegacyOpenStudio
       end    
 
       # add the component definition
-      path = Sketchup.find_support_file("OpenStudio_DaylightingControls.skp", "Plugins/OpenStudio/lib/resources/components")
+      path = Sketchup.find_support_file("OpenStudio_DaylightingControls.skp", "Plugins/legacy_openstudio/lib/resources/components")
       definition = Sketchup.active_model.definitions.load(path)
       
       # parent entity is a Sketchup::Group

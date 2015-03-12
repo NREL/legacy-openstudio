@@ -31,39 +31,39 @@ module LegacyOpenStudio
     def populate_hash
       case (drawing_interface_class_name = Plugin.model_manager.selected_drawing_interface.class.to_s)
 
-      when "OpenStudio::Building"
+      when "LegacyOpenStudio::Building"
         @active_interface = BuildingInfoInterface.new
         @hash = @active_interface.hash
 
-      when "OpenStudio::Zone"
+      when "LegacyOpenStudio::Zone"
         @active_interface = ZoneInfoInterface.new
         @hash = @active_interface.hash
 
-      when "OpenStudio::BaseSurface"
+      when "LegacyOpenStudio::BaseSurface"
         @active_interface = BaseSurfaceInfoInterface.new
         @hash = @active_interface.hash
 
-      when "OpenStudio::SubSurface"
+      when "LegacyOpenStudio::SubSurface"
         @active_interface = SubSurfaceInfoInterface.new
         @hash = @active_interface.hash
 
-      when "OpenStudio::AttachedShadingSurface"
+      when "LegacyOpenStudio::AttachedShadingSurface"
         @active_interface = AttachedShadingSurfaceInfoInterface.new
         @hash = @active_interface.hash
 
-      when "OpenStudio::DetachedShadingGroup"
+      when "LegacyOpenStudio::DetachedShadingGroup"
         @active_interface = DetachedShadingGroupInfoInterface.new
         @hash = @active_interface.hash
 
-      when "OpenStudio::DetachedShadingSurface"
+      when "LegacyOpenStudio::DetachedShadingSurface"
         @active_interface = DetachedShadingSurfaceInfoInterface.new
         @hash = @active_interface.hash
         
-      when "OpenStudio::OutputIlluminanceMap"
+      when "LegacyOpenStudio::OutputIlluminanceMap"
         @active_interface = OutputIlluminanceMapInfoInterface.new
         @hash = @active_interface.hash
         
-      when "OpenStudio::DaylightingControls"
+      when "LegacyOpenStudio::DaylightingControls"
         @active_interface = DaylightingControlsInfoInterface.new
         @hash = @active_interface.hash
         

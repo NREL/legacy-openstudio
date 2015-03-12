@@ -20,14 +20,14 @@ module LegacyOpenStudio
 
 
     def save_state
-      interface_names = @dialog_interfaces.collect { |interface| interface.class.to_s[12..-1] }  # Clip the "OpenStudio::" part
+      interface_names = @dialog_interfaces.collect { |interface| interface.class.to_s[12..-1] }  # Clip the "LegacyOpenStudio::" part
       Plugin.write_pref('Open Dialogs', interface_names.to_a.join(','))
     end
 
 
     def restore_state
       interface_names = Plugin.read_pref('Open Dialogs').split(',')
-      interface_names.each { |interface_name| AsynchProc.new { show(OpenStudio.const_get(interface_name)) } }
+      interface_names.each { |interface_name| AsynchProc.new { show(LegacyOpenStudio.const_get(interface_name)) } }
     end
 
 

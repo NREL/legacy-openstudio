@@ -47,7 +47,7 @@ module LegacyOpenStudio
         end
       end
 
-      if (not File.exists?(Plugin.energyplus_path))
+      if (!Plugin.energyplus_path || !File.exists?(Plugin.energyplus_path))
         UI.messagebox("Cannot locate the EnergyPlus engine.  Correct the EXE path and try again.")
         Plugin.dialog_manager.show(PreferencesInterface)
         return(false)
