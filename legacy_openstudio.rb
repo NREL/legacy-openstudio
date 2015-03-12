@@ -41,12 +41,15 @@ if new_plugin
 end
 
 # look for the old plugin
-rbz_installer = false
-old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
+
+# look for the rbz version first
+rbz_installer = true
+old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/legacy_openstudio")
 if !old_plugin  
-  rbz_installer = true
-  old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/legacy_openstudio")
+  rbz_installer = false
+  old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
 end
+
 old_version = nil
 if old_plugin
   
