@@ -52,6 +52,7 @@ module LegacyOpenStudio
       @version = @web_dialog.get_element_value("version")
       close_web_dialog
 
+      puts "Current version=" + Plugin.version
       puts "Most recent version=" + @version
 
       # Kludge:  Give a very brief delay to allow the WebDialog to fully close.
