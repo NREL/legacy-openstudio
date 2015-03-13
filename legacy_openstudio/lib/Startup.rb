@@ -13,13 +13,12 @@
 
 
 if (RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/)  # Windows
-  minimum_version = '7.0.0000'
-  minimum_version_key = '000700000000'
+  minimum_version = '8.0.0000'
+  minimum_version_key = '0008000000000'
 elsif (RUBY_PLATFORM =~ /darwin/)  # Mac OS X
-  minimum_version = '7.0.0000'
-  minimum_version_key = '000700000000'
+  minimum_version = '8.0.0000'
+  minimum_version_key = '0008000000000'
 end
-
 
 installed_version = Sketchup.version
 installed_version_key = ''; installed_version.split('.').each { |e| installed_version_key += e.rjust(4, '0') }
@@ -30,14 +29,22 @@ if (installed_version_key < minimum_version_key)
 else
   # start legacy plugin after everything and check for OpenStudio already loaded
   UI.start_timer(1, false) { 
-    if Kernel.const_defined?("OpenStudio") && OpenStudio.const_defined?("Plugin")
+    begin
+      # Test if OpenStudio is loaded, Kernel.const_defined?(OpenStudio) did not work in SU 8
+      OpenStudio
+      OpenStudio::Plugin
+      
       # UI.MessageBox was being called repeatedly, maybe because it was blocking?
       if Sketchup.version_number > 14000000     
         SKETCHUP_CONSOLE.show
       end
       puts "OpenStudio is already loaded, disable OpenStudio using 'Window->Preferences->Extensions' to use the Legacy OpenStudio Plug-in."
-    else
+      
+    rescue
+      
+      # only load this if OpenStudio is not installed
       load("legacy_openstudio/lib/PluginManager.rb")
+
     end
   }
 end
