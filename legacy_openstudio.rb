@@ -30,7 +30,11 @@ end
 # move the Energy+.idd file in the old install out of the way
 remove_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
 if remove_plugin
-  FileUtils.move(remove_plugin, remove_plugin + ".removed")
+  begin
+    FileUtils.move(remove_plugin, remove_plugin + ".removed")
+  rescue
+    UI.messagebox("Could not disable previously installed legacy plug-in, please remove the file #{remove_plugin}")
+  end
 end
 
 old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/legacy_openstudio")
