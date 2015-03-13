@@ -19,10 +19,18 @@
 
 require 'extensions.rb'   # defines the SketchupExtension class
 
+begin
+  require("fileutils")
+  require("tmpdir")
+rescue LoadError
+  require("legacy_openstudio/stdruby/fileutils")
+  require("legacy_openstudio/stdruby/tmpdir")
+end
+
 # move the Energy+.idd file in the old install out of the way
 remove_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/OpenStudio")
 if remove_plugin
-  File.move(remove_plugin, remove_plugin + ".removed")
+  FileUtils.move(remove_plugin, remove_plugin + ".removed")
 end
 
 old_plugin = Sketchup.find_support_file("Energy+.idd", "Plugins/legacy_openstudio")
