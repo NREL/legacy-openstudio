@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Help</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html"><img src="images/ln_ref_guide_on.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html" onMouseOver="msover('1')" onMouseOut="msout('1')"><img src="images/ln_tutorials_off.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+<H2>
+<a href="ref_file_mgt.html#top">File Management and Errors</a><br>
+</H2>
+
+<H2>Modeling Tools</H2>
+<P2><a href="ref_modeling_tools.html#new_zone"><img src="../../lib/resources/icons/NewZone-16.png"> Create a new EnergyPlus Zone</a></P2><br>
+<P2><a href="ref_modeling_tools.html#new_shading"><img src="../../lib/resources/icons/NewShading-16.png"> Create a new EnergyPlus Shading Group</a></P2><br>
+<P2><a href="ref_modeling_tools.html#zone_loads"><img src="../../lib/resources/icons/ZoneLoads-16.png"> Add Internal Loads to an EnergyPlus Zone</a></P2>
+<P2i> (New)</P2i><br>
+<P2><a href="ref_modeling_tools.html#new_daylighting"><img src="../../lib/resources/icons/NewDaylighting-16.png"> Create a new EnergyPlus Daylighting Controls Object</a></P2>
+<P2i> (New)</P2i><br>
+<P2><a href="ref_modeling_tools.html#new_illuminance"><img src="../../lib/resources/icons/NewIlluminance-16.png"> Create a new EnergyPlus Illuminance Map Object</a></P2>
+<P2i> (New)</P2i><br>
+<P2><a href="ref_modeling_tools.html#surface_matching"><img src="../../lib/resources/icons/SurfaceMatchingSelected-16.png"> Match Surfaces between EnergyPlus Zones</a></P2>
+<P2i> (New)</P2i>
+
+<H2>
+<a href="ref_view_data.html#top">Viewing Model Data</a><br>
+<a href="ref_simulations.html#top">Running Simulations/Help</a><br>
+<a href="ref_rendering.html#top">Rendering Options</a><br>
+<a href="ref_menu_items.html#top">OpenStudio Menu Items</a><br>
+</H2>
+
+<hr><br>
+
+<A NAME="new_zone"></A>
+<H3><a href="ref_modeling_tools.html#new_zone"><img src="../../lib/resources/icons/NewZone-16.png" alt=""></a> Create a new EnergyPlus Zone</H3>
+<div style="margin-left:20px">
+    <P>The New Zone command activates a tool that enables you  to create a new zone. Click anywhere in the view and use the cursor to select a  point that will become the new zone origin. You cannot currently change the  zone origin in OpenStudio once it is placed. You can change it in the IDF file  directly, but this may alter your geometry. An empty SketchUp group highlighted  with a blue bounding box will appear. It is anchored at one corner by a  construction point.</P>
+<img src="dialogs/tut_getting_started_02.png" width="500" alt=""><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+    <P>With the cursor still positioned over the construction  point, double-click it to begin editing the zone. Any new SketchUp entities  that you draw inside the group with the standard tools (Rectangle, Polygon,  Pencil, etc.) will immediately add new EnergyPlus heat transfer surfaces  (BuildingSurface:Detailed, FenestrationSurface:Detailed, and  Shading:Zone:Detailed) to the input file. Floors, walls, roofs, windows, doors,  and attached shading surfaces are all automatically inferred from their tilts  and positions relative to other surfaces. </P>
+<img src="dialogs/tut_getting_started_07.png" width="500" alt=""><br>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+    <P>Note: The size of the bounding box is arbitrary. Once  the zone group is open for editing, you can draw anywhere within the view and  the bounding box will stretch to fit the entities. If you accidentally click  outside the zone group and the bounding box disappears, simply click on the  construction point at the zone origin again to select the zone group and the  bounding box will reappear. Double-click the construction point, or any entity  within the group, to open it for editing again. <br>
+      <br>
+      Note 2: The construction point at the zone origin is used only to hold an empty  group open. Once you have drawn some entities inside the group, you can erase  the construction point. There is also a hidden construction point in the  opposite corner of the bounding box. Select View/Hidden Geometry to show it. You  can then delete that construction point. It just makes the bounding box fit  more tightly for small zones.</P>
+<P>The &quot;<a href="tut_getting_started.html">Getting Started</a>&quot; tutorial provides more detail about creating zones  and shading groups.</P>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="new_shading"></A>
+<H3><a href="ref_modeling_tools.html#new_shading"><img src="../../lib/resources/icons/NewShading-16.png" alt=""></a> Create a new EnergyPlus Shading Group</H3>
+<div style="margin-left:20px">
+    <P>The New Shading Group command activates a tool that enables  you to create a new shading group. Shading groups are not EnergyPlus objects so  they are not preserved in the IDF file. They are used only by the plugin to  group and isolate detached shading surfaces from the rest of the SketchUp  model. This tool works almost identically to the New Zone tool, except that any  new SketchUp entities you draw inside the group will immediately add new  detached shading surfaces instead of heat transfer surfaces  (Shading:Building:Detailed and Shading:Site:Detailed) to the input file. </P>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="new_daylighting"></A>
+<H3><a href="ref_modeling_tools.html#new_daylighting"><img src="../../lib/resources/icons/NewDaylighting-16.png" alt=""></a> Create a new EnergyPlus Daylighting Controls Object
+  <P2i> (New)</P2i></H3>
+<div style="margin-left:20px">
+    <P>This tool creates a new EnergyPlus Daylighting  Control. This consists of a pair of sensors, which by default will be placed at  30 inches above the surface you click on. You can move both sensors via  SketchUp tools or the Object Info Window. You can also turn off the second  sensor if you want only one, and many attributes can be set that feed  information to EnergyPlus. The Glare Calculation Azimuth Angle of View  Direction also changes the appearance of the object in OpenStudio. You can have  only one Daylighting Control in each zone. To report data from the sensors in  EnergyPlus, you also need to include lights, which you can add via the Zone  Loads Tool. The following screenshot shows what the Daylighting Controls look  like; an image of the Object Information Window shows settings for the  Daylighting Controls. The data point for the sensor is at the cross in the  middle of the component. The arrow points in the direction of the glare calculation.</P>
+<br><img src="dialogs/rg_daylightingcontrols.png" alt="" width="500"><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+
+
+   <br><img src="dialogs/tut_daylighting_02.png" alt="" width="500"><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+     <P>See <a href="tut_daylighting_controls.html">Adding and Modifying Daylighting Controls</a> for a more extensive tutorial.</P>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="new_illuminance"></A>
+<H3><a href="ref_modeling_tools.html#new_illuminance"><img src="../../lib/resources/icons/NewIlluminance-16.png" alt=""></a> Create a new EnergyPlus Illuminance Map Object
+  <P2i> (New)</P2i></H3>
+<div style="margin-left:20px">
+    <P>This tool creates a new EnergyPlus Illuminance Map  that consists of rectangle with a grid representing the data points. By default  it will be placed 30 inches above the surface you click on. You can move and  resize the Illuminance Map with the SketchUp Move and Scale Tool and with the  Object Information Window. You can have only one Illuminance Map in each zone.  To obtain data reported for the map in EnergyPlus, you also need to include a  Daylighting Controls Object and lights, which you can add via the Zone Loads  Tool. The following screenshot shows what the Illuminance Map looks like; an  image of the Object Information Window shows settings for the Illuminance Map.</P>
+<br><img src="dialogs/rg_illuminancemap.png" alt="" width="500"><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+
+
+    <br><img src="dialogs/rg_illuminancemap_dialog.png" alt=""><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+
+
+    <P>See <a href="tut_illuminance_map.html">Adding and Modifying Illuminance Maps</a>. for a more extensive tutoria.</P>
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="zone_loads"></A>
+<H3><a href="ref_modeling_tools.html#zone_loads"><img src="../../lib/resources/icons/ZoneLoads-16.png" alt=""></a> Add Zone Loads to an EnergyPlus Zone
+  <P2i> (New)</P2i></H3>
+<div style="margin-left:20px">
+    <P>You can use the Zone Loads tool to add loads  from people, lights, and equipment. You can also address ventilation, air infiltration and  HVAC thermostat set points and schedules. You can apply these settings across  the entire model, to a specific selection of zones, or to a single zone. The  following dialog box shows the data it takes. See <a href="tut_loads.html">Adding Zone Loads to Your Model</a> for a more extensive tutorial.</P>
+        <img src="dialogs/tut_zone_loads_01.png" alt=""><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i>
+</div>
+<br><P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+<A NAME="surface_matching"></A>
+<H3><a href="ref_modeling_tools.html#surface_matching"><img src="../../lib/resources/icons/SurfaceMatchingSelected-16.png" alt=""></a> Match Surfaces between EnergyPlus Zones
+  <P2i> (New) </P2i></H3>
+<div style="margin-left:20px">
+    <P>This tool does not draw new geometry, but addresses  data connections that have to be made between coplanar surfaces in adjacent  zones. Once you have drawn the surfaces, you can use this tool to handle the  data connections. Before searching on a large IDF, you can close the Outliner  and Object Information windows to expedite the search.</P>
+<img src="dialogs/tut_surface_matching_04.png" alt=""><br>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i>
+   
+       <P>See the  <a href="tut_matching_surfaces.html">Surface Matching Tool</a> for a more extensive tutorial.</P>
+   
+</div>
+<P2i><A href="#top">Back to Top</A></P2i><br><br>
+
+
+		</td>
+				</tr>
+			</table>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

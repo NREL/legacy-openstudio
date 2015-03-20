@@ -1,0 +1,185 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+-->
+</script>
+</head>
+<body class="label">
+
+<fieldset>
+<legend>Object Inputs</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="40%">
+&nbsp;&nbsp;Class:
+</td>
+<td width="30%">
+<span style="font-weight:bold;">&nbsp;Daylighting:Controls</span>
+</td>
+<td width="30%">
+&nbsp;
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Total Daylighting Reference Points:
+</td>
+<td colspan=2>
+<select name="NUMPOINTS" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+<option value="1">1</option>
+<option value="2">2</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Lighting Control Type:
+</td>
+<td colspan=2>
+<select name="CONTROL_TYPE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+<option value="1">Continuous</option>
+<option value="2">Stepped</option>
+<option value="2">Continuous/Off</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Glare Calculation Azimuth Angle of View Direction Clockwise from Zone y-Axis (deg):
+</td>
+<td colspan=2>
+<input name="GLARE_ANGLE" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Maximum Allowable Discomfort Glare Index:
+</td>
+<td colspan=2>
+<input name="MAX_GLARE" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Minimum Input Power Fraction for Continuous Dimming Control:
+</td>
+<td colspan=2>
+<input name="INPUT_POWER_FRACTION" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Minimum Light Output Fraction for Continuous Dimming Control:
+</td>
+<td colspan=2>
+<input name="OUTPUT_LIGHT_FRACTION" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Number of Stepped Control Steps:
+</td>
+<td colspan=2>
+<input name="NUM_STEPS" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Probability Lighting will be Reset When Needed in Manual Stepped Control:
+</td>
+<td colspan=2>
+<input name="PROB_RESET" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td>
+<span style="font-weight:bold;">&nbsp;Sensor 1</span>
+</td>
+<td>
+<span style="font-weight:bold;">&nbsp;Sensor 2</span>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input name="X_LABEL" type="text" class="static_text" width="100%" style="width:100%; border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="X1" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+<td>
+<input name="X2" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input name="Y_LABEL" type="text" class="static_text" width="100%" style="width:100%; border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="Y1" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+<td>
+<input name="Y2" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input name="Z_LABEL" type="text" class="static_text" width="100%" style="width:100%; border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="Z1" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+<td>
+<input name="Z2" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Fraction of Zone Controlled:
+</td>
+<td>
+<input name="FRAC1" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+<td>
+<input name="FRAC2" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Illuminance Setpoint (lux):
+</td>
+<td>
+<input name="SETPOINT1" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+<td>
+<input name="SETPOINT2" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+</body>
+</html>

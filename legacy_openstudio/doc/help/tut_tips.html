@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr valign="top">
+  <td><div style="padding-bottom:2px;">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td colspan="3" width="100%"><table cellspacing="0" border="0" width="100%" cellpadding="0">
+          <tr>
+            <td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <!-- end of third column -->
+      <!-- start of left navigation, first column -->
+      <tr valign="top">
+        <td valign="top" width="176"><!-- left navigation include -->
+          <!--stopindex-->
+          <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+          <a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+          <img src="images/gray.gif" alt="" width="176" height="7"><br>
+          <a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+          <img src="images/gray.gif" alt="" width="176" height="7"><br>
+          <a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+          <img src="images/gray.gif" alt="" width="176" height="7"><br>
+          <!--startindex--></td>
+        <td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+        <!-- main content -->
+        <td valign="top" width="100%"><table cellspacing="0" border="0" cellpadding="12" width="100%">
+          <tr>
+            <td valign="top"><h2>Selection, Modeling, and Inference</h2>
+              <br>
+              <h3>Selecting Geometry</h3>
+              <div style="margin-left:10px">
+                <ul>
+                  <li>Selecting geometry in SketchUp is quite easy, but you can save a lot of time by using special selection techniques. </li>
+                  <li>Single-click  selects the face. </li>
+                  <li>Double-click  selects a face and the bounding edges. </li>
+                  <li>Triple-click  widens the selection to all connected entities. </li>
+                  <li>Contextual  (right) click to select other entities on the same layer, or with the same  material. </li>
+                  <li>Hold down  the &quot;Shift&quot; key to add to or remove objects from your selection. If  you pick a selection that had some selected, and some unselected, they will all  be reversed. </li>
+                  <li>Hold down the  &quot;Control&quot; key to add to the selection and removes nothing. </li>
+                  <li>Hold  &quot;Control&quot; and &quot;Shift&quot; together to set the selection tool to  remove entities from the selection without adding anything. </li>
+                  <li>Drag a box  to select; however, if you create the window from left to right, versus right  to left, you see different results. </li>
+                  <li>Draw your  selection from left to right to select only entities that are fully within the  box. </li>
+                  <li>Draw your  selection from right to left to include objects that are partially within the  box. </li>
+                </ul>
+              </div>
+              <h3>Drawing and Modeling</h3>
+              <div style="margin-left:10px">
+                <ul>
+                  <li>You can use  SketchUp without ever typing in lengths for objects, but you can also enter  exact numbers in the &quot;Measurements&quot; box to create or alter entities. </li>
+                  <li>The  measurement box enables you to set the value, which you can change indefinitely.  This works as long as you do nothing else in SketchUp until you are finished.  This will make more sense with the Multiple Copy/Move, example. </li>
+                  <li>Push/Pull  repeat - If you use the Push/Pull tool to extrude something by a set amount,  you can reapply this value to other surfaces to be pushed or pulled by double-clicking  on the surface with the Push/Pull tool selected. A useful example of this would  be if you push all the walls of your zone in by 12 inches. You may want to do this  if you modeled off of the outside of the exterior wall, but now want to model  to the inside wall.</li>
+                  <li>Guide lines enable you to create reference  lines to lock new geometry to, but you do not want to clutter your model or  alter faces the guide lines cross. Guide lines aid  window placement  below.</li><br>
+                  <img src="dialogs/tu_tips_const_01.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>The Move Tool in SketchUp is also a copy tool  that can copy multiple entities simultaneously. Starting with the original  window at the left, press the &quot;control&quot; key to change  &quot;move&quot; to &quot;copy&quot;. </li>
+                  <br>
+                  <img src="dialogs/tut_copy_01.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Type &quot;/5&quot; into the measurement box to  place an additional 4 copies equally spaced over the wall (5 new copies plus 1 original). </li>
+                  <br>
+                  <img src="dialogs/tut_copy_02.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Instead of placing the copy on the other side of  the building, place it next to the first window. </li>
+                  <br>
+                  <img src="dialogs/tut_copy_03.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Type &quot;*5&quot; instead of the  &quot;/5&quot; to make the same number of copies, but this time each copy is as  far away from its neighbor as the first one. <br>
+                  </li>
+                  <br>
+                  <img src="dialogs/tut_copy_04.png" alt="" width="500"><br>
+                  <P2i>(Credit: David Goldwasser/NREL)</P2i>
+                  <br>
+                  <br>
+                  <li>Look at  status bar tips for good, otherwise undocumented information that is specific  to your current tool. </li>
+                </ul>
+              </div>
+              <h3>Inference Engine</h3>
+              <div style="margin-left:10px">
+                <ul>
+                  <li>SketchUp has an extensive inference engine that tries to help snap to useful locations. This is well covered on the online <a href="http://sketchup.google.com/support/bin/answer.py?answer=70143" target="_new">inference documentation</a>.</li>
+                  <li>The Shift key is very important as you use  inferences, as it can lock you into to your current inference. </li>
+                </ul>
+              </div></td>
+          </tr>
+        </table>
+            <P2i><A href="#top">Back to Top</A></P2i>
+          <!-- end of main content table --></td>
+        <td><div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+          <div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+          <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+          <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+          <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </div></td>
+      </tr>
+    </table>
+    <a href="http://www.buildings.energy.gov"></a></div></td>
+</tr>
+</table>
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

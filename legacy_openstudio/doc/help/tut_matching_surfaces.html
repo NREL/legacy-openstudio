@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+
+
+<H2>Matching Surfaces</H2>
+<br>
+
+<H3>Drawing the surfaces to be matched</H3>
+<div style="margin-left:10px">
+<ul>
+     <li>OpenStudio requires that  vertices line up exactly. In more technical terms, OpenStudio requires second level space boundaries.</li>
+     <li>In some cases it may help to save your IDF and re-open it before using the surface matching tool as OpenStudio does some geometry clean-up when it opens a file.</li>
+     <li>You should always verify the results of the surface matching operation using the Surface Search Tool, Object Info Dialog, EnergyPlus output, or some other means.</li>
+     <li>Two methods for drawing surfaces follow:
+
+       <H3>Method 1</H3>
+     <ul>
+     <li>This method uses SketchUp's drawing tools and inference locks.</li>
+	 <li>Enter into the zone where you want to draw your new surface, but leave the other zones visible.</li>
+	 <li>Use the line tool to draw lines that snap to objects in another zone. SketchUp will indicate this with a pop-up note that reads "Endpoint Outside Activity".</li>
+	 <li>You may have to navigate around the model with the pan and orbit tools to draw all the edges of your surface.</li>
+	 <li>If geometries in other zones are in your way, you can temporarily hide them. Select them and then right-click->hide, or go to "hide" in the edit menu.</li>
+	 <br>
+     <img src="dialogs/tut_surface_matching_01.png" alt="" width="500">
+     <br>
+     <p2i>(Credit: David Goldwasser/NREL)</P2i>
+     <br>
+	 <P2i>This drawing uses line tool and SketchUp's  inference locks to snap to geometry in other EnergyPlus zones. </P2i>
+	 <P2i></P2i>
+     <br>
+     <br>
+     <img src="dialogs/tut_surface_matching_01b.png" alt="" width="500"><br>
+	 <p2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <br>
+	 <P2i>Click on second point in another EnergyPlus zone</P2i>
+	 <br>
+	 <br>
+     <img src="dialogs/tut_surface_matching_01c.png" alt="" width="500"><br>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i>
+     <br>
+     <P2i>Click on the third point in another EnergyPlus zone. </P2i>
+     <br>
+     <br>
+     <img src="dialogs/tut_surface_matching_01d.png" alt="" width="500"><br>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i>
+     <br>
+     <P2i>Final surface in EnergyPlus zone. </P2i>
+     <br>
+     <br>
+  	 <li>The example above has a smaller zone sharing two edges with a larger zone. If instead the smaller zone only shared one edge with the larger zone, if for example it was centered horizontally with the larger zone, then you have to do things a little differently.</li>
+  	 <li>You would have to first split the base surface into two base surfaces by adding an edge all  the way across the larger base surface (pictured below). Then you could draw the vertical edges to complete the surface to be matched. If you don't create the horizontal edge first OpenStudio could interpret your new surface as a subsurface instead of a base surface; as if it was a door vs. a wall.</li>
+  	 <li>If you use method two in this scenario, you would still have to draw the full length horizontal edge before pasting in the copy of the surface edges.</li>
+  	 <br>
+<img src="dialogs/tut_surface_matching_05.png" alt="" width="500"><br>
+     <p2i> (Credit: David Goldwasser/NREL)</P2i>
+          </ul>
+
+     <H3>Method 2</H3>
+     <ul>
+     <li>This method uses &quot;copy&quot;  and then &quot;paste in place&quot; instead of manually drawing the second  surface.</li>
+     <li>Double click the surface  you want to duplicate in another zone.</li>
+     <li>Select the face and its bounding edges. </li>
+     <li>Shift-click on the face to unselect it (this prevents  the face-normal of the new copy from being reversed), but leave the edges  selected. &nbsp;</li>
+	 <li>Copy the selection, exit from the current zone,  and enter into the zone that needs the new surface. Choose Paste in Place  (edit/paste in place). There is no default shortcut set for &quot;paste in  place&quot;, but a separate tutorial shows you how to <a href="tut_shortcuts.html">create your own shortcuts.</a></li>
+	 <br><img src="dialogs/tut_surface_matching_02.png" alt="" width="500"><br>
+	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <br>
+	 <P2i>Select a face and its edges by double clicking.</P2i>
+	 <br>
+	 <br>
+	 <br><img src="dialogs/tut_surface_matching_02b.png" alt="" width="500"><br>
+	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <P2i><br>
+	   Shift-click to unselect the face. </P2i>
+	 <br><br>
+	 <br><img src="dialogs/tut_surface_matching_03.png" alt="" width="500"><br>
+	 <P2i>(Credit: David Goldwasser/NREL)</P2i>
+	 <br>
+	 <P2i>Here you can see the resulting edges and surface in the second EnergyPlus Zone.</P2i>
+	 <br><br>
+     </ul>
+</li></ul>
+</div>
+
+<H3>Surface Matching Tool</H3>
+<div style="margin-left:10px">
+<ul>
+     <li>Once your surfaces are drawn, you can use the Surface Matching Tool to match them together.</li>
+     <li>You can  match surfaces and subsurfaces for selected objects or for all objects in the  model. This sets the boundary condition of each surface to point to each other  and reassigns the default interior construction for that type. </li>
+     <li>You can also  use this tool to unmatch surfaces. This resets their boundary conditions to be  outdoors or ground and reassigns the default exterior construction for that  type.</li>
+     <li>OpenStudio may not find some non-rectangular surfaces. You can match these manually using the Object Information Window. Change the Outside Boundary Condition to &quot;Surface&quot; and then identify the matching Outside Boundary Object.</li>
+<li>You can obtain a report of the last match or unmatch  performed in comma separated value (CSV) format to verify the operations that  have been performed.</li>
+</ul>
+<ul>
+  <br><img src="dialogs/tut_surface_matching_04.png" alt=""><br></li>
+</ul>
+</div>
+
+<H3>Workflows for Surface Matching</H3>
+<div style="margin-left:10px">
+<ul>
+     <li>You can match surfaces together  as you make them or you can create all surfaces for your model and match them at the end.</li>
+     <li>After matching, you can verify correct results using the <a href="tut_searching.html">Surface Search Tool</a> to verify correct results. You can, for example,  check that no surfaces with outdoor boundary conditions are inside the building,  and vice versa. </li>
+     <li>As an alternative to the Surface Matching tool, you can manually match surfaces, using the Object Info Tool. Set the Outside Boundary Condition to &quot;Surface&quot; and then identify the Outside Boundary Object that you wan to match with. In most cases your matches are in pairs. So if you match surface &quot;A&quot; to surface &quot;B&quot;, then surface &quot;B&quot; should also refer to surface &quot;A&quot; as it's Outside Boundary Object.</li>
+     <li>Surface Matching may not properly match some non rectangular surfaces. If this happens you can manually match the surfaces (see above). An alternative workflow would be to draw them as rectangular surfaces, match them, and then adjust the geometry.</li>
+     <li>If your surface is a trapezoid (like perimeter zone in a 5-zone plan) then you can generally avoid the issue by drawing your zone origin at the 2nd of the two acute angles. (2nd when using the right hand rule to draw points clockwise). Then use the line tool to draw your shape staring with the second acute angle(same point as zone origin). Once you do this don't move your zones around. Copying them up to create multiple floors should be fine. The draw order of your vertices will be: acute vertex&gt;obtuse vertex&gt;obtuse vertex&gt;acute vertex.</li>
+     </ul>
+</div>
+
+
+					</td>
+				</tr>
+			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

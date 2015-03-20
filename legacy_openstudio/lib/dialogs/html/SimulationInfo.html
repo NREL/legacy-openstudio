@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<title>Simulation Info</title>
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  setTimeout("document.getElementById('ok').focus();", 10);
+}
+function onOK() { window.location='skp:on_ok'; }
+function onCancel() { window.location='skp:on_cancel'; }
+function onApply() { window.location='skp:on_apply'; }
+
+-->
+</script>
+</head>
+<body onload="onLoad()">
+
+<fieldset class="label" style="margin-top:0px;">
+<legend>Global Geometry Rules</legend>
+
+
+<table border="0" cellpadding="4" width="340px" align="left">
+
+<tr>
+<td width="120px">
+&nbsp;&nbsp;Coordinate System:
+</td>
+<td>
+<select name="COORDINATE_SYSTEM" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+  <option value="ABSOLUTE">Absolute Coordinates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+  <option value="RELATIVE">Relative Coordinates&nbsp;&nbsp;</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td width="120px">
+&nbsp;&nbsp;Daylighting Reference Point Coordinate System:
+</td>
+<td>
+<select name="DAYLIGHTING_COORDINATE_SYSTEM" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+  <option value="ABSOLUTE">Absolute Coordinates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+  <option value="RELATIVE">Relative Coordinates&nbsp;&nbsp;</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td width="120px">
+&nbsp;&nbsp;Rectangular Surface Coordinate System:
+</td>
+<td>
+<select name="RECTANGULAR_COORDINATE_SYSTEM" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+  <option value="ABSOLUTE">Absolute Coordinates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+  <option value="RELATIVE">Relative Coordinates&nbsp;&nbsp;</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Vertex Entry Order:
+</td>
+<td>
+<select name="VERTEX_ORDER" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+  <option value="CLOCKWISE">Clockwise&nbsp;&nbsp;</option>
+  <option value="COUNTERCLOCKWISE">Counterclockwise&nbsp;&nbsp;</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Starting Vertex:
+</td>
+<td>
+<select name="STARTING_VERTEX" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+  <option value="UPPER_LEFT_CORNER">Upper Left Corner&nbsp;&nbsp;</option>
+  <option value="LOWER_LEFT_CORNER">Lower Left Corner&nbsp;&nbsp;</option>
+  <option value="UPPER_RIGHT_CORNER">Upper Right Corner&nbsp;&nbsp;</option>
+  <option value="LOWER_RIGHT_CORNER">Lower Right Corner&nbsp;&nbsp;</option>
+</select>
+</td>
+</tr>
+
+</table>
+
+<br>
+<br>
+</fieldset>
+
+
+<fieldset class="label">
+<legend>Location</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+<tr>
+<td width="65px">
+&nbsp;&nbsp;Name:
+</td>
+<td>
+<input id="LOCATION_NAME" name="LOCATION_NAME" type="text" class="text" size="10" width="251px" style="width:251px;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+</table>
+
+
+<table border="0" cellpadding="4" width="100%" align="left">
+
+<tr>
+<td width="65px">
+&nbsp;&nbsp;Latitude:
+</td>
+<td>
+<input id="LATITUDE" name="LATITUDE" type="text" class="text" size="10" style="text-align:center;" onchange="onChangeElement(this)">&nbsp;(deg)
+</td>
+<td width="65px">
+&nbsp;&nbsp;Longitude:
+</td>
+<td>
+<input id="LONGITUDE" name="LONGITUDE" type="text" class="text" size="10" style="text-align:center;" onchange="onChangeElement(this)">&nbsp;(deg)
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Time Zone:
+</td>
+<td>
+<input id="TIME_ZONE" name="TIME_ZONE" type="text" class="text" size="10" style="text-align:center;" onchange="onChangeElement(this)">&nbsp;(hr)
+</td>
+<td>
+&nbsp;&nbsp;Elevation:
+</td>
+<td>
+<input id="ELEVATION" name="ELEVATION" type="text" class="text" size="10" style="text-align:center;" onchange="onChangeElement(this)">&nbsp;(m)
+</td>
+</tr>
+
+</table>
+
+<br>
+<br>
+</fieldset>
+
+
+<p style="text-align:right; margin-top:6px;">
+<input id="ok" onclick="onOK()" type="button" class="button" value="OK" style="width:75px; margin-left:3px;">
+<input onclick="onCancel()" type="button" class="button" value="Cancel" style="width:75px; margin-left:3px;">
+<input onclick="onApply()" type="button" class="button" value="Apply" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

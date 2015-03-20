@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd /
+cd "$run_dir"
+"$engine_path"
+
+echo
+echo
+"$readvars_path"
+
+echo
+echo
+echo The simulation is now finished.
+echo
+echo You MUST quit out of this Terminal application before any Actions On Completion will be started.
+echo
+echo
+
+exit

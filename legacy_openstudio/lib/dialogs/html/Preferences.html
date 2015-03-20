@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<title>Preferences</title>
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('ok').focus();
+  if (is_mac()) {
+    // Automatic check for updates is not supported on the Mac yet.
+	document.getElementById('CHECK_FOR_UPDATE').checked = false;
+	disableElement('CHECK_FOR_UPDATE');
+  }
+}
+function onOK() { window.location='skp:on_ok'; }
+function onCancel() { window.location='skp:on_cancel'; }
+function onApply() { window.location='skp:on_apply'; }
+
+function onBrowseTXT() { window.location='skp:on_browse_text_editor'; }
+function onBrowseEXE() { window.location='skp:on_browse_exe'; }
+-->
+</script>
+</head>
+<body onload="onLoad()">
+
+<fieldset class="label" style="margin-top:0px;">
+<legend>Plugin Preferences</legend>
+
+<br>
+&nbsp;&nbsp;<input type="checkbox" id="ERASE_ENTITIES" name="ERASE_ENTITIES" onclick="onChangeElement(this)">&nbsp;<label for="ERASE_ENTITIES">Always erase SketchUp entities when closing an input file</label>
+<br>
+<br>
+&nbsp;&nbsp;<input type="checkbox" id="CHECK_FOR_UPDATE" name="CHECK_FOR_UPDATE" onclick="onChangeElement(this)">&nbsp;<label for="CHECK_FOR_UPDATE">Automatically check for updates</label>
+<br>
+<br>
+&nbsp;&nbsp;<input type="checkbox" id="CACHE_ESO_RESULTS" name="CACHE_ESO_RESULTS" onclick="onChangeElement(this)">&nbsp;<label for="CACHE_ESO_RESULTS">Cache ESO file results for faster loading</label>
+<br>
+<br>
+&nbsp;&nbsp;Text Editor:&nbsp;<input id="TEXT_EDITOR_PATH" name="TEXT_EDITOR_PATH" type="text" class="text" size="69" onchange="onChangeElement(this)">
+&nbsp;<input id="browse_txt" onclick="onBrowseTXT()" type="button" class="button" value="Browse"><br><br>
+
+
+
+</fieldset>
+
+<fieldset class="label">
+<legend>EnergyPlus Engine</legend>
+
+<br>
+
+&nbsp;&nbsp;Path:&nbsp;<input id="EXE_PATH" name="EXE_PATH" type="text" class="text" size="69" onchange="onChangeElement(this)">
+&nbsp;<input id="browse" onclick="onBrowseEXE()" type="button" class="button" value="Browse"><br>
+
+<br><br>
+
+</fieldset>
+
+<p style="text-align:right; margin-top:6px;">
+<input id="ok" onclick="onOK()" type="button" class="button" value="OK" style="width:75px; margin-left:3px;">
+<input onclick="onCancel()" type="button" class="button" value="Cancel" style="width:75px; margin-left:3px;">
+<input onclick="onApply()" type="button" class="button" value="Apply" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<title>Legacy OpenStudio SketchUp Plug-in</title>
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('ok').focus();
+}
+function onOK() { window.location='skp:on_ok'; }
+-->
+</script>
+</head>
+<body onload="onLoad()" link="#0000FF" alink="#0000FF" vlink="#0000FF" class="label">
+
+<center>
+
+<a href="http://www.energyplus.gov/" target="_blank">
+<img src="logo.gif" border="0">
+</a>
+
+<br>
+
+<span style="font-size:x-large;">Legacy OpenStudio</span><br>
+
+<strong>Version <%=version%></strong><br><br>
+
+<a href="http://www.energyplus.gov/" target="_blank">www.energyplus.gov</a><br><br>
+
+Developed by the National Renewable Energy Laboratory<br>
+For the United States Department of Energy<br><br>
+
+Copyright &copy; 2008-2013, Alliance for Sustainable Energy<br><br>
+
+<input id="ok" onclick="onOK()" type="button" class="button" value="     OK     ">
+
+</center>
+
+</body>
+</html>

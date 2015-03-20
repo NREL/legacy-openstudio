@@ -1,0 +1,140 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<title>File Info</title>
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('ok').focus();
+}
+function onOK() { window.location='skp:on_ok'; }
+
+function onViewIDF() { window.location='skp:on_view_idf'; }
+-->
+</script>
+</head>
+<body onload="onLoad()">
+
+<fieldset class="label" style="margin-top:0px;">
+<legend>EnergyPlus Input File</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center" style="margin-top:8px;">
+
+<tr>
+<td width="56px" valign="top">
+&nbsp;&nbsp;Name:
+</td>
+<td valign="top">
+<input id="NAME" name="NAME" type="text" class="static_text" size="10" width="100%" style="width:100%;" onFocus="this.select()" style="border: 0" readonly>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+&nbsp;&nbsp;Path:
+</td>
+<td valign="top">
+<input id="PATH" name="PATH" type="text" class="static_text" size="10" width="100%" style="width:100%;" onFocus="this.select()" style="border: 0" readonly>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+&nbsp;&nbsp;Size:
+</td>
+<td valign="top">
+<input id="SIZE" name="SIZE" type="text" class="static_text" size="10" onFocus="this.select()" style="border: 0" readonly>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+&nbsp;&nbsp;Objects:
+</td>
+<td valign="top">
+
+
+
+<table border="0" style="margin-top:-4px; margin-left:-3px;">
+
+<tr>
+<td>
+<input id="ZONES" name="ZONES" type="text" class="static_text" size="6" onFocus="this.select()" style="border: 0" readonly>
+</td>
+<td>
+Zones
+</td>
+</tr>
+
+<tr>
+<td>
+<input id="BASE_SURFACES" name="BASE_SURFACES" type="text" class="static_text" size="6" onFocus="this.select()" style="border: 0" readonly>
+</td>
+<td>
+Base Surfaces
+</td>
+</tr>
+
+<tr>
+<td>
+<input id="SUB_SURFACES" name="SUB_SURFACES" type="text" class="static_text" size="6" onFocus="this.select()" style="border: 0" readonly>
+</td>
+<td>
+Sub Surfaces
+</td>
+</tr>
+
+<tr>
+<td>
+<input id="SHADING_SURFACES" name="SHADING_SURFACES" type="text" class="static_text" size="6" onFocus="this.select()" style="border: 0" readonly>
+</td>
+<td>
+Shading Surfaces
+</td>
+</tr>
+
+<tr>
+<td>
+<input id="OTHER_OBJECTS" name="OTHER_OBJECTS" type="text" class="static_text" size="6" onFocus="this.select()" style="border: 0" readonly>
+</td>
+<td>
+Other Objects
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+<hr>
+</td>
+</tr>
+
+<tr>
+<td>
+<input id="TOTAL_OBJECTS" name="TOTAL_OBJECTS" type="text" class="static_text" size="6" onFocus="this.select()" style="border: 0" readonly>
+</td>
+<td>
+Total Objects
+</td>
+</tr>
+
+</table>
+
+
+</td>
+</tr>
+
+</table>
+
+<br>
+
+</fieldset>
+
+<p style="text-align:right; margin-top:6px;">
+<input id="ok" onclick="onOK()" type="button" class="button" value="OK" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

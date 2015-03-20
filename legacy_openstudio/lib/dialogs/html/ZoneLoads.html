@@ -1,0 +1,286 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('SET_ALL').focus();
+}
+function onOpen() {
+  window.location='skp:on_open';
+}
+function onNewSchedule() {
+  window.location='skp:on_new_schedule';
+}
+function onAddThermostats() {
+  window.location='skp:on_add_thermostats';
+}
+function onEditThermostats() {
+  window.location='skp:on_edit_thermostats';
+}
+function onRefreshThermostats() {
+  window.location='skp:on_refresh_thermostats';
+}
+function onReset() {
+  window.location='skp:on_reset';
+}
+function onOK() {
+  window.location='skp:on_ok';
+}
+function onSave() {
+  window.location='skp:on_save';
+}
+function onSaveAs() {
+  window.location='skp:on_save_as';
+}
+function onCancel() {
+  window.location='skp:on_cancel';
+}
+function onSetSelected() {
+  window.location='skp:on_set_selected';
+}
+function onSetAll() {
+  window.location='skp:on_set_all';
+}
+function onLastReport() {
+  window.location='skp:on_last_report';
+}
+function onUpdate(element) {
+  onChangeElement(element);
+  window.location='skp:on_update';
+}
+function onReportUpdate(element) {
+  onChangeElement(element);
+  window.location='skp:on_report_update';
+}
+-->
+</script>
+</head>
+<body onload="onLoad()" link="#0000FF" alink="#0000FF" vlink="#0000FF" class="label">
+
+<fieldset>
+<legend>Saved Preferences</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="25%">
+&nbsp;&nbsp;Preferences Path:&nbsp;
+</td>
+<td>
+<input name="DEFAULT_SAVE_PATH" type="text" class="text" width="100%" style="width:100%;"  onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<td>
+</td>
+<td style="text-align:right;">
+<input id="SAVE" onclick="onSave()" type="button" class="button" value="Save" style="width:75px; margin-left:3px;">
+<input id="SAVE_AS" onclick="onSaveAs()" type="button" class="button" value="Save As" style="width:75px; margin-left:3px;">
+<input id="OPEN" onclick="onOpen()" type="button" class="button" value="Open" style="width:75px; margin-left:3px;">
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>Zone Loads <a href="../../../doc/help/tut_loads.html" target="_blank">(help)</a></legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td>
+<input name="PEOPLE_DENSITY_TEXT" type="text" class="static_text" size="55" style="border:none; padding-top:0; color:#000000" readonly>
+<td>
+<input name="PEOPLE_DENSITY" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Occupancy Schedule:
+</td>
+<td>
+<select name="OCCUPANCY_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Activity Schedule:
+</td>
+<td>
+<select name="ACTIVITY_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+<input name="LIGHTS_DENSITY_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+<td>
+<input name="LIGHTS_DENSITY" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Lighting Schedule:
+</td>
+<td>
+<select name="LIGHTS_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+<input name="ELEC_EQUIPMENT_DENSITY_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+<td>
+<input name="ELEC_EQUIPMENT_DENSITY" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Electric Equipment Schedule:
+</td>
+<td>
+<select name="ELEC_EQUIPMENT_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+<input name="GAS_EQUIPMENT_DENSITY_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+<td>
+<input name="GAS_EQUIPMENT_DENSITY" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Gas Equipment Schedule:
+</td>
+<td>
+<select name="GAS_EQUIPMENT_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+<input name="OA_PER_PERSON_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="OA_PER_PERSON" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Outdoor Air per Person Schedule:
+</td>
+<td>
+<select name="OA_PER_PERSON_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+<input name="OA_PER_AREA_TEXT" type="text" class="static_text" size="50" style="border:none; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+<input name="OA_PER_AREA" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Outdoor Air per Area Schedule:
+</td>
+<td>
+<select name="OA_PER_AREA_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Infiltration Rate (ACH):
+</td>
+<td>
+<input name="INFILTRATION_RATE" type="text" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Infiltration Schedule:
+</td>
+<td>
+<select name="INFILTRATION_SCHEDULE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td style="text-align:right;">
+<input id="RESET" onclick="onReset()" type="button" class="button" value="Reset to Default Office" style="width:120px; margin-left:3px;">
+<input id="NEW_SCHEDULE" onclick="onNewSchedule()" type="button" class="button" value="New Schedule Stub" style="width:120px; margin-left:3px;">
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>HVACTemplate:Zone:IdealLoadsAirSystem</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td>
+</td>
+<td>
+<input id="ADD_IDEAL_LOADS" name="ADD_IDEAL_LOADS" type="checkbox" onclick="onReportUpdate(this)">
+<label for="ADD_IDEAL_LOADS">Add HVACTemplate:Zone:IdealLoadsAirSystem</label>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;HVACTemplate:Thermostat:
+</td>
+<td>
+<select name="THERMOSTAT_NAME" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)"> </select>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td style="text-align:right;">
+<input id="ADD_THERMOSTATS" onclick="onAddThermostats()" type="button" class="button" value="Add Thermostats" style="width:120px; margin-left:3px;">
+<input id="EDIT_THERMOSTATS" onclick="onEditThermostats()" type="button" class="button" value="Edit Thermostats" style="width:120px; margin-left:3px;">
+<input id="REFRESH_THERMOSTATS" onclick="onRefreshThermostats()" type="button" class="button" value="Refresh Thermostats" style="width:120px; margin-left:3px;">
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+<p style="text-align:right; margin-top:6px;">
+<input id="SET_ALL" onclick="onSetAll()" type="button" class="button" value="Apply to Entire Model" style="width:120px; margin-left:3px;">
+<input id="SET_SELECTED" onclick="onSetSelected()" type="button" class="button" value="Apply to Selection" style="width:120px; margin-left:3px;">
+<input id="LAST_REPORT" onclick="onLastReport()" type="button" class="button" value="Last Report" style="width:75px; margin-left:3px;">
+<input id="OK" onclick="onOK()" type="button" class="button" value="OK" style="width:75px; margin-left:3px;">
+<input id="CANCEL" onclick="onCancel()" type="button" class="button" value="Cancel" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

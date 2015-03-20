@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onChangeType(element) {
+  onChangeElement(element);
+  setTimeout("window.location='skp:on_change_type';", 10);
+}
+function onChangeBaseSurface(element) {
+  onChangeElement(element);
+  setTimeout("window.location='skp:on_change_base_surface';", 10);
+}
+-->
+</script>
+</head>
+<body class="label">
+
+<fieldset>
+<legend>Object Inputs</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="144px">
+&nbsp;&nbsp;Class:
+</td>
+<td>
+<span style="font-weight:bold;">&nbsp;FenestrationSurface:Detailed</span>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Name:
+</td>
+<td>
+<input name="NAME" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)" >
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Type:
+</td>
+<td>
+<select name="TYPE" class="text" width="100%" style="width:100%;" onchange="onChangeType(this)">
+<option value="WINDOW">Window</option>
+<option value="DOOR">Door</option>
+<option value="GLASSDOOR">Glass Door</option>
+<option value="TUBULARDAYLIGHTDOME">Tubular Daylight Dome</option>
+<option value="TUBULARDAYLIGHTDIFFUSER">Tubular Daylight Diffuser</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Construction:
+</td>
+<td>
+<select name="CONSTRUCTION" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Base Surface:
+</td>
+<td>
+<select name="BASE_SURFACE" class="text" width="100%" style="width:100%;" onchange="onChangeBaseSurface(this)" disabled="true">
+</select>
+</td>
+</tr>
+
+
+<tr>
+<td>
+&nbsp;&nbsp;Outside Boundary Object:
+</td>
+<td>
+<select name="OUTSIDE_BOUNDARY_OBJECT" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;View Factor To Ground:
+</td>
+<td>
+<input name="VIEW_FACTOR_TO_GROUND" type="text" class="text" size="4" style="text-align:center;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Shading Device:
+</td>
+<td>
+<select name="SHADING_DEVICE" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Frame And Divider:
+</td>
+<td>
+<select name="FRAME_DIVIDER" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Multiplier:
+</td>
+<td>
+<input name="MULTIPLIER" type="text" class="text" size="4" style="text-align:center;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+</table>
+
+
+
+</fieldset>
+
+<fieldset>
+<legend>Object Summary</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td>
+&nbsp;&nbsp;Vertices:<input name="VERTICES" type="text" class="static_text" size="3" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+
+<td>
+&nbsp;&nbsp;Unit Area:
+<input name="UNIT_AREA" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+
+<td>
+&nbsp;&nbsp;Total Area:
+<input name="TOTAL_AREA" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+
+</tr>
+</table>
+
+</fieldset>
+
+</body>
+</html>

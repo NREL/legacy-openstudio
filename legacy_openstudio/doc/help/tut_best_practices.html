@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+
+
+<H2>Best Practices</H2>
+<br>
+
+<H3>General Guidelines</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>Save early and save often.  Save multiple versions of your IDF as you progress, this makes it easier to recover from an error and provides takeoff points for model variations.  It is a good idea to continue saving multiple IDF files once you begin working outside of OpenStudio (e.g. directly adding EnergyPlus input objects to the IDF) as well.</li>
+    <li>The link between IDF and SKP files may become corrupt. Future versions of OpenStudio are expected to provide better integration with the SKP file. In the meantime, do not save your project as an SKP file, but save the IDF file instead. When you return to it, open SketchUp without opening any SKP file and then reopen the IDF.  </li>
+    <li>EnergyPlus is a detailed simulation engine but you have to tell it how you want your building modeled.  A common misunderstanding is that EnergyPlus will interpret "voids" between zones "correctly".  EnergyPlus does not compute heat transfer between zones if they do not share a surface, so you must input the shared surfaces and set appropriate boundary conditions.  In order to correctly model air transfer between zones you have to add input objects that describe the airflow between zones.  In order to model daylight transmission between zones you need to add interior windows.  Just because a building looks right does not mean it is modeled correctly; digging in to the IDF and looking at detailed results is the only way to check that you have modeled your building correctly.</li>
+    <li>Leave North in SketchUp at 0 degrees. If your building is not aligned with true north,  rotate the geometry as necessary. You can create a new set of axis with a unique origin and rotation. <br>
+      <a href="tut_rotating.html">See  a tutorial on rotating an axis.</a></li>
+    <li>When you import an IDF into OpenStudio it may be altered as part of the import process. For example if your windows are not in the same plane as their base surface, OpenStudio moves them into the base surface plane. There may be other changes as well. If you want to keep your raw IDF untouched, you should either "SaveAs" as soon as you import it before you import it.</li>
+    <li>To rename objects, go to the Object Info dialog. Do not alter the names  in SketchUp's Entity Information dialog.</li>
+    <li>Do not use the paint bucket tool on EnergyPlus surfaces and subsurfaces. If you do, OpenStudio will repaint it.</li>
+    <li>The Object Info Window  works on one object at a time. If you select multiple objects or surfaces and make a change, it will  affect only oneobject.</li>
+    <li>The Object Info Window does not take data until you tab to the next field or click elsewhere in the window.</li>
+    <li>If you accidentally purge materials or components from your model you can simply restart SketchUp and re-open your IDF file.</li>
+</ul>
+</div>
+
+<H3>Guidelines for Zones</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>Zones should be top-level objects. Do not combine multiple zones into a group or component.</li>
+    <li>Name your  zones to make large models easier to manage and search. You may want to name  your surfaces and subsurfaces.</li>
+    <li>Geometry within a zone should be <a href="http://en.wikipedia.org/wiki/Convex_set" target="_blank">convex</a>.</li>
+    <li>Do not use  the scale tool to scale a zone. Only an Output:Illuminance Map needs the scale  tool. If you scale a zone your data will be incorrect.</li>
+	<li>Zone Origins  do not move once they are set. You can move the SketchUp group, but it will not  move the zone origin. If you want to move the zone origin, you need to edit the  IDF file elsewhere. You can, however, set the zone rotation through the  OpenStudio Object Info Window.</li>
+	<li>After creating a  new zone or shading group, double-click the group to edit it. The Outliner or a keyboard shortcut can also be used to edit a zone or shading group.</li>
+</ul>
+</div>
+
+<H3>Guidelines for Surfaces</H3>
+<div style="margin-left:10px">
+<ul>
+	<li>Do not group a selection of EnergyPlus surfaces  or subsurfaces together. All surfaces under a zone should be ungrouped.</li>
+    <li>Model  exterior walls to the outside face of the wall. </li>
+    <li>Draw interior  walls to their centerlines if possible. You may, however, choose any edge, as long  as you are consistent with adjacent zones. Surfaces for adjacent zones must not  overlap each other. </li>
+    <li>Divide a surface  into two by drawing a line across the face. </li>
+    <li>Try to avoid  deleting a surface by erasing a shared edge with another surface. This does not  update the subsurfaces of the deleted surface to point to the new base surface.  If this becomes necessary, you can delete one edge of the subsurface to remove  it and then redraw the edge to create a new subsurface assigned to the correct  surface. </li>
+</ul>
+</div>
+
+<H3>Guidelines for <strong>Subsurfaces</strong></H3>
+<div style="margin-left:10px">
+<ul>
+	<li>Do not place  a subsurface (window or door) inside another subsurface. </li>
+    <li>Do not place  two subsurfaces against each other. Place a small space between them. </li>
+    <li>Do not make a window the size of an entire base surface. Use <a href="http://sketchup.google.com/support/bin/answer.py?answer=94870" target="_new">SketchUp's Offset Tool</a> to inset the sub-surface some nominal amount.</li>
+    <li>Do not draw  a subsurface that shares two edges with a base surface. This will create a new  base surface. You can draw a window at the edge of wall, but not at the edge as  well as the roof or floor. </li>
+    <li>Delete a subsurface  by either removing all the edges (one at a time) or by double-clicking to  select the face and edges and then deleting. Do not delete the face only, as this  leaves a visual hole in the base surface. </li>
+</ul>
+</div>
+
+<H3>Guidelines for Shading Surfaces</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>If you try  to draw a zone shading surface in line with the roof, it will be recognized as  a roof. If you want a zone-shading surface in line with the roof, you must draw  it lower, and then move it up into place. </li>
+    <li>Shading  surfaces also cannot be drawn while they touch the floor. Draw them smaller and  then stretch them down the floor. This could occur on vertical fins.</li>
+    <li>By default, shading surfaces assign a floor surface from the zone as it's base surface. It is important that the base surface for a shading surface is an exterior surface. For first floor zones, the floor is ok, but for other floors you will have to manually change the base surface in the Object Information Window. Using a shading group instead of shading surfaces within a zone will avoid this issue.</li>
+    <li>You can create shading surfaces as part of a shading  group instead of drawing them as surfaces inside a zone. </li>
+</ul>
+</div>
+					</td>
+				</tr>
+			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

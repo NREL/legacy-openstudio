@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+
+
+<H2>Daylighting Controls</H2>
+<br>
+
+<H3>Add a Daylighting:Controls Object</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>Enter into the zone where you want to place the Daylighting:Controls object. If you try to add Daylighting:Controls outside  a zone you will see this alert.<br><br>
+     <img src="dialogs/daylightingcontrols.JPG" alt=""><br></li>
+         <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Click on the toolbar button to activate the tool. Click on the model where you want to insert the Daylighting:Controls object. When you place the object, it will locate 30 inches above the surface, edge, or vertex  you click on.</li>
+      <br><img src="dialogs/tut_daylighting_01.png" alt="" width="500"></li><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+     <li>See below to  learn how to relocate the Daylighting:Controls once you have placed them. </li>
+     <li>You cannot  add more than one Daylighting:Controls object to a single zone. </li>
+     <li>To obtain results  from EnergyPlus for your Daylighting:Controls, make sure the zone also has a  Lights object. You can add lights through OpenStudio with the Zone Load tool. </li>
+</ul>
+</div>
+
+<H3>Make Changes</H3>
+<div style="margin-left:10px">
+<ul>
+     <li>You can switch between one and two sensors and  change the position of each sensor through the Object Info dialog box. </li>
+     <br><img src="dialogs/tut_daylighting_02.png" alt="" width="500"></li><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+     <li>You can  change the position of the sensors by double-clicking the Daylighting:Controls object and using SketchUp's move tool to drag the sensors around.</li>
+     <br><img src="dialogs/tut_daylighting_03.png" alt="" width="500"></li><br>
+     <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+	 <li>The arrow on Daylighting:Controls object reflects the Glare Calculation Azimuth Angle of View Direction setting.  Rotating the sensors does not change this setting.</li>
+</ul>
+</div>
+
+          </td>
+				</tr>
+			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

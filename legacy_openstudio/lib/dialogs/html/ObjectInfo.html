@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<title>Object Info</title>
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+}
+function setRows(rows) {
+  // On the Mac, Javascript in the header of a frameset html page is ignored by Safari, or SketchUp.
+  // A Mac workaround version of this function is found in Dialogs.js.
+  document.getElementById('frameset').rows = rows;
+}
+-->
+</script>
+</head>
+
+<frameset id="frameset" rows="100px,100px,100px,100px,100px,100px,100px,100px,100px,100px,*,6px" frameborder="no" framespacing="0" border="0" onLoad="onLoad()">
+
+  <frame name="BUILDING_FRAME" src="BuildingData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="ZONE_FRAME" src="ZoneData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="BASE_SURFACE_FRAME" src="BaseSurfaceData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="SUB_SURFACE_FRAME" src="SubSurfaceData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="ATTACHED_SHADING_SURFACE_FRAME" src="AttachedShadingSurfaceData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="DETACHED_SHADING_GROUP_FRAME" src="DetachedShadingGroupData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="DETACHED_SHADING_SURFACE_FRAME" src="DetachedShadingSurfaceData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="OUTPUT_ILLUMINANCE_MAP_FRAME" src="OutputIlluminanceMapData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="DAYLIGHTING_CONTROLS_FRAME" src="DaylightingControlsData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="NO_SELECTION_FRAME" src="NoSelectionData.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="TEXT_FRAME" src="ObjectText.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+  <frame name="FILLER_FRAME" src="Filler.html" marginheight="0" marginwidth="8" noresize="noresize" scrolling="no">
+
+</frameset>
+
+</html>

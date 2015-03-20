@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Legacy OpenStudio SketchUp Plug-in Documentation: Release Notes</title>
+  <link rel="stylesheet" type="text/css" href="includes/ep.css">
+  <script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+  </script>
+</head>
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<a name="top"></a><!-- rollovers -->
+<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
+ name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2"
+ href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58"
+ href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58"
+ href="http://www.eere.energy.gov/">
+</map>
+<div style="width: 100%; background-color: rgb(1, 65, 100);"><img
+ src="images/eere_header_liquid.jpg" alt="" usemap="#head" width="1000"
+ border="0" height="67"></div>
+<!--startindex-->
+<!-- End EERE header -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td colspan="3" width="100%">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="subsitephoto" width="100%" bgcolor="#000066"><a
+ href="index.html"><img src="images/spacer.gif"
+ alt="Legacy OpenStudio SketchUp Plug-in Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!-- end of third column -->
+<!-- start of left navigation, first column --> <tr valign="top">
+      <td valign="top" width="176"><!-- left navigation include --><!--stopindex-->
+      <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+      <a href="ref_guide.html" onmouseover="msover('0')"
+ onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
+ alt="Reference Guide" name="Image0" width="176" border="0" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="tutorials.html" onmouseover="msover('1')"
+ onmouseout="msout('1')"><img src="images/ln_tutorials_off.gif"
+ alt="Tutorials" name="Image1" width="176" border="0" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <img src="images/ln_release_notes_on.gif" alt="Release Notes"
+ name="Image2" width="176" border="0" height="19"><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex--> </td>
+      <td valign="top" bgcolor="#cccccc"><img src="images/spacer.gif"
+ alt="" width="1" height="1"></td>
+<!-- main content --> <td valign="top" width="100%">
+      <table width="100%" border="0" cellpadding="12" cellspacing="0">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <h2><a name="requirements"></a>Requirements</h2>
+            <h3>Supported Operating Systems</h3>
+            <ul>
+              <li>Windows XP</li>
+              <li>Windows Vista</li>
+              <li>Windows 7</li>
+              <li>Mac OS 10.7 or higher</li>
+            </ul>
+            <h3>Supported Versions of SketchUp</h3>
+            <ul>
+              <li><a href="http://sketchup.com/" target="_new">
+SketchUp 7 or higher</a> Pro or free versions</li>
+            </ul>
+<!--<P2i>(note: 6.x no longer supported)</P2i><br>-->
+            <h3>Supported Versions of EnergyPlus</h3>
+            <ul>
+              <li><a
+ href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus
+8.1</a></li>
+            </ul>
+            <a name="installation"></a>
+            <h2>Installation and Setup</h2>
+            <ul>
+              <li>Download and install <a
+ href="http://sketchup.com/" target="_new">SketchUp</a></li>
+              <li>Download and install <a
+ href="http://apps1.eere.energy.gov/buildings/energyplus" target="_self">EnergyPlus
+8.1</a></li>
+              <li>Download and install <a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"
+ target="_self">Legacy OpenStudio Plug-in</a></li>
+            </ul>
+            <p2i>(note: Admin rights will be required to install these
+applications)</p2i><br>
+            <a name="known_issues"></a>
+            <h2>Known Issues</h2>
+            <ul>
+              <li>When working with the Legacy OpenStudio Plug-in, save only your IDF
+file. Do not save the SketchUp SKP file. Opening SKP files that have an
+associated IDF file can result in a set of duplicates surfaces that are
+slightly offset from the original surfaces and cause other problems. </li>
+              <li>Toolbar Tool tips may not work correctly on a Mac if
+you have made your Toolbars horizontal. The tips also do not show on a
+Mac in the status bar under any conditions. </li>
+              <li>If you create a group out of multiple EnergyPlus
+Zones, and then hide a zone, you will receive an error message.</li>
+              <li>Rendering Settings Dialog does not work on a Mac
+because the JavaScript engine in Safari</li>
+              <li>Can't move zone origin through Legacy OpenStudio Plug-in.</li>
+              <li>Surface Matching may not properly match some non
+rectangular surfaces. If this happens you can manually match the
+surfaces using the Object Information Window. An alternative workflow
+would be to draw them as rectangular surfaces, match them, and then
+adjust the geometry. See "Workflow for Surface Matcing" at the bottom
+of the "<a href="tut_matching_surfaces.html">Matching Surfaces</a>"
+tutorial for guidelines to avoid this.</li>
+              <li>As much as possible you should avoid using curves
+(arcs or circles) to create your geometry as it will create a lot of
+faced surfaces and increase the simulation time. If you do use curves
+set the segment count as low as possible. Before you extrude a curve in
+SketchUp you can select it and right click to view the "Entity
+Information" window. There you can change the number of segments. If
+you want to make changes to curves via the object info window you have
+to "View Hidden Geometry" to select individual facets. You can't
+globally change the whole curve at once.</li>
+              <li>When you are drawing in a zone and extrude your plan
+up the Legacy OpenStudio Plug-in runs through and classifies all of the newly created base
+surfaces. Normally this is very quick, but if you have a complex shape,
+and also if you have the Object Information window and/or Outliner
+window open it make take longer. If you interrupt the process by
+exiting out of the zone before it is done, the zone won't function
+properly. If that happens, you can manually update the unclassified
+surfaces, or delete and redraw them.</li>
+            </ul>
+            <a name="troubleshooting"></a>
+            <h2>Troubleshooting</h2>
+            <h3>Legacy OpenStudio Plug-in</h3>
+            <ul>
+              <li>We recognize that the Legacy OpenStudio Plug-in is not perfect. SketchUp
+is a flexible and dynamic program that allows the user to draw all
+kinds of geometry in many ways, and we have not been able to test all
+of them. We welcome your assistance in identifying bugs so we can fix
+them in the next version. We welcome feedback about how we might
+improve the plugin. We would also like to learn about feature requests,
+compliments, criticisms, etc. </li>
+              <li>For all bug reports, feedback, and questions about
+the Legacy OpenStudio Plug-in, visit the collaborative project Web site at <a
+ href="http://openstudio.sourceforge.net/" target="_new">SourceForge.net.</a></li>
+              <li>The project Web site enables you to join the user
+support mailing list, browse the list of known issues in the bug
+tracker, or post a new bug report. </li>
+              <li>If the plugin detects an error, an Error Alert window
+appears. Your first step should be to visit the project Web site to
+check the bug tracker and user support mailing list to see if someone
+else has encountered the same problem. If the issue has already been
+reported, a workaround has likely been posted. </li>
+              <li>If you think you have found an unreported bug, the
+next step is to send an email to the user support mailing list. You can
+help us the most if you follow these suggestions:</li>
+              <ul>
+                <li>Describe the bug. Tell us what you were doing when
+it happened, and if possible, describe how to reproduce the problem. </li>
+                <li>If the Error Alert window appeared, copy and paste
+the error message and backtrace it into your e-mail. </li>
+                <li>Attach the EnergyPlus input file (.idf) to your
+e-mail. </li>
+                <li>We will respond to your e-mail as quickly as
+possible. Thanks for your help and patience! </li>
+              </ul>
+            </ul>
+            <a name="energyplus"></a>
+            <h3>EnergyPlus</h3>
+            <ul>
+              <li>The <a href="http://energyplus.helpserve.com/"
+ target="_new">EnergyPlus forum and knowledgebase,</a> can help with
+EnergyPlus questions that fall outside of the scope of the Legacy OpenStudio Plug-in.</li>
+              <li>There is also extensive PDF documentation of
+EnergyPlus under your EnergyPlus install in a subfolder called
+"documentation". Refer to "InputOutputReference.pdf" and
+"AuxiliaryPrograms.pdf". </li>
+              <li>The "GettingStarted.pdf" has some sections that
+explain strategies for breaking a building into Thermal zones.
+                <ul>
+                  <li>Tutorial Example for running EnergyPlus</li>
+                  <li>Overall scheme/methodology for running EnergyPlus</li>
+                </ul>
+              </li>
+            </ul>
+            <a name="sketchup"></a>
+            <h3>SketchUp</h3>
+            <ul>
+              <li><a
+ href="http://support.google.com/sketchup/?hl=en"
+ target="_new">Link to SketchUp's On-Line Help Guides and Video
+Tutorials</a></li>
+              <li><a
+ href="http://www.youtube.com/view_play_list?p=4EA4466179F2B044"
+ target="_new">Link to Google's YouTube videos on SketchUp</a></li>
+              <li><a
+ href="http://www.google.com/support/forum/p/sketchup/label?lid=54c1b3b816c199ba&amp;hl=en"
+ target="_new">Link to Google's user forum for SketchUp</a></li>
+              <li><a href="http://forums.sketchucation.com/"
+ target="_new">Link to SketchUcation's SketchUp forum</a></li>
+            </ul>
+            <a name="other_tools"></a>
+            <h3>Other Tools</h3>
+            <ul>
+              <li>Comparison Tools - You may wish to run comparisons of
+two IDF files to see what has changed. This comparison is often called
+a DIFF. A <a
+ href="http://en.wikipedia.org/wiki/Comparison_of_file_comparison_tools"
+ target="_new">Wikipedia page</a> shows many software options for this.
+              </li>
+              <li>NREL has developed <a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/resultsviewer.cfm"
+ target="_new">ZeroKit ResultsViewer</a> for plotting time series data
+for multiple simulations.</li>
+            </ul>
+            <p2i><a href="#top">Back to Top</a></p2i> </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+<!-- end of main content table --> </td>
+      <td>
+      <div class="leftgrey"><img src="images/rn_features_head.gif"
+ alt="Features" style="display: block;" width="249" border="0"
+ height="20">
+      <div style="padding-bottom: 2px;"><a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img
+ src="images/feat_openstudio_openstudio.gif"
+ alt="OpenStudio - Learn More" width="249" border="0" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.energyplus.gov"><img
+ src="images/feat_openstudio_energyplus.gif"
+ alt="EnergyPlus - Learn More" width="249" border="0" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.nrel.gov/buildings/"><img
+ src="images/feat_openstudio_nrel.gif"
+ alt="National Renewable Energy Lab - Learn More" width="249" border="0"
+ height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.buildings.energy.gov"><img
+ src="images/feat_openstudio_btp.gif"
+ alt="DOE's Building Technologies Program - Learn More" width="249"
+ border="0" height="73"></a></div>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- footer  -->
+<br>
+<a href="#end"><img src="images/spacer.gif"
+ alt="Skip footer navigation to end of page." width="1" border="0"
+ height="10"></a><br>
+<table width="0" align="center" border="0" cellpadding="0"
+ cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+      <p class="footer"><a
+ href="http://www.eere.energy.gov/site_administration/privacy.html">Security
+&amp;
+Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building
+Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE
+Home</a></p>
+      <p class="doe">U.S. Department of Energy</p>
+      <a name="end"><img src="images/spacer.gif" alt="" width="1"
+ border="0" height="1"></a> </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

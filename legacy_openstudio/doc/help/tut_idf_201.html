@@ -1,0 +1,902 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>OpenStudio Documentation: Tutorials</title>
+  <link rel="stylesheet" type="text/css" href="includes/ep.css">
+  <script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+  loadImage = "Image" + num;
+  document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+  loadImage = "Image" + num;
+  document.images[loadImage].src = normal[num]
+}
+// -->
+  </script>
+</head>
+<body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+<a name="top"></a><!-- rollovers -->
+<!-- End head info --><!-- exclude this content if printer version --><!-- Include EERE header --><!--stopindex--><!-- EERE header for liquid sites in the old template--><map
+ name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2"
+ href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58"
+ href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58"
+ href="http://www.eere.energy.gov/">
+</map>
+<div style="width: 100%; background-color: rgb(1, 65, 100);"><img
+ src="images/eere_header_liquid.jpg" alt="" usemap="#head" border="0"
+ width="1000" height="67"></div>
+<!--startindex-->
+<!-- End EERE header -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td colspan="3" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td class="subsitephoto" bgcolor="#000066" width="100%"><a
+ href="index.html"><img src="images/spacer.gif"
+ alt="OpenStudio Documentation" width="333" height="52"></a></td>
+            <td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+<!-- end of third column -->
+<!-- start of left navigation, first column --> <tr valign="top">
+      <td valign="top" width="176"><!-- left navigation include --><!--stopindex-->
+      <img src="images/spacer.gif" alt="" width="1" height="3"><br>
+      <a href="ref_guide.html" onmouseover="msover('0')"
+ onmouseout="msout('0')"><img src="images/ln_ref_guide_off.gif"
+ alt="Reference Guide" name="Image0" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="tutorials.html"><img src="images/ln_tutorials_on.gif"
+ alt="Tutorials" name="Image1" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+      <a href="release_notes.html" onmouseover="msover('2')"
+ onmouseout="msout('2')"><img src="images/ln_release_notes_off.gif"
+ alt="Release Notes" name="Image2" border="0" width="176" height="19"></a><br>
+      <img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex--> </td>
+      <td bgcolor="#cccccc" valign="top"><img src="images/spacer.gif"
+ alt="" width="1" height="1"></td>
+<!-- main content --> <td valign="top" width="100%">
+      <table border="0" cellpadding="12" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td valign="top">
+            <h2>IDF 201 - Adding new IDF objects<br>
+            </h2>
+            <br>
+            <h3>Add additional output reports<br>
+            </h3>
+            <div style="margin-left: 10px;">
+            <ul>
+              <li>There are hundreds of EnergyPlus output options. They
+all serve a purpose depending upon what information you
+are looking for from your simulation. OpenStudio makes a few of the
+most
+common report types directly accessible from within the "Run
+Simulation" dialog, under the results tab shown below.<br>
+              </li>
+              <li>OpenStudio adds IDF objects to your building model
+right before it runs depending on which boxes you have checked, it does
+not save these objects to your working IDF file. However, you can add
+these output requests using a text or IDF editor in which case you do
+not need to use OpenStudio to request output. You can see the file
+which OpenStudio runs by looking at the "in.idf" file in your run
+directory.<br>
+                <br>
+              </li>
+              <img style="width: 593px; height: 802px;"
+ src="dialogs/RunSimulation.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)<br>
+              <br>
+              </p2i>
+              <li>The Annual Building Utility Performance Summary is a
+predefined annual summary report. Another predefined annual summary
+report is the Input Verification and Results Summary. This provides a
+number of different results, including a breakdown of the window to
+wall ratio for all walls in the project, broken down by the direction
+the
+walls are facing. The text below is all that has to be added to your
+IDF file to request this report. </li>
+              <br>
+              <ul>
+                <li>Output:Table:SummaryReports,<br>
+&nbsp;&nbsp;&nbsp; InputVerificationandResultsSummary,&nbsp; !-
+Report&nbsp; Name</li>
+              </ul>
+              <br>
+              <li>Below you can see some of the results from the Input
+Verification report which are contained in the EnergyPlus ".html" file
+output that is created in the same directory as your IDF file.<br>
+              </li>
+              <ul>
+                <br>
+                <img style="width: 599px; height: 461px;"
+ src="dialogs/tut_idf_201_01.png" alt=""><br>
+                <p2i>(Credit: David Goldwasser/NREL)<br>
+                <br>
+                </p2i>
+              </ul>
+              <li>You may add additional reports
+under the "Output:Table:SummaryReports" object. The Envelope
+Summary lists walls and details their construction, reflectance,
+U-Factor along with a number of other results. Shading Summary
+will detail for every window what fraction of the window is in shade at
+nine different times of the year (9am, noon, and 3pm on the solstices
+and
+equinoxes). See the Energy+.idd listing for
+"Output:Table:SummaryReports"
+to see a complete list of predefined output tables.<br>
+              </li>
+              <ul>
+                <br>
+                <li>Output:Table:SummaryReports,<br>
+&nbsp;&nbsp;&nbsp; InputVerificationandResultsSummary,&nbsp; !- Report
+Name<br>
+&nbsp;&nbsp;&nbsp; EnvelopeSummary,&nbsp; !- Report Name<br>
+&nbsp;&nbsp;&nbsp; ShadingSummary;&nbsp; !- Report Name<br>
+                  <br>
+                </li>
+              </ul>
+              <li>Below you can see some of the results from the
+Envelope Summary report, also in the "html" file contained in the same
+directory as your IDF file.<br>
+              </li>
+            </ul>
+            </div>
+            <div style="margin-left: 10px;">
+            <ul>
+              <img style="width: 601px; height: 462px;"
+ src="dialogs/tut_idf_201_02.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)<br>
+              <br>
+              </p2i>
+            </ul>
+            <p2i><a href="#top">Back to Top</a><br>
+            </p2i>
+            <h3>Add a photovoltaic generator (Generator:Photovoltaic)
+object<br>
+            </h3>
+            <ul>
+              <li>Adding the output reports was pretty easily. You add
+a few lines of text and you are done. Adding something like a
+photovoltaic generator involves a little more work. There are a few
+objects that have to work in conjunction with each other, and with
+objects you may already have in your model.</li>
+              <li>Below is a screenshot of the model that will
+be used for this demonstration. SketchUp labels have been added to
+identify the surface and generator names where PV will be added. This
+isn't saved
+with the IDF, but was just added for this demonstration.<br>
+                <br>
+              </li>
+              <img style="width: 600px; height: 498px;"
+ src="dialogs/tut_idf_201_03.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)<br>
+              <br>
+              </p2i>
+              <li>When you want to add a more complex object like this
+into your model there is often a relevant
+sample file that has all the parts you need. You can copy and alter the
+objects as needed. In this case the sample file you can refer to is in
+the EnergyPlus example files folder and named "GeneratorswithPV.idf".
+The further
+simplified IDF used in this tutorial is included in the OpenStudio
+install under
+"OpenStudio/examples/PV objects and sample
+model/Sample_PV_object_in_model.idf". <br>
+              </li>
+              <li>There are a number of objects to add in order
+to make the photovoltaic system properly function. First are a series
+of "ElectricLoadCenter" related objects.</li>
+              <br>
+              <ul>
+                <li>ElectricLoadCenter:Distribution,<br>
+&nbsp;&nbsp;&nbsp; Simple Electric Load Center,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; PV
+list,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+List
+Name<br>
+&nbsp;&nbsp;&nbsp;
+Baseload,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+Operation
+Scheme
+Type<br>
+&nbsp;&nbsp;&nbsp;
+0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Demand
+Limit
+Scheme
+Purchased
+Electric
+Demand
+Limit {W}<br>
+&nbsp;&nbsp;&nbsp;
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Track
+Schedule
+Name
+Scheme
+Schedule
+Name<br>
+&nbsp;&nbsp;&nbsp;
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Track
+Meter
+Scheme
+Meter
+Name<br>
+&nbsp;&nbsp;&nbsp; DirectCurrentWithInverter,&nbsp; !- Electrical Buss
+Type<br>
+&nbsp;&nbsp;&nbsp; Simple Ideal Inverter;&nbsp;&nbsp; !- Inverter
+Object Name<br>
+                  <br>
+&nbsp; ElectricLoadCenter:Inverter:Simple,<br>
+&nbsp;&nbsp;&nbsp; Simple Ideal Inverter,&nbsp;&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; always
+On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Availability
+Schedule
+Name<br>
+&nbsp;&nbsp;&nbsp;
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Zone
+Name<br>
+&nbsp;&nbsp;&nbsp;
+0.0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Radiative
+Fraction<br>
+&nbsp;&nbsp;&nbsp;
+1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Inverter
+Efficiency<br>
+                  <br>
+&nbsp; ElectricLoadCenter:Generators,<br>
+&nbsp;&nbsp;&nbsp; PV
+list,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Name<br>
+&nbsp;&nbsp;&nbsp; SIMPLE PV ShadingSurface,!- Generator 1 Name<br>
+&nbsp;&nbsp;&nbsp; Generator:Photovoltaic,&nbsp; !- Generator 1 Object
+Type<br>
+&nbsp;&nbsp;&nbsp;
+20000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+1
+Rated
+Electric
+Power
+Output<br>
+&nbsp;&nbsp;&nbsp; always
+On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+1
+Availability
+Schedule
+Name<br>
+&nbsp;&nbsp;&nbsp;
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+1
+Rated
+Thermal
+to
+Electrical
+Power Ratio<br>
+&nbsp;&nbsp;&nbsp; SIMPLE Integrated PV,&nbsp;&nbsp;&nbsp; !- Generator
+2 Name<br>
+&nbsp;&nbsp;&nbsp; Generator:Photovoltaic,&nbsp; !- Generator 2 Object
+Type<br>
+&nbsp;&nbsp;&nbsp;
+20000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+2
+Rated
+Electric
+Power
+Output<br>
+&nbsp;&nbsp;&nbsp; always
+On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+2
+Availability
+Schedule
+Name<br>
+&nbsp;&nbsp;&nbsp;
+,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+2
+Rated
+Thermal
+to
+Electrical
+Power Ratio<br>
+&nbsp;&nbsp;&nbsp; SIMPLE Roof Paver PV,&nbsp;&nbsp;&nbsp; !- Generator
+3 Name<br>
+&nbsp;&nbsp;&nbsp; Generator:Photovoltaic,&nbsp; !- Generator 3 Object
+Type<br>
+&nbsp;&nbsp;&nbsp;
+20000,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+3
+Rated
+Electric
+Power
+Output<br>
+&nbsp;&nbsp;&nbsp; always
+On,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+3
+Availability
+Schedule
+Name<br>
+&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Generator
+3
+Rated
+Thermal
+to
+Electrical
+Power Ratio<br>
+                  <br>
+                </li>
+              </ul>
+              <li>The "PhotovoltaicPerformance:Simple" object describes
+both the efficiency of our panels, as well as what percentage of our
+surface is covered with PV. For this demonstration
+all three generators use the same "PhotovoltaicPerformance:Simple"
+object; but
+each generator could also have its own "PhotovoltaicPerformance:Simple"
+object.<br>
+                <br>
+              </li>
+              <ul>
+                <li>&nbsp; PhotovoltaicPerformance:Simple,<br>
+&nbsp;&nbsp;&nbsp; 12percentEffPVhalfArea,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp;
+0.5,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Fraction
+of
+Surface
+Area
+with
+Active
+Solar Cells {dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+Fixed,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Conversion
+Efficiency
+Input
+Mode<br>
+&nbsp;&nbsp;&nbsp;
+0.12;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Value
+for
+Cell
+Efficiency
+if
+Fixed<br>
+                  <br>
+                </li>
+              </ul>
+              <li>Next we have the "Generator:Photovoltaic" objects.
+Notice how the names below match up with the names for the
+"ElectricLoadCenter:Generators" above. The Generators below also refer
+to
+the "PhotovoltaicPerformance:Simple" object by name, and lastly, they
+refer to
+already existing surfaces in the model by name ("external shade",
+"spandrel panel", and "roof").<br>
+                <br>
+              </li>
+              <ul>
+                <li>Generator:Photovoltaic,<br>
+&nbsp;&nbsp;&nbsp; SIMPLE PV
+ShadingSurface,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!- Name<br>
+&nbsp;&nbsp;&nbsp; external
+shade,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Surface
+Name&nbsp;
+**
+change
+to
+match
+your surface<br>
+&nbsp;&nbsp;&nbsp; PhotovoltaicPerformance:Simple,&nbsp; !-
+Photovoltaic Performance Object Type<br>
+&nbsp;&nbsp;&nbsp; 12percentEffPVhalfArea,&nbsp; !- Module Performance
+Name<br>
+&nbsp;&nbsp;&nbsp;
+Decoupled,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Heat
+Transfer
+Integration
+Mode<br>
+&nbsp;&nbsp;&nbsp;
+1.0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Number
+of
+Modules
+in
+Parallel
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Number
+of
+Modules
+in
+Series
+{dimensionless}<br>
+                  <br>
+&nbsp; Generator:Photovoltaic,<br>
+&nbsp;&nbsp;&nbsp; SIMPLE Integrated PV,&nbsp;&nbsp;&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; spandrel
+panel,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !- Surface
+Name ** change to match your surface<br>
+&nbsp;&nbsp;&nbsp; PhotovoltaicPerformance:Simple,&nbsp; !-
+Photovoltaic Performance Object Type<br>
+&nbsp;&nbsp;&nbsp; 12percentEffPVhalfArea,&nbsp; !- Module Performance
+Name<br>
+&nbsp;&nbsp;&nbsp; IntegratedSurfaceOutsideFace,&nbsp; !- Heat Transfer
+Integration Mode<br>
+&nbsp;&nbsp;&nbsp;
+1.0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Number
+of
+Modules
+in
+Parallel
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Number
+of
+Modules
+in
+Series
+{dimensionless}<br>
+                  <br>
+&nbsp; Generator:Photovoltaic,<br>
+&nbsp;&nbsp;&nbsp; SIMPLE Roof Paver PV,&nbsp;&nbsp;&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp;
+roof,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Surface
+Name
+**
+change
+to
+match
+your surface<br>
+&nbsp;&nbsp;&nbsp; PhotovoltaicPerformance:Simple,&nbsp; !-
+Photovoltaic Performance Object Type<br>
+&nbsp;&nbsp;&nbsp; 12percentEffPVhalfArea,&nbsp; !- Module Performance
+Name<br>
+&nbsp;&nbsp;&nbsp; IntegratedExteriorVentedCavity,&nbsp; !- Heat
+Transfer Integration Mode<br>
+&nbsp;&nbsp;&nbsp;
+1.0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Number
+of
+Modules
+in
+Parallel
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+1.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Number
+of
+Modules
+in
+Series
+{dimensionless}<br>
+                  <br>
+                </li>
+              </ul>
+              <li>The shading surface PV is thermally decoupled from
+the building. As the surface heats up, it doesn't transfer heat into a
+thermal
+zone of the building. Since this object only
+provides shade and isn't part of a thermal zone, it doesn't have a
+construction. Below is the relevant IDF text for the object.<br>
+                <br>
+              </li>
+              <ul>
+                <li>&nbsp; Shading:Building:Detailed,<br>
+&nbsp;&nbsp;&nbsp; external shade,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; ,&nbsp; !- Transmittance Schedule Name<br>
+&nbsp;&nbsp;&nbsp; 4,&nbsp; !- Number of Vertices<br>
+&nbsp;&nbsp;&nbsp; 0.000000,&nbsp; !- Vertex 1 X-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; -1.371600,&nbsp; !- Vertex 1 Y-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; 3.048000,&nbsp; !- Vertex 1 Z-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; &lt;cut short&gt;<br>
+                  <br>
+                </li>
+              </ul>
+              <li>The spandrel panel is attached to the building, and
+as the PV panel heats up, it transfer some of that heat into the
+thermal zone just like most other external surfaces. You can see above
+that generator for this has its heat transfer integration mode set
+to "IntegratedSurfaceOutsideFace". The material and construction
+for this is pretty typical to a normal exterior wall.<br>
+                <br>
+              </li>
+              <ul>
+                <li>BuildingSurface:Detailed,<br>
+&nbsp;&nbsp;&nbsp; spandrel panel,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; Wall,&nbsp; !- Surface Type<br>
+&nbsp;&nbsp;&nbsp; PVSpandrlPanel,&nbsp; !- Construction Name<br>
+&nbsp;&nbsp;&nbsp; PV Test Building,&nbsp; !- Zone Name<br>
+&nbsp;&nbsp;&nbsp; Outdoors,&nbsp; !- Outside Boundary Condition<br>
+&nbsp;&nbsp;&nbsp; ,&nbsp; !- Outside Boundary Condition Object<br>
+&nbsp;&nbsp;&nbsp; SunExposed,&nbsp; !- Sun Exposure<br>
+&nbsp;&nbsp;&nbsp; WindExposed,&nbsp; !- Wind Exposure<br>
+&nbsp;&nbsp;&nbsp; ,&nbsp; !- View Factor to Ground<br>
+&nbsp;&nbsp;&nbsp; 4,&nbsp; !- Number of Vertices<br>
+&nbsp;&nbsp;&nbsp; 0.000000,&nbsp; !- Vertex 1 X-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; 0.000000,&nbsp; !- Vertex 1 Y-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; 1.524000,&nbsp; !- Vertex 1 Z-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; &lt;cut short&gt;<br>
+                  <br>
+                </li>
+                <li>&nbsp; Construction,<br>
+&nbsp;&nbsp;&nbsp;
+PVSpandrlPanel,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!- Name<br>
+&nbsp;&nbsp;&nbsp;
+PVModule(glass),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !-
+Outside Layer<br>
+&nbsp;&nbsp;&nbsp;
+PVModule(glass),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !-
+Layer 2<br>
+&nbsp;&nbsp;&nbsp; B4 - 3 IN INSULATION,&nbsp;&nbsp;&nbsp; !- Layer 3<br>
+&nbsp;&nbsp;&nbsp; E6 - 1 / 2 IN GYP SHEATHING BOARD;&nbsp; !- Layer 4<br>
+                  <br>
+                </li>
+              </ul>
+            </ul>
+            </div>
+            <ul>
+              <ul>
+                <li>The roof has the panel attached in a method that
+simulates an air cavity between the panel and the roof. Its heat
+transfer mode is set to "IntegratedExteriorVentedCavity". To accomplish
+this some objects have
+to be added that simulate the air cavity. These in turn are referenced
+in
+the surface object.<br>
+                  <br>
+                </li>
+                <ul>
+                  <li>BuildingSurface:Detailed,<br>
+&nbsp;&nbsp;&nbsp; roof,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; Roof,&nbsp; !- Surface Type<br>
+&nbsp;&nbsp;&nbsp; PVRoofPaverUnderlayment,&nbsp; !- Construction Name<br>
+&nbsp;&nbsp;&nbsp; PV Test Building,&nbsp; !- Zone Name<br>
+&nbsp;&nbsp;&nbsp; OtherSideConditionsModel,&nbsp; !- Outside Boundary
+Condition<br>
+&nbsp;&nbsp;&nbsp; PVRoofPaverSystem1,&nbsp; !- Outside Boundary
+Condition Object<br>
+&nbsp;&nbsp;&nbsp; SunExposed,&nbsp; !- Sun Exposure<br>
+&nbsp;&nbsp;&nbsp; WindExposed,&nbsp; !- Wind Exposure<br>
+&nbsp;&nbsp;&nbsp; 0.0,&nbsp; !- View Factor to Ground<br>
+&nbsp;&nbsp;&nbsp; 4,&nbsp; !- Number of Vertices<br>
+&nbsp;&nbsp;&nbsp; 0.000000,&nbsp; !- Vertex 1 X-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; 6.096000,&nbsp; !- Vertex 1 Y-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; 5.791200,&nbsp; !- Vertex 1 Z-coordinate {m}<br>
+&nbsp;&nbsp;&nbsp; &lt;cut short&gt;&nbsp;&nbsp;&nbsp; <br>
+                    <br>
+                  </li>
+                  <li>&nbsp; Construction,<br>
+&nbsp;&nbsp;&nbsp; PVRoofPaverUnderlayment, !- Name<br>
+&nbsp;&nbsp;&nbsp;
+IN35,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Outside
+Layer<br>
+&nbsp;&nbsp;&nbsp; ROOFING - BUILT UP ROOFING - 3 / 8 IN,&nbsp; !-
+Layer 2<br>
+&nbsp;&nbsp;&nbsp;
+INS-Roof-R_15,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Layer
+3<br>
+&nbsp;&nbsp;&nbsp;
+MAT-METAL;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Layer
+4<br>
+                    <br>
+&nbsp; SurfaceProperty:OtherSideConditionsModel,<br>
+&nbsp;&nbsp;&nbsp; PVRoofPaverSystem1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !-
+Name<br>
+&nbsp;&nbsp;&nbsp; GapConvectionRadiation;&nbsp; !- Type of Modeling<br>
+                    <br>
+&nbsp; SurfaceProperty:ExteriorNaturalVentedCavity,<br>
+&nbsp;&nbsp;&nbsp; PVRoofPaverExtVentCav1,&nbsp; !- Name<br>
+&nbsp;&nbsp;&nbsp; PVRoofPaverSystem1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; !-
+Boundary Conditions Model Name<br>
+&nbsp;&nbsp;&nbsp;
+0.02,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Area
+Fraction
+of
+Openings
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+0.9,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Thermal
+Emissivity
+of
+Exterior
+Baffle
+Material
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+0.92,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Solar
+Absorbtivity
+of
+Exterior
+Baffle
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+0.05,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Height
+Scale
+for
+Buoyancy-Driven
+Ventilation<br>
+&nbsp;&nbsp;&nbsp;
+0.05,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Effective
+Thickness
+of
+Cavity
+Behind
+Exterior
+Baffle {m}<br>
+&nbsp;&nbsp;&nbsp;
+0.97,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Ratio
+of
+Actual
+Surface
+Area
+to
+Projected Surface Area
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+Smooth,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Roughness
+of
+Exterior
+Surface<br>
+&nbsp;&nbsp;&nbsp;
+0.1,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Effectiveness
+for
+Perforations
+with
+Respect
+to
+Wind {dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+0.5,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+Discharge
+Coefficient
+for
+Openings
+with
+Respect
+to Buoyancy <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Driven
+Flow
+{dimensionless}<br>
+&nbsp;&nbsp;&nbsp;
+roof;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+!-
+**
+change
+surface
+name
+when
+using
+IntegratedExteriorVentedCavity
+Heat <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Transfer
+Mode<br>
+                  </li>
+                </ul>
+              </ul>
+            </ul>
+            <div style="margin-left: 10px;">
+            <ul>
+              <br>
+              <li>In the end you have a chain of connected objects
+referencing each other that looks something like this:<br>
+ElectricLoadCenter &gt; Generator &gt; PhotovoltaicPerformance &amp;
+Surface &gt; Construction &gt; Material</li>
+              <li>While it looks very complicated you can really just
+copy and paste everything in the OpenStudio sample file that falls
+below the line that says " !-&nbsp;&nbsp; ===========&nbsp; IMPORTED PV
+OBJECTS ===========". After you paste this you just need to update the
+Generator objects to point to the desired surface, and then adjust the
+construction of that surface as necessary to properly simulate how it
+will be built.<br>
+              </li>
+              <li>Lastly to view simulation results for the
+photovoltaic system we need to request those results. You don't have
+to request all everything shown below. Just request what you want.<br>
+              </li>
+              <br>
+              <ul>
+                <li>&nbsp; Output:Variable,*,PV Generator DC
+Power,hourly;<br>
+&nbsp; Output:Variable,*,PV Generator DC Energy,hourly;<br>
+&nbsp; Output:Variable,*,Inverter AC Energy Output,hourly;<br>
+&nbsp; Output:Variable,*,Inverter AC Power Output,hourly;<br>
+&nbsp; Output:Variable,*,PV Array Efficiency,hourly;<br>
+&nbsp; Output:Variable,*,PV Cell Temperature,hourly;<br>
+&nbsp; Output:Meter,Photovoltaic:ElectricityProduced,runperiod;<br>
+&nbsp;
+Output:Meter:MeterFileOnly,Photovoltaic:ElectricityProduced,monthly;</li>
+              </ul>
+            </ul>
+            </div>
+            <ul>
+              <li>Below you can see the results of the
+simulation. This model doesn't have any internal loads or HVAC systems
+so it isn't using any energy; it only generates energy.<br>
+              </li>
+              <br>
+              <br>
+              <img style="width: 600px; height: 590px;"
+ src="dialogs/tut_idf_201_04.png" alt=""><br>
+              <p2i>(Credit: David Goldwasser/NREL)</p2i><br>
+              <br>
+              <li>The next tutorial will demonstrate how to batch run
+variations of a model. A valuable use for this would be to study the
+affect
+of changing the angle of the panels on the amount of electricity
+generated.<br>
+              </li>
+            </ul>
+            <div style="margin-left: 10px;">
+            <ul>
+            </ul>
+            <div style="margin-left: 10px;"><p2i><a
+ href="tut_idf_301.html">Next Tutorial</a></p2i> </div>
+            <br>
+            <div style="margin-left: 10px;"><p2i><a href="#top">Back to
+Top</a></p2i> <br>
+            </div>
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- end of main content table --> </td>
+      <td>
+      <div class="leftgrey"><img src="images/rn_features_head.gif"
+ alt="Features" style="display: block;" border="0" width="249"
+ height="20">
+      <div style="padding-bottom: 2px;"><a
+ href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img
+ src="images/feat_openstudio_openstudio.gif"
+ alt="OpenStudio - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.energyplus.gov"><img
+ src="images/feat_openstudio_energyplus.gif"
+ alt="EnergyPlus - Learn More" border="0" width="249" height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.nrel.gov/buildings/"><img
+ src="images/feat_openstudio_nrel.gif"
+ alt="National Renewable Energy Lab - Learn More" border="0" width="249"
+ height="73"></a></div>
+      <div style="padding-bottom: 2px;"><a
+ href="http://www.buildings.energy.gov"><img
+ src="images/feat_openstudio_btp.gif"
+ alt="DOE's Building Technologies Program - Learn More" border="0"
+ width="249" height="73"></a></div>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- footer  -->
+<br>
+<a href="#end"><img src="images/spacer.gif"
+ alt="Skip footer navigation to end of page." border="0" width="1"
+ height="10"></a><br>
+<table align="center" border="0" cellpadding="0" cellspacing="0"
+ width="0">
+  <tbody>
+    <tr>
+      <td>
+      <p class="footer"><a
+ href="http://www.eere.energy.gov/site_administration/privacy.html">Security
+&amp;
+Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building
+Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE
+Home</a></p>
+      <p class="doe">U.S. Department of Energy</p>
+      <a name="end"><img src="images/spacer.gif" alt="" border="0"
+ width="1" height="1"></a> </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

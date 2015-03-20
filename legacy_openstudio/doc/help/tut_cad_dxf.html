@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+
+
+<H2>Convert 2D DXF to EnergyPlus</H2>
+<br>
+
+<H3>Import the DXF</H3>
+<div style="margin-left:10px">
+    <ul>
+  <li>If you have  Google SketchUp Pro, DXF/DWG import is already part of your application. If you  have the free version of Google SketchUp 7, you can install the DXF/DWG import  as a plugin that functions exactly as in SU7 Pro and SU6. </li>
+<li>You can find the <a href="http://sketchup.google.com/support/bin/answer.py?answer=161784" target="_new">DXF plugin </a> on SketchUp's website.</li>
+    <li>You must use File-&gt;Import vs. File-&gt;Open  to import the file. Set the file type to (*.dwg/*.dxf), as shown below. You may  also need to click &quot;Options&quot; to see if units are being handled  correctly and scale is preserved.</li>
+    <br>
+    <img src="dialogs/tut_2d_dxf_01.png" alt="" width="500"></li><br>
+       <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Your DXF will look like this.</li>
+    <br>
+    <img src="dialogs/tut_2d_dxf_02.png" alt="" width="500"></li><br>
+    <p2i>(Credit for DXF source file: Google)</P2i>
+    <br><br>
+	<li>The DXF/DWG  layer structure is preserved. You may be able to visually clean up the model by  turning off unnecessary layers. </li>
+    <li>If you have an elevation with your DXF, rotate  that up so you can refer to heights on it. After you select the elevation  entities, pick the SketchUp rotate tool. Set the plane and origin for the  rotation. A temporary cube can be made to easily pick the plane for rotation,  but there are other methods as well, such as switching to a standard camera  view. </li>
+    <br><img src="dialogs/tut_2d_dxf_03.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Hold down the Shift key to lock in the rotation  plan. This enables you to move to pick the origin without losing your rotation  plane. Pick a rotation origin on the elevation that matches the floor plane for  the first floor. This keeps elevation in sync with the plan. </li>
+    <br><img src="dialogs/tut_2d_dxf_04.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+   	<img src="dialogs/tut_2d_dxf_05.png" alt="" width="500"></li><br>
+     <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+     <li>Set things  up carefully so you can re-import updated CAD files. </li>
+   </ul>
+</div>
+
+<H3>Add EnergyPlus Zones</H3>
+<div style="margin-left:10px">
+    <ul>
+      <li>Make sure  you are not in your DXF component. Create a new zone and enter into it to  create the geometry. </li>
+    <li>Draw the floor over the plan for your first zone.</li>
+    <br><img src="dialogs/tut_2d_dxf_06.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Use the elevation to find the height for this zone.  Extrude the floor up to this height.  You may also use the elevation to reference window and door heights.</li>
+    <br><img src="dialogs/tut_2d_dxf_07.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>Add the next zone and repeat.</li>
+    <br><img src="dialogs/tut_2d_dxf_08.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>This is the project with the other zones added in.</li>
+    <br><img src="dialogs/tut_2d_dxf_09.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <li>The following images show the process for adding  subsurfaces. Draw temporary construction lines from both the plan and the  elevation to help locate and size the windows. </li>
+    <li>Create guide lines using the Tape Measure Tool. Click on an edge, and  drag the mouse to a reference point (vertex, or point on edge or face). A dotted guide line is created parallel to your first point and through your reference point.</li>
+    <li>Turn visibility for guide lines on and off using the View menu.</li>
+    <li>Delete all guide lines at once under the Edit menu.</li>
+    <br><img src="dialogs/tut_2d_dxf_10.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <img src="dialogs/tut_2d_dxf_11.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <img src="dialogs/tut_2d_dxf_12.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+    <img src="dialogs/tut_2d_dxf_13.png" alt="" width="500"></li><br>
+      <p2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+      <li>If you have the  second floor plan, you can insert zones at the appropriate height and continue  your modeling. You need to model the attic as a separate zone. If you plan to  use automatic surface matching, be careful to line up surfaces between floors. </li>
+    </ul>
+</div>
+
+
+					</td>
+				</tr>
+			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

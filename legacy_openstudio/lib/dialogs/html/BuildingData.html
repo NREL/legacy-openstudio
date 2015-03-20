@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+-->
+</script>
+</head>
+<body class="label">
+
+<fieldset>
+<legend>Object Inputs</legend>
+
+<table border="0" cellpadding="4" width="100%" align="center">
+
+<tr>
+<td width="144px">
+&nbsp;&nbsp;Class:
+</td>
+<td>
+<span style="font-weight:bold;">&nbsp;Building</span>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Name:
+</td>
+<td>
+<input name="NAME" type="text" class="text" size="30" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Rotation:
+</td>
+<td>
+<input name="ROTATION" type="text" class="text" size="4" style="text-align:center;" onchange="onChangeElement(this)">&nbsp;(deg)
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Terrain:
+</td>
+<td>
+<select name="TERRAIN" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+<option value="OCEAN">Ocean</option>
+<option value="COUNTRY">Country</option>
+<option value="SUBURBS">Suburbs</option>
+<option value="CITY">City</option>
+<option value="URBAN">Urban</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Loads Tolerance:
+</td>
+<td>
+<input name="LOADS_TOLERANCE" type="text" class="text" size="4" style="text-align:center;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Temperature Tolerance:
+</td>
+<td>
+<input name="TEMPERATURE_TOLERANCE" type="text" class="text" size="4" style="text-align:center;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Solar Distribution:
+</td>
+<td>
+<select name="SOLAR_DISTRIBUTION" class="text" width="100%" style="width:100%;" onchange="onChangeElement(this)">
+<option value="MINIMALSHADOWING">Minimal Shadowing</option>
+<option value="FULLEXTERIOR">Full Exterior</option>
+<option value="FULLINTERIORANDEXTERIOR">Full Interior And Exterior</option>
+<option value="FULLEXTERIORWITHREFLECTIONS">Full Exterior With Reflections</option>
+<option value="FULLINTERIORANDEXTERIORWITHREFLECTIONS">Full Interior And Exterior With Reflections</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Maximum Warmup Days:
+</td>
+<td>
+<input name="MAX_WARMUP_DAYS" type="text" class="text" size="4" style="text-align:center;" onchange="onChangeElement(this)">
+</td>
+</tr>
+
+
+
+</table>
+
+
+</fieldset>
+
+<fieldset>
+<legend>Object Summary</legend>
+
+
+<table border="0" cellpadding="4" width="100%" align="center">
+<tr>
+<td>
+&nbsp;&nbsp;Zones:
+<input name="ZONES" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+&nbsp;&nbsp;Floor Area:
+<input name="FLOOR_AREA" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;Exterior Surface Area:<input name="EXTERIOR_AREA" type="text" class="static_text" size="10" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+<td>
+&nbsp;&nbsp;Exterior Percent Glazing:<input name="PERCENT_GLAZING" type="text" class="static_text" size="6" style="border:none; text-align:center; padding-top:0; color:#000000" readonly>
+</td>
+</tr>
+</table>
+
+
+</fieldset>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+
+
+<H2>Getting Started</H2>
+<br>
+
+<H3>Start from scratch</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>When you  first open SketchUp with OpenStudio running, or any time you start a new IDF  file, OpenStudio loads the NewTemplate.idf file located in the OpenStudio  plugin directory. This file comes prepopulated with some basic EnergyPlus  objects such as schedules, constructions, and location (the default location is  Chicago). </li>
+    <li>Sooner or later you are going to need to get familiar with EnergyPlus outside of OpenStudio so take a look around the EnergyPlus directory to familiarize yourself with the utility programs, example models, datasets/libraries, and extensive documentation.</li>
+</ul>
+
+<H3>Add a new zone with surfaces</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>After starting a new IDF file, create your first  zone with the New Zone Tool. After selecting the tool from the OpenStudio  Toolbar, click in the model where you want the zone origin to be. The zone  origin cannot currently be modified from within the OpenStudio interface.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_01.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+<ul>
+    <li>After you insert the zone you should see a blue bounding box around your selected zone.<br>
+      <br>
+    <img src="dialogs/tut_getting_started_02.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+<ul>
+    <li>You can double click on the small tick mark to activate your zone. There may be times that it is tough or impossible to select your zone with this method, for example if it is right on the edge of another zone. There are a few other alternative ways to edit a zone listed below.
+      <ul>
+        <li>Double click on some geometry in the zone (as mentioned above, if you have something to click)</li>
+        <li>Right click on geometry in the zone and choose &quot;Edit Group&quot; (same issues as with method above)</li>
+        <li>Double click the zone in the Outliner Window, or single click and then right click &quot;Edit Group&quot;</li>
+        <li>With the group selected go to go to the edit menu and choose &quot;Group/Edit Group&quot;</li>
+      </ul>
+    </li>
+    <li>Once you do have the zone activated, it should appear like it does below. Your blue solid bounding box is now a dashed line.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_03.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+<ul>
+    <li>Now you can begin drawing surfaces within your zone. Your first surface will typically be a floor. You may draw the floor with the Rectangle Tool or one of the other SketchUp drawing tools, such as the Line Tool.  Note that SketchUp uses the right hand rule, based on vertex entry order, to determine the outward normal direction for new surfaces EXCEPT for surfaces drawn on the z = 0 plane.  Surfaces drawn on the z = 0 plane are assigned outward normals pointing down, correct for floors, regardless of vertex entry order.<br><br>
+    <img src="dialogs/tut_getting_started_04.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+<ul>
+    <li>After the floor is drawn use the Push/Pull Tool to extrude the floor surface.  This extrusion will create new surfaces and OpenStudio will infer their type (wall or roof) based on the surface's outward normal. Again you can create geometry with the Line or other tools, but Push/Pull works very well for extruding a floor to create walls and a ceiling.  OpenStudio has a color scheme to allow floors, walls, and roofs to be easily identified.  Throughout OpenStudio, darker colors are used to identify the outside of a surface, while lighter colors identify the inside.  If a surface is oriented the 'wrong way' you may right click on it and select Reverse Face.<br><br>
+    <img src="dialogs/tut_getting_started_05.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br><br>
+</ul>
+</div>
+
+<H3>Create subsurfaces</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>Once you have four walls and a roof, you can start adding subsurfaces to your model. Subsurfaces are, as their name suggests, surfaces that sit within a base surface. This includes doors, windows and skylights. There are a number of guidelines to follow with subsurfaces.
+      <ul>
+        <li>Do not make a sub-surface as large as it's base surface. If you want a full wall window, inset the window a small amount.  This is easily done using the Offset Tool (available in the large SketchUp toolset).</li>
+        <li>Do not all a sub-surface to share an edge with another sub-surface or a base surface.</li>
+        <li>If you want to erase a sub-surface make sure to erase the edges and not just the face.  You can either erase just the edges or double-click on the sub-surface to select the face andd edges.  Do not erase edges that are also part of the base surface edge. (e.g. the bottom of a door).<br>
+        </li>
+      </ul>
+    </li>
+    <br>
+      <img src="dialogs/tut_getting_started_06.png" width="500" alt=""><br>
+
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+</ul>
+<ul>
+    <li>Subsurfaces also have their own automatic color scheme. Doors are brown, and windows are a translucent blue. If you draw something and it is not the color you expected, that is a sign that something is wrong. Check with the Object Info Window or the Information Tool to see what OpenStudio has interpreted the surface to be.</li>
+    <li>You can resize both your surfaces and subsurfaces as you design your building. Just make sure to keep an eye on the coloring and the Object Info Window for any problems that come up.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_07.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+
+<ul>
+    <li>Below you can see the Information Tool displaying information about the surface that it is being dragged over. A wall in the first image, and a window in the following image.<br>
+      <br>
+    <img src="dialogs/tut_getting_started_09.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br>
+    <img src="dialogs/tut_getting_started_10.png" width="500" alt=""><br>
+</ul>
+<ul>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+</ul>
+</div>
+
+<H3>Add a Shading Group</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>Next you may add a Shading Group at the top-level of the SketchUp model (e.g. not within a zone). Every face drawn in a Shading Group becomes a shading surface.<br>
+      <br>
+      <img src="dialogs/tut_getting_started_11.png" width="500" alt=""><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+
+<ul>
+    <li>You may now active the shading group using the outliner and draw a horizontal shading surface over the door and window.<br><br>
+    <img src="dialogs/tut_getting_started_13.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+</ul>
+<ul>
+    <li>Below is a completed zone with shading group.<br><br>
+    <img src="dialogs/tut_getting_started_14.png" width="500" alt=""><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i><br>
+    <li>You can set a transmittance schedule for shading surfaces. Be default this is left blank and the shading surface always shades. You can pick a specific schedule or set &quot;Always On&quot; or &quot;Always Off&quot;. The terms are reversed from what you might first think. &quot;Always On&quot; will set the shading surface to always be transparent. So you would only use this if you wanted to temporarily disable shading surfaces without deleting their geometry. One other use for a schedule on shading surfaces would be to mimic the shading from a deciduous tree over the course of a year.<br>
+      <br>
+</ul>
+</div>
+
+<H3>What's Next?</H3>
+<div style="margin-left:10px">
+<ul>
+    <li>More than likely you will want to add more zones, surfaces, subsurfaces, and shading to define the geometry of your building.</li>
+    <li>The <a href="tut_default_const_prefs.html">Default Constructions</a> tutorial will help you control which constructions are applied to new surfaces as they are drawn.</li>
+    <li>The <a href="tut_matching_surfaces.html">Surface Matching</a> tutorial is a good place to go to learn about making necessary connections between surfaces in adjacent zones.</li>
+    <li>The <a href="tut_loads.html">Zone Loads</a> tutorial will show you how to add basic internal gains (such as lighting and equipment) to your zones.</li>
+    <li>Finally the <a href="tut_run_simulation.html">Run EnergyPlus</a> tutorial and the <a href="tut_view_results.html">View Simulation Results</a> tutorial will show you how to run EnergyPlus and view the results.</li>
+</ul>
+</div>
+
+				  </td>
+				</tr>
+			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>

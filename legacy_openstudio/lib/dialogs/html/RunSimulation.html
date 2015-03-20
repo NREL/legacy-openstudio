@@ -1,0 +1,383 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" />
+<link href="Dialogs.css" rel="stylesheet" type="text/css" />
+<title>Simulation Details</title>
+<script language="javascript" src="Dialogs.js"></script>
+<script language="javascript">
+<!--
+function onLoad() {
+  window.location='skp:on_load';
+  document.getElementById('run').focus();
+}
+function onRun() { window.location='skp:on_run'; }
+function onCancel() { window.location='skp:on_cancel'; }
+function onApply() { window.location='skp:on_apply'; }
+
+function onBrowse() { window.location='skp:on_browse'; }
+
+function onClickRunDesignDays() {
+  if (document.getElementById('RUN_DESIGN_DAYS').checked) {
+  }
+}
+
+function onClickRunWeatherFile() {
+
+  if (document.getElementById('RUN_WEATHER_FILE').checked) {
+    enableElement("EPW_PATH");
+    enableElement("BROWSE");
+    enableElement("ANNUAL_SIMULATION");
+    enableElement("START_DAY");
+
+    if (!document.getElementById('ANNUAL_SIMULATION').checked) {
+      enableElement('START_MONTH');
+      enableElement('START_DATE');
+      enableElement('END_MONTH');
+      enableElement('END_DATE');
+    }
+
+  }
+  else {
+    disableElement("EPW_PATH");
+    disableElement("BROWSE");
+    disableElement("ANNUAL_SIMULATION");
+    disableElement("START_DATE");
+    disableElement("START_MONTH");
+    disableElement("START_DAY");
+    disableElement("END_DATE");
+    disableElement("END_MONTH");
+  }
+
+}
+
+
+function onClickAnnualSimulation(element) {
+  if (element) {
+    window.location='skp:on_click_annual_simulation@' + element.name + ',' + element.checked;
+  }
+
+  if (document.getElementById('ANNUAL_SIMULATION').checked) {
+    disableElement('START_MONTH');
+    disableElement('START_DATE');
+    disableElement('END_MONTH');
+    disableElement('END_DATE');
+  }
+  else {
+    enableElement('START_MONTH');
+    enableElement('START_DATE');
+    enableElement('END_MONTH');
+    enableElement('END_DATE');
+  }
+}
+
+function onChangeStartMonth(element) {
+  window.location='skp:on_change_start_month@' + element.name + ',' + element.value;
+}
+
+function onChangeEndMonth(element) {
+  window.location='skp:on_change_end_month@' + element.name + ',' + element.value;
+}
+
+function setStartMonthOptions() {
+  element = document.getElementById('START_MONTH');
+  days_in_month = daysInMonth(element.value);
+  setSelectOptions('START_DATE', days_in_month, days_in_month);
+}
+
+function setEndMonthOptions() {
+  element = document.getElementById('END_MONTH');
+  days_in_month = daysInMonth(element.value);
+  setSelectOptions('END_DATE', days_in_month, days_in_month);
+}
+
+
+function setDateOptions() {
+  setStartMonthOptions();
+  setEndMonthOptions();
+}
+
+function onClickReportABUPS() {
+  if (document.getElementById('REPORT_ABUPS').checked) {
+    enableElement('ABUPS_FORMAT');
+    enableElement('ABUPS_UNITS');
+    enableElement('SHOW_ABUPS');
+  }
+  else {
+    disableElement('ABUPS_FORMAT');
+    disableElement('ABUPS_UNITS');
+    disableElement('SHOW_ABUPS');
+    document.getElementById('SHOW_ABUPS').checked = false;
+  }
+}
+
+function onClickReportVariable() {
+  if (document.getElementById('REPORT_USER_VARS').checked || document.getElementById('REPORT_ZONE_TEMPS').checked || document.getElementById('REPORT_SURF_TEMPS').checked || document.getElementById('REPORT_DAYLIGHTING').checked ||
+  document.getElementById('REPORT_ZONE_LOADS').checked) {
+    enableElement('REPORT_SQL');
+    enableElement('SHOW_CSV');
+  }
+  else {
+    disableElement('REPORT_SQL');
+    document.getElementById('REPORT_SQL').checked = false;
+    disableElement('SHOW_CSV');
+    document.getElementById('SHOW_CSV').checked = false;
+  }
+}
+
+function onClickCloseShell() { window.location='skp:on_click_close_shell'; }
+
+-->
+</script>
+</head>
+<body link="#0000FF" alink="#0000FF" vlink="#0000FF" onload="onLoad()">
+
+<fieldset class="label" style="margin-top:0px;">
+<legend>Run Control <a href="../../../doc/help/tut_run_simulation.html" target="_blank">(help)</a></legend>
+<table border="0" cellpadding="4" width="100%" align="center" style="margin-top:10px; margin-left:-6px;">
+<tr>
+<td align="left" colspan="2">
+&nbsp;&nbsp;Run directory: <input id="RUN_DIR" onFocus="this.select()" name="RUN_DIR" type="text" size="75" class="static_text" style="border:none; text-align:left; padding-top:0; color:#000000" readonly>
+</td>
+<td></td>
+</tr>
+<tr>
+<td width="238px">
+&nbsp;&nbsp;<input id="RUN_DESIGN_DAYS" name="RUN_DESIGN_DAYS" type="checkbox" onclick="onClickRunDesignDays()" onchange="onChangeElement(this)"><label for="RUN_DESIGN_DAYS">Run design day simulations</label>
+</td>
+<td>
+<input id="RUN_WEATHER_FILE" name="RUN_WEATHER_FILE" type="checkbox" onclick="onClickRunWeatherFile()" onchange="onChangeElement(this)"><label for="RUN_WEATHER_FILE">Run weather file simulation</label>
+</td>
+</tr>
+
+</table>
+
+<br>
+
+</fieldset>
+
+
+<fieldset class="label">
+<legend>Weather File Simulation</legend>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;EPW Path:&nbsp;<input name="EPW_PATH" type="text" class="text" size="70" value="in.epw" onchange="onChangeElement(this)">
+&nbsp;<input id="BROWSE" onclick="onBrowse()" type="button" class="button" value="Browse" style="width:50px; margin-bottom:-2px;"><br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Location:&nbsp;&nbsp;<input id="LOCATION" name="LOCATION" type="text" class="static_text" size="80" style="color:#808080; border:0; border-style:solid;" readonly><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Latitude:&nbsp;&nbsp;<input id="LATITUDE" name="LATITUDE" type="text" class="static_text" size="5" style="color:#808080; border:0; border-style:solid;" readonly>
+&nbsp;&nbsp;&nbsp;&nbsp;Longitude:&nbsp;&nbsp;<input id="LONGITUDE" name="LONGITUDE" type="text" class="static_text" size="5" style="color:#808080; border:0; border-style:solid;" readonly>
+&nbsp;&nbsp;&nbsp;&nbsp;Time Zone:&nbsp;&nbsp;<input id="TIME_ZONE" name="TIME_ZONE" type="text" class="static_text" size="2" style="color:#808080; border:0; border-style:solid;" readonly>
+&nbsp;&nbsp;&nbsp;&nbsp;Elevation:&nbsp;&nbsp;<input id="ELEVATION" name="ELEVATION" type="text" class="static_text" size="8" style="color:#808080; border:0; border-style:solid;" readonly>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Start Date:&nbsp;&nbsp;<input id="EPW_START" name="EPW_START" type="text" class="static_text" size="3" style="color:#808080; border:0; border-style:solid;" readonly>
+&nbsp;&nbsp;&nbsp;&nbsp;End Date:&nbsp;&nbsp;<input id="EPW_END" name="EPW_END" type="text" class="static_text" size="3" style="color:#808080; border:0; border-style:solid;" readonly>
+&nbsp;&nbsp;&nbsp;&nbsp;Start Day:&nbsp;&nbsp;<input id="EPW_START_DAY" name="EPW_START_DAY" type="text" class="static_text" size="5" style="color:#808080; border:0; border-style:solid;" readonly>
+&nbsp;&nbsp;&nbsp;&nbsp;Time Step:&nbsp;&nbsp;<input id="TIME_STEP" name="TIME_STEP" type="text" class="static_text" size="4" style="color:#808080; border:0; border-style:solid;" readonly>
+
+
+<br>
+
+
+<hr width="98%">
+
+<table border="0" cellpadding="4" width="100%" align="center" style="margin-top:0px; margin-left:-6px;">
+<tr>
+<td width="241px">
+&nbsp;&nbsp;<input id="ANNUAL_SIMULATION" name="ANNUAL_SIMULATION" type="checkbox" onclick="onClickAnnualSimulation(this)" onchange="onChangeElement(this)"><label for="ANNUAL_SIMULATION">Annual simulation</label>
+</td>
+<td>
+</td>
+</tr>
+</table>
+
+
+<table cellpadding="4" style="margin-top:0px; margin-bottom:10px;">
+
+<tr>
+<td>
+&nbsp;&nbsp;Start Date:
+</td>
+
+<td>
+<select id="START_MONTH" name="START_MONTH" class="text" onchange="onChangeStartMonth(this)">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+</td>
+
+<td>
+<select id="START_DATE" name="START_DATE" class="text" onchange="onChangeElement(this)"></select>
+</td>
+
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Start Day:&nbsp;
+<select id="START_DAY" name="START_DAY" class="text" onchange="onChangeElement(this)">
+<option value="SUNDAY">Sunday</option>
+<option value="MONDAY">Monday</option>
+<option value="TUESDAY">Tuesday</option>
+<option value="WEDNESDAY">Wednesday</option>
+<option value="THURSDAY">Thursday</option>
+<option value="FRIDAY">Friday</option>
+<option value="SATURDAY">Saturday</option>
+<option value="USEWEATHERFILE">Use Weather File</option>
+</select>
+</td>
+
+</tr>
+
+
+<tr>
+<td>
+&nbsp;&nbsp;End Date:
+</td>
+
+<td>
+<select id="END_MONTH" name="END_MONTH" class="text" onchange="onChangeEndMonth(this)">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+</td>
+
+<td>
+<select id="END_DATE" name="END_DATE" class="text" onchange="onChangeElement(this)"></select>
+</td>
+
+<td align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Download weather files at <a href="http://www.eere.energy.gov/buildings/energyplus/cfm/weather_data.cfm" target="_blank">www.energyplus.gov</a>
+<p>
+Weather file layer for Google Earth <a href="http://apps1.eere.energy.gov/buildings/energyplus/download/energyplusweatherdata.kmz" target="_blank">as a KMZ file</a>
+</td>
+
+</tr>
+
+</table>
+
+</fieldset>
+
+
+
+<fieldset class="label">
+<legend>Results</legend>
+
+<table cellpadding="4" style="margin-left:-3px; margin-bottom:4px;">
+
+<tr>
+<td>
+&nbsp;&nbsp;<input id="REPORT_ABUPS" name="REPORT_ABUPS" type="checkbox" onclick="onClickReportABUPS()" onchange="onChangeElement(this)"><label for="REPORT_ABUPS">Report Annual Building Utility Performance Summary</label>
+&nbsp;&nbsp;
+</td>
+<td>
+Format:&nbsp;
+<select name="ABUPS_FORMAT" class="text" onchange="onChangeElement(this)">
+  <option value="HTML">HTML</option>
+  <option value="Comma">CSV</option>
+  <option value="Tab" selected>Tab</option>
+  <option value="Fixed" selected>Fixed</option>
+</select>&nbsp;&nbsp;
+Units:&nbsp;
+<select name="ABUPS_UNITS" class="text" onchange="onChangeElement(this)">
+  <option value="SI">SI</option>
+  <option value="IP">IP</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input id="REPORT_SQL" name="REPORT_SQL" type="checkbox" onchange="onChangeElement(this)"><label for="REPORT_SQL">Request results in SQLite format</label>
+</td>
+<td>
+&nbsp;&nbsp;<input id="REPORT_DXF" name="REPORT_DXF" type="checkbox" onclick="onClickReportVariable()" onchange="onChangeElement(this)"><label for="REPORT_DXF">Report DXF file for verification</label>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input id="REPORT_ZONE_TEMPS" name="REPORT_ZONE_TEMPS" type="checkbox" onclick="onClickReportVariable()" onchange="onChangeElement(this)"><label for="REPORT_ZONE_TEMPS">Report zone temperatures</label>
+</td>
+<td>
+&nbsp;&nbsp;<input id="REPORT_SURF_TEMPS" name="REPORT_SURF_TEMPS" type="checkbox" onclick="onClickReportVariable()" onchange="onChangeElement(this)"><label for="REPORT_SURF_TEMPS">Report surface temperatures</label>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input id="REPORT_DAYLIGHTING" name="REPORT_DAYLIGHTING" type="checkbox" onclick="onClickReportVariable()" onchange="onChangeElement(this)"><label for="REPORT_DAYLIGHTING">Report daylighting results</label>
+</td>
+<td>
+&nbsp;&nbsp;<input id="REPORT_ZONE_LOADS" name="REPORT_ZONE_LOADS" type="checkbox" onclick="onClickReportVariable()" onchange="onChangeElement(this)"><label for="REPORT_ZONE_LOADS">Report zone loads</label>
+</td>
+</tr>
+
+<tr>
+<td>
+&nbsp;&nbsp;<input id="REPORT_USER_VARS" name="REPORT_USER_VARS" type="checkbox" onclick="onClickReportVariable()" onchange="onChangeElement(this)"><label for="REPORT_USER_VARS">Report user variables and meters</label>
+</td>
+<td>
+</td>
+</tr>
+
+</table>
+
+</fieldset>
+
+
+<fieldset class="label">
+<legend>Actions On Completion</legend>
+
+<table cellpadding="4" style="margin-left:-3px; margin-bottom:4px;">
+
+<tr><td>
+&nbsp;&nbsp;<input id="CLOSE_SHELL" name="CLOSE_SHELL" type="checkbox" onclick="onClickCloseShell()" onchange="onChangeElement(this)"><label for="CLOSE_SHELL">Close shell command window</label>
+</td></tr>
+
+<tr><td>
+&nbsp;&nbsp;<input id="SHOW_ERR" name="SHOW_ERR" type="checkbox" onchange="onChangeElement(this)"><label for="SHOW_ERR">Show error file (ERR)</label>
+&nbsp;&nbsp;<a style="color:red;">Recommended</a>
+</td></tr>
+
+<tr><td>
+&nbsp;&nbsp;<input id="SHOW_ABUPS" name="SHOW_ABUPS" type="checkbox" onchange="onChangeElement(this)"><label for="SHOW_ABUPS">Show Annual Building Utility Performance Summary (ABUPS)</label>
+</td></tr>
+
+<tr><td>
+&nbsp;&nbsp;<input id="SHOW_CSV" name="SHOW_CSV" type="checkbox" onchange="onChangeElement(this)"><label for="SHOW_CSV">Show report variables and meters file (CSV)</label>
+</td></tr>
+
+</table>
+
+</fieldset>
+
+
+<p style="text-align:right; margin-top:6px;">
+<input id="run" onclick="onRun()" type="button" class="button" value="Run" style="width:75px; margin-left:3px;">
+<input onclick="onCancel()" type="button" class="button" value="Cancel" style="width:75px; margin-left:3px;">
+<input onclick="onApply()" type="button" class="button" value="Apply" style="width:75px; margin-left:3px;">
+</p>
+
+</body>
+</html>

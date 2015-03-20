@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<A NAME="top"></A>
+<title>OpenStudio Documentation: Tutorials</title>
+
+
+<link rel="stylesheet" type="text/css" href="includes/ep.css">
+<!-- rollovers -->
+<script language="Javascript" type="text/javascript">
+<!--
+//script for the menu rollovers
+
+normal = new Array();
+<!-- top navigation items -->
+normal[0] = "images/ln_ref_guide_off.gif";
+normal[1] = "images/ln_tutorials_off.gif";
+normal[2] = "images/ln_release_notes_off.gif";
+
+
+over = new Array();
+over[0] = "images/ln_ref_guide_on.gif";
+over[1] = "images/ln_tutorials_on.gif";
+over[2] = "images/ln_release_notes_on.gif";
+
+
+function msover(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = over[num]
+}
+
+function msout(num) {
+	loadImage = "Image" + num;
+	document.images[loadImage].src = normal[num]
+}
+// -->
+</script>
+
+
+<!-- End head info -->
+
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+<!-- exclude this content if printer version -->
+
+<!-- Include EERE header -->
+<!--stopindex-->
+<!-- EERE header for liquid sites in the old template-->
+<map name="head">
+<area alt="Skip Navigation to main content" coords="1,1,2,2" href="#content">
+<area alt="U.S. Department of Energy" coords="8,5,165,58" href="http://www.energy.gov/">
+<area alt="Energy Efficiency and Renewable Energy" coords="172,5,410,58" href="http://www.eere.energy.gov/">
+</map>
+<div style="width:100%; background-color:#014164;"><img src="images/eere_header_liquid.jpg" alt="" width="1000" height="67" border="0" usemap="#head"></div>
+<!--startindex-->
+
+<!-- End EERE header -->
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" width="100%">
+
+			<table cellspacing="0" border="0" width="100%" cellpadding="0">
+				<tr>
+					<td class="subsitephoto" width="100%" bgcolor="#000066"><a href="index.html"><img src="images/spacer.gif" alt="OpenStudio Documentation" width="333" height="52"></a></td>
+					<td><img src="images/spacer.gif" alt="" width="2" height="1"></td>
+				</tr>
+			</table>
+
+		</td>
+
+	</tr>
+<!-- end of third column -->
+
+<!-- start of left navigation, first column -->
+
+	<tr valign="top">
+		<td valign="top" width="176"><!-- left navigation include -->
+<!--stopindex-->
+<img src="images/spacer.gif" alt="" width="1" height="3"><br>
+
+
+<a href="ref_guide.html" onMouseOver="msover('0')" onMouseOut="msout('0')"><img src="images/ln_ref_guide_off.gif" alt="Reference Guide" width="176" height="19" border="0" name="Image0"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="tutorials.html"><img src="images/ln_tutorials_on.gif" alt="Tutorials" width="176" height="19" border="0" name="Image1"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<a href="release_notes.html" onMouseOver="msover('2')" onMouseOut="msout('2')"><img src="images/ln_release_notes_off.gif" alt="Release Notes" width="176" height="19" border="0" name="Image2"></a><br>
+<img src="images/gray.gif" alt="" width="176" height="7"><br>
+<!--startindex-->
+	</td>
+	<td valign="top" bgcolor="#CCCCCC"><img src="images/spacer.gif" alt="" width="1" height="1"></td>
+
+
+<!-- main content -->
+		<td valign="top" width="100%">
+			<table cellspacing="0" border="0" cellpadding="12" width="100%">
+				<tr>
+          <td valign="top">
+
+
+
+<H2>Opening CSV files in Microsoft Excel</H2>
+<br>
+
+
+<H3>Illuminance Map</H3>
+<div style="margin-left:10px">
+  <ul>
+    <li>If  an IDF file has an Illuminance Map (as well as zone loads for lighting and  daylighting controls), the simulation results will contain a CSV file with the  Illuminance Map data. This file will be in the same directory as the IDF file.  In this case the file is called  &quot;GeometryTest-OutputIlluminanceMap.csv&quot;. </li>
+    <li>You can select the map data for a specific time (4:00 p.m. shown) and  create a contour chart to view the map. </li>
+    <br>
+    <img src="dialogs/ExcelMap_01.png" alt="" width="500"><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+ 
+        <li>The resulting Excel chart follows. You can save this via a screenshot or  image export from Excel to use elsewhere. For example, you can return it to the  OpenStudio file. (If you save it to the OpenStudio file, it remains there for  your current session only. It will not be there when you reopen the IDF.) </li>
+    <br>
+    <img src="dialogs/ExcelMap_02.png" alt="" width="500"><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+
+         <li>To overlay the map image on the OpenStudio Illuminance Map, go to File  Import and check the button for &quot;Use as Image&quot; to bring the image in  as its own object. To place it, click first on the minX,minY of the Illuminance  Map, and then click on the opposite corner. .</li>
+    <br>
+    <img src="dialogs/ExcelMap_03.png" alt="" width="500"><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+
+         <li>The resulting image object should appear something like this. Again,  this will not be saved with the IDF file, it is only a viewing reference for  your current OpenStudio session. </li>
+    <br>
+    <img src="dialogs/ExcelMap_06.png" alt="" width="500"><br>
+    </li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+    
+ </ul>
+</div>
+
+<H3>Report Variables</H3>
+<div style="margin-left:10px">
+<ul>
+  <li>If  Report Variables is checked when the simulation is run, EnergyPlus will create  a file with the same name as your IDF but with a &quot;.csv&quot; extension, in  this case &quot;GeometryTest.csv&quot;. This contains all the data available to  use in the OpenStudio results viewer, as well as additional data that  OpenStudio may not have access to. </li>
+  <li>You  can open this file in Microsoft Excel and export the data or create charts to  present or analyze the data. </li>
+  <li>The  following screenshot shows a bar chart that uses the values for the Daylighting  Reference Point in &quot;DORM ROOMS AND COMMON AREAS&quot; over the course of  the day on June 21. </li></ul>
+<ul>
+  <li><img src="dialogs/ExcelDaylighting_01.png" alt="" width="500"><br></li>
+    <P2i>(Credit: David Goldwasser/NREL)</P2i>
+    <br><br>
+  </li>
+</ul>
+</div>
+				  </td>
+				</tr>
+			</table>
+<P2i><A href="#top">Back to Top</A></P2i>
+<!-- end of main content table -->
+
+
+		</td>
+        <td>
+        <div class="leftgrey"><img src="images/rn_features_head.gif" alt="Features" width="249" height="20" border="0" style="display:block;">
+				<div style="padding-bottom:2px;"><a href="http://apps1.eere.energy.gov/buildings/energyplus/openstudio.cfm"><img src="images/feat_openstudio_openstudio.gif" alt="OpenStudio - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.energyplus.gov"><img src="images/feat_openstudio_energyplus.gif" alt="EnergyPlus - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.nrel.gov/buildings/"><img src="images/feat_openstudio_nrel.gif" alt="National Renewable Energy Lab - Learn More" width="249"  height="73" border="0"></a></div>
+
+               <div style="padding-bottom:2px;"><a href="http://www.buildings.energy.gov"><img src="images/feat_openstudio_btp.gif" alt="DOE's Building Technologies Program - Learn More" width="249"  height="73" border="0"></a></div>
+        </td>
+	</tr>
+</table>
+
+
+
+
+
+<!-- footer  -->
+
+<br><a href="#end"><img src="images/spacer.gif" alt="Skip footer navigation to end of page." height="10" width="1" border="0"></a><br>
+
+<table cellspacing="0" cellpadding="0" width="0" border="0" align="center">
+	<tr>
+		<td><p class="footer"><a href="http://www.eere.energy.gov/site_administration/privacy.html">Security &amp; Privacy</a> | <a href="http://www.eere.energy.gov/buildings/">Building Technologies Program Home</a> | <a href="http://www.eere.energy.gov">EERE Home</a></p>
+
+<p class="doe">U.S. Department of Energy</p>
+
+<a name="end"><img src="images/spacer.gif" alt="" height="1" width="1" border="0"></a></p></td>
+		</tr>
+</table>
+
+
+</body>
+</html>
