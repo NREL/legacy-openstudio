@@ -366,6 +366,11 @@ module LegacyOpenStudio
 
       file.close
       
+      if Sketchup.version_number > 14000000
+        if !@context.valid_encoding?
+          @context = @context.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
+        end
+      end
 
       if (false) #$debug)
         file = File.open(Plugin.dir + "/z_file_string_dump.idf", 'w')
@@ -531,7 +536,12 @@ module LegacyOpenStudio
       total_objects = @objects.count
       #puts "total objects= " + total_objects.to_s
 
-      lines = @context.split(/\n/)
+      lines = nil
+      if Sketchup.version_number > 14000000     
+        lines = @context.split(/\n/)
+      else
+        lines = @context.split(/\n/)
+      end
 
       while (line = lines.shift)
 
