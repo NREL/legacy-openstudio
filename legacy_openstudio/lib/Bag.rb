@@ -1,5 +1,5 @@
 # OpenStudio
-# Copyright (c) 2008-2013, Alliance for Sustainable Energy.  All rights reserved.
+# Copyright (c) 2008-2015, Alliance for Sustainable Energy.  All rights reserved.
 # See the file "License.txt" for additional terms and conditions.
 #
 # The Bag class is an unordered collection of objects where duplicates are allowed.
