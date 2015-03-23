@@ -201,7 +201,7 @@ module LegacyOpenStudio
 
 
     def energyplus_version
-      return('8.1.0')
+      return('8.2.0')
     end
 
   end
