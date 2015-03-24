@@ -5,7 +5,7 @@ The Legacy OpenStudio SketchUp Plug-in makes it easy to create and edit the buil
 
 Note that active development has moved from the Legacy OpenStudio Plug-in to the more comprehensive [OpenStudio](https://github.com/NREL/OpenStudio) suite of tools and libraries. Changes to the Legacy OpenStudio Plug-in will be limited to bug fixes and compatibility updates for new versions of EnergyPlus.
 
-The Legacy OpenStudio Plug-in was created by the National Renewable Energy Laboratory for the U.S. Department of Energy as an interface to the EnergyPlus simulation engine. Refer to the EnergyPlus webpage at [energyplus.gov](energyplus.gov) for an overview of the concept and features.
+The Legacy OpenStudio Plug-in was created by the National Renewable Energy Laboratory for the U.S. Department of Energy as an interface to the EnergyPlus simulation engine. Refer to the EnergyPlus webpage at [energyplus.gov](http://energyplus.gov) for an overview of the concept and features.
 
 User support is available via the community moderated question and answer resource [unmethours.com](https://unmethours.com/questions/).
 
@@ -24,7 +24,7 @@ Installation
 | [v1.0.7](https://github.com/NREL/legacy-openstudio/releases/tag/v1.0.7)  | 7.0         | 8           | No  | Yes | Y6kPL1   |
 | [v1.0.6](https://github.com/NREL/legacy-openstudio/releases/tag/v1.0.6)  | 6.0         | 8           | No  | Yes | Tz3BrAJ2 |
 
-2. Download and install the correct version of [EnergyPlus](www.energyplus.gov).
+2. Download and install the correct version of [EnergyPlus](http://www.energyplus.gov).
 3. Download and install the correct version of [SketchUp](http://www.sketchup.com/download/all).  SketchUp 8 will only be available until [May 20th, 2015](http://help.sketchup.com/en/article/60107).
 4. Download the correct version of the [Legacy OpenStudio SketchUp Plug-in](https://github.com/NREL/legacy-openstudio/releases).
 5. If you have downloaded an executable installer (EXE or DMG), run that installer with administrative privileges.
