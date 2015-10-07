@@ -16,6 +16,7 @@ Installation
 
 | Legacy  | EnergyPlus  | SketchUp    | RBZ | EXE | Password |
 |---------|-------------|-------------|-----|-----|----------|
+| [v1.0.14](https://github.com/NREL/legacy-openstudio/releases/tag/v1.0.14) | 8.4.0| 8 or higher | Yes | No  |          |
 | [v1.0.13](https://github.com/NREL/legacy-openstudio/releases/tag/v1.0.13) | 8.3.0| 8 or higher | Yes | No  |          |
 | [v1.0.12](https://github.com/NREL/legacy-openstudio/releases/tag/v1.0.12) | 8.2-Update 1| 8 or higher | Yes | No  |          |
 | [v1.0.11](https://github.com/NREL/legacy-openstudio/releases/tag/v1.0.11) | 8.1         | 8 or higher | Yes | Yes |          |
